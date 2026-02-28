@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Quiz &amp; Results</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="max-w-md mx-auto min-h-screen flex flex-col bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<div class="flex items-center p-4 justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<button class="text-slate-900 dark:text-slate-100 flex size-10 items-center justify-center rounded-full hover:bg-primary/10">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Quiz Progress</h2>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3 px-6 py-2">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium">第 10 / 10 題</p>
+<span class="text-primary text-sm font-bold">100%</span>
+</div>
+<div class="rounded-full bg-primary/20 h-2 w-full overflow-hidden">
+<div class="h-full rounded-full bg-primary" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Quiz Section -->
+<div class="px-6 py-8 flex flex-col items-center border-b border-primary/10">
+<div class="bg-primary/5 rounded-2xl p-6 w-full mb-6 border border-primary/10 text-center">
+<span class="text-primary text-xs font-bold uppercase tracking-widest mb-2 block">Translation Challenge</span>
+<h3 class="text-slate-900 dark:text-slate-100 tracking-tight text-2xl font-bold leading-tight">
+                    Choose the correct translation for <span class="text-primary text-3xl block mt-2 italic">'Adventure'</span>
+</h3>
+</div>
+<div class="grid grid-cols-1 gap-3 w-full max-w-sm">
+<button class="flex items-center justify-center rounded-xl h-14 px-6 bg-white dark:bg-slate-800 border-2 border-primary text-slate-900 dark:text-slate-100 text-lg font-bold transition-all hover:bg-primary/5 shadow-sm">
+<span>冒險 (Aventura)</span>
+<span class="material-symbols-outlined ml-auto text-primary">check_circle</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-14 px-6 bg-white dark:bg-slate-800 border-2 border-transparent text-slate-900 dark:text-slate-100 text-lg font-semibold transition-all hover:border-primary/30 shadow-sm">
+<span>探索</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-14 px-6 bg-white dark:bg-slate-800 border-2 border-transparent text-slate-900 dark:text-slate-100 text-lg font-semibold transition-all hover:border-primary/30 shadow-sm">
+<span>旅行</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-14 px-6 bg-white dark:bg-slate-800 border-2 border-transparent text-slate-900 dark:text-slate-100 text-lg font-semibold transition-all hover:border-primary/30 shadow-sm">
+<span>目的地</span>
+</button>
+</div>
+</div>
+<!-- Results Section -->
+<div class="p-6 space-y-8 bg-white dark:bg-slate-900/50 rounded-t-[2rem] mt-4 shadow-2xl">
+<div class="text-center">
+<h2 class="text-2xl font-bold mb-6">測驗完成！</h2>
+<!-- Score Circle Chart -->
+<div class="relative flex items-center justify-center mb-6">
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-primary/10" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="36.4" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black text-slate-900 dark:text-slate-100">90%</span>
+<span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">掌握度</span>
+</div>
+</div>
+</div>
+<!-- Words to Review -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-bold text-lg flex items-center gap-2"><span class="material-symbols-outlined text-amber-500">menu_book</span> 待複習單字</h4>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded-full">2 items</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 bg-background-light dark:bg-background-dark rounded-xl border border-primary/5">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 dark:text-slate-100 italic">'命運'</span>
+<span class="text-xs text-slate-500">你選擇了: 'Aventura'</span>
+</div>
+<span class="text-sm font-medium text-primary">目的地</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-background-light dark:bg-background-dark rounded-xl border border-primary/5">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 dark:text-slate-100 italic">'旅程'</span>
+<span class="text-xs text-slate-500">你選擇了: 'Destino'</span>
+</div>
+<span class="text-sm font-medium text-primary">旅行</span>
+</div>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-col gap-3 pt-4 pb-20">
+<button class="w-full h-14 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"><span class="material-symbols-outlined">replay</span> 錯題重練</button>
+<button class="w-full h-14 bg-transparent border-2 border-primary/20 text-primary font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-primary/5 transition-all"><span class="material-symbols-outlined">home</span> 回到中心</button>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto border-t border-primary/10 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm px-4 pb-4 pt-2 flex justify-around">
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">首頁</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined fill-1">school</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">課程</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">個人檔案</p>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">設定</p>
+</a>
+</div>
+</div>
+</body></html>

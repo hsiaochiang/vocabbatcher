@@ -1,0 +1,24 @@
+{
+  "total_raw": 1231,
+  "total_cleaned": 1231,
+  "duplicates_removed": 0,
+  "low_confidence_count": 0,
+  "field_completeness": {
+    "word": 1.0,
+    "pos": 0.0,
+    "zh_definition": 0.0,
+    "frequency": 1.0,
+    "ipa_us": 0.0,
+    "ipa_uk": 0.0
+  },
+  "issues_summary": [
+    {
+      "issue": "missing_pos",
+      "count": 1231
+    },
+    {
+      "issue": "missing_definition",
+      "count": 1231
+    }
+  ]
+}

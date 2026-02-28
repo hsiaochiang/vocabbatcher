@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Vocabulary Practice - Card View</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="flex items-center justify-between p-4 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-slate-800">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold">單字練習</h2>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col p-6 max-w-md mx-auto w-full">
+<!-- Progress Indicator -->
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">每日目標</span>
+<span class="text-sm font-bold text-primary">6/10 張卡片</span>
+</div>
+<div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Flashcard Container -->
+<div class="flex-1 flex flex-col justify-center py-4">
+<div class="relative w-full aspect-[3/4] group perspective-1000">
+<!-- Card Front (Currently Active) -->
+<div class="absolute inset-0 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center p-8 text-center">
+<div class="mb-4">
+<div class="w-full aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 mb-6 flex items-center justify-center overflow-hidden">
+<img alt="African elephant in the wild" class="w-full h-full object-cover" data-alt="A large grey elephant walking through tall grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc98hXVH1aWk5SxXs9bIFOyXOYxjs3ufM8a90qnxp459ZjvI6oTlSgctZpGhp2VvPN7zUE6ivaSUhZy3DQAsRjw5OTtvj141xnvDpl-DIlAwvjEq0ilar8oON8J7zvxO_1Su4bGyrngYXDj1Gkz_BY4UBMXArVbCFydRTjuAyRP93HyAHvdXAv9lNlM6lpLaN1mIS2wPzNZPTLmbxawypG-jPhCGC3EphUuTZWb1YQEDIjFGq3POp7pRTyBXE17PKTa0-Oom9rTRxe"/>
+</div>
+<h1 class="text-4xl font-bold tracking-tight mb-2">大象</h1>
+<div class="flex items-center justify-center gap-2 text-primary">
+<span class="text-lg font-medium">/ˈel.ɪ.fənt/</span>
+<button class="material-symbols-outlined rounded-full p-1 hover:bg-primary/10 transition-colors">volume_up</button>
+</div>
+</div>
+<div class="mt-auto">
+<button class="flex items-center gap-2 text-slate-400 text-sm font-medium hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">flip_camera_android</span>點擊翻面</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-4 mt-8">
+<button class="flex flex-col items-center justify-center py-4 px-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 rounded-xl text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 transition-all">
+<span class="material-symbols-outlined text-3xl mb-1">replay</span>
+<span class="text-sm font-bold">再次學習</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 px-6 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 rounded-xl text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-all">
+<span class="material-symbols-outlined text-3xl mb-1">check_circle</span>
+<span class="text-sm font-bold">我認識這個</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">首頁</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">style</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">練習</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">統計</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium uppercase tracking-wider">個人檔案</span>
+</a>
+</nav>
+</body></html>

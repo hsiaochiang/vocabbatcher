@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>國中會考單字準備</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-xl pb-24">
+<!-- Header -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<div class="text-primary flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">國中會考單字準備</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-6 p-4">
+<!-- Section 1: Continue Last Session -->
+<section>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight pb-3">繼續上次學習</h3>
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-slate-900 p-5 shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary w-fit">進行中</span>
+<p class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight mt-1">批次 #42</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">已學習 15 / 25 個單字</p>
+</div>
+<div class="h-16 w-16 flex items-center justify-center rounded-full bg-primary/5 border-4 border-primary/20 relative">
+<span class="text-primary font-bold text-sm">60%</span>
+<!-- SVG Progress Ring Simplified -->
+<svg class="absolute inset-0 transform -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-primary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="60, 100" stroke-width="2.5"></circle>
+</svg>
+</div>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[60%]"></div>
+</div>
+<button class="flex w-full items-center justify-center gap-2 rounded-lg h-12 bg-primary text-white font-bold transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">play_arrow</span>
+<span>繼續批次 #42</span>
+</button>
+</div>
+</section>
+<!-- Section 2: History Batches -->
+<section>
+<div class="flex items-center justify-between pb-3">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">歷史批次</h3>
+<button class="text-primary text-sm font-semibold">查看全部</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- History Card 1 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-slate-900 dark:text-slate-100 font-bold">8月15日 學習</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">25 個單字 • 88% 平均</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+<!-- History Card 2 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-slate-900 dark:text-slate-100 font-bold">8月12日 學習</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">20 個單字 • 92% 平均</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+<!-- History Card 3 -->
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">
+<span class="material-symbols-outlined">assignment_late</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-slate-900 dark:text-slate-100 font-bold">8月10日 學習</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">25 個單字 • 74% 平均</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Primary CTA: Floating Action Button Area -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 w-full max-w-md px-6 pointer-events-none">
+<button class="pointer-events-auto flex w-full items-center justify-center gap-3 rounded-full h-16 bg-primary text-white font-bold shadow-xl shadow-primary/30 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span class="text-lg">建立新批次</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-4 pb-6 pt-3 z-20">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-semibold leading-normal">首頁</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">book</span>
+<p class="text-xs font-medium leading-normal">館藏</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-xs font-medium leading-normal">統計</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium leading-normal">個人檔案</p>
+</a>
+</nav>
+</div>
+</body></html>
