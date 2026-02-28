@@ -105,13 +105,14 @@
 ---
 
 ## 4. 目前狀態
-- Current：S1.5（2026-02-28）— workspace 已建置，Stitch 10 畫面已完成
-- Next：S2 — UI/UX 盤點（對照 Stitch 畫面 vs projectprompt.md B 段）→ Style Freeze
-- Blockers：無
-- Evidence：docs/decisions/2026-02-28_openspec-workflow-automation.md
+- Current：S3-D1（2026-02-28）— `pdf-parser` 已完成實作與提交（`a2d8fe0`），進入收尾階段
+- Next：修正 code review 的 2 個 CRITICAL 後，執行 `/opsx:sync` 與 `/opsx:archive "pdf-parser"`
+- Blockers：`docs/qa/2026-02-28_code-review.md` 中 2 個 CRITICAL（confidence 門檻與 unparseable 行低信心記錄）
+- Evidence：`a2d8fe0`、`docs/qa/2026-02-28_code-review.md`、`openspec/changes/pdf-parser/`
 
 ## 5. 階段轉換記錄
 
 | 日期 | 從 | 到 | 觸發原因 | 證據 |
 |------|----|----|---------|------|
 | 2026-02-28 | S0 | S1.5 | Bootstrap + OpenSpec 初始化完成 | docs/decisions/2026-02-28_openspec-workflow-automation.md |
+| 2026-02-28 | S1.5 | S3-D1 | 完成 `pdf-parser` change 實作、驗證、提交推送 | a2d8fe0, openspec/changes/pdf-parser/, docs/qa/2026-02-28_code-review.md |

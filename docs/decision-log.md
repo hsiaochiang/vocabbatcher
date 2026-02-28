@@ -8,3 +8,4 @@
 | 2026-02-28 | WOS Agent + GitKraken MCP + OpenSpec Validate 整合 | 提升自動化程度，減少手動操作 | 新增 WOS agent + 更新 commit-push/validate prompts | .github/agents/WOS.agent.md |
 | 2026-02-28 | 建立獨立 GitHub repo `copilot-workspace-template` | Bootstrap 腳本 + Guide 需跨專案共用並可拉取更新 | 所有專案可 `git pull` 取得最新模板；VocabBatcher 的 `0resource/` 為本機備份 | https://github.com/hsiaochiang/copilot-workspace-template |
 | 2026-02-28 | 建立 Roadmap 治理規範 + 里程碑驗收機制 | 需明確定義專案範疇、分階段上線標準、及時更新機制 | 新增 rule 40 + 重寫 roadmap（4 里程碑 M1-M4）+ 更新 WOS/quality-gate/status prompt | docs/roadmap.md, .github/copilot/rules/40-roadmap-governance.md |
+| 2026-02-28 | `pdf-parser` 採「先 sync、archive 用 `--skip-specs`」策略 | 已先同步 main specs，再 archive 會重複套用 delta 產生 requirement 衝突 | change 成功歸檔且保留 main specs 為單一來源；後續同型流程可複用 | docs/decisions/2026-02-28_pdf-parser-sync-archive-strategy.md |
