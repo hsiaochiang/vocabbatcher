@@ -19,6 +19,13 @@
   - 批次操作 / 檔案生成 / 大量資料處理需確認不造成 UI 凍結（ANR / 無回應）
   - 若有明顯效能疑慮，需記錄測試結果（操作時間 / 記憶體用量）
 
+## 里程碑驗收門檻（Milestone Release Gate）
+- 上線前必須滿足 `docs/roadmap.md` §2 中該里程碑的**所有**驗收標準
+- 必須有對應的 smoke test 記錄（`docs/qa/`）
+- 無未關閉的 P0 bug（`docs/bugs/`）
+- 已記錄上線決策（`docs/decision-log.md`）
+- 詳見 `rules/40-roadmap-governance.md`
+
 ## 若未通過 Done Gate
 - 不得宣稱 Done
 - 必須補齊 evidence 後再回報

@@ -20,6 +20,7 @@
 - UI 修改 → 必須更新 `docs/uiux/<date>_ui-review.md`
 - UX 流程修改 → 必須更新 `docs/uiux/<date>_ux-review.md`
 - Bug 修復 → 必須產出 `docs/bugs/<date>_<slug>.md` + `docs/qa/<date>_smoke.md`
+- 里程碑上線 → 驗收標準全勾選 + smoke test + 無 P0 bug（見 `rules/40-roadmap-governance.md`）
 - 未通過門檻不得宣稱 Done
 
 ## 範圍護欄
@@ -52,7 +53,7 @@
 | Code Review | `#code-review` | `rules/50-tech-stack.md` + `rules/60-testing.md` | `skills/code-reviewer.md` | review 記錄 |
 | 冒煙測試 | `#smoke-test` | — | `skills/smoke-tester.md` | `docs/qa/<date>_smoke.md` |
 | 提交推送 | `#commit-push` | — | `skills/git-steward.md` + `skills/code-reviewer.md` | commit + push |
-| 狀態更新 | `#status` | — | — | roadmap + runlog 更新 |
+| 狀態更新 | `#status` | `rules/40-roadmap-governance.md` | — | roadmap + runlog 更新 |
 | 記錄決策 | `#log-decision` | — | — | `docs/decision-log.md` + `docs/decisions/` |
 | 歸檔 | `#opsx-archive` | — | — | change 歸檔 |
 | Session 結束 | `#session-close` | — | `skills/scribe.md` | `experience/<YYYY-MM>/slides_<date>.md` |

@@ -1,5 +1,5 @@
 ---
-description: "Wilson Operation System — 自動判斷 Change Lifecycle 狀態，建議下一步操作。Use when: 開工、不確定下一步、需要流程導引、session start、status check、lifecycle、workflow guidance"
+description: "Wilson Operation System — 自動判斷 Change Lifecycle 狀態，建議下一步操作。Use when: 開工、不確定下一步、需要流程導引、session start、status check、lifecycle、workflow guidance、milestone check"
 tools: [read, search, agent, todo]
 ---
 
@@ -13,11 +13,12 @@ tools: [read, search, agent, todo]
 
 ```
 檢查順序：
-1. docs/roadmap.md → 目前大階段（S0~S6）
+1. docs/roadmap.md → 目前大階段（S?）+ 目前里程碑（M?）+ 驗收進度
 2. openspec/changes/ → 是否有進行中的 Change（非 archive/）
 3. 若有 Change → 讀取其 artifacts 判斷進度
 4. docs/runlog/<今日日期>_README.md → 今日是否已開工
 5. git status → 是否有未提交的變更
+6. docs/bugs/ → 是否有未關閉的 P0/P1 bug
 ```
 
 ### 2. Lifecycle 階段判斷邏輯
@@ -38,6 +39,7 @@ tools: [read, search, agent, todo]
 | 已提交，有 delta specs | 待同步 | → `#opsx-sync` |
 | 已同步 | 待歸檔 | → `#opsx-archive` → `#log-decision` |
 | git 有未提交變更 | 需提交 | → `#commit-push` |
+| 里程碑驗收全部勾選 | 里程碑完成 | → `#status`（更新 roadmap） |
 | 一切就緒 | 收尾 | → `#status` → `#session-close` |
 
 ### 3. 輸出格式
@@ -47,6 +49,13 @@ tools: [read, search, agent, todo]
 
 ### 專案階段
 - Roadmap：{S? 階段名稱}
+- 里程碑：{M? 名稱}（{已完成數}/{總數} 驗收標準）
+
+### 里程碑總覽
+- M1 資料就緒：{?}/7 ✅ {🔒已上線 | 🔄進行中 | ⬜未開始}
+- M2 核心可用：{?}/10 ✅ {狀態}
+- M3 練習完整：{?}/9 ✅ {狀態}
+- M4 品質收斂：{?}/7 ✅ {狀態}
 
 ### Change 狀態
 - 進行中：{change 名稱} 或 無
@@ -68,8 +77,20 @@ Session Start [✅/⬜] → New [✅/⬜] → FF [✅/⬜] → Validate [✅/⬜
   → Review [✅/⬜] → Commit [✅/⬜] → Sync [✅/⬜] → Archive [✅/⬜]
 ```
 
+### 4. 里程碑轉換偵測
+當所有驗收標準已勾選時，主動提醒：
+
+```markdown
+### 🎉 里程碑 {M?} 驗收完成！
+建議動作：
+1. 執行 `#smoke-test` 確保上線品質
+2. 執行 `#log-decision` 記錄上線決策
+3. 執行 `#status` 更新 roadmap 到下一個里程碑
+```
+
 ## 約束
 - **不直接修改程式碼或檔案**（只讀取、分析、建議）
 - **不跳過流程步驟**（嚴格按照 `rules/70-openspec-workflow.md`）
+- **階段轉換需符合門檻**（按照 `rules/40-roadmap-governance.md`）
 - **使用正體中文**回覆
 - 若偵測到異常（如有 Change 但無 tasks），主動警告
