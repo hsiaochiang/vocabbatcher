@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>CRM 管理系統 - 工作區設定</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary p-2 rounded-lg text-white">
+<span class="material-symbols-outlined block">database</span>
+</div>
+<h1 class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">CRM Admin</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 py-4">主要選單</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">儀表板</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">contacts</span>
+<span class="text-sm font-medium">聯絡人管理</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-medium">任務清單</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">互動紀錄</span>
+</a>
+<div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 py-4">系統管理</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">sync_alt</span>
+<span class="text-sm font-medium">匯入 / 匯出</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">工作區設定</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">A</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">系統管理員</p>
+<p class="text-xs text-slate-500 truncate">admin@company.tw</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined text-xl">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header / Top Bar -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 flex-shrink-0">
+<div class="flex items-center gap-4">
+<nav class="flex text-sm text-slate-500 gap-2">
+<span>首頁</span>
+<span>/</span>
+<span class="text-slate-900 dark:text-white font-medium">工作區設定</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-mono text-slate-400 px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Page ID: W1</span>
+<div class="h-8 w-px bg-slate-200 dark:border-slate-800"></div>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">工作區設定</h2>
+<p class="text-slate-500 mt-2">管理您的資料來源連線、Google Drive 目錄以及系統同步狀態。</p>
+</div>
+<!-- Connection Status Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<!-- Google Sheets Connection -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
+<img alt="" class="size-6" data-alt="Google Sheets logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAazy0CSgod9fSADbJQqGZRWxFkjLO85TslMLag4ueHzexH2a7Uao5ATF5m6kaE2F52PDRL8VbpXp0FyIIMdx4Vm-kWUyLWtzOeSUZXmhly5AK95MraMiAsoN7F9R8P4w1aaXviSC5-niLhnWoJ3hOqOSu8_eo8KqLIj7MOubOreYAXKqOgug-Cn8ncXzaanY9t_4lyOPbnYay2jHL5_U4BRw0_AwkaM8crah_SmYSomMT3X95jWnqUSg5AZ94z92egeJNZUGLUgVQj"/>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Google Sheets 連線</h3>
+<p class="text-xs text-slate-500">主要的 CRM 資料儲存庫</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> 已連線
+                                </span>
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
+<p class="text-xs text-slate-500 mb-1">目前試算表</p>
+<p class="text-sm font-medium truncate">CRM_Database_2024_Q4_Final</p>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 text-sm font-bold border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        更換資料表
+                                    </button>
+<button class="px-4 py-2 text-primary hover:bg-primary/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg">sync</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Google Drive Storage -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+<img alt="" class="size-6" data-alt="Google Drive logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-vlnBfF1jNKr4MJwIfB1STDUxUv5MNTQI9p5vhj7HzApFu3OznCUPyn8kVh_Oo6x-MrnHKoeROPOklSGg1qezvrox5IVDHQ21cHHl3K1dLilTQ5lXssAuK-tvs_a5m8eCGgxgPpbp7SBWPklSWsxDxjJJdL4Rud2rSSRyNSvp4Mioe82o9ic0Kk_oVU4tKjyvdfygVdiSv2dk4Ou1RaN0IaQjigMxR5xh78bv43BhbZ97TwGBqsVxftsd6xUJfbEZMxAgKekWmcxp"/>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Google Drive 儲存</h3>
+<p class="text-xs text-slate-500">附件與匯出檔案存放位置</p>
+</div>
+</div>
+<span class="px-2 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span> 未配置
+                                </span>
+</div>
+<div class="space-y-3">
+<p class="text-sm text-slate-600 dark:text-slate-400">尚未指定檔案存放目錄。這將會影響到附件上傳與匯出功能。</p>
+<button class="w-full py-2 bg-primary text-white text-sm font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">folder_open</span> 立即配置目錄
+                                </button>
+</div>
+</div>
+</div>
+<!-- Connection Issues / Retry Panel (Example of Failed State) -->
+<div class="bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20 rounded-xl p-6 mb-8">
+<div class="flex gap-4">
+<div class="p-2 bg-white dark:bg-red-900/30 rounded-full h-fit text-red-600">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-red-900 dark:text-red-400">權限同步異常</h3>
+<p class="text-sm text-red-700 dark:text-red-500/80 mt-1">
+                                    偵測到 API 權限不足 (Insufficient Permissions)，系統無法寫入部分欄位。這可能是因為 Google 帳戶的存取令牌已過期或被手動移除。
+                                </p>
+<div class="mt-4 flex gap-3">
+<button class="px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span> 重新授權並重試
+                                    </button>
+<button class="px-4 py-2 text-red-700 dark:text-red-400 text-sm font-bold hover:underline">
+                                        檢視錯誤日誌
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Settings Sections -->
+<div class="space-y-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined">tune</span> 進階配置
+                        </h3>
+<!-- Data Source Sync Settings -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 divide-y divide-slate-100 dark:divide-slate-800">
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="font-medium text-slate-900 dark:text-white">自動同步頻率</p>
+<p class="text-sm text-slate-500">設定後台與 Google Sheets 同步的時間間隔</p>
+</div>
+<select class="form-select text-sm rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:text-white min-w-32">
+<option>即時同步</option>
+<option>每 5 分鐘</option>
+<option>每 15 分鐘</option>
+<option>手動同步</option>
+</select>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="font-medium text-slate-900 dark:text-white">雙向同步保護</p>
+<p class="text-sm text-slate-500">防止多人同時編輯時發生資料覆蓋</p>
+</div>
+<div class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary cursor-pointer">
+<span class="inline-block h-4 w-4 translate-x-6 transform rounded-full bg-white transition"></span>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="font-medium text-slate-900 dark:text-white">資料緩存策略</p>
+<p class="text-sm text-slate-500">在本機儲存快取以提升載入速度</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-400">已使用 2.4 MB</span>
+<button class="text-xs font-bold text-primary px-2 py-1 bg-primary/10 rounded">清除快取</button>
+</div>
+</div>
+</div>
+<!-- Guide for Google Drive Setup -->
+<div class="bg-slate-100 dark:bg-slate-800/40 rounded-xl p-6 border border-dashed border-slate-300 dark:border-slate-700">
+<h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span> 如何配置 Google Drive?
+                            </h4>
+<ol class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-decimal list-inside">
+<li>點擊上方「立即配置目錄」按鈕。</li>
+<li>在彈出的 Google 視窗中選取您要作為 CRM 附件存放的資料夾。</li>
+<li>確保資料夾權限設定為「擁有者」或「編輯者」。</li>
+<li>儲存後，系統將自動建立 <code class="bg-slate-200 dark:bg-slate-700 px-1 rounded">/CRM_Attachments</code> 子目錄。</li>
+</ol>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-3">
+<button class="px-6 py-2 text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            取消變更
+                        </button>
+<button class="px-8 py-2 bg-primary text-white text-sm font-bold rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
+                            儲存工作區設定
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

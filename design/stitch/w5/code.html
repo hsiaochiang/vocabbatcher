@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>建立新聯絡人 | CRM System</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-4 py-4 mb-6">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">建立新聯絡人</h2>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Page ID: W5</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold transition-colors hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="truncate">取消</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold transition-transform active:scale-95">
+<span class="truncate">儲存聯絡人</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-8 pb-10">
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span>
+                                名片掃描與上傳
+                            </h3>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-1/2">
+<div class="relative group cursor-pointer border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl aspect-[1.6/1] flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-800/50 hover:border-primary/50 hover:bg-primary/5 transition-all">
+<div class="flex flex-col items-center text-center p-6">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500 mb-2 group-hover:text-primary">add_a_photo</span>
+<p class="text-slate-700 dark:text-slate-200 font-medium">上傳名片正反面</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">支援 JPG, PNG 格式 (最大 5MB)</p>
+</div>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center gap-4">
+<div class="p-4 rounded-lg bg-primary/5 border border-primary/10">
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+<span class="font-bold text-primary">提示：</span>上傳名片後，系統將自動辨識姓名、公司、電話等資訊並填入下方表單。
+                                        </p>
+</div>
+<button class="flex items-center justify-center gap-2 py-2 px-4 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+<span>開始自動辨識</span>
+</button>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                                基本資訊
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">姓名 <span class="text-red-500">*</span></label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="例如：王小明" type="text"/>
+<p class="text-xs text-red-500 mt-1 hidden">此欄位為必填</p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">公司名稱</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="例如：創新科技有限公司" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">職稱</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="例如：專案經理" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">電子郵件</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="example@company.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">行動電話</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="0912-345-678" type="tel"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">公司電話</label>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4" placeholder="02-2345-6789" type="tel"/>
+</div>
+</div>
+</section>
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">label</span>
+                                分類與狀態
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">標籤</label>
+<div class="relative">
+<select class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary h-12 px-4 appearance-none">
+<option value="">選擇標籤...</option>
+<option value="1">重要客戶</option>
+<option value="2">潛在機會</option>
+<option value="3">合作夥伴</option>
+<option value="4">供應商</option>
+</select>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                                                重要客戶
+                                                <button class="ml-1 focus:outline-none"><span class="material-symbols-outlined text-[10px]">close</span></button>
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">聯絡狀態</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="status" type="radio" value="active"/>
+<div class="flex items-center justify-center h-12 rounded-lg border border-slate-300 dark:border-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:text-primary transition-all">
+                                                進行中
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="status" type="radio" value="pending"/>
+<div class="flex items-center justify-center h-12 rounded-lg border border-slate-300 dark:border-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:text-primary transition-all">
+                                                等待中
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="status" type="radio" value="closed"/>
+<div class="flex items-center justify-center h-12 rounded-lg border border-slate-300 dark:border-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:text-primary transition-all">
+                                                已結案
+                                            </div>
+</label>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 block">備註</label>
+<textarea class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-primary p-4" placeholder="請輸入聯絡人相關備註..." rows="4"></textarea>
+</div>
+</section>
+<div class="flex flex-col gap-4 mt-4">
+<div class="p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm hidden">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">error</span>
+<span>請檢查必填欄位是否填寫完整。</span>
+</div>
+</div>
+<div class="flex justify-end gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="px-8 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold hover:bg-slate-50 dark:hover:bg-slate-800">
+                                    取消
+                                </button>
+<button class="px-8 py-3 rounded-xl bg-primary text-white font-bold hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+                                    儲存並建立
+                                </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</body></html>

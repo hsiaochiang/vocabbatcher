@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRM 管理儀表板 - W2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none">CRM 系統</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">管理後台</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>儀表板</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">contacts</span>
+<span>聯絡人</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">task_alt</span>
+<span>任務</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span>互動記錄</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>系統設定</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="User Avatar" data-alt="Professional profile picture of a male manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzu_vOc9TpuqTStgvDSlX65jVX7n9nDskGN4C3T-NOIdKViTmDGA-Jwolc5ScQHULXvXn6-aHwAOC3MLnDRSGDdAer0QqM4ZDZC1TXG3KkPV264cKVfqfbxz774bETfEiO-zDP9tY8tqtdbmymHpflhMVPQGRcVue35oBcfhKe9BnCFoePOPfqYxOwE9PWCQJIexq6TxUvumgs2B7UM0ZnmincC9rI9rdKViR_SgS4EoSm2WU9wlLNp5biE8eGnngmSqVLnyuOjwOI"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-medium truncate">管理員名稱</p>
+<p class="text-xs text-slate-500 truncate">admin@company.com</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold">儀表板概覽</h2>
+<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-xs font-mono text-slate-500">Page ID: W2</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/50" placeholder="搜尋聯絡人或任務..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Welcome Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-black tracking-tight">歡迎回來，管理員</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">這是您今天的業務概覽與待辦事項。</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">cloud_done</span>
+</div>
+<div>
+<p class="text-xs text-slate-500">Google Drive</p>
+<p class="text-sm font-bold">已連線</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<div>
+<p class="text-xs text-slate-500">OCR 處理隊列</p>
+<p class="text-sm font-bold">運行中 (0)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Access Grid -->
+<section>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span> 快速存取
+                    </h3>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<button class="flex flex-col items-center justify-center gap-2 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-primary hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">person_add</span>
+<span class="text-sm font-medium">新增聯絡人</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-primary hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">upload_file</span>
+<span class="text-sm font-medium">匯入資料</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-primary hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">download</span>
+<span class="text-sm font-medium">匯出報告</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-primary hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">assignment</span>
+<span class="text-sm font-medium">未結任務</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-primary hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">chat_bubble</span>
+<span class="text-sm font-medium">開放互動</span>
+</button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Task Focus Section -->
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-red-500">warning</span> 逾期任務
+                                </h3>
+<span class="bg-red-100 text-red-600 px-2 py-0.5 rounded-full text-xs font-bold">3 筆待辦</span>
+</div>
+<div class="divide-y divide-slate-50 dark:divide-slate-800">
+<div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 flex items-center gap-4">
+<div class="w-2 h-10 bg-red-500 rounded-full"></div>
+<div class="flex-1">
+<p class="font-semibold text-sm">跟進王大明合約簽署</p>
+<p class="text-xs text-slate-400">截止於 2023/10/24 • 聯絡人: 王大明</p>
+</div>
+<button class="text-primary text-sm font-medium hover:underline">立即處理</button>
+</div>
+<div class="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 flex items-center gap-4">
+<div class="w-2 h-10 bg-red-500 rounded-full"></div>
+<div class="flex-1">
+<p class="font-semibold text-sm">回覆李小姐的產品詢價</p>
+<p class="text-xs text-slate-400">截止於 2023/10/25 • 聯絡人: 李小姐</p>
+</div>
+<button class="text-primary text-sm font-medium hover:underline">立即處理</button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-500">calendar_today</span> 今日任務
+                                </h3>
+<span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs font-bold">5 筆預定</span>
+</div>
+<div class="p-6 text-center space-y-4">
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-3 rounded-xl border border-dashed border-slate-200 dark:border-slate-700">
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<div class="text-left flex-1">
+<p class="text-sm font-medium">下午 2:00 線上產品演示</p>
+<p class="text-xs text-slate-500">參與人: 核心團隊, 陳先生</p>
+</div>
+<span class="text-xs font-medium text-slate-400">14:00</span>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl border border-dashed border-slate-200 dark:border-slate-700">
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<div class="text-left flex-1">
+<p class="text-sm font-medium">整理本月銷售報表</p>
+<p class="text-xs text-slate-500">內部任務</p>
+</div>
+<span class="text-xs font-medium text-slate-400">17:00</span>
+</div>
+</div>
+<button class="w-full py-2 border border-primary text-primary rounded-xl text-sm font-bold hover:bg-primary/5 transition-colors">
+                                    查看完整日程
+                                </button>
+</div>
+</div>
+</div>
+<!-- Side Focus Section -->
+<div class="space-y-6">
+<!-- Recently Updated Contacts -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span> 最近更新聯絡人
+                                </h3>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-primary font-bold">
+                                        張
+                                    </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">張雅筑</p>
+<p class="text-xs text-slate-500">2 小時前更新</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 font-bold">
+                                        劉
+                                    </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">劉家豪</p>
+<p class="text-xs text-slate-500">5 小時前更新</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 font-bold">
+                                        G
+                                    </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Global Tech Inc.</p>
+<p class="text-xs text-slate-500">昨天更新</p>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+<button class="w-full text-center py-2 text-sm font-semibold text-slate-500 hover:text-primary transition-colors">
+                                    顯示更多
+                                </button>
+</div>
+</div>
+<!-- System Status Placeholder -->
+<div class="bg-primary/5 border border-primary/20 rounded-2xl p-6 space-y-4">
+<h3 class="text-primary font-bold text-sm uppercase tracking-wider">系統狀態監控</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-600 dark:text-slate-400">名片掃描 (OCR) 負載</span>
+<span class="font-bold text-primary">24%</span>
+</div>
+<div class="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 24%"></div>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-600 dark:text-slate-400">數據庫同步延遲</span>
+<span class="font-bold text-green-600">正常 (12ms)</span>
+</div>
+<div class="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-green-500" style="width: 5%"></div>
+</div>
+<div class="pt-2">
+<div class="flex items-start gap-2 text-[10px] text-slate-500 leading-relaxed italic">
+<span class="material-symbols-outlined text-[12px] mt-0.5">info</span>
+                                        自動備份功能預定於凌晨 03:00 執行。如有需要，請手動觸發即時同步。
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

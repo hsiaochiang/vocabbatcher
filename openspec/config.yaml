@@ -1,0 +1,20 @@
+schema: spec-driven
+
+context: |
+  專案名稱：VocabBatcher
+  語言：正體中文為主
+  治理規範：.github/copilot/rules/*.md
+  角色分工：.github/copilot/skills/*.md
+  工作流程：.github/copilot/rules/70-openspec-workflow.md
+  證據結構：docs/（roadmap / decision-log / runlog / uiux / bugs / qa）
+  Commit 慣例：繁體中文（What / Why / Impact / Evidence）
+
+rules:
+  proposal:
+    - 使用正體中文撰寫
+    - 必須包含 Non-goals 區段
+    - 必須說明對 roadmap 的影響
+  tasks:
+    - 每個 task 拆到 2 小時內可完成
+    - 每個 task 必須有明確驗收條件
+    - 遵守最小安全修改原則
