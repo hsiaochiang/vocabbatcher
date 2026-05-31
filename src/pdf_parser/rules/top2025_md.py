@@ -115,12 +115,19 @@ def parse_md_file(md_path: str | Path) -> ParseResult:
         pos = _strip_pos_brackets(cells[1])
         zh_definition = _clean_definition(cells[2])
 
+        # 頁碼欄位（第 4 欄，可選）
+        source_page = 0
+        if len(cells) >= 4:
+            page_str = cells[3].strip()
+            if page_str.isdigit():
+                source_page = int(page_str)
+
         entries.append(VocabEntry(
             word=word,
             pos=pos,
             zh_definition=zh_definition,
             frequency=current_frequency,
-            source_page=0,
+            source_page=source_page,
             ipa_us=None,
             ipa_uk=None,
         ))

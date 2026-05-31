@@ -116,7 +116,21 @@ class TestParseMdFile:
         result = parse_md_file(md)
         assert len(result.entries) == 1  # 只有資料列，表頭/分隔線已跳過
 
-    def test_source_page_is_zero(self, tmp_path):
+    def test_source_page_from_column(self, tmp_path):
+        """頁碼欄位存在時讀取。"""
+        md = tmp_path / "test.md"
+        md.write_text(
+            "## 出現次數：5\n\n"
+            "| 單字 | 詞性 | 中文定義 | 頁碼 |\n"
+            "|------|------|---------|------|\n"
+            "| **test** | [n.] | 測試 | 42 |\n",
+            encoding="utf-8",
+        )
+        result = parse_md_file(md)
+        assert result.entries[0]["source_page"] == 42
+
+    def test_source_page_fallback_zero(self, tmp_path):
+        """無頁碼欄位時 source_page 為 0。"""
         md = tmp_path / "test.md"
         md.write_text(
             "## 出現次數：5\n\n"
