@@ -127,9 +127,9 @@ export default function FlashCardPage() {
                     e.stopPropagation();
                     speakEn(word!.word);
                   }}
-                  className="mt-4 flex items-center gap-1 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary hover:bg-primary/20"
+                  className="mt-4 flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-full bg-primary/10 px-5 py-2.5 text-sm font-medium text-primary hover:bg-primary/20"
                 >
-                  <span className="material-symbols-outlined text-[20px]">
+                  <span className="material-symbols-outlined text-[22px]">
                     volume_up
                   </span>
                   播放發音
@@ -154,9 +154,9 @@ export default function FlashCardPage() {
                       e.stopPropagation();
                       speakZh(word!.zh_definition!);
                     }}
-                    className="mt-4 flex items-center gap-1 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary hover:bg-primary/20"
+                    className="mt-4 flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-full bg-primary/10 px-5 py-2.5 text-sm font-medium text-primary hover:bg-primary/20"
                   >
-                    <span className="material-symbols-outlined text-[20px]">
+                    <span className="material-symbols-outlined text-[22px]">
                       volume_up
                     </span>
                     播放中文

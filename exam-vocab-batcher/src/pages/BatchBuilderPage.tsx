@@ -9,7 +9,7 @@ import Toast from '../components/Toast';
 const MAX_SELECTION = 25;
 
 type FreqFilter = 'all' | 'high' | 'mid' | 'low';
-type PosFilter = 'all' | 'n.' | 'v.' | 'adj.' | 'adv.' | 'other';
+type PosFilter = 'all' | 'n.' | 'v.' | 'adj.' | 'adv.' | 'pron.' | 'prep.' | 'conj.' | 'other';
 
 const FREQ_OPTIONS: { value: FreqFilter; label: string }[] = [
   { value: 'all', label: '全部' },
@@ -19,11 +19,14 @@ const FREQ_OPTIONS: { value: FreqFilter; label: string }[] = [
 ];
 
 const POS_OPTIONS: { value: PosFilter; label: string }[] = [
-  { value: 'all', label: '全部' },
-  { value: 'n.', label: 'n.' },
-  { value: 'v.', label: 'v.' },
-  { value: 'adj.', label: 'adj.' },
-  { value: 'adv.', label: 'adv.' },
+  { value: 'all', label: '全部詞性' },
+  { value: 'n.', label: '名詞' },
+  { value: 'v.', label: '動詞' },
+  { value: 'adj.', label: '形容詞' },
+  { value: 'adv.', label: '副詞' },
+  { value: 'pron.', label: '代名詞' },
+  { value: 'prep.', label: '介系詞' },
+  { value: 'conj.', label: '連接詞' },
   { value: 'other', label: '其他' },
 ];
 
@@ -49,7 +52,7 @@ export default function BatchBuilderPage() {
       // POS filter
       if (posFilter !== 'all') {
         if (posFilter === 'other') {
-          const mainPos = ['n.', 'v.', 'adj.', 'adv.'];
+          const mainPos = ['n.', 'v.', 'adj.', 'adv.', 'pron.', 'prep.', 'conj.'];
           if (w.pos && mainPos.includes(w.pos)) return false;
         } else {
           if (w.pos !== posFilter) return false;
@@ -134,7 +137,35 @@ export default function BatchBuilderPage() {
 
       {/* Selection counter (sticky) */}
       <div className="sticky top-[57px] z-20 border-b border-gray-100 bg-white/90 px-4 py-2 backdrop-blur-sm">
-        <SelectionCounter count={selected.size} max={MAX_SELECTION} />
+        <div className="flex items-center justify-between">
+          <SelectionCounter count={selected.size} max={MAX_SELECTION} />
+          <div className="flex gap-2">
+            {selected.size > 0 && (
+              <button
+                onClick={() => setSelected(new Set())}
+                className="rounded-full px-3 py-1 text-xs font-medium text-red-500 hover:bg-red-50"
+              >
+                清除
+              </button>
+            )}
+            <button
+              onClick={() => {
+                setSelected((prev) => {
+                  const next = new Set(prev);
+                  for (const w of filtered) {
+                    if (next.size >= MAX_SELECTION) break;
+                    next.add(w.word);
+                  }
+                  return next;
+                });
+              }}
+              disabled={isFull}
+              className="rounded-full px-3 py-1 text-xs font-medium text-primary hover:bg-primary/10 disabled:opacity-40"
+            >
+              全選篩選結果
+            </button>
+          </div>
+        </div>
         <p className="mt-0.5 text-xs text-gray-400">
           顯示 {filtered.length} 筆
         </p>

@@ -37,22 +37,38 @@ export default function BatchHubPage() {
     {
       icon: 'style',
       label: '翻牌學習',
+      subtitle: `${batch.words.length} 個單字`,
+      color: 'text-primary',
+      bgColor: 'bg-primary/5',
+      borderColor: 'border-primary/30',
       available: true,
       onClick: () => navigate(`/batch/${id}/flashcard`),
     },
     {
       icon: 'volume_up',
       label: '錄音播放',
+      subtitle: '即將推出',
+      color: 'text-amber-500',
+      bgColor: 'bg-amber-50',
+      borderColor: 'border-gray-200',
       available: false,
     },
     {
       icon: 'edit_note',
       label: '練習測驗',
+      subtitle: '即將推出',
+      color: 'text-emerald-500',
+      bgColor: 'bg-emerald-50',
+      borderColor: 'border-gray-200',
       available: false,
     },
     {
       icon: 'bar_chart',
       label: '學習統計',
+      subtitle: '即將推出',
+      color: 'text-violet-500',
+      bgColor: 'bg-violet-50',
+      borderColor: 'border-gray-200',
       available: false,
     },
   ];
@@ -102,21 +118,21 @@ export default function BatchHubPage() {
             <button
               key={feat.label}
               onClick={feat.available ? feat.onClick : undefined}
-              className={`flex flex-col items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-colors ${
+              className={`flex flex-col items-center justify-center gap-2 rounded-xl border ${feat.borderColor} ${feat.available ? feat.bgColor : 'bg-white'} p-6 shadow-sm transition-colors ${
                 feat.available
-                  ? 'hover:border-primary hover:bg-primary/5'
-                  : 'cursor-default opacity-50'
+                  ? 'hover:shadow-md'
+                  : 'cursor-default opacity-60'
               }`}
             >
-              <span className="material-symbols-outlined text-3xl text-primary">
+              <span className={`material-symbols-outlined text-3xl ${feat.color}`}>
                 {feat.icon}
               </span>
               <span className="text-sm font-medium text-gray-700">
                 {feat.label}
               </span>
-              {!feat.available && (
-                <span className="text-xs text-gray-400">即將推出</span>
-              )}
+              <span className={`text-xs ${feat.available ? feat.color : 'text-gray-400'}`}>
+                {feat.subtitle}
+              </span>
             </button>
           ))}
         </div>
