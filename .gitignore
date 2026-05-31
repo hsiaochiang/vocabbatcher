@@ -30,6 +30,9 @@ Thumbs.db
 # Copilot backups
 .github/copilot/_backups/
 
+# Parser output
+output/
+
 # Environment
 .env
 .env.local

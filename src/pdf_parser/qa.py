@@ -11,7 +11,8 @@ from src.pdf_parser.models import VocabEntry, CleanedEntry, QAReport
 
 # 用於 confidence 計算的欄位權重
 _OPTIONAL_FIELDS = ["pos", "zh_definition", "frequency", "ipa_us", "ipa_uk"]
-_TOTAL_WEIGHT = 1.0 + len(_OPTIONAL_FIELDS) * 0.2  # word(1.0) + 5 * 0.2 = 2.0
+_FIELD_WEIGHT = 0.5
+_TOTAL_WEIGHT = 1.0 + len(_OPTIONAL_FIELDS) * _FIELD_WEIGHT  # word(1.0) + 5 * 0.5 = 3.5
 
 
 def compute_confidence(entry: VocabEntry) -> float:
@@ -34,7 +35,7 @@ def compute_confidence(entry: VocabEntry) -> float:
     for field in _OPTIONAL_FIELDS:
         val = entry.get(field)  # type: ignore[literal-required]
         if val is not None and val != "":
-            score += 0.2
+            score += _FIELD_WEIGHT
 
     return round(min(score / _TOTAL_WEIGHT, 1.0), 4)
 
@@ -61,6 +62,7 @@ def compute_issues(entry: VocabEntry, confidence: float) -> list[str]:
 def generate_qa_report(
     raw_entries: list[VocabEntry],
     cleaned_entries: list[CleanedEntry],
+    rejected_lines: int = 0,
 ) -> QAReport:
     """產出品質報告。"""
     total_raw = len(raw_entries)
@@ -99,6 +101,7 @@ def generate_qa_report(
         total_raw=total_raw,
         total_cleaned=total_cleaned,
         duplicates_removed=duplicates_removed,
+        rejected_lines=rejected_lines,
         low_confidence_count=low_confidence_count,
         field_completeness=field_completeness,
         issues_summary=issues_summary,

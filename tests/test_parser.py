@@ -4,7 +4,7 @@ import json
 import pytest
 from src.pdf_parser.extractor import PageContent
 from src.pdf_parser.models import VocabEntry
-from src.pdf_parser.parser import parse_pages, load_rule, write_raw_json
+from src.pdf_parser.parser import parse_pages, load_rule, write_raw_json, ParseResult
 from src.pdf_parser.rules.top2025 import Top2025Rule
 
 
@@ -49,10 +49,10 @@ class TestParsePages:
                 used_table=True,
             ),
         ]
-        entries = parse_pages(pages)
-        assert len(entries) == 1
-        assert entries[0]["word"] == "apple"
-        assert entries[0]["source_page"] == 3
+        result = parse_pages(pages)
+        assert len(result.entries) == 1
+        assert result.entries[0]["word"] == "apple"
+        assert result.entries[0]["source_page"] == 3
 
     def test_text_pages(self):
         pages = [
@@ -61,9 +61,10 @@ class TestParsePages:
                 text="run\t\t05 06\t○○○\n\nCopyright line",
             ),
         ]
-        entries = parse_pages(pages)
-        assert len(entries) == 1
-        assert entries[0]["word"] == "run"
+        result = parse_pages(pages)
+        assert len(result.entries) == 1
+        assert result.entries[0]["word"] == "run"
+        assert result.rejected_count == 1  # "Copyright line" rejected
 
     def test_custom_rule(self):
         class DummyRule:
@@ -81,9 +82,10 @@ class TestParsePages:
                 return None
 
         pages = [PageContent(page_number=1, text="WORD:test\ngarbage")]
-        entries = parse_pages(pages, rule=DummyRule())
-        assert len(entries) == 1
-        assert entries[0]["word"] == "test"
+        result = parse_pages(pages, rule=DummyRule())
+        assert len(result.entries) == 1
+        assert result.entries[0]["word"] == "test"
+        assert result.rejected_count == 1  # "garbage" rejected
 
 
 class TestWriteRawJson:

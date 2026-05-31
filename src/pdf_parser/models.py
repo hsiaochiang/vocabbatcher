@@ -37,6 +37,7 @@ class QAReport(TypedDict):
     total_raw: int
     total_cleaned: int
     duplicates_removed: int
+    rejected_lines: int
     low_confidence_count: int
     field_completeness: dict[str, float]
     issues_summary: list[dict[str, object]]

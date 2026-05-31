@@ -37,12 +37,21 @@ def clean_entries(
     Returns:
         清洗後的 CleanedEntry 清單（按 word 字母排序）。
     """
-    # 先計算每筆的 confidence 以便去重時比較
+    # 先 trim 再計算 confidence/issues（避免空白字串漏報）
     enriched: list[tuple[VocabEntry, float, list[str]]] = []
     for entry in raw_entries:
-        confidence = compute_confidence(entry)
-        issues = compute_issues(entry, confidence)
-        enriched.append((entry, confidence, issues))
+        normalized = VocabEntry(
+            word=(_trim_or_null(entry.get("word")) or ""),
+            pos=_trim_or_null(entry.get("pos")),
+            zh_definition=_trim_or_null(entry.get("zh_definition")),
+            frequency=entry.get("frequency"),
+            source_page=entry.get("source_page", 0),
+            ipa_us=_trim_or_null(entry.get("ipa_us")),
+            ipa_uk=_trim_or_null(entry.get("ipa_uk")),
+        )
+        confidence = compute_confidence(normalized)
+        issues = compute_issues(normalized, confidence)
+        enriched.append((normalized, confidence, issues))
 
     # 去重：group by (word, pos)，保留 confidence 最高者
     groups: dict[tuple[str, str], list[tuple[VocabEntry, float, list[str]]]] = {}
@@ -59,12 +68,12 @@ def clean_entries(
         # 合併所有 source_page
         all_pages = sorted({item[0]["source_page"] for item in items})
 
-        # Trim 文字欄位
-        word = _trim_or_null(entry.get("word")) or ""
-        pos = _trim_or_null(entry.get("pos"))
-        zh_def = _trim_or_null(entry.get("zh_definition"))
-        ipa_us = _trim_or_null(entry.get("ipa_us"))
-        ipa_uk = _trim_or_null(entry.get("ipa_uk"))
+        # 使用已 trim 的欄位（enriched 階段已正規化）
+        word = entry.get("word") or ""
+        pos = entry.get("pos")
+        zh_def = entry.get("zh_definition")
+        ipa_us = entry.get("ipa_us")
+        ipa_uk = entry.get("ipa_uk")
 
         frequency = entry.get("frequency")
 

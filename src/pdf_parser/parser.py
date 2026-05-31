@@ -6,10 +6,19 @@ import importlib
 import json
 from pathlib import Path
 
+from dataclasses import dataclass, field
+
 from src.pdf_parser.extractor import PageContent
 from src.pdf_parser.models import VocabEntry
 from src.pdf_parser.rules import ParserRule
 from src.pdf_parser.rules.top2025 import Top2025Rule
+
+
+@dataclass
+class ParseResult:
+    """parse_pages 的回傳結果。"""
+    entries: list[VocabEntry] = field(default_factory=list)
+    rejected_count: int = 0
 
 
 def load_rule(rule_name: str = "top2025") -> ParserRule:
@@ -18,19 +27,20 @@ def load_rule(rule_name: str = "top2025") -> ParserRule:
     # 尋找模組中第一個實作 ParserRule 的類別
     for attr_name in dir(module):
         attr = getattr(module, attr_name)
-        if (
-            isinstance(attr, type)
-            and attr is not ParserRule
-            and isinstance(attr(), ParserRule)
-        ):
-            return attr()
+        if isinstance(attr, type) and attr is not ParserRule:
+            try:
+                instance = attr()
+            except TypeError:
+                continue
+            if isinstance(instance, ParserRule):
+                return instance
     raise ValueError(f"規則模組 '{rule_name}' 中找不到實作 ParserRule 的類別")
 
 
 def parse_pages(
     pages: list[PageContent],
     rule: ParserRule | None = None,
-) -> list[VocabEntry]:
+) -> ParseResult:
     """將抽取的頁面內容解析為 VocabEntry 清單。
 
     Args:
@@ -38,12 +48,13 @@ def parse_pages(
         rule: parser 規則實例，預設使用 Top2025Rule。
 
     Returns:
-        所有成功解析的 VocabEntry 清單，保持原始順序。
+        ParseResult 包含解析成功的 entries 與被拒絕的行數。
     """
     if rule is None:
         rule = Top2025Rule()
 
     entries: list[VocabEntry] = []
+    rejected_count = 0
 
     for page in pages:
         # 優先使用表格列解析
@@ -58,6 +69,8 @@ def parse_pages(
                 if entry is not None:
                     entry["source_page"] = page.page_number
                     entries.append(entry)
+                else:
+                    rejected_count += 1
         else:
             # 逐行解析純文字
             for line in page.text.split("\n"):
@@ -68,8 +81,10 @@ def parse_pages(
                 if entry is not None:
                     entry["source_page"] = page.page_number
                     entries.append(entry)
+                else:
+                    rejected_count += 1
 
-    return entries
+    return ParseResult(entries=entries, rejected_count=rejected_count)
 
 
 def write_raw_json(entries: list[VocabEntry], outdir: str | Path) -> Path:

@@ -23,7 +23,7 @@ class TestConfidence:
     def test_word_only(self):
         e = _entry()
         c = compute_confidence(e)
-        assert c <= 0.6  # word(1.0) / 2.0 = 0.5
+        assert c <= 0.3  # word(1.0) / 3.5 ≈ 0.286
 
     def test_suspicious_word(self):
         e = _entry(word="apple123")
@@ -74,10 +74,11 @@ class TestQAReport:
                 parse_confidence=0.5, issues=["missing_pos", "missing_definition"],
             ),
         ]
-        report = generate_qa_report(raw, cleaned)
+        report = generate_qa_report(raw, cleaned, rejected_lines=2)
         assert report["total_raw"] == 3
         assert report["total_cleaned"] == 2
         assert report["duplicates_removed"] == 1
+        assert report["rejected_lines"] == 2
         assert report["low_confidence_count"] == 0
         assert "word" in report["field_completeness"]
         assert report["field_completeness"]["word"] == 1.0

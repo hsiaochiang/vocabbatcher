@@ -35,11 +35,16 @@ class TestBuildParser:
         with pytest.raises(SystemExit):
             p.parse_args([])
 
+    def test_md_input_accepted(self):
+        p = build_parser()
+        args = p.parse_args(["--input", "test.md", "--outdir", "out"])
+        assert args.input == "test.md"
+
 
 class TestRun:
     @patch("src.pdf_parser.__main__.extract_pages")
     @patch("src.pdf_parser.__main__.load_rule")
-    def test_end_to_end(self, mock_load_rule, mock_extract, tmp_path):
+    def test_end_to_end_pdf(self, mock_load_rule, mock_extract, tmp_path):
         # Setup mocks
         mock_extract.return_value = [
             PageContent(
@@ -86,3 +91,36 @@ class TestRun:
         assert report["total_raw"] == 2
         assert report["total_cleaned"] == 2
         assert report["duplicates_removed"] == 0
+
+    def test_end_to_end_md(self, tmp_path):
+        """測試 .md 輸入走 Markdown pipeline。"""
+        md_file = tmp_path / "test.md"
+        md_file.write_text(
+            "## 出現次數：5\n\n"
+            "| 單字 | 詞性 | 中文定義 |\n"
+            "|------|------|--------|\n"
+            "| **apple** | [n.] | 蘋果 |\n"
+            "| **run** | [v.] | 跑 |\n",
+            encoding="utf-8",
+        )
+
+        outdir = tmp_path / "output"
+        args = argparse.Namespace(
+            input=str(md_file),
+            outdir=str(outdir),
+            min_frequency=None,
+            page_range=None,
+            rule="top2025",
+        )
+        run(args)
+
+        assert (outdir / "vocab.raw.json").exists()
+        assert (outdir / "vocab.cleaned.json").exists()
+        assert (outdir / "vocab.qa_report.json").exists()
+
+        cleaned = json.loads((outdir / "vocab.cleaned.json").read_text(encoding="utf-8"))
+        assert len(cleaned) == 2
+        assert cleaned[0]["word"] == "apple"
+        assert cleaned[0]["pos"] == "n."
+        assert cleaned[0]["zh_definition"] == "蘋果"
+        assert cleaned[0]["frequency"] == 5
