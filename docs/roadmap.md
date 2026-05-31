@@ -15,7 +15,7 @@
 |---|--------|--------|------|
 | D1 | **PDF Parser** | Python 3.11 CLI | `top2025.pdf` → `vocab.raw.json` / `vocab.cleaned.json` / `vocab.qa_report.json` |
 | D2 | **UI 原型** | Stitch HTML | 6 核心畫面的高保真手機 UI（已完成 10 畫面） |
-| D3 | **ExamVocabBatcher App** | React Native + Expo | 完整 App：批次建立 → 音訊播放 → 翻牌學習 → 四題型練習 → 統計 |
+| D3 | **ExamVocabBatcher App** | React + Vite PWA | 完整 Web App：批次建立 → 翻牌學習 → 練習（M2 已完成） |
 
 ### Non-goals（明確不做）
 - 帳號系統 / 雲端同步
@@ -105,10 +105,10 @@
 ---
 
 ## 4. 目前狀態
-- Current：S3-D1（2026-02-28）— `pdf-parser` 已完成實作與提交（`a2d8fe0`），進入收尾階段
-- Next：修正 code review 的 2 個 CRITICAL 後，執行 `/opsx:sync` 與 `/opsx:archive "pdf-parser"`
-- Blockers：`docs/qa/2026-02-28_code-review.md` 中 2 個 CRITICAL（confidence 門檻與 unparseable 行低信心記錄）
-- Evidence：`a2d8fe0`、`docs/qa/2026-02-28_code-review.md`、`openspec/changes/pdf-parser/`
+- Current：S4-M2（2026-05-31）— B-1 Web App（ExamVocabBatcher PWA）已完成實作
+- Next：部署至 GitHub Pages，執行 M2 驗收標準 14 項
+- Blockers：無
+- Evidence：`exam-vocab-batcher/` 目錄、`npm run build` 成功
 
 ## 5. 階段轉換記錄
 
@@ -116,3 +116,4 @@
 |------|----|----|---------|------|
 | 2026-02-28 | S0 | S1.5 | Bootstrap + OpenSpec 初始化完成 | docs/decisions/2026-02-28_openspec-workflow-automation.md |
 | 2026-02-28 | S1.5 | S3-D1 | 完成 `pdf-parser` change 實作、驗證、提交推送 | a2d8fe0, openspec/changes/pdf-parser/, docs/qa/2026-02-28_code-review.md |
+| 2026-05-31 | S3-D1 | S4-M2 | 完成功能補完 A-1~C-2 + B-1 Web App 實作 | 4d2ba41, exam-vocab-batcher/ |
