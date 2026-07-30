@@ -1,5 +1,6 @@
-import { memo } from 'react';
+import { memo, type KeyboardEvent } from 'react';
 import type { VocabEntry } from '../types/vocab';
+import SpeakButton from './SpeakButton';
 
 interface WordCardProps {
   entry: VocabEntry;
@@ -14,12 +15,31 @@ export default memo(function WordCard({
   disabled,
   onToggle,
 }: WordCardProps) {
+  const canToggle = !disabled || selected;
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!canToggle) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onToggle();
+    }
+  };
+
   return (
-    <button
-      type="button"
-      onClick={onToggle}
-      disabled={disabled && !selected}
+    <div
+      role="button"
+      tabIndex={canToggle ? 0 : -1}
+      aria-pressed={selected}
+      aria-disabled={!canToggle}
+      onClick={() => {
+        if (canToggle) onToggle();
+      }}
+      onKeyDown={handleKeyDown}
       className={`flex w-full items-start gap-3 border-b border-gray-100 px-4 py-3 text-left transition-colors ${
+        canToggle
+          ? 'cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30'
+          : ''
+      } ${
         selected
           ? 'bg-primary/5'
           : disabled
@@ -42,13 +62,20 @@ export default memo(function WordCard({
 
       {/* Word info */}
       <div className="min-w-0 flex-1">
-        <div className="flex items-baseline gap-2">
-          <span className="text-base font-semibold text-gray-900">
-            {entry.word}
-          </span>
-          {entry.pos && (
-            <span className="text-xs text-gray-400">[{entry.pos}]</span>
-          )}
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-2">
+              <span className="break-words text-base font-semibold text-gray-900">
+                {entry.word}
+              </span>
+              {entry.pos && (
+                <span className="shrink-0 text-xs text-gray-400">
+                  [{entry.pos}]
+                </span>
+              )}
+            </div>
+          </div>
+          <SpeakButton word={entry.word} className="shrink-0" />
         </div>
         {entry.zh_definition && (
           <p className="mt-0.5 text-sm text-gray-500">{entry.zh_definition}</p>
@@ -57,6 +84,6 @@ export default memo(function WordCard({
           <p className="mt-0.5 text-xs text-gray-400">頻率 {entry.frequency} 次</p>
         )}
       </div>
-    </button>
+    </div>
   );
 });

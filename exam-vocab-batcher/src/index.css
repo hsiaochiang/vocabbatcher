@@ -37,3 +37,17 @@ body {
 .card-back {
   transform: rotateY(180deg);
 }
+
+.toast-fade {
+  animation: toast-fade 2.3s ease forwards;
+}
+
+@keyframes toast-fade {
+  0%,
+  87% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,8 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
-import { speakEn, speakZh } from '../services/tts';
+import SpeakButton from '../components/SpeakButton';
+import { speakZh } from '../services/tts';
 
 export default function FlashCardPage() {
   const { id } = useParams<{ id: string }>();
@@ -10,13 +11,17 @@ export default function FlashCardPage() {
   const { batches, updateBatch } = useApp();
 
   const batch = batches.find((b) => b.id === id);
-  const [index, setIndex] = useState(batch?.flashcardIndex ?? 0);
+  const [localProgress, setLocalProgress] = useState({
+    batchId: id ?? null,
+    index: batch?.flashcardIndex ?? 0,
+  });
   const [flipped, setFlipped] = useState(false);
 
-  // Sync index from batch on mount
-  useEffect(() => {
-    if (batch) setIndex(batch.flashcardIndex);
-  }, [batch?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  const batchId = batch?.id ?? null;
+  const index =
+    localProgress.batchId === batchId
+      ? localProgress.index
+      : batch?.flashcardIndex ?? 0;
 
   const persistIndex = useCallback(
     (newIndex: number) => {
@@ -45,11 +50,11 @@ export default function FlashCardPage() {
     setFlipped(false);
     if (isComplete) {
       // Restart
-      setIndex(0);
+      setLocalProgress({ batchId, index: 0 });
       persistIndex(0);
     } else {
       const newIdx = index + 1;
-      setIndex(newIdx);
+      setLocalProgress({ batchId, index: newIdx });
       persistIndex(newIdx);
     }
   };
@@ -57,7 +62,7 @@ export default function FlashCardPage() {
   const goPrev = () => {
     if (index > 0) {
       setFlipped(false);
-      setIndex(index - 1);
+      setLocalProgress({ batchId, index: index - 1 });
     }
   };
 
@@ -122,24 +127,20 @@ export default function FlashCardPage() {
                     {word!.ipa_us}
                   </p>
                 )}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    speakEn(word!.word);
-                  }}
-                  className="mt-4 flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-full bg-primary/10 px-5 py-2.5 text-sm font-medium text-primary hover:bg-primary/20"
-                >
-                  <span className="material-symbols-outlined text-[22px]">
-                    volume_up
-                  </span>
-                  播放發音
-                </button>
+                <SpeakButton
+                  word={word!.word}
+                  label="播放發音"
+                  className="mt-4 px-5 py-2.5"
+                />
                 <p className="mt-6 text-xs text-gray-300">點擊翻面</p>
               </div>
 
               {/* Back */}
               <div className="card-back flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
-                <p className="text-sm text-gray-400">{word!.word}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm text-gray-400">{word!.word}</p>
+                  <SpeakButton word={word!.word} className="px-2 py-1" />
+                </div>
                 <p className="mt-3 text-2xl font-bold text-gray-900">
                   {word!.zh_definition ?? '（無中文定義）'}
                 </p>
