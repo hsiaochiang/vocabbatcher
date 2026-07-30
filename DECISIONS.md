@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-07-30　提前執行 M4 部署項目：建立 GitHub Pages 正式環境
+
+- **狀態：** 已採納
+- **背景：** M3-S1「發音按鈕全面化」驗收時，負責人在本機 LAN（`vite --host` 開放區網 IP）測試，iPad Safari 與 Android Chrome 皆卡在「連線中」空白畫面（疑似 Windows 防火牆 Public 設定檔或路由器 AP 隔離導致連線被靜默丟棄）。負責人要求改用正式環境測試，因為正式上線本來就不應依賴負責人本機網路。
+- **改動：** 新增 `.github/workflows/deploy.yml`，push 到 `main` 時自動 `npm run build` 並用官方 `actions/upload-pages-artifact` + `actions/deploy-pages` 部署到 GitHub Pages（`https://hsiaochiang.github.io/vocabbatcher/`）。此為 `ROADMAP.md` M4「部署至 GitHub Pages」項目的提前執行，非依原排序在 M3 全部完成後才做。
+- **影響的原始需求：** 無新增/刪除需求條目；`ROADMAP.md` M4 的部署工作項目已提前完成，M4 階段屆時可跳過此項。後續 S2~S5、M4 其餘項目仍沿用同一 GitHub Pages 網址，不需另建部署管線。
+- **負責人是否同意：** 是（負責人主動要求）
+
 ## 2026-07-06　使用者回饋功能定案：併入 M3，新增雲端帳號(推翻原排除項)
 
 - **狀態：** 已採納
