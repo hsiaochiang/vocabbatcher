@@ -1,7 +1,8 @@
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut as firebaseSignOut,
   type User,
 } from 'firebase/auth';
@@ -22,11 +23,22 @@ async function ensureUserDoc(user: User): Promise<void> {
   }
 }
 
-export async function signInWithGoogle(): Promise<User | null> {
+export async function signInWithGoogle(): Promise<void> {
+  if (!auth) return;
+  // 手機瀏覽器(iOS Safari / Android Chrome)常封鎖或立刻關閉彈出視窗，
+  // 改用整頁導向登入(signInWithRedirect)，登入完成後導回本頁再由
+  // completeRedirectSignIn() 接住結果。
+  await signInWithRedirect(auth, googleProvider);
+}
+
+export async function completeRedirectSignIn(): Promise<User | null> {
   if (!auth) return null;
-  const result = await signInWithPopup(auth, googleProvider);
-  await ensureUserDoc(result.user);
-  return result.user;
+  const result = await getRedirectResult(auth);
+  if (result?.user) {
+    await ensureUserDoc(result.user);
+    return result.user;
+  }
+  return null;
 }
 
 export async function signOut(): Promise<void> {
