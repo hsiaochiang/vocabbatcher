@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-07-31　M3-S2 修復：Google 登入改用 signInWithRedirect（偏離 BRIEF 原定實作方式）
+
+- **狀態：** 已採納
+- **背景：** `BRIEF_S2_雲端帳號.md` 原始實作採 `signInWithPopup`（跳出視窗登入）。負責人於 iPhone、iPad、Android 三平台實測，點擊「使用 Google 登入」後畫面閃一下即消失、登入未完成——這是手機瀏覽器（iOS Safari、Android Chrome）普遍封鎖或立即關閉彈出視窗的已知限制。
+- **改動：** `src/services/auth.ts` 的 `signInWithGoogle()` 改為 `signInWithRedirect`（整頁導向登入），新增 `completeRedirectSignIn()` 於頁面載入時接住導回結果並建立 `users/{uid}` 文件；`UserBadge.tsx` 新增登入失敗錯誤提示文字。修復後三平台重測皆成功。
+- **影響的原始需求：** 不影響 R9 驗收標準本身（使用者能以 Google 帳號登入、跨裝置同步），僅實作方式從彈出視窗改為整頁導向；`BRIEF_S2_雲端帳號.md` 與 `STAGE_3_PLAN.md` 的「發音一律經 tts.ts」等跨切片一致性規則不受影響。往後 S3~S5 若涉及登入流程，一律沿用 `signInWithRedirect` 模式。
+- **負責人是否同意：** 是（負責人回報成功後追認）
+
 ## 2026-07-30　提前執行 M4 部署項目：建立 GitHub Pages 正式環境
 
 - **狀態：** 已採納
