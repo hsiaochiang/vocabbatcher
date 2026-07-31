@@ -27,6 +27,29 @@ export default function HomePage() {
       <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
 
       <main className="flex-1 px-4 pb-24 pt-4">
+        {/* Exam entry */}
+        <section className="mb-6">
+          <button
+            onClick={() => navigate('/exam')}
+            className="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-primary/5 px-4 py-4 text-left shadow-sm transition-colors hover:bg-primary/10"
+          >
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-2xl text-primary">
+                quiz
+              </span>
+              <div>
+                <p className="font-semibold text-gray-900">開始考試</p>
+                <p className="mt-0.5 text-xs text-gray-500">
+                  選頁數範圍出選擇題／聽力題
+                </p>
+              </div>
+            </div>
+            <span className="material-symbols-outlined text-gray-300">
+              chevron_right
+            </span>
+          </button>
+        </section>
+
         {/* Continue last batch */}
         {activeBatch && (
           <section className="mb-6">

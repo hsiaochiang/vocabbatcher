@@ -1,0 +1,143 @@
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useApp } from '../store/AppContext';
+import Header from '../components/Header';
+import Toast from '../components/Toast';
+import { generateExam, getPageRange, type ExamMode } from '../services/exam';
+
+const QUICK_COUNTS = [5, 10, 20];
+
+export default function ExamSetupPage() {
+  const { allWords } = useApp();
+  const navigate = useNavigate();
+
+  const [globalMin, globalMax] = useMemo(() => getPageRange(allWords), [allWords]);
+  const [minPage, setMinPage] = useState(globalMin);
+  const [maxPage, setMaxPage] = useState(globalMax);
+  const [questionCount, setQuestionCount] = useState(10);
+  const [mode, setMode] = useState<ExamMode>('mixed');
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const handleStart = () => {
+    const questions = generateExam(allWords, {
+      minPage,
+      maxPage,
+      questionCount,
+      mode,
+    });
+    if (questions.length === 0) {
+      setToastVisible(true);
+      return;
+    }
+    navigate('/exam/run', {
+      state: {
+        questions,
+        minPage,
+        maxPage,
+        mode,
+      },
+    });
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col bg-bg-light">
+      <Header title="考試設定" onBack={() => navigate('/')} />
+
+      <main className="flex-1 space-y-6 px-4 py-4">
+        <section>
+          <h2 className="mb-2 text-sm font-medium text-gray-500">頁數範圍</h2>
+          <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4">
+            <input
+              type="number"
+              min={globalMin}
+              max={maxPage}
+              value={minPage}
+              onChange={(e) => setMinPage(Number(e.target.value))}
+              className="w-20 rounded-lg border border-gray-200 px-3 py-2 text-center text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            />
+            <span className="text-gray-400">至</span>
+            <input
+              type="number"
+              min={minPage}
+              max={globalMax}
+              value={maxPage}
+              onChange={(e) => setMaxPage(Number(e.target.value))}
+              className="w-20 rounded-lg border border-gray-200 px-3 py-2 text-center text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            />
+            <span className="text-sm text-gray-400">
+              頁（全書 {globalMin}~{globalMax} 頁）
+            </span>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-sm font-medium text-gray-500">題數</h2>
+          <div className="flex gap-2">
+            {QUICK_COUNTS.map((n) => (
+              <button
+                key={n}
+                onClick={() => setQuestionCount(n)}
+                className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                  questionCount === n
+                    ? 'border-primary bg-primary text-white'
+                    : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                {n} 題
+              </button>
+            ))}
+            <input
+              type="number"
+              min={1}
+              max={100}
+              value={questionCount}
+              onChange={(e) => setQuestionCount(Number(e.target.value))}
+              className="w-16 rounded-lg border border-gray-200 px-2 py-2 text-center text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            />
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-sm font-medium text-gray-500">模式</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setMode('mixed')}
+              className={`flex-1 rounded-lg border px-3 py-3 text-sm font-medium transition-colors ${
+                mode === 'mixed'
+                  ? 'border-primary bg-primary text-white'
+                  : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              混合（中英交互＋聽力）
+            </button>
+            <button
+              onClick={() => setMode('listening')}
+              className={`flex-1 rounded-lg border px-3 py-3 text-sm font-medium transition-colors ${
+                mode === 'listening'
+                  ? 'border-primary bg-primary text-white'
+                  : 'border-gray-200 bg-white text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              純聽力
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <div className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white p-4">
+        <button
+          onClick={handleStart}
+          className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-primary/90"
+        >
+          開始考試
+        </button>
+      </div>
+
+      <Toast
+        message="此頁數範圍內單字不足，無法出題"
+        visible={toastVisible}
+        onHide={() => setToastVisible(false)}
+      />
+    </div>
+  );
+}
