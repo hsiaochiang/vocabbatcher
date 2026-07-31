@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
+import UserBadge from '../components/UserBadge';
 
 export default function HomePage() {
   const { batches, activeBatchId, isLoading, setActiveBatch } = useApp();
@@ -23,7 +24,7 @@ export default function HomePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
-      <Header title="國中會考單字準備" />
+      <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
 
       <main className="flex-1 px-4 pb-24 pt-4">
         {/* Continue last batch */}
