@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
+import { getPageRange } from '../services/exam';
 
 export default function BatchHubPage() {
   const { id } = useParams<{ id: string }>();
@@ -38,6 +39,7 @@ export default function BatchHubPage() {
     batch.words.length > 0
       ? Math.round((batch.flashcardIndex / batch.words.length) * 100)
       : 0;
+  const [batchMinPage, batchMaxPage] = getPageRange(batch.words);
 
   const features = [
     {
@@ -51,31 +53,30 @@ export default function BatchHubPage() {
       onClick: () => navigate(`/batch/${id}/flashcard`),
     },
     {
-      icon: 'volume_up',
-      label: '錄音播放',
-      subtitle: '即將推出',
-      color: 'text-amber-500',
-      bgColor: 'bg-amber-50',
-      borderColor: 'border-gray-200',
-      available: false,
-    },
-    {
       icon: 'edit_note',
       label: '練習測驗',
-      subtitle: '即將推出',
+      subtitle: `第 ${batchMinPage}-${batchMaxPage} 頁`,
       color: 'text-emerald-500',
       bgColor: 'bg-emerald-50',
-      borderColor: 'border-gray-200',
-      available: false,
+      borderColor: 'border-emerald-200',
+      available: true,
+      onClick: () =>
+        navigate('/exam', {
+          state: {
+            initialMinPage: batchMinPage,
+            initialMaxPage: batchMaxPage,
+          },
+        }),
     },
     {
       icon: 'bar_chart',
       label: '學習統計',
-      subtitle: '即將推出',
+      subtitle: '查看錯誤率',
       color: 'text-violet-500',
       bgColor: 'bg-violet-50',
-      borderColor: 'border-gray-200',
-      available: false,
+      borderColor: 'border-violet-200',
+      available: true,
+      onClick: () => navigate('/stats'),
     },
   ];
 
@@ -89,7 +90,7 @@ export default function BatchHubPage() {
             <UserBadge />
             <button
               onClick={() => setDeleteOpen(true)}
-              className="text-gray-500 hover:text-red-500"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-gray-500 hover:bg-red-50 hover:text-red-500"
               aria-label="刪除批次"
             >
               <span className="material-symbols-outlined">delete</span>
@@ -121,7 +122,7 @@ export default function BatchHubPage() {
           {features.map((feat) => (
             <button
               key={feat.label}
-              onClick={feat.available ? feat.onClick : undefined}
+              onClick={feat.onClick}
               className={`flex flex-col items-center justify-center gap-2 rounded-xl border ${feat.borderColor} ${feat.available ? feat.bgColor : 'bg-white'} p-6 shadow-sm transition-colors ${
                 feat.available
                   ? 'hover:shadow-md'

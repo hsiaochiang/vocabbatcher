@@ -32,6 +32,13 @@ const POS_OPTIONS: { value: PosFilter; label: string }[] = [
   { value: 'other', label: '其他' },
 ];
 
+function sameWordSet(a: VocabEntry[], b: VocabEntry[]) {
+  if (a.length !== b.length) return false;
+
+  const aWords = new Set(a.map((word) => word.word));
+  return b.every((word) => aWords.has(word.word));
+}
+
 export default function BatchBuilderPage() {
   const { allWords, batches, createBatch, setActiveBatch } = useApp();
   const navigate = useNavigate();
@@ -112,12 +119,32 @@ export default function BatchBuilderPage() {
 
   const handleCreate = () => {
     const words = allWords.filter((w) => selected.has(w.word));
+    const duplicate = batches.find((batch) => sameWordSet(batch.words, words));
+    if (
+      duplicate &&
+      !window.confirm(
+        `已經有一個內容相同的批次「${duplicate.name}」，仍要建立新的嗎？`,
+      )
+    ) {
+      return;
+    }
+
     const batch = createBatch(words);
     setActiveBatch(batch.id);
     navigate(`/batch/${batch.id}`);
   };
 
   const handleCreatePageBatch = (page: number, words: VocabEntry[]) => {
+    const duplicate = batches.find((batch) => sameWordSet(batch.words, words));
+    if (
+      duplicate &&
+      !window.confirm(
+        `已經有一個內容相同的批次「${duplicate.name}」，仍要建立新的嗎？`,
+      )
+    ) {
+      return;
+    }
+
     const batch = createBatch(
       words,
       `批次 #${batches.length + 1}（第 ${page} 頁）`,

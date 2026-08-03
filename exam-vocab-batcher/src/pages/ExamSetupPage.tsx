@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import Toast from '../components/Toast';
@@ -8,15 +8,29 @@ import { generateExam, getPageRange, type ExamMode } from '../services/exam';
 
 const QUICK_COUNTS = [5, 10, 20];
 
+interface ExamSetupState {
+  initialMinPage?: number;
+  initialMaxPage?: number;
+}
+
 export default function ExamSetupPage() {
   const { allWords } = useApp();
+  const location = useLocation();
   const navigate = useNavigate();
+  const setupState = location.state as ExamSetupState | undefined;
 
   const [globalMin, globalMax] = useMemo(() => getPageRange(allWords), [allWords]);
   const [pageRange, setPageRange] = useState<{
     minPage: number;
     maxPage: number;
-  } | null>(null);
+  } | null>(() =>
+    setupState?.initialMinPage != null && setupState.initialMaxPage != null
+      ? {
+          minPage: setupState.initialMinPage,
+          maxPage: setupState.initialMaxPage,
+        }
+      : null,
+  );
   const [questionCount, setQuestionCount] = useState(10);
   const [mode, setMode] = useState<ExamMode>('mixed');
   const [toastVisible, setToastVisible] = useState(false);
