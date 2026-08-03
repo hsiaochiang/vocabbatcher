@@ -6,6 +6,12 @@
 >
 > **這是一份活文件 (living document)：當架構或規則改變，你要主動更新它。**
 >
+> **文件地圖（2026-08-03 整理，之後全部照這個位置找）：**
+> 本檔與 `README.md` 留在專案根目錄；`PROGRESS.md`、`DECISIONS.md`、`REQUIREMENTS.md`、`ROADMAP.md`、`WORKFLOW.md`、
+> `STAGE_N_PLAN.md`、`USER_MANUAL.md`、`DEVELOPER_LOG.md` 等規劃/治理文件都在 `docs/planning/`；
+> 每片的 `BRIEF_*.md`、`CODEX_PROMPT_*.md`、`REPORT_*.md` 三件套都在 `docs/handoff/`（各自資料夾內有 `README.md` 說明用途）。
+> 下文提到這些檔名時省略路徑前綴，一律照這張地圖找。
+>
 > **註：本專案原本由 OpenSpec + GitHub Copilot（含 WOS agent）驅動開發，文件散落在
 > `docs/roadmap.md`、`docs/decision-log.md`、`.github/copilot-instructions.md` 等處。
 > 負責人已決定逐步以本套「兩層 vibe coding」流程取代舊流程，但舊文件暫不刪除，
@@ -51,6 +57,8 @@
 - 語音：一律經 `src/services/tts.ts`（Web Speech API），發音必須由使用者點擊觸發（iPad 限制）。
 - 帳號與雲端：Firebase Authentication（Google 登入）+ Cloud Firestore（成績/錯誤率），資料模型定義見 `STAGE_3_PLAN.md`「跨切片一致性」。
 - 出題引擎：純前端（`src/services/exam.ts`，S3 建立），斷網可考、恢復網路再同步成績。
+- 部署：`.\deploy.ps1`（專案根目錄）— 依序執行 `npm run build`＋`firebase deploy --only hosting`，取代手動兩步驟輸入。
+- **UI/UX 類切片的自我驗證（2026-08-03 起）：** 純視覺/互動修正（不涉及 Google 登入導向、Firestore 讀寫等需要真實帳號的流程）時，執行層在收工前要用 Playwright 自己跑一輪基本驗證（開頁、截圖、點擊關鍵路徑、檢查畫面文字/元素是否如預期），把能自動驗證的部分先驗過，降低負責人手動測試的負擔；驗證腳本/設定可以是暫時性的（跑完可留可不留，視是否有長期價值決定），但驗證過程與結果要寫進收工報告。涉及 Google 登入導向的流程，Playwright 仍無法取代真人在真機上測試。
 
 ## 專案必備文件(你要負責維護)
 
@@ -99,7 +107,7 @@
 **觸發時機：** 你(規劃層或執行層)準備把 `PROGRESS.md` 標成「已交付 / 完成」或整體進度標到 100% 之前。
 
 **必做檢查：**
-1. 確認專案根有 `USER_MANUAL.md`(給不懂程式的使用者：怎麼用)與 `DEVELOPER_LOG.md`(給一兩個月後回來的自己：環境怎麼跑、主要模組、重要架構決定)。**本專案兩者皆已存在。**
+1. 確認 `docs/planning/` 內有 `USER_MANUAL.md`(給不懂程式的使用者：怎麼用)與 `DEVELOPER_LOG.md`(給一兩個月後回來的自己：環境怎麼跑、主要模組、重要架構決定)。**本專案兩者皆已存在。**
 2. **缺任一份 → 停下，提醒負責人：「交付前還欠這份文件，要現在補嗎？」** 不可靜默略過、不可在缺文件又無留痕的情況下宣告交付。
 3. 若負責人決定**略過**(例：內部小工具、一次性腳本，不需完整手冊)→ 在 `DECISIONS.md` 記一筆(略過哪份、原因、負責人同意)，才可標交付。
 
