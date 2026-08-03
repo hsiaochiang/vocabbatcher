@@ -8,7 +8,7 @@ from src.pdf_parser.models import VocabEntry
 def _make_entry(**overrides) -> VocabEntry:
     defaults = dict(
         word="test", pos="n.", zh_definition="測試",
-        frequency=3, source_page=1, ipa_us=None, ipa_uk=None,
+        frequency=3, level=None, source_page=1, ipa_us=None, ipa_uk=None,
     )
     defaults.update(overrides)
     return VocabEntry(**defaults)  # type: ignore[typeddict-item]
@@ -41,6 +41,11 @@ class TestCleanEntries:
         entries = [_make_entry(zh_definition="")]
         result = clean_entries(entries)
         assert result[0]["zh_definition"] is None
+
+    def test_level_trimmed_and_preserved(self):
+        entries = [_make_entry(level=" 第三級 ")]
+        result = clean_entries(entries)
+        assert result[0]["level"] == "第三級"
 
     def test_min_frequency_filter(self):
         entries = [

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import sys
 from pathlib import Path
 
@@ -29,19 +30,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument(
         "--rule", default="top2025",
-        help="parser 規則模組名稱（預設 top2025，僅 PDF）",
+        help="parser 規則模組名稱（預設 top2025；Markdown 會載入 <rule>_md）",
     )
     return p
 
 
 def _run_md(args: argparse.Namespace) -> None:
     """Markdown 檔案 pipeline。"""
-    from src.pdf_parser.rules.top2025_md import parse_md_file
-
     if args.page_range:
         print("⚠️  --page-range 僅適用於 PDF，Markdown 模式已忽略")
-    if args.rule != "top2025":
-        print(f"⚠️  --rule '{args.rule}' 僅適用於 PDF，Markdown 模式已忽略")
+
+    module = importlib.import_module(f"src.pdf_parser.rules.{args.rule}_md")
+    parse_md_file = getattr(module, "parse_md_file")
 
     # 1. Parse MD
     print(f"[1/3] 解析 Markdown：{args.input}")

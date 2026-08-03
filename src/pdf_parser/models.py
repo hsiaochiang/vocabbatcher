@@ -12,6 +12,7 @@ class VocabEntry(TypedDict):
     pos: str | None
     zh_definition: str | None
     frequency: int | None
+    level: str | None
     source_page: int
     ipa_us: str | None
     ipa_uk: str | None
@@ -24,6 +25,7 @@ class CleanedEntry(TypedDict):
     pos: str | None
     zh_definition: str | None
     frequency: int | None
+    level: str | None
     source_page: list[int]
     ipa_us: str | None
     ipa_uk: str | None

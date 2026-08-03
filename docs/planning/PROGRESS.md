@@ -7,15 +7,17 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** M4「品質收斂」全部完成（S1~S2-S4），待負責人最終驗收
-- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1、M2、M3、UI/UX 修正切片、M4 全部完成；M4-S2~S4 待負責人驗收確認）
+- **目前階段：** M4「品質收斂」全部完成（S1~S2-S4），待負責人最終驗收；M5-S1「學測資料管線」已實作待負責人抽查資料正確性
+- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%＋（M1~M4 全部完成，M4-S2~S4 待負責人驗收確認；M5 為新增里程碑，S1 已實作待資料抽查）
 - **最後更新：** 2026-08-03 by 執行層
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**M4 全部完成，等負責人驗收，過了整個專案可以視為 MVP 全部里程碑（M1~M4）都完成**：請依 `docs/handoff/REPORT_M4S2-S4_品質收斂收尾.md` 的白話步驟驗收批次 Hub 三格入口、練習測驗頁碼預設、重複批次提示、1231 筆清單捲動、主要頁面 smoke test 與新版 `README.md`。
+兩件事並行：
+1. **M4 驗收（尚未收尾）**：請依 `docs/handoff/REPORT_M4S2-S4_品質收斂收尾.md` 的白話步驟驗收批次 Hub 三格入口、練習測驗頁碼預設、重複批次提示、1231 筆清單捲動、主要頁面 smoke test 與新版 `README.md`。
+2. **M5-S1 待負責人抽查資料正確性，過了才開 M5-S2（App 端來源切換）**：請依 `docs/handoff/REPORT_M5S1_學測資料管線.md` 的抽樣清單與白話步驟，核對 `output/gsat/vocab.cleaned.json` 中學測單字的拼字、詞性、中文定義、Level、出現次數與頁碼；這份資料由 PDF 表格座標 + OCR 轉錄產生，中文定義需人工抽查後再放行。
 
 <details>
 <summary>舊版下一步紀錄（已由上方取代，保留備查）</summary>
@@ -40,6 +42,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-03　**M5-S1「學測資料管線」已實作待資料抽查**：新增 `0resource/topsat.md`，以 PDF 表格座標搭配 OCR 轉錄 `TopAcademy 學測高頻率單字表.pdf`，共解析 1640 筆；`VocabEntry`/`CleanedEntry` 新增 `level` 欄位，`topsat_md.py` 可解析學測 Markdown；產出 `output/gsat/vocab.raw.json`、`vocab.cleaned.json`、`vocab.qa_report.json`，並複製到 `exam-vocab-batcher/public/data/vocab.gsat.cleaned.json`。QA：詞性完整率 94.0%、中文定義完整率 98.7%、低信心 1 筆；因中文定義是 OCR 轉錄，需負責人抽查後才開 M5-S2。`python -m pytest tests/` 66 passed。詳見 `REPORT_M5S1_學測資料管線.md`
 - 2026-08-03　**M4-S2~S4「品質收斂收尾」已實作待驗收**：批次 Hub 移除「錄音播放」假格子，保留翻牌學習/練習測驗/學習統計三格；練習測驗會導向 `/exam` 並帶入該批次頁碼範圍，學習統計導向 `/stats`；批次建立器新增重複批次確認提示；確認 0 字建立阻止與空搜尋狀態仍存在；新增 `e2e/m4s2-s4.spec.ts` smoke test，4 passed，1231 筆清單捲動量測 329ms，未加虛擬化；重寫根目錄 `README.md`。`npm.cmd run lint`、`npm.cmd run build` 通過。詳見 `REPORT_M4S2-S4_品質收斂收尾.md`
 - 2026-08-03　**M4-S1「拼字填空題型」驗收通過**：混合模式考試中拼字題正確出現、大小寫與前後空白不影響判分、答錯正確顯示正解，結果頁/統計頁對錯計入正常，iPhone/Android 皆正常。
 - 2026-08-03　**M4-S1「拼字填空題型」已實作待驗收**：`QuestionType` 新增 `spelling`，混合模式與錯題複習卷會隨機抽到拼字題；拼字題顯示中文意思、讓使用者輸入英文單字，送出後由 `isSpellingCorrect()` 統一判分（大小寫不敏感、去頭尾空白），並顯示答對/拼錯與正確拼法。為維持 TypeScript 與畫面顯示相容，結果頁與成績歷史補上「拼字」題型標籤，未改成績儲存與統計邏輯；此相容修正已記錄在 `DECISIONS.md`。`npm.cmd run lint`、`npm.cmd run build` 通過。詳見 `REPORT_M4S1_拼字填空題型.md`
@@ -75,6 +78,7 @@
 ## 🔧 進行中
 
 - M4-S2~S4 已實作完成，待負責人依報告檔做最終驗收；通過後 M1~M4 全部里程碑可視為完成
+- M5-S1 已實作完成，待負責人抽查學測資料正確性；通過後才開 M5-S2（App 端會考/學測來源切換）
 
 ## 📋 待辦
 

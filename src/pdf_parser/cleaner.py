@@ -45,6 +45,7 @@ def clean_entries(
             pos=_trim_or_null(entry.get("pos")),
             zh_definition=_trim_or_null(entry.get("zh_definition")),
             frequency=entry.get("frequency"),
+            level=_trim_or_null(entry.get("level")),
             source_page=entry.get("source_page", 0),
             ipa_us=_trim_or_null(entry.get("ipa_us")),
             ipa_uk=_trim_or_null(entry.get("ipa_uk")),
@@ -72,6 +73,7 @@ def clean_entries(
         word = entry.get("word") or ""
         pos = entry.get("pos")
         zh_def = entry.get("zh_definition")
+        level = entry.get("level")
         ipa_us = entry.get("ipa_us")
         ipa_uk = entry.get("ipa_uk")
 
@@ -88,6 +90,7 @@ def clean_entries(
                 pos=pos,
                 zh_definition=zh_def,
                 frequency=frequency,
+                level=level,
                 source_page=all_pages,
                 ipa_us=ipa_us,
                 ipa_uk=ipa_uk,

@@ -1,0 +1,29 @@
+{
+  "total_raw": 1640,
+  "total_cleaned": 1640,
+  "duplicates_removed": 0,
+  "rejected_lines": 0,
+  "low_confidence_count": 1,
+  "field_completeness": {
+    "word": 1.0,
+    "pos": 0.9402,
+    "zh_definition": 0.9866,
+    "frequency": 1.0,
+    "ipa_us": 0.0,
+    "ipa_uk": 0.0
+  },
+  "issues_summary": [
+    {
+      "issue": "missing_pos",
+      "count": 98
+    },
+    {
+      "issue": "missing_definition",
+      "count": 22
+    },
+    {
+      "issue": "low_confidence",
+      "count": 1
+    }
+  ]
+}
