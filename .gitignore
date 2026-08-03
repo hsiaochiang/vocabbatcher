@@ -36,3 +36,10 @@ output/
 # Environment
 .env
 .env.local
+
+# Claude Code local state
+.claude/settings.local.json
+.claude/.progress-session-marker
+
+# Firebase CLI local cache
+.firebase/
