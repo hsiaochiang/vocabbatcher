@@ -8,6 +8,7 @@ export interface ExamQuestion {
   type: QuestionType;
   options: string[];
   correctIndex: number;
+  correctAnswer?: string;
 }
 
 export interface GenerateExamOptions {
@@ -45,6 +46,17 @@ function buildQuestion(
   pool: VocabEntry[],
 ): ExamQuestion | null {
   if (!word.zh_definition) return null;
+
+  if (type === 'spelling') {
+    return {
+      word,
+      type,
+      options: [],
+      correctIndex: -1,
+      correctAnswer: word.word,
+    };
+  }
+
   const distractors = pickDistractors(pool, word, 3);
   if (distractors.length < 3) return null;
 
@@ -60,7 +72,16 @@ function buildQuestion(
   return { word, type, options, correctIndex };
 }
 
-const QUESTION_TYPES: QuestionType[] = ['zh_to_en', 'en_to_zh', 'listening'];
+export function isSpellingCorrect(input: string, answer: string): boolean {
+  return input.trim().toLowerCase() === answer.trim().toLowerCase();
+}
+
+const QUESTION_TYPES: QuestionType[] = [
+  'zh_to_en',
+  'en_to_zh',
+  'listening',
+  'spelling',
+];
 
 export function generateExam(
   allWords: VocabEntry[],

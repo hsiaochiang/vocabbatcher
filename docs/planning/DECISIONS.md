@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-03　M4-S1 相容修正：結果頁與歷史頁補上拼字題型標籤
+
+- **狀態：** 已採納
+- **背景：** M4-S1 BRIEF 原本要求不改 `ExamResultPage.tsx`、`WordStatsPage.tsx`，因為成績統計只依 `ExamQuestionRecord.correct` 判斷，不需要改資料模型。但 `QuestionType` 新增 `spelling` 後，`ExamResultPage.tsx` 與 `ExamHistoryPage.tsx` 的 `TYPE_LABEL: Record<ExamQuestionRecord['type'], string>` 必須補齊 `spelling`，否則 TypeScript build 會失敗；若只放寬型別不補文字，結果頁/歷史頁會出現無法辨識的題型標示。
+- **改動：** 僅在 `ExamResultPage.tsx` 與 `ExamHistoryPage.tsx` 的題型顯示文字補上 `spelling: '拼字'`；沒有改成績儲存、統計計算、Firestore 寫入或頁面流程。
+- **影響的原始需求：** R6（四題型練習）新增拼字填空題型後，結果清單與成績歷史能正確顯示該題型名稱；R11（成績與錯誤率統計）的資料計算方式維持不變。
+- **負責人是否同意：** 是（依 M4-S1 型別相容與驗收需求執行）
+
 ## 2026-08-03　修正：source_page 從 PDF 內部頁碼改為課本印刷頁碼
 
 - **狀態：** 已採納

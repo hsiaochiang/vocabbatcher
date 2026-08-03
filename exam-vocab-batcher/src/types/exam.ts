@@ -1,4 +1,4 @@
-export type QuestionType = 'zh_to_en' | 'en_to_zh' | 'listening';
+export type QuestionType = 'zh_to_en' | 'en_to_zh' | 'listening' | 'spelling';
 
 export interface ExamQuestionRecord {
   word: string;

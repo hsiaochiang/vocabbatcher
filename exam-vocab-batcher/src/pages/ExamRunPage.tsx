@@ -3,7 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
 import { speakEn } from '../services/tts';
-import type { ExamQuestion, ExamMode } from '../services/exam';
+import {
+  isSpellingCorrect,
+  type ExamQuestion,
+  type ExamMode,
+} from '../services/exam';
 import type { ExamQuestionRecord } from '../types/exam';
 
 interface ExamRunState {
@@ -21,7 +25,9 @@ export default function ExamRunPage() {
   const [index, setIndex] = useState(0);
   const [records, setRecords] = useState<ExamQuestionRecord[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
+  const [spellingInput, setSpellingInput] = useState('');
   const [answered, setAnswered] = useState(false);
+  const [answerCorrect, setAnswerCorrect] = useState<boolean | null>(null);
 
   if (!state || state.questions.length === 0) {
     return (
@@ -44,11 +50,19 @@ export default function ExamRunPage() {
   const handleSelect = (optionIndex: number) => {
     if (answered) return;
     setSelected(optionIndex);
+    setAnswerCorrect(optionIndex === question.correctIndex);
+    setAnswered(true);
+  };
+
+  const handleSubmitSpelling = () => {
+    if (answered) return;
+    const correctAnswer = question.correctAnswer ?? question.word.word;
+    setAnswerCorrect(isSpellingCorrect(spellingInput, correctAnswer));
     setAnswered(true);
   };
 
   const handleNext = () => {
-    const correct = selected === question.correctIndex;
+    const correct = answerCorrect ?? false;
     const nextRecords: ExamQuestionRecord[] = [
       ...records,
       { word: question.word.word, type: question.type, correct },
@@ -64,11 +78,15 @@ export default function ExamRunPage() {
     setRecords(nextRecords);
     setIndex(index + 1);
     setSelected(null);
+    setSpellingInput('');
     setAnswered(false);
+    setAnswerCorrect(null);
   };
 
   const questionLabel =
-    question.type === 'zh_to_en'
+    question.type === 'spelling'
+      ? '請拼出正確的英文單字'
+      : question.type === 'zh_to_en'
       ? '請選出正確英文單字'
       : question.type === 'en_to_zh'
         ? '請選出正確中文意思'
@@ -96,7 +114,7 @@ export default function ExamRunPage() {
               </span>
               播放發音
             </button>
-          ) : question.type === 'zh_to_en' ? (
+          ) : question.type === 'zh_to_en' || question.type === 'spelling' ? (
             <p className="text-2xl font-bold text-gray-900">
               {question.word.zh_definition}
             </p>
@@ -107,48 +125,101 @@ export default function ExamRunPage() {
           )}
         </div>
 
-        <div className="space-y-2">
-          {question.options.map((opt, i) => {
-            const isCorrect = i === question.correctIndex;
-            const isSelected = i === selected;
-            let style =
-              'border-gray-200 bg-white text-gray-800 hover:bg-gray-50';
-            if (answered) {
-              if (isCorrect) {
-                style = 'border-green-500 bg-green-50 text-green-700';
-              } else if (isSelected) {
-                style = 'border-red-400 bg-red-50 text-red-600';
-              } else {
-                style = 'border-gray-200 bg-white text-gray-500';
-              }
-            }
-            const feedbackIcon =
-              answered && isCorrect
-                ? 'check_circle'
-                : answered && isSelected
-                  ? 'cancel'
-                  : null;
-            return (
+        {question.type === 'spelling' ? (
+          <div className="space-y-3">
+            <input
+              type="text"
+              value={spellingInput}
+              onChange={(event) => setSpellingInput(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' && spellingInput.trim()) {
+                  handleSubmitSpelling();
+                }
+              }}
+              disabled={answered}
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              placeholder="輸入英文單字"
+              className="min-h-[48px] w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary disabled:bg-gray-50 disabled:text-gray-600"
+            />
+            {!answered ? (
               <button
-                key={i}
-                onClick={() => handleSelect(i)}
-                disabled={answered}
-                className={`flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-base font-medium transition-colors ${style}`}
+                onClick={handleSubmitSpelling}
+                disabled={!spellingInput.trim()}
+                className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
               >
-                <span>{opt}</span>
-                {feedbackIcon && (
-                  <span
-                    className={`material-symbols-outlined text-[20px] ${
-                      isCorrect ? 'text-green-500' : 'text-red-400'
-                    }`}
-                  >
-                    {feedbackIcon}
-                  </span>
-                )}
+                送出答案
               </button>
-            );
-          })}
-        </div>
+            ) : (
+              <div
+                className={`rounded-xl border px-4 py-3 ${
+                  answerCorrect
+                    ? 'border-green-500 bg-green-50 text-green-700'
+                    : 'border-red-400 bg-red-50 text-red-600'
+                }`}
+              >
+                <div className="flex items-center gap-2 font-semibold">
+                  <span className="material-symbols-outlined text-[20px]">
+                    {answerCorrect ? 'check_circle' : 'cancel'}
+                  </span>
+                  {answerCorrect ? '答對了' : '拼錯了'}
+                </div>
+                <p className="mt-1 text-sm">
+                  正確拼法：{question.correctAnswer ?? question.word.word}
+                </p>
+                {!answerCorrect && (
+                  <p className="mt-1 text-sm text-red-500">
+                    你的答案：{spellingInput || '（空白）'}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {question.options.map((opt, i) => {
+              const isCorrect = i === question.correctIndex;
+              const isSelected = i === selected;
+              let style =
+                'border-gray-200 bg-white text-gray-800 hover:bg-gray-50';
+              if (answered) {
+                if (isCorrect) {
+                  style = 'border-green-500 bg-green-50 text-green-700';
+                } else if (isSelected) {
+                  style = 'border-red-400 bg-red-50 text-red-600';
+                } else {
+                  style = 'border-gray-200 bg-white text-gray-500';
+                }
+              }
+              const feedbackIcon =
+                answered && isCorrect
+                  ? 'check_circle'
+                  : answered && isSelected
+                    ? 'cancel'
+                    : null;
+              return (
+                <button
+                  key={i}
+                  onClick={() => handleSelect(i)}
+                  disabled={answered}
+                  className={`flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-base font-medium transition-colors ${style}`}
+                >
+                  <span>{opt}</span>
+                  {feedbackIcon && (
+                    <span
+                      className={`material-symbols-outlined text-[20px] ${
+                        isCorrect ? 'text-green-500' : 'text-red-400'
+                      }`}
+                    >
+                      {feedbackIcon}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </main>
 
       <div className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white p-4">

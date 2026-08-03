@@ -21,6 +21,7 @@ const TYPE_LABEL: Record<ExamQuestionRecord['type'], string> = {
   zh_to_en: '中→英',
   en_to_zh: '英→中',
   listening: '聽力',
+  spelling: '拼字',
 };
 
 export default function ExamResultPage() {
