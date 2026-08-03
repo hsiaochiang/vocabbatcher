@@ -1061,8 +1061,8 @@
   },
   {
     "word": "attach",
-    "pos": null,
-    "zh_definition": "附上, 附加",
+    "pos": "v.",
+    "zh_definition": "附上;附加",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1821,8 +1821,8 @@
   },
   {
     "word": "impress",
-    "pos": null,
-    "zh_definition": "以] 給...留下深刻印象;使驚訝",
+    "pos": "v.",
+    "zh_definition": "給...留下深刻印象;使驚訝",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -2541,8 +2541,8 @@
   },
   {
     "word": "evaluate",
-    "pos": null,
-    "zh_definition": "[] 評估,估算",
+    "pos": "v.",
+    "zh_definition": "評估;估算",
     "frequency": 3,
     "level": "第四級",
     "source_page": 14,
@@ -2991,8 +2991,8 @@
   },
   {
     "word": "layer",
-    "pos": null,
-    "zh_definition": "層;表層;[若] 分層",
+    "pos": "n.",
+    "zh_definition": "層;表層;[v.] 分層",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -4212,7 +4212,7 @@
   {
     "word": "spin",
     "pos": "v.",
-    "zh_definition": "旋轉;紡織;巴.] 旋轉",
+    "zh_definition": "旋轉;紡織;[n.] 旋轉",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4221,18 +4221,18 @@
   },
   {
     "word": "splash",
-    "pos": null,
-    "zh_definition": "蕊] 濺;漲;[\\",
+    "pos": "v.",
+    "zh_definition": "濺;潑;[n.] 濺水聲",
     "frequency": 2,
-    "level": "濺水聲",
-    "source_page": 0,
+    "level": "第三級",
+    "source_page": 22,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "spray",
     "pos": "v.",
-    "zh_definition": "噴灑;巴.] 噴霧",
+    "zh_definition": "噴灑;[n.] 噴霧",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -5461,7 +5461,7 @@
   },
   {
     "word": "landmark",
-    "pos": null,
+    "pos": "n.",
     "zh_definition": "地標;里程碑",
     "frequency": 2,
     "level": "第四級",
@@ -5472,7 +5472,7 @@
   {
     "word": "landscape",
     "pos": "n.",
-    "zh_definition": "風景 5 美化景觀",
+    "zh_definition": "風景;[v.] 美化景觀",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -6142,7 +6142,7 @@
   {
     "word": "bound",
     "pos": "adj.",
-    "zh_definition": "註定的;受約束的;界限;ERE 5 SIAL",
+    "zh_definition": "註定的;受約束的;[n.] 界限;[v.] 跳躍;彈回",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -6161,8 +6161,8 @@
   },
   {
     "word": "bullying",
-    "pos": null,
-    "zh_definition": "叫.] 欺凌,霸凌",
+    "pos": "n.",
+    "zh_definition": "欺凌;霸凌",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -7992,7 +7992,7 @@
   {
     "word": "glory",
     "pos": "n.",
-    "zh_definition": null,
+    "zh_definition": "榮耀;光榮",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -11102,7 +11102,7 @@
   {
     "word": "humidity",
     "pos": "n.",
-    "zh_definition": null,
+    "zh_definition": "濕氣;濕度",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -13532,7 +13532,7 @@
   {
     "word": "fiber",
     "pos": "n.",
-    "zh_definition": null,
+    "zh_definition": "纖維;纖維物質",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -14771,8 +14771,8 @@
   },
   {
     "word": "terrify",
-    "pos": null,
-    "zh_definition": "已] 使害怕;使恐懼",
+    "pos": "v.",
+    "zh_definition": "使害怕;使恐懼",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,

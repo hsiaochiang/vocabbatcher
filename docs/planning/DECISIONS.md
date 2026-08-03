@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-03　規劃層直接人工修正學測資料剩餘 15 筆缺值/殘留錯誤（未走 BRIEF/執行層流程）
+
+- **狀態：** 已採納
+- **背景：** M5-S1b 收工後仍有 8 筆缺詞性（`attach`、`bullying`、`evaluate`、`impress`、`landmark`、`layer`、`splash`、`terrify`）、3 筆缺中文定義（`fiber`、`glory`、`humidity`）。負責人要求手動修正這份清單，規劃層判斷這是範圍明確、風險低的小幅資料修正，直接讀取 `0resource/TopAcademy 學測高頻率單字表.pdf` 對應頁碼（比對 `source_page` 印刷頁碼＋2 的固定偏移換算出實際 PDF 頁）核對正確內容，不另開 BRIEF 走執行層流程。核對這 11 筆時，順帶發現附近另有 4 筆殘留 OCR 雜訊（`bound`「界限;ERE 5 SIAL」、`landscape`「風景 5 美化景觀」、`spin`／`spray` 詞性欄殘留 `巴.]` 碎片），回報負責人後負責人要求一併修正。
+- **改動：** 直接編輯 `0resource/topsat.md` 這 15 筆的詞性／中文定義欄位（依 PDF 原文核對，例如 `attach`→`[v.] 附上;附加`、`bound`→`[adj.] 註定的;受約束的;[n.] 界限;[v.] 跳躍;彈回`，其餘同理），重跑 `python -m src.pdf_parser --input 0resource/topsat.md --outdir output/gsat --rule topsat` 重新產出 `output/gsat/vocab.raw.json`／`vocab.cleaned.json`／`vocab.qa_report.json`，並覆蓋 `exam-vocab-batcher/public/data/vocab.gsat.cleaned.json`。修正後 QA：詞性完整率 99.5%→100%、中文定義完整率 99.8%→100%、低信心 0。`python -m pytest tests/` 66 passed。這 15 筆之外的資料未逐一巡查，理論上仍可能有零星未發現的 OCR 殘留，若日後抽查再發現可比照這次做法個別修正。
+- **影響的原始需求：** `REQUIREMENTS.md` R13 學測單字庫資料管線；不影響會考資料或 App 前端邏輯。
+- **負責人是否同意：** 是（負責人直接要求修正這份清單，含追加的 4 筆）
+
 ## 2026-08-03　M5-S1b OCR 方案改用 Tesseract 300 DPI 優化版（PaddleOCR 推論失敗）
 
 - **狀態：** 已採納

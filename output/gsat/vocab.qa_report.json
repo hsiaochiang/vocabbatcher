@@ -6,20 +6,11 @@
   "low_confidence_count": 0,
   "field_completeness": {
     "word": 1.0,
-    "pos": 0.9951,
-    "zh_definition": 0.9982,
+    "pos": 1.0,
+    "zh_definition": 1.0,
     "frequency": 1.0,
     "ipa_us": 0.0,
     "ipa_uk": 0.0
   },
-  "issues_summary": [
-    {
-      "issue": "missing_pos",
-      "count": 8
-    },
-    {
-      "issue": "missing_definition",
-      "count": 3
-    }
-  ]
+  "issues_summary": []
 }
