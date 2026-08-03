@@ -33,6 +33,9 @@ _SEPARATOR_RE = re.compile(r"^\|[\s\-:|]+\|$")
 # 表頭行（含「單字」）
 _HEADER_RE = re.compile(r"^\|.*單字.*\|$")
 
+# top2025.md 第 4 欄保留的是 PDF 內部頁碼；PDF 第 3 頁對應課本印刷第 1 頁。
+PRINTED_PAGE_OFFSET = 2
+
 
 def _strip_bold(text: str) -> str:
     """去除 Markdown 粗體標記 **word**。"""
@@ -57,6 +60,13 @@ def _clean_definition(text: str) -> str | None:
     """清理中文定義欄位。"""
     text = text.strip()
     return text if text else None
+
+
+def _to_printed_page(page_number: int) -> int:
+    """將 PDF 內部頁碼轉為課本印刷頁碼；0 保留為未知頁。"""
+    if page_number <= 0:
+        return 0
+    return page_number - PRINTED_PAGE_OFFSET
 
 
 def parse_md_file(md_path: str | Path) -> ParseResult:
@@ -120,7 +130,7 @@ def parse_md_file(md_path: str | Path) -> ParseResult:
         if len(cells) >= 4:
             page_str = cells[3].strip()
             if page_str.isdigit():
-                source_page = int(page_str)
+                source_page = _to_printed_page(int(page_str))
 
         entries.append(VocabEntry(
             word=word,

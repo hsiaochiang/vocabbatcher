@@ -8,6 +8,7 @@ from src.pdf_parser.rules.top2025_md import (
     _strip_bold,
     _strip_pos_brackets,
     _clean_definition,
+    _to_printed_page,
 )
 
 
@@ -29,6 +30,11 @@ class TestHelpers:
         assert _clean_definition("") is None
         assert _clean_definition("  ") is None
         assert _clean_definition("  好的  ") == "好的"
+
+    def test_to_printed_page(self):
+        assert _to_printed_page(3) == 1
+        assert _to_printed_page(62) == 60
+        assert _to_printed_page(0) == 0
 
 
 class TestParseMdFile:
@@ -117,7 +123,7 @@ class TestParseMdFile:
         assert len(result.entries) == 1  # 只有資料列，表頭/分隔線已跳過
 
     def test_source_page_from_column(self, tmp_path):
-        """頁碼欄位存在時讀取。"""
+        """頁碼欄位存在時轉為課本印刷頁碼。"""
         md = tmp_path / "test.md"
         md.write_text(
             "## 出現次數：5\n\n"
@@ -127,7 +133,7 @@ class TestParseMdFile:
             encoding="utf-8",
         )
         result = parse_md_file(md)
-        assert result.entries[0]["source_page"] == 42
+        assert result.entries[0]["source_page"] == 40
 
     def test_source_page_fallback_zero(self, tmp_path):
         """無頁碼欄位時 source_page 為 0。"""
