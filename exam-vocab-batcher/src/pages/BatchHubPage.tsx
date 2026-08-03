@@ -4,11 +4,12 @@ import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
 import { getPageRange } from '../services/exam';
+import { VOCAB_SOURCE_LABEL } from '../types/vocab';
 
 export default function BatchHubPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { batches, updateBatch, deleteBatch } = useApp();
+  const { source, setSource, batches, updateBatch, deleteBatch } = useApp();
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const batch = batches.find((b) => b.id === id);
@@ -20,6 +21,12 @@ export default function BatchHubPage() {
     }
   }, [id, updateBatch]);
 
+  useEffect(() => {
+    if (batch && batch.source !== source) {
+      setSource(batch.source);
+    }
+  }, [batch, setSource, source]);
+
   if (!batch) {
     return (
       <div className="flex min-h-screen flex-col bg-bg-light">
@@ -30,6 +37,23 @@ export default function BatchHubPage() {
         />
         <div className="flex flex-1 items-center justify-center">
           <p className="text-gray-600">找不到此批次</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (batch.source !== source) {
+    return (
+      <div className="flex min-h-screen flex-col bg-bg-light">
+        <Header
+          title="批次"
+          onBack={() => navigate('/')}
+          rightSlot={<UserBadge />}
+        />
+        <div className="flex flex-1 items-center justify-center">
+          <p className="text-gray-600">
+            切換到{VOCAB_SOURCE_LABEL[batch.source]}單字庫中…
+          </p>
         </div>
       </div>
     );

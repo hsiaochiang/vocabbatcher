@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
+import type { VocabSource } from '../types/vocab';
 import { speakEn } from '../services/tts';
 import {
   isSpellingCorrect,
@@ -12,6 +13,7 @@ import type { ExamQuestionRecord } from '../types/exam';
 
 interface ExamRunState {
   questions: ExamQuestion[];
+  source?: VocabSource;
   minPage: number;
   maxPage: number;
   mode: ExamMode;
@@ -43,7 +45,7 @@ export default function ExamRunPage() {
     );
   }
 
-  const { questions, minPage, maxPage, mode } = state;
+  const { questions, source, minPage, maxPage, mode } = state;
   const question = questions[index];
   const isLast = index === questions.length - 1;
 
@@ -70,7 +72,7 @@ export default function ExamRunPage() {
 
     if (isLast) {
       navigate('/exam/result', {
-        state: { questions, records: nextRecords, minPage, maxPage, mode },
+        state: { questions, source, records: nextRecords, minPage, maxPage, mode },
       });
       return;
     }

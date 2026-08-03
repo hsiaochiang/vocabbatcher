@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 async function createFirstPageBatch(page: import('@playwright/test').Page) {
   await page.goto('/builder');
   await page.getByRole('button', { name: '建立第 1 頁批次' }).click();
-  await expect(page.getByText('批次 #1（第 1 頁）')).toBeVisible();
+  await expect(page.getByText('批次 #1（會考第 1 頁）')).toBeVisible();
 }
 
 async function answerCurrentQuestion(page: import('@playwright/test').Page) {

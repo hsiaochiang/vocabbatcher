@@ -4,6 +4,7 @@ import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import Toast from '../components/Toast';
 import UserBadge from '../components/UserBadge';
+import { VOCAB_SOURCE_LABEL } from '../types/vocab';
 import { generateExam, getPageRange, type ExamMode } from '../services/exam';
 
 const QUICK_COUNTS = [5, 10, 20];
@@ -14,7 +15,7 @@ interface ExamSetupState {
 }
 
 export default function ExamSetupPage() {
-  const { allWords } = useApp();
+  const { source, allWords } = useApp();
   const location = useLocation();
   const navigate = useNavigate();
   const setupState = location.state as ExamSetupState | undefined;
@@ -54,6 +55,7 @@ export default function ExamSetupPage() {
     navigate('/exam/run', {
       state: {
         questions,
+        source,
         minPage,
         maxPage,
         mode,
@@ -64,7 +66,7 @@ export default function ExamSetupPage() {
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
       <Header
-        title="考試設定"
+        title={`${VOCAB_SOURCE_LABEL[source]}考試設定`}
         onBack={() => navigate('/')}
         rightSlot={<UserBadge />}
       />

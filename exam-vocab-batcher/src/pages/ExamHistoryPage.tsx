@@ -6,6 +6,8 @@ import SpeakButton from '../components/SpeakButton';
 import UserBadge from '../components/UserBadge';
 import { onAuthStateChange, type User } from '../services/auth';
 import { db } from '../services/firebase';
+import { useApp } from '../store/AppContext';
+import { VOCAB_SOURCE_LABEL, type VocabSource } from '../types/vocab';
 import type { ExamQuestionRecord, ExamResult } from '../types/exam';
 
 const MODE_LABEL: Record<ExamResult['mode'], string> = {
@@ -34,6 +36,7 @@ function formatDate(date: string) {
 
 export default function ExamHistoryPage() {
   const navigate = useNavigate();
+  const { source } = useApp();
   const [user, setUser] = useState<User | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [results, setResults] = useState<ExamResult[]>([]);
@@ -63,10 +66,9 @@ export default function ExamHistoryPage() {
           ),
         );
         setResults(
-          snapshot.docs.map((docSnapshot) => ({
-            ...(docSnapshot.data() as ExamResult),
-            id: docSnapshot.id,
-          })),
+          snapshot.docs
+            .map((docSnapshot) => normalizeExamResult(docSnapshot.id, docSnapshot.data()))
+            .filter((result) => result.source === source),
         );
       } catch (err) {
         console.error('讀取成績歷史失敗:', err);
@@ -76,7 +78,7 @@ export default function ExamHistoryPage() {
     }
 
     loadResults();
-  }, [authReady, user]);
+  }, [authReady, source, user]);
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
@@ -100,7 +102,9 @@ export default function ExamHistoryPage() {
             <span className="material-symbols-outlined mb-3 text-5xl text-gray-300">
               history
             </span>
-            <p className="text-gray-600">還沒有保存的考試成績</p>
+            <p className="text-gray-600">
+              還沒有{VOCAB_SOURCE_LABEL[source]}考試成績
+            </p>
           </div>
         ) : (
           <section className="space-y-3">
@@ -129,6 +133,9 @@ export default function ExamHistoryPage() {
                       </p>
                     </div>
                     <div className="flex shrink-0 items-center gap-2">
+                      <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+                        {VOCAB_SOURCE_LABEL[result.source]}
+                      </span>
                       <span className="text-lg font-bold text-primary">
                         {result.score}/{result.questionCount}
                       </span>
@@ -180,4 +187,17 @@ export default function ExamHistoryPage() {
       </main>
     </div>
   );
+}
+
+function normalizeExamResult(id: string, data: unknown): ExamResult {
+  const result = data as Partial<ExamResult>;
+  return {
+    ...(result as ExamResult),
+    id,
+    source: parseStoredSource(result.source),
+  };
+}
+
+function parseStoredSource(rawSource: unknown): VocabSource {
+  return rawSource === 'gsat' ? 'gsat' : 'cap';
 }

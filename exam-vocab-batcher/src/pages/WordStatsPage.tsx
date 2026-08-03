@@ -9,6 +9,7 @@ import { generateReviewExam } from '../services/exam';
 import { onAuthStateChange, type User } from '../services/auth';
 import { db } from '../services/firebase';
 import { useApp } from '../store/AppContext';
+import { VOCAB_SOURCE_LABEL, type VocabSource } from '../types/vocab';
 import type { WordStat } from '../types/exam';
 
 const REVIEW_QUESTION_COUNT = 10;
@@ -19,7 +20,7 @@ function formatRate(rate: number) {
 
 export default function WordStatsPage() {
   const navigate = useNavigate();
-  const { allWords, isLoading: vocabLoading } = useApp();
+  const { source, allWords, isLoading: vocabLoading } = useApp();
   const [user, setUser] = useState<User | null>(null);
   const [authReady, setAuthReady] = useState(false);
   const [stats, setStats] = useState<WordStat[]>([]);
@@ -50,15 +51,17 @@ export default function WordStatsPage() {
             const data = docSnapshot.data();
             const attempts = Number(data.attempts ?? 0);
             const wrong = Number(data.wrong ?? 0);
+            const statSource = parseStoredSource(data.source, docSnapshot.id);
 
             return {
-              word: String(data.word ?? docSnapshot.id),
+              word: String(data.word ?? stripSourcePrefix(docSnapshot.id)),
+              source: statSource,
               attempts,
               wrong,
               wrongRate: attempts > 0 ? wrong / attempts : 0,
             };
           })
-          .filter((stat) => stat.attempts > 0)
+          .filter((stat) => stat.source === source && stat.attempts > 0)
           .sort((a, b) => {
             if (b.wrongRate !== a.wrongRate) {
               return b.wrongRate - a.wrongRate;
@@ -77,7 +80,7 @@ export default function WordStatsPage() {
     }
 
     loadStats();
-  }, [authReady, user]);
+  }, [authReady, source, user]);
 
   const wrongStats = stats.filter((stat) => stat.wrong > 0);
   const canStartReview =
@@ -105,6 +108,7 @@ export default function WordStatsPage() {
     navigate('/exam/run', {
       state: {
         questions,
+        source,
         minPage,
         maxPage,
         mode: 'mixed',
@@ -141,7 +145,9 @@ export default function WordStatsPage() {
             <span className="material-symbols-outlined mb-3 text-5xl text-gray-300">
               bar_chart
             </span>
-            <p className="text-gray-600">還沒有單字統計資料</p>
+            <p className="text-gray-600">
+              還沒有{VOCAB_SOURCE_LABEL[source]}單字統計資料
+            </p>
           </div>
         ) : (
           <section className="space-y-2">
@@ -192,4 +198,16 @@ export default function WordStatsPage() {
       />
     </div>
   );
+}
+
+function parseStoredSource(
+  rawSource: unknown,
+  docId: string,
+): VocabSource {
+  if (rawSource === 'gsat' || docId.startsWith('gsat__')) return 'gsat';
+  return 'cap';
+}
+
+function stripSourcePrefix(docId: string) {
+  return docId.replace(/^(cap|gsat)__/, '');
 }

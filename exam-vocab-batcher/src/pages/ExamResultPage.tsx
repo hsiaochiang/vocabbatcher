@@ -6,11 +6,14 @@ import SpeakButton from '../components/SpeakButton';
 import UserBadge from '../components/UserBadge';
 import { onAuthStateChange, type User } from '../services/auth';
 import { db } from '../services/firebase';
+import { useApp } from '../store/AppContext';
 import type { ExamQuestion, ExamMode } from '../services/exam';
 import type { ExamQuestionRecord } from '../types/exam';
+import type { VocabSource } from '../types/vocab';
 
 interface ExamResultState {
   questions: ExamQuestion[];
+  source?: VocabSource;
   records: ExamQuestionRecord[];
   minPage: number;
   maxPage: number;
@@ -27,6 +30,7 @@ const TYPE_LABEL: Record<ExamQuestionRecord['type'], string> = {
 export default function ExamResultPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { source } = useApp();
   const state = location.state as ExamResultState | undefined;
 
   const [user, setUser] = useState<User | null>(null);
@@ -41,6 +45,7 @@ export default function ExamResultPage() {
     if (!state || !user || !db || saved) return;
     const firestore = db;
     const currentUser = user;
+    const resultSource = state.source ?? source;
     const { records, minPage, maxPage, mode } = state;
     const score = records.filter((r) => r.correct).length;
     const id = crypto.randomUUID();
@@ -50,6 +55,7 @@ export default function ExamResultPage() {
 
       batch.set(doc(firestore, 'users', currentUser.uid, 'examResults', id), {
         id,
+        source: resultSource,
         date: new Date().toISOString(),
         mode,
         pageRange: [minPage, maxPage],
@@ -61,9 +67,16 @@ export default function ExamResultPage() {
 
       records.forEach((record) => {
         batch.set(
-          doc(firestore, 'users', currentUser.uid, 'wordStats', record.word),
+          doc(
+            firestore,
+            'users',
+            currentUser.uid,
+            'wordStats',
+            `${resultSource}__${record.word}`,
+          ),
           {
             word: record.word,
+            source: resultSource,
             attempts: increment(1),
             wrong: increment(record.correct ? 0 : 1),
           },
@@ -76,7 +89,7 @@ export default function ExamResultPage() {
     }
 
     saveResult().catch((err) => console.error('儲存考試成績失敗:', err));
-  }, [state, user, saved]);
+  }, [source, state, user, saved]);
 
   if (!state) {
     return (

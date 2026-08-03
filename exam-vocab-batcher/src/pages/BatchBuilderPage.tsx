@@ -6,7 +6,7 @@ import WordCard from '../components/WordCard';
 import SelectionCounter from '../components/SelectionCounter';
 import Toast from '../components/Toast';
 import UserBadge from '../components/UserBadge';
-import type { VocabEntry } from '../types/vocab';
+import { VOCAB_SOURCE_LABEL, type VocabEntry } from '../types/vocab';
 
 const MAX_SELECTION = 25;
 
@@ -40,7 +40,7 @@ function sameWordSet(a: VocabEntry[], b: VocabEntry[]) {
 }
 
 export default function BatchBuilderPage() {
-  const { allWords, batches, createBatch, setActiveBatch } = useApp();
+  const { source, allWords, batches, createBatch, setActiveBatch } = useApp();
   const navigate = useNavigate();
 
   const [selected, setSelected] = useState<Set<string>>(new Set());
@@ -48,6 +48,11 @@ export default function BatchBuilderPage() {
   const [posFilter, setPosFilter] = useState<PosFilter>('all');
   const [search, setSearch] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
+
+  const sourceBatches = useMemo(
+    () => batches.filter((batch) => batch.source === source),
+    [batches, source],
+  );
 
   const pageOptions = useMemo(() => {
     const pages = new Map<number, Map<string, VocabEntry>>();
@@ -119,23 +124,7 @@ export default function BatchBuilderPage() {
 
   const handleCreate = () => {
     const words = allWords.filter((w) => selected.has(w.word));
-    const duplicate = batches.find((batch) => sameWordSet(batch.words, words));
-    if (
-      duplicate &&
-      !window.confirm(
-        `已經有一個內容相同的批次「${duplicate.name}」，仍要建立新的嗎？`,
-      )
-    ) {
-      return;
-    }
-
-    const batch = createBatch(words);
-    setActiveBatch(batch.id);
-    navigate(`/batch/${batch.id}`);
-  };
-
-  const handleCreatePageBatch = (page: number, words: VocabEntry[]) => {
-    const duplicate = batches.find((batch) => sameWordSet(batch.words, words));
+    const duplicate = sourceBatches.find((batch) => sameWordSet(batch.words, words));
     if (
       duplicate &&
       !window.confirm(
@@ -147,7 +136,26 @@ export default function BatchBuilderPage() {
 
     const batch = createBatch(
       words,
-      `批次 #${batches.length + 1}（第 ${page} 頁）`,
+      `批次 #${sourceBatches.length + 1}（${VOCAB_SOURCE_LABEL[source]}）`,
+    );
+    setActiveBatch(batch.id);
+    navigate(`/batch/${batch.id}`);
+  };
+
+  const handleCreatePageBatch = (page: number, words: VocabEntry[]) => {
+    const duplicate = sourceBatches.find((batch) => sameWordSet(batch.words, words));
+    if (
+      duplicate &&
+      !window.confirm(
+        `已經有一個內容相同的批次「${duplicate.name}」，仍要建立新的嗎？`,
+      )
+    ) {
+      return;
+    }
+
+    const batch = createBatch(
+      words,
+      `批次 #${sourceBatches.length + 1}（${VOCAB_SOURCE_LABEL[source]}第 ${page} 頁）`,
     );
     setActiveBatch(batch.id);
     navigate(`/batch/${batch.id}`);
@@ -156,7 +164,7 @@ export default function BatchBuilderPage() {
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
       <Header
-        title="批次建立器"
+        title={`${VOCAB_SOURCE_LABEL[source]}批次建立器`}
         onBack={() => navigate('/')}
         rightSlot={<UserBadge />}
       />

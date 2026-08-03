@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
@@ -9,7 +9,7 @@ import { speakZh } from '../services/tts';
 export default function FlashCardPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { batches, updateBatch } = useApp();
+  const { source, setSource, batches, updateBatch } = useApp();
 
   const batch = batches.find((b) => b.id === id);
   const [localProgress, setLocalProgress] = useState({
@@ -17,6 +17,12 @@ export default function FlashCardPage() {
     index: batch?.flashcardIndex ?? 0,
   });
   const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    if (batch && batch.source !== source) {
+      setSource(batch.source);
+    }
+  }, [batch, setSource, source]);
 
   const batchId = batch?.id ?? null;
   const index =

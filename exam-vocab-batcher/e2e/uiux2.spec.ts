@@ -44,6 +44,7 @@ test('首頁依批次狀態顯示主要 CTA', async ({ page }) => {
         {
           id: 'pw-batch',
           name: 'Playwright 批次',
+          source: 'cap',
           createdAt: new Date().toISOString(),
           lastAccessedAt: new Date().toISOString(),
           words: [word],
@@ -88,7 +89,7 @@ test('點選單一頁碼會建立該頁批次並進入批次頁', async ({ page 
   await page.goto('/builder');
   await page.getByRole('button', { name: '建立第 1 頁批次' }).click();
 
-  await expect(page.getByText('批次 #1（第 1 頁）')).toBeVisible();
+  await expect(page.getByText('批次 #1（會考第 1 頁）')).toBeVisible();
   await expect(page.getByText('19 個單字')).toBeVisible();
   await expect(page.getByText('整體進度')).toBeVisible();
   await saveScreenshot(page, 'builder-one-page-created');

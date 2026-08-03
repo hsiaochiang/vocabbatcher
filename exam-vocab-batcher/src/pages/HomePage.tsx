@@ -2,10 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
+import { VOCAB_SOURCE_LABEL, type VocabSource } from '../types/vocab';
 
 export default function HomePage() {
-  const { batches, activeBatchId, isLoading, loadError, setActiveBatch } =
-    useApp();
+  const {
+    source,
+    setSource,
+    batches,
+    activeBatchId,
+    isLoading,
+    loadError,
+    setActiveBatch,
+  } = useApp();
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -19,7 +27,7 @@ export default function HomePage() {
   if (loadError) {
     return (
       <div className="flex min-h-screen flex-col bg-bg-light">
-        <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
+        <Header title="英文單字準備" rightSlot={<UserBadge />} />
         <main className="flex flex-1 items-center justify-center px-6 text-center">
           <div className="max-w-sm">
             <span className="material-symbols-outlined mb-4 text-5xl text-red-400">
@@ -43,9 +51,10 @@ export default function HomePage() {
     );
   }
 
-  const activeBatch = batches.find((b) => b.id === activeBatchId);
-  const hasBatches = batches.length > 0;
-  const sortedBatches = [...batches].sort(
+  const sourceBatches = batches.filter((batch) => batch.source === source);
+  const activeBatch = sourceBatches.find((b) => b.id === activeBatchId);
+  const hasBatches = sourceBatches.length > 0;
+  const sortedBatches = [...sourceBatches].sort(
     (a, b) =>
       new Date(b.lastAccessedAt).getTime() -
       new Date(a.lastAccessedAt).getTime(),
@@ -53,9 +62,29 @@ export default function HomePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
-      <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
+      <Header title="英文單字準備" rightSlot={<UserBadge />} />
 
       <main className="flex-1 px-4 pb-24 pt-4">
+        <section className="mb-4 rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
+          <div className="grid grid-cols-2 gap-2">
+            {(['cap', 'gsat'] as VocabSource[]).map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => setSource(option)}
+                className={`rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                  source === option
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+                aria-pressed={source === option}
+              >
+                {VOCAB_SOURCE_LABEL[option]}
+              </button>
+            ))}
+          </div>
+        </section>
+
         {/* Primary action */}
         <section className="mb-6">
           <button
@@ -72,8 +101,8 @@ export default function HomePage() {
                 </p>
                 <p className="mt-0.5 text-xs text-white/80">
                   {hasBatches
-                    ? '用單字庫頁數範圍出選擇題／聽力題'
-                    : '先選最多 25 個單字，開始今天的練習'}
+                    ? `用${VOCAB_SOURCE_LABEL[source]}單字庫頁數範圍出題`
+                    : `先選最多 25 個${VOCAB_SOURCE_LABEL[source]}單字`}
                 </p>
               </div>
             </div>
@@ -167,9 +196,9 @@ export default function HomePage() {
                 >
                   <div>
                     <p className="font-medium text-gray-900">{batch.name}</p>
-                    <p className="mt-0.5 text-xs text-gray-500">
+                  <p className="mt-0.5 text-xs text-gray-500">
                       {new Date(batch.createdAt).toLocaleDateString('zh-TW')} ·{' '}
-                      {batch.words.length} 字
+                      {VOCAB_SOURCE_LABEL[batch.source]} · {batch.words.length} 字
                     </p>
                   </div>
                   <span className="material-symbols-outlined text-gray-300">

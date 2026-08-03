@@ -1,3 +1,5 @@
+import type { VocabSource } from './vocab';
+
 export type QuestionType = 'zh_to_en' | 'en_to_zh' | 'listening' | 'spelling';
 
 export interface ExamQuestionRecord {
@@ -8,6 +10,7 @@ export interface ExamQuestionRecord {
 
 export interface ExamResult {
   id: string;
+  source: VocabSource;
   date: string;
   mode: 'mixed' | 'listening';
   pageRange: [number, number];
@@ -18,6 +21,7 @@ export interface ExamResult {
 
 export interface WordStat {
   word: string;
+  source: VocabSource;
   attempts: number;
   wrong: number;
   wrongRate: number;
