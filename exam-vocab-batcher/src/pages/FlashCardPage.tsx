@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import SpeakButton from '../components/SpeakButton';
+import UserBadge from '../components/UserBadge';
 import { speakZh } from '../services/tts';
 
 export default function FlashCardPage() {
@@ -33,9 +34,13 @@ export default function FlashCardPage() {
   if (!batch || batch.words.length === 0) {
     return (
       <div className="flex min-h-screen flex-col bg-bg-light">
-        <Header title="翻牌學習" onBack={() => navigate(`/batch/${id}`)} />
+        <Header
+          title="翻牌學習"
+          onBack={() => navigate(`/batch/${id}`)}
+          rightSlot={<UserBadge />}
+        />
         <div className="flex flex-1 items-center justify-center">
-          <p className="text-gray-400">此批次沒有單字</p>
+          <p className="text-gray-600">此批次沒有單字</p>
         </div>
       </div>
     );
@@ -61,8 +66,10 @@ export default function FlashCardPage() {
 
   const goPrev = () => {
     if (index > 0) {
+      const newIdx = index - 1;
       setFlipped(false);
-      setLocalProgress({ batchId, index: index - 1 });
+      setLocalProgress({ batchId, index: newIdx });
+      persistIndex(newIdx);
     }
   };
 
@@ -78,7 +85,11 @@ export default function FlashCardPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
-      <Header title="翻牌學習" onBack={() => navigate(`/batch/${id}`)} />
+      <Header
+        title="翻牌學習"
+        onBack={() => navigate(`/batch/${id}`)}
+        rightSlot={<UserBadge />}
+      />
 
       {/* Progress bar */}
       <div className="border-b border-gray-100 bg-white px-4 py-3">
@@ -123,7 +134,7 @@ export default function FlashCardPage() {
                   {word!.word}
                 </p>
                 {word!.ipa_us && (
-                  <p className="mt-2 text-base text-gray-400">
+                  <p className="mt-2 text-base text-gray-500">
                     {word!.ipa_us}
                   </p>
                 )}
@@ -138,7 +149,7 @@ export default function FlashCardPage() {
               {/* Back */}
               <div className="card-back flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm text-gray-400">{word!.word}</p>
+                  <p className="text-sm text-gray-500">{word!.word}</p>
                   <SpeakButton word={word!.word} className="px-2 py-1" />
                 </div>
                 <p className="mt-3 text-2xl font-bold text-gray-900">

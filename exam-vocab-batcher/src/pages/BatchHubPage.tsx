@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
+import UserBadge from '../components/UserBadge';
 
 export default function BatchHubPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { batches, updateBatch, deleteBatch } = useApp();
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   const batch = batches.find((b) => b.id === id);
 
@@ -20,9 +22,13 @@ export default function BatchHubPage() {
   if (!batch) {
     return (
       <div className="flex min-h-screen flex-col bg-bg-light">
-        <Header title="批次" onBack={() => navigate('/')} />
+        <Header
+          title="批次"
+          onBack={() => navigate('/')}
+          rightSlot={<UserBadge />}
+        />
         <div className="flex flex-1 items-center justify-center">
-          <p className="text-gray-400">找不到此批次</p>
+          <p className="text-gray-600">找不到此批次</p>
         </div>
       </div>
     );
@@ -79,18 +85,16 @@ export default function BatchHubPage() {
         title={batch.name}
         onBack={() => navigate('/')}
         rightSlot={
-          <button
-            onClick={() => {
-              if (confirm('確定刪除此批次？')) {
-                deleteBatch(batch.id);
-                navigate('/');
-              }
-            }}
-            className="text-gray-400 hover:text-red-500"
-            aria-label="刪除批次"
-          >
-            <span className="material-symbols-outlined">delete</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <UserBadge />
+            <button
+              onClick={() => setDeleteOpen(true)}
+              className="text-gray-500 hover:text-red-500"
+              aria-label="刪除批次"
+            >
+              <span className="material-symbols-outlined">delete</span>
+            </button>
+          </div>
         }
       />
 
@@ -107,7 +111,7 @@ export default function BatchHubPage() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="mt-2 text-xs text-gray-400">
+          <p className="mt-2 text-xs text-gray-500">
             已完成 {batch.flashcardIndex} / {batch.words.length} 張翻牌
           </p>
         </div>
@@ -130,13 +134,41 @@ export default function BatchHubPage() {
               <span className="text-sm font-medium text-gray-700">
                 {feat.label}
               </span>
-              <span className={`text-xs ${feat.available ? feat.color : 'text-gray-400'}`}>
+              <span className={`text-xs ${feat.available ? feat.color : 'text-gray-500'}`}>
                 {feat.subtitle}
               </span>
             </button>
           ))}
         </div>
       </main>
+
+      {deleteOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+          <div className="w-full max-w-sm rounded-xl bg-white p-5 shadow-xl">
+            <h2 className="text-lg font-bold text-gray-900">刪除批次</h2>
+            <p className="mt-2 text-sm leading-6 text-gray-600">
+              確定要刪除「{batch.name}」嗎？裡面的翻牌進度也會一併刪除，無法復原。
+            </p>
+            <div className="mt-5 flex gap-3">
+              <button
+                onClick={() => setDeleteOpen(false)}
+                className="flex-1 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                取消
+              </button>
+              <button
+                onClick={() => {
+                  deleteBatch(batch.id);
+                  navigate('/');
+                }}
+                className="flex-1 rounded-lg bg-red-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-red-600"
+              >
+                確定刪除
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

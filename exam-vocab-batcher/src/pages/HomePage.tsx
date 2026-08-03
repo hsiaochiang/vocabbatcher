@@ -4,18 +4,47 @@ import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
 
 export default function HomePage() {
-  const { batches, activeBatchId, isLoading, setActiveBatch } = useApp();
+  const { batches, activeBatchId, isLoading, loadError, setActiveBatch } =
+    useApp();
   const navigate = useNavigate();
 
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-gray-400">載入中…</p>
+        <p className="text-gray-600">載入中…</p>
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex min-h-screen flex-col bg-bg-light">
+        <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
+        <main className="flex flex-1 items-center justify-center px-6 text-center">
+          <div className="max-w-sm">
+            <span className="material-symbols-outlined mb-4 text-5xl text-red-400">
+              cloud_off
+            </span>
+            <h2 className="text-xl font-bold text-gray-900">
+              單字庫載入失敗
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-gray-600">
+              請檢查網路連線後重新載入。單字庫沒有載入完成時，無法建立批次或開始考試。
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="mt-5 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary/90"
+            >
+              重新載入
+            </button>
+          </div>
+        </main>
       </div>
     );
   }
 
   const activeBatch = batches.find((b) => b.id === activeBatchId);
+  const hasBatches = batches.length > 0;
   const sortedBatches = [...batches].sort(
     (a, b) =>
       new Date(b.lastAccessedAt).getTime() -
@@ -27,27 +56,53 @@ export default function HomePage() {
       <Header title="國中會考單字準備" rightSlot={<UserBadge />} />
 
       <main className="flex-1 px-4 pb-24 pt-4">
-        {/* Exam entry */}
+        {/* Primary action */}
         <section className="mb-6">
           <button
-            onClick={() => navigate('/exam')}
-            className="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-primary/5 px-4 py-4 text-left shadow-sm transition-colors hover:bg-primary/10"
+            onClick={() => navigate(hasBatches ? '/exam' : '/builder')}
+            className="flex w-full items-center justify-between rounded-xl bg-primary px-4 py-4 text-left text-white shadow-sm transition-colors hover:bg-primary/90"
           >
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-2xl text-primary">
-                quiz
+              <span className="material-symbols-outlined text-2xl">
+                {hasBatches ? 'quiz' : 'add'}
               </span>
               <div>
-                <p className="font-semibold text-gray-900">開始考試</p>
-                <p className="mt-0.5 text-xs text-gray-500">
-                  選頁數範圍出選擇題／聽力題
+                <p className="font-semibold">
+                  {hasBatches ? '開始考試' : '建立新批次'}
+                </p>
+                <p className="mt-0.5 text-xs text-white/80">
+                  {hasBatches
+                    ? '用單字庫頁數範圍出選擇題／聽力題'
+                    : '先選最多 25 個單字，開始今天的練習'}
                 </p>
               </div>
             </div>
-            <span className="material-symbols-outlined text-gray-300">
+            <span className="material-symbols-outlined text-white/80">
               chevron_right
             </span>
           </button>
+
+          <div className="mt-3 flex divide-x divide-gray-200 rounded-xl border border-gray-200 bg-white shadow-sm">
+            <button
+              onClick={() => navigate('/history')}
+              className="flex flex-1 items-center justify-center gap-2 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            >
+              <span className="material-symbols-outlined text-[20px] text-gray-500">
+                history
+              </span>
+              成績歷史
+            </button>
+
+            <button
+              onClick={() => navigate('/stats')}
+              className="flex flex-1 items-center justify-center gap-2 px-3 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+            >
+              <span className="material-symbols-outlined text-[20px] text-gray-500">
+                bar_chart
+              </span>
+              單字統計
+            </button>
+          </div>
         </section>
 
         {/* Continue last batch */}
@@ -97,7 +152,7 @@ export default function HomePage() {
               <span className="material-symbols-outlined mb-3 text-5xl text-gray-300">
                 library_books
               </span>
-              <p className="text-gray-400">還沒有批次，點下方按鈕開始</p>
+              <p className="text-gray-600">還沒有批次，點上方按鈕開始</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -112,7 +167,7 @@ export default function HomePage() {
                 >
                   <div>
                     <p className="font-medium text-gray-900">{batch.name}</p>
-                    <p className="mt-0.5 text-xs text-gray-400">
+                    <p className="mt-0.5 text-xs text-gray-500">
                       {new Date(batch.createdAt).toLocaleDateString('zh-TW')} ·{' '}
                       {batch.words.length} 字
                     </p>
@@ -128,15 +183,17 @@ export default function HomePage() {
       </main>
 
       {/* Fixed bottom button */}
-      <div className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white p-4">
-        <button
-          onClick={() => navigate('/builder')}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 font-semibold text-white shadow-sm hover:bg-primary/90"
-        >
-          <span className="material-symbols-outlined text-[20px]">add</span>
-          建立新批次
-        </button>
-      </div>
+      {hasBatches && (
+        <div className="fixed inset-x-0 bottom-0 border-t border-gray-200 bg-white p-4">
+          <button
+            onClick={() => navigate('/builder')}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 font-semibold text-gray-700 shadow-sm hover:bg-gray-50"
+          >
+            <span className="material-symbols-outlined text-[20px]">add</span>
+            建立新批次
+          </button>
+        </div>
+      )}
     </div>
   );
 }

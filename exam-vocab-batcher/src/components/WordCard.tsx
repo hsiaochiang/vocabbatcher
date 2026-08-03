@@ -69,7 +69,7 @@ export default memo(function WordCard({
                 {entry.word}
               </span>
               {entry.pos && (
-                <span className="shrink-0 text-xs text-gray-400">
+                <span className="shrink-0 text-xs text-gray-500">
                   [{entry.pos}]
                 </span>
               )}
@@ -81,7 +81,7 @@ export default memo(function WordCard({
           <p className="mt-0.5 text-sm text-gray-500">{entry.zh_definition}</p>
         )}
         {entry.frequency != null && (
-          <p className="mt-0.5 text-xs text-gray-400">頻率 {entry.frequency} 次</p>
+          <p className="mt-0.5 text-xs text-gray-500">頻率 {entry.frequency} 次</p>
         )}
       </div>
     </div>

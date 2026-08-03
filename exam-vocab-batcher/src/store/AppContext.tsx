@@ -12,12 +12,13 @@ import type { Batch } from '../types/batch';
 interface AppState {
   allWords: VocabEntry[];
   isLoading: boolean;
+  loadError: boolean;
   batches: Batch[];
   activeBatchId: string | null;
 }
 
 interface AppContextValue extends AppState {
-  createBatch: (words: VocabEntry[]) => Batch;
+  createBatch: (words: VocabEntry[], name?: string) => Batch;
   deleteBatch: (id: string) => void;
   updateBatch: (id: string, patch: Partial<Batch>) => void;
   setActiveBatch: (id: string) => void;
@@ -37,6 +38,7 @@ function loadFromLS<T>(key: string, fallback: T): T {
 export function AppProvider({ children }: { children: ReactNode }) {
   const [allWords, setAllWords] = useState<VocabEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const [batches, setBatches] = useState<Batch[]>(() =>
     loadFromLS<Batch[]>('batches', []),
   );
@@ -47,13 +49,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Load vocab data on mount
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + 'data/vocab.cleaned.json')
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((data: VocabEntry[]) => {
         setAllWords(data);
         setIsLoading(false);
       })
       .catch((err) => {
         console.error('Failed to load vocab data:', err);
+        setLoadError(true);
         setIsLoading(false);
       });
   }, []);
@@ -73,10 +79,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [activeBatchId]);
 
   const createBatch = useCallback(
-    (words: VocabEntry[]): Batch => {
+    (words: VocabEntry[], name?: string): Batch => {
       const batch: Batch = {
         id: Date.now().toString(),
-        name: `批次 #${batches.length + 1}`,
+        name: name ?? `批次 #${batches.length + 1}`,
         createdAt: new Date().toISOString(),
         lastAccessedAt: new Date().toISOString(),
         words,
@@ -109,6 +115,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       value={{
         allWords,
         isLoading,
+        loadError,
         batches,
         activeBatchId,
         createBatch,

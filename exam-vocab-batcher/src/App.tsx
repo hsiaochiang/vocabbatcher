@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './store/AppContext';
 import HomePage from './pages/HomePage';
 import BatchBuilderPage from './pages/BatchBuilderPage';
@@ -7,11 +7,13 @@ import FlashCardPage from './pages/FlashCardPage';
 import ExamSetupPage from './pages/ExamSetupPage';
 import ExamRunPage from './pages/ExamRunPage';
 import ExamResultPage from './pages/ExamResultPage';
+import ExamHistoryPage from './pages/ExamHistoryPage';
+import WordStatsPage from './pages/WordStatsPage';
 
 export default function App() {
   return (
     <AppProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/builder" element={<BatchBuilderPage />} />
@@ -20,8 +22,10 @@ export default function App() {
           <Route path="/exam" element={<ExamSetupPage />} />
           <Route path="/exam/run" element={<ExamRunPage />} />
           <Route path="/exam/result" element={<ExamResultPage />} />
+          <Route path="/history" element={<ExamHistoryPage />} />
+          <Route path="/stats" element={<WordStatsPage />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </AppProvider>
   );
 }

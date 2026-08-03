@@ -1,5 +1,5 @@
 import type { VocabEntry } from '../types/vocab';
-import type { QuestionType } from '../types/exam';
+import type { QuestionType, WordStat } from '../types/exam';
 
 export type ExamMode = 'mixed' | 'listening';
 
@@ -15,6 +15,10 @@ export interface GenerateExamOptions {
   maxPage: number;
   questionCount: number;
   mode: ExamMode;
+}
+
+export interface GenerateReviewExamOptions {
+  questionCount: number;
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -81,6 +85,36 @@ export function generateExam(
     const q = buildQuestion(word, type, pool);
     if (q) questions.push(q);
   }
+  return questions;
+}
+
+export function generateReviewExam(
+  allWords: VocabEntry[],
+  wordStats: WordStat[],
+  options: GenerateReviewExamOptions,
+): ExamQuestion[] {
+  const wordByText = new Map(allWords.map((word) => [word.word, word]));
+  const pool = allWords.filter((word) => word.zh_definition);
+
+  const candidates = wordStats
+    .filter((stat) => stat.wrong > 0 && stat.attempts > 0)
+    .sort((a, b) => {
+      if (b.wrongRate !== a.wrongRate) return b.wrongRate - a.wrongRate;
+      if (b.wrong !== a.wrong) return b.wrong - a.wrong;
+      if (b.attempts !== a.attempts) return b.attempts - a.attempts;
+      return a.word.localeCompare(b.word);
+    })
+    .slice(0, options.questionCount)
+    .map((stat) => wordByText.get(stat.word))
+    .filter((word): word is VocabEntry => Boolean(word?.zh_definition));
+
+  const questions: ExamQuestion[] = [];
+  for (const word of candidates) {
+    const type = QUESTION_TYPES[Math.floor(Math.random() * QUESTION_TYPES.length)];
+    const question = buildQuestion(word, type, pool);
+    if (question) questions.push(question);
+  }
+
   return questions;
 }
 

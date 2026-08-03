@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import WordCard from '../components/WordCard';
 import SelectionCounter from '../components/SelectionCounter';
 import Toast from '../components/Toast';
+import UserBadge from '../components/UserBadge';
+import type { VocabEntry } from '../types/vocab';
 
 const MAX_SELECTION = 25;
 
@@ -31,7 +33,7 @@ const POS_OPTIONS: { value: PosFilter; label: string }[] = [
 ];
 
 export default function BatchBuilderPage() {
-  const { allWords, createBatch, setActiveBatch } = useApp();
+  const { allWords, batches, createBatch, setActiveBatch } = useApp();
   const navigate = useNavigate();
 
   const [selected, setSelected] = useState<Set<string>>(new Set());
@@ -39,6 +41,27 @@ export default function BatchBuilderPage() {
   const [posFilter, setPosFilter] = useState<PosFilter>('all');
   const [search, setSearch] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
+
+  const pageOptions = useMemo(() => {
+    const pages = new Map<number, Map<string, VocabEntry>>();
+    for (const word of allWords) {
+      for (const page of word.source_page) {
+        if (!pages.has(page)) {
+          pages.set(page, new Map());
+        }
+        pages.get(page)?.set(word.word, word);
+      }
+    }
+
+    return Array.from(pages.entries())
+      .sort(([a], [b]) => a - b)
+      .map(([page, words]) => ({
+        page,
+        words: Array.from(words.values()).sort((a, b) =>
+          a.word.localeCompare(b.word),
+        ),
+      }));
+  }, [allWords]);
 
   const filtered = useMemo(() => {
     return allWords.filter((w) => {
@@ -94,12 +117,53 @@ export default function BatchBuilderPage() {
     navigate(`/batch/${batch.id}`);
   };
 
+  const handleCreatePageBatch = (page: number, words: VocabEntry[]) => {
+    const batch = createBatch(
+      words,
+      `批次 #${batches.length + 1}（第 ${page} 頁）`,
+    );
+    setActiveBatch(batch.id);
+    navigate(`/batch/${batch.id}`);
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
-      <Header title="批次建立器" onBack={() => navigate('/')} />
+      <Header
+        title="批次建立器"
+        onBack={() => navigate('/')}
+        rightSlot={<UserBadge />}
+      />
 
-      {/* Filter chips */}
+      {/* Filters */}
       <div className="border-b border-gray-100 bg-white px-4 py-3">
+        <section className="mb-3 rounded-xl border border-primary/20 bg-primary/5 p-3">
+          <div className="mb-2 flex items-center justify-between">
+            <h2 className="text-sm font-semibold text-gray-900">
+              快速建立：選課本頁碼
+            </h2>
+            <span className="text-xs text-gray-500">{pageOptions.length} 頁</span>
+          </div>
+          <div className="grid grid-cols-4 gap-2 sm:grid-cols-6">
+            {pageOptions.map(({ page, words }) => (
+              <button
+                key={page}
+                type="button"
+                onClick={() => handleCreatePageBatch(page, words)}
+                aria-label={`建立第 ${page} 頁批次`}
+                className="flex min-h-14 flex-col items-center justify-center rounded-lg border border-primary/20 bg-white px-2 py-2 text-primary shadow-sm transition-colors hover:border-primary hover:bg-primary/10"
+              >
+                <span className="text-base font-semibold leading-5">{page}</span>
+                <span className="text-xs leading-4 text-gray-500">
+                  {words.length} 字
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <p className="mb-2 text-xs font-medium text-gray-500">
+          進階篩選：手動選字
+        </p>
         <div className="mb-2 flex gap-2 overflow-x-auto">
           {FREQ_OPTIONS.map((opt) => (
             <Chip
@@ -166,7 +230,7 @@ export default function BatchBuilderPage() {
             </button>
           </div>
         </div>
-        <p className="mt-0.5 text-xs text-gray-400">
+        <p className="mt-0.5 text-xs text-gray-500">
           顯示 {filtered.length} 筆
         </p>
       </div>
@@ -187,7 +251,7 @@ export default function BatchBuilderPage() {
             <span className="material-symbols-outlined mb-3 text-4xl text-gray-300">
               search_off
             </span>
-            <p className="text-gray-400">沒有符合條件的單字</p>
+            <p className="text-gray-600">沒有符合條件的單字</p>
           </div>
         )}
       </main>

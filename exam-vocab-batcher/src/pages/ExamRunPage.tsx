@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import UserBadge from '../components/UserBadge';
 import { speakEn } from '../services/tts';
 import type { ExamQuestion, ExamMode } from '../services/exam';
 import type { ExamQuestionRecord } from '../types/exam';
@@ -25,7 +26,7 @@ export default function ExamRunPage() {
   if (!state || state.questions.length === 0) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-bg-light px-4 text-center">
-        <p className="text-gray-400">找不到考試資料，請重新設定考試</p>
+        <p className="text-gray-600">找不到考試資料，請重新設定考試</p>
         <button
           onClick={() => navigate('/exam')}
           className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white"
@@ -78,6 +79,7 @@ export default function ExamRunPage() {
       <Header
         title={`第 ${index + 1} / ${questions.length} 題`}
         onBack={() => navigate('/exam')}
+        rightSlot={<UserBadge />}
       />
 
       <main className="flex-1 px-4 py-6">
@@ -117,17 +119,32 @@ export default function ExamRunPage() {
               } else if (isSelected) {
                 style = 'border-red-400 bg-red-50 text-red-600';
               } else {
-                style = 'border-gray-200 bg-white text-gray-400';
+                style = 'border-gray-200 bg-white text-gray-500';
               }
             }
+            const feedbackIcon =
+              answered && isCorrect
+                ? 'check_circle'
+                : answered && isSelected
+                  ? 'cancel'
+                  : null;
             return (
               <button
                 key={i}
                 onClick={() => handleSelect(i)}
                 disabled={answered}
-                className={`w-full rounded-xl border px-4 py-3 text-left text-base font-medium transition-colors ${style}`}
+                className={`flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-base font-medium transition-colors ${style}`}
               >
-                {opt}
+                <span>{opt}</span>
+                {feedbackIcon && (
+                  <span
+                    className={`material-symbols-outlined text-[20px] ${
+                      isCorrect ? 'text-green-500' : 'text-red-400'
+                    }`}
+                  >
+                    {feedbackIcon}
+                  </span>
+                )}
               </button>
             );
           })}
