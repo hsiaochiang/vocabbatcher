@@ -1,2 +1,7 @@
 pdfplumber>=0.10,<1.0
+PyMuPDF>=1.24,<2.0
+pytesseract>=0.3,<0.4
+Pillow>=10.0,<13.0
+paddleocr>=3.7,<3.8
+paddlepaddle>=3.3,<3.4
 pytest>=8.0,<9.0

@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-03　M5-S1b OCR 方案改用 Tesseract 300 DPI 優化版（PaddleOCR 推論失敗）
+
+- **狀態：** 已採納
+- **背景：** M5-S1b BRIEF 原定優先改用 PaddleOCR `lang='chinese_cht'`／PP-OCRv5。執行層已成功安裝 `paddleocr 3.7.0` 與 `paddlepaddle 3.3.1`，且模型可下載到使用者快取；但在 Windows CPU 推論時固定拋出 PaddlePaddle oneDNN runtime 錯誤：`ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]`，關閉 MKL-DNN / PIR 相關旗標後仍失敗，無法可靠產出資料。
+- **改動：** 本次資料改用可重複執行的 `src/pdf_parser/tools/topsat_transcribe.py` 產出：單字、Level、頁碼、出現次數仍取 PDF 表格層；中文定義改以 Tesseract `eng+chi_tra` 在 300 DPI 裁切字義 cell 後辨識，並加入少量已目視確認的人工校正表（例如 `splendor`、`cruelly`、`refer`、`suffer`）。腳本保留 `--engine paddleocr` 入口，待未來 PaddleOCR / PaddlePaddle 在本機環境可正常推論時可重試。
+- **影響的原始需求：** R13 學測單字庫資料管線仍維持「大幅改善中文定義辨識率、產出可抽查 JSON」的驗收目標；但本版不宣稱是 PaddleOCR 產物。M5-S2 仍須等負責人抽查新版資料通過後才可開。
+- **負責人是否同意：** 待確認（依 M5-S1b BRIEF 的備援條件先行實作並回報）
+
 ## 2026-08-03　新增 M5：學測高頻率單字庫（獨立於會考）
 
 - **狀態：** 已採納
