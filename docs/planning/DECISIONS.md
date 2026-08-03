@@ -9,6 +9,46 @@
 
 ---
 
+## 2026-08-03　修正：source_page 從 PDF 內部頁碼改為課本印刷頁碼
+
+- **狀態：** 已採納
+- **背景：** UIUX2 驗收前核對課本時，發現 App 顯示的頁碼與課本印刷頁碼固定差 2 頁；根因是 `top2025.md` 第 4 欄保留的是 PDF 內部頁碼，PDF 第 3 頁才是課本印刷第 1 頁。這會讓「依頁碼找單字」與「依頁碼出考卷」畫面看起來可用，但使用者拿實體課本對照時會翻錯頁。
+- **改動：** `exam-vocab-batcher/public/data/vocab.cleaned.json` 與 `output/vocab.cleaned.json` 的 `source_page` 全部減 2，修正後全書頁碼為 1~60 且沒有 0 或負數；`src/pdf_parser/rules/top2025_md.py` 新增 `PRINTED_PAGE_OFFSET = 2`，未來重新從 Markdown 產資料時會直接輸出課本印刷頁碼；批次建立器同步改為「點單一頁碼按鈕就建立該頁批次」。
+- **影響的原始需求：** R2（搜尋 / 篩選單字）與 R10（選定頁數範圍產生考卷）過去使用的是錯位 2 頁的頁碼標示；功能流程本身可用，但頁碼語意不準。本次修正後，App 顯示頁碼改以課本印刷頁碼為準。
+- **負責人是否同意：** 是（依 `BRIEF_UIUX3_頁碼修正與單頁建立批次.md` 執行固定偏移快修）
+
+## 2026-08-02　修復：Firestore 安全規則預設鎖死一切讀寫，導致成績/統計從未真正儲存
+
+- **狀態：** 已採納
+- **背景：** S4「成績歷史」「單字統計」上線後，負責人回報兩個頁面都沒有資料，即使已登入且重新考過。查 Firebase Console → Firestore → Rules，發現規則是 `allow read, write: if false;`——這是建立 Firestore 資料庫時的預設鎖死規則，從未被改成允許登入使用者讀寫自己的資料。往回推：S2、S3 驗收時「已登入考完一次不出現任何錯誤」之所以能通過，是因為 `ExamResultPage` 的得分/對錯清單是用考試當下的本機資料直接顯示，不需要從 Firestore 讀回來，寫入失敗只會在背景 console 出現錯誤（`.catch(console.error)`），畫面完全正常、負責人看不出來。也就是說，`examResults`、`wordStats` 從 S3 開始其實從來沒有真正寫進 Firestore 過，直到 S4 的兩個新頁面第一次「真的去讀」，才讓這個問題現形。
+- **改動：** 把 Firestore 規則改為：登入使用者只能讀寫自己 `users/{uid}` 底下的文件與所有子集合（`examResults`、`wordStats`），其餘一律不開放。規則內容存進專案根目錄 `firestore.rules`，並在 `firebase.json` 加上 `"firestore": { "rules": "firestore.rules" }`，避免以後 `firebase deploy` 沒有把規則一併部署、或被 Console 手動改動又忘記同步回 repo。負責人已直接在 Firebase Console 貼上新規則並發布。
+- **影響的原始需求：** R9（帳號同步）、R11（成績與錯誤率統計）過去的「已驗收通過」紀錄需要註記：**功能流程本身沒問題，但資料其實從未真正落地**，直到本次修復才是第一次「成績/統計真的會被儲存」。建議負責人之後重新用「成績歷史」「單字統計」頁面驗證一次舊有的登入/考試驗收項目，確保資料確實持久化。
+- **負責人是否同意：** 是（負責人依規劃層提供的規則內容直接發布）
+
+## 2026-07-31　登入問題第二根因確認：PWA Service Worker 攔截 Firebase 登入保留路徑
+
+- **狀態：** 已採納
+- **背景：** S3e 改用 `BrowserRouter` 後，iPhone 登入流程已有進展，但桌機／Android 仍不穩定。規劃層再次檢查正式站 `sw.js`，發現 Workbox 的 `NavigationRoute(createHandlerBoundToURL("index.html"))` 會攔截所有整頁導覽請求；Firebase Auth redirect 需要使用 `/__/auth/handler`、`/__/auth/iframe` 等保留路徑，但這些請求被瀏覽器端 Service Worker 攔截後回傳本 App 的 `index.html`，導致登入處理頁無法執行。這證實 `BRIEF_S3b` 當初列出的「PWA Service Worker 快取干擾」是登入問題的主要根因之一，與 HashRouter 衝突並存。
+- **改動：** `exam-vocab-batcher/vite.config.ts` 的 `VitePWA.workbox` 新增 `navigateFallbackDenylist: [/^\/__\/auth\//, /^\/__\/firebase\//]`，讓 Firebase 保留路徑不被 SPA navigation fallback 攔截；PWA precache 與 `data/vocab.cleaned.json` 的離線快取維持不變。
+- **影響的原始需求：** R9「使用者能以 Google 帳號登入/登出，跨裝置同步」恢復可驗收；R4「斷網可用」不應受影響，因為沒有關閉 PWA/Service Worker，只排除 Firebase 登入保留路徑。
+- **負責人是否同意：** 是（依 S3f 修復 BRIEF 執行，待負責人部署後重新驗收）
+
+## 2026-07-31　登入問題真正根因確認：HashRouter 與 Firebase 登入網址片段衝突（推翻前兩輪假設）
+
+- **狀態：** 已採納
+- **背景：** 規劃層直接用瀏覽器工具重現登入問題，在主控台看到本專案自己的 React Router 印出警告：`No routes matched location "/id=I0_...&_gfid=...&parent=...&pfname=&rpctoken=..."`。這證實登入失敗的真正原因是 `src/App.tsx` 使用的 `HashRouter`（用網址 `#` 片段記錄目前畫面）跟 Firebase Auth 內部用網址 `#` 片段傳遞登入流程狀態互相衝突，`signInWithRedirect()` 流程在還沒跳出 Google 帳號選擇畫面前就被自家路由系統打斷。這個衝突與部署平台（GitHub Pages／Firebase Hosting）、裝置（iPhone／Android／桌機）都無關，純粹是前端路由函式庫的選型問題。
+- **改動：** 推翻 `BRIEF_S3b`「跨網域第三方儲存限制」與 `BRIEF_S3c`「遷移到 Firebase Hosting 可解決登入」兩輪假設——這兩輪的環境調整（保留下來，Firebase Hosting 遷移仍是合理的長期做法，只是不是本次登入問題的解方）沒有真正解決問題。真正修法見 `BRIEF_S3e_改用BrowserRouter.md`：把路由系統從 `HashRouter` 換成 `BrowserRouter`。
+- **影響的原始需求：** R9「使用者能以 Google 帳號登入/登出，跨裝置同步」的驗收方式不變；`BRIEF_S3d_登入除錯面板.md`（原本要加除錯面板協助診斷）因根因已找到而不需要執行。
+- **負責人是否同意：** 是（規劃層直接診斷確認，待執行與負責人重新驗收）
+
+## 2026-07-31　登入架構修法定案：正式站遷移到 Firebase Hosting
+
+- **狀態：** 已採納
+- **背景：** S3 驗收時，iPhone Safari 與 Android Chrome 完成 Google 導向登入後，App 仍顯示「使用 Google 登入」，重新整理也沒有頭像。執行層診斷根因：正式站部署在 GitHub Pages project site (`hsiaochiang.github.io/vocabbatcher/`)，Firebase `authDomain` 用預設 `firebaseapp.com`，兩者不同網域，`signInWithRedirect()` 在封鎖第三方儲存的手機瀏覽器上讀不回登入結果（詳細診斷見 `REPORT_S3b_登入異常修復.md`）。
+- **改動：** 負責人（考量非商業、個人家庭使用）拍板：正式站部署管道由 GitHub Pages 改為 Firebase Hosting（`*.web.app` / `*.firebaseapp.com` 網域，免費額度足夠家庭用量），讓 App 網域與 Firebase Auth helper 網域同源，`signInWithRedirect()` 不需再改寫即可正常運作。捨棄方案：改用 Google Identity Services 重寫登入流程（負責人評估對個人專案複雜度過高，不採用）。此決策的具體施工見 `BRIEF_S3c_遷移至FirebaseHosting.md`。
+- **影響的原始需求：** R9「使用者能以 Google 帳號登入/登出，跨裝置同步」的驗收方式不變；但正式站網址會從 `hsiaochiang.github.io/vocabbatcher/` 變成 Firebase Hosting 網域，`ROADMAP.md`/`DECISIONS.md` 2026-07-30「提前建立 GitHub Pages 正式環境」條目的網址記錄需同步更新為新網址（待遷移完成後回填）。
+- **負責人是否同意：** 是（2026-07-31 拍板採用 Firebase Hosting 方案）
+
 ## 2026-07-31　M3-S2 修復：Google 登入改用 signInWithRedirect（偏離 BRIEF 原定實作方式）
 
 - **狀態：** 已採納

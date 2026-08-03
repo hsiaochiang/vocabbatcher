@@ -2,7 +2,8 @@
 
 > 本檔是「人 + 兩個 AI」協作流程的總綱。
 > 對象：負責人(懂系統分析、不寫程式)。
-> 配套文件：行為規範看 `AGENTS.md`、進度看 `PROGRESS.md`、決策看 `DECISIONS.md`。
+> 配套文件：行為規範看 `AGENTS.md`(專案根目錄)、進度看 `PROGRESS.md`、決策看 `DECISIONS.md`(以下兩者皆與本檔同放 `docs/planning/`)。
+> **本檔自己也在 `docs/planning/WORKFLOW.md`。** 每片的 `BRIEF_*.md`/`CODEX_PROMPT_*.md`/`REPORT_*.md` 放在 `docs/handoff/`（2026-08-03 整理，理由與清單見兩個資料夾各自的 `README.md`）。
 >
 > **本專案背景：** VocabBatcher 原本由 OpenSpec + GitHub Copilot（WOS agent）驅動，
 > 文件在 `docs/roadmap.md`、`docs/decision-log.md`、`.github/copilot-instructions.md` 等處。
@@ -63,23 +64,25 @@
 
 ### 2.1 過程文件(貫穿開發)
 
-| 文件 | 角色定位 | 產出層 | 讀取層 | 更新時機 |
-|---|---|---|---|---|
-| `AGENTS.md` | 兩層共同憲法(行為規範) | 規劃層 | 全部(執行層自動讀) | 規則或架構改變時 |
-| `REQUIREMENTS.md` | 原始需求基準線(spec) | 規劃層，負責人簽核 | 全部 | 需求變更時(同步留痕 DECISIONS) |
-| `ROADMAP.md` | 全案藍圖：階段切分 + 順序 | 規劃層 | 全部 | 階段切分定案 / 重大調整時 |
-| `STAGE_N_PLAN.md` | 單一階段的切片拆分 + 相依順序 | 規劃層 | 規劃層自用 → 生成 BRIEF | 進入某階段時 |
-| `BRIEF_SliceN.md` | 單一切片的施工規格(tasks) | 規劃層 | 執行層 | 開一個切片時 |
-| `PROGRESS.md` | 一頁進度儀表板(Memory Bank) | 執行層(主) | 全部，**開工先讀** | **每個 session 收工必更新** |
-| `DECISIONS.md` | 變更與決策日誌(ADR) | 發生偏離的那層 | 全部 | 任何偏離需求的當下 |
-| `UI-UX-CHECKLIST.md` | UI/UX 檢核 + 自查結果 | 執行層 | 負責人 | 階段②與⑤（本專案暫由 `docs/uiux/` 承接） |
+| 文件 | 位置 | 角色定位 | 產出層 | 讀取層 | 更新時機 |
+|---|---|---|---|---|---|
+| `AGENTS.md` | 專案根目錄 | 兩層共同憲法(行為規範) | 規劃層 | 全部(執行層自動讀) | 規則或架構改變時 |
+| `REQUIREMENTS.md` | `docs/planning/` | 原始需求基準線(spec) | 規劃層，負責人簽核 | 全部 | 需求變更時(同步留痕 DECISIONS) |
+| `ROADMAP.md` | `docs/planning/` | 全案藍圖：階段切分 + 順序 | 規劃層 | 全部 | 階段切分定案 / 重大調整時 |
+| `STAGE_N_PLAN.md` | `docs/planning/` | 單一階段的切片拆分 + 相依順序 | 規劃層 | 規劃層自用 → 生成 BRIEF | 進入某階段時 |
+| `BRIEF_SliceN.md` | `docs/handoff/` | 單一切片的施工規格(tasks) | 規劃層 | 執行層 | 開一個切片時 |
+| `PROGRESS.md` | `docs/planning/` | 一頁進度儀表板(Memory Bank) | 執行層(主) | 全部，**開工先讀** | **每個 session 收工必更新** |
+| `DECISIONS.md` | `docs/planning/` | 變更與決策日誌(ADR) | 發生偏離的那層 | 全部 | 任何偏離需求的當下 |
+| `UI-UX-CHECKLIST.md` | — | UI/UX 檢核 + 自查結果 | 執行層 | 負責人 | 階段②與⑤（本專案暫由 `docs/uiux/` 承接） |
+
+> `docs/handoff/` 內每片還有對應的 `CODEX_PROMPT_SliceN.md`(可直接 `codex exec` 的信封)與 `REPORT_SliceN.md`(執行層收工回條)，三件套的完整說明見 `docs/handoff/README.md`。
 
 ### 2.2 成果文件(階段⑤交付時產出)
 
-| 文件 | 框架(Diátaxis) | 對象 | 何時寫 |
-|---|---|---|---|
-| `USER_MANUAL.md` | Tutorials + How-to Guides | 完全不懂程式的使用者 | 階段⑤，功能凍結後（本專案已於 2026-05-31 產出） |
-| `DEVELOPER_LOG.md` | Reference + Explanation/ADR | 一兩個月後回來的自己 | 階段⑤，把 DECISIONS 收斂成回顧（本專案已於 2026-05-31 產出） |
+| 文件 | 位置 | 框架(Diátaxis) | 對象 | 何時寫 |
+|---|---|---|---|---|
+| `USER_MANUAL.md` | `docs/planning/` | Tutorials + How-to Guides | 完全不懂程式的使用者 | 階段⑤，功能凍結後（本專案已於 2026-05-31 產出） |
+| `DEVELOPER_LOG.md` | `docs/planning/` | Reference + Explanation/ADR | 一兩個月後回來的自己 | 階段⑤，把 DECISIONS 收斂成回顧（本專案已於 2026-05-31 產出） |
 
 ---
 
