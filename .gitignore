@@ -40,6 +40,8 @@ output/
 # Claude Code local state
 .claude/settings.local.json
 .claude/.progress-session-marker
+.claude/skills/
+.agents/
 
 # Firebase CLI local cache
 .firebase/

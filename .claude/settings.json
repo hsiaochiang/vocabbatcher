@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "mkdir -p .claude && date +%s > .claude/.progress-session-marker",
+            "statusMessage": "記錄 session 起始時間，供收工時檢查 PROGRESS.md 是否已更新"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "marker=.claude/.progress-session-marker; file=docs/planning/PROGRESS.md; if [ ! -f \"$marker\" ]; then printf '{}'; elif [ \"$file\" -nt \"$marker\" ]; then printf '{}'; else printf '{\"systemMessage\": \"⚠️ PROGRESS.md 尚未更新，請確認這個 session 是否需要補上工作紀錄（純討論、沒有實際進度變動的 session 可以忽略）\"}'; fi",
+            "statusMessage": "檢查 PROGRESS.md 是否已更新"
+          }
+        ]
+      }
+    ]
+  }
+}
