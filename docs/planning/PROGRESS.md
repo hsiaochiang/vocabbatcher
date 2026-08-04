@@ -7,17 +7,18 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** M4「品質收斂」全部完成（S1~S2-S4），待負責人最終驗收；M5「學測單字庫」三片皆已實作完成，待負責人做資料與 App 端最終驗收
-- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%＋（M1~M4 全部完成；M5 新增里程碑已實作完成，待負責人驗收確認）
-- **最後更新：** 2026-08-04 by 執行層
+- **目前階段：** M4「品質收斂」全部完成（S1~S2-S4），待負責人最終驗收；M5「學測單字庫」App 端（S2）已實作；學測資料改用負責人提供的新來源整份重轉並逐筆核對，品質達 100% 完整率，待負責人最終抽查後才 commit
+- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%＋（M1~M4 全部完成；M5 新增里程碑資料與 App 端皆已完成，待負責人最終驗收與確認 commit）
+- **最後更新：** 2026-08-04 by 規劃層
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-兩件事並行：
+三件事並行：
 1. **M4 驗收（尚未收尾）**：請依 `docs/handoff/REPORT_M4S2-S4_品質收斂收尾.md` 的白話步驟驗收批次 Hub 三格入口、練習測驗頁碼預設、重複批次提示、1231 筆清單捲動、主要頁面 smoke test 與新版 `README.md`。
-2. **M5 最終驗收**：請依 `docs/handoff/REPORT_M5S2_App端來源切換.md` 的白話步驟測：首頁能切「會考」／「學測」；學測建立批次、翻牌、考試只出學測字；切回會考後看不到學測批次；登入後各考一次會考/學測，確認成績歷史與單字統計會依來源分開顯示。
+2. **學測資料最終確認（尚未 commit）**：規劃層改用負責人提供的新來源 `學測高頻率單字表_含頁碼.md` 整份重轉 `topsat.md`，逐筆讀 PDF 核對修正（含最初 4 筆表格誤併、後續 75 筆源頭空白、以及掃描發現的多組「相鄰列吞併」殘留），全程未使用自動 OCR。QA：詞性/中文定義完整率 100%、低信心 0。這批改動還沒 commit，請抽查幾個字（例如 `achievement`、`splendor`、`intersection`、`rod`）對照 PDF 確認無誤，OK 就跟規劃層說一聲，才會 commit 並 push。
+3. **M5 最終驗收（App 端）**：請依 `docs/handoff/REPORT_M5S2_App端來源切換.md` 的白話步驟測：首頁能切「會考」／「學測」；學測建立批次、翻牌、考試只出學測字；切回會考後看不到學測批次；登入後各考一次會考/學測，確認成績歷史與單字統計會依來源分開顯示。
 
 <details>
 <summary>舊版下一步紀錄（已由上方取代，保留備查）</summary>
@@ -42,6 +43,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-04　**學測資料改用新來源整份重轉，品質達 100% 完整率（尚未 commit）**：改用負責人提供的 `0resource/學測高頻率單字表_含頁碼.md`（外部工具產出，經核對品質優於 Tesseract 版）取代 M5-S1b 產物；`topsat.md` 改成六欄明確格式，`topsat_md.py` 同步改寫不再依賴章節標題狀態。規劃層直接讀 PDF 逐筆核對：補回 4 筆表格誤併的字、補齊 75 筆源頭空白、寫結構/內容雙層異常掃描腳本抓出並修正多組「相鄰列吞併」殘留（共約 100 筆修正）。全程未使用自動 OCR。修正後：詞性/中文定義完整率 100%、低信心 0、`pytest` 63 passed。詳見 `DECISIONS.md` 2026-08-04「學測資料改用新來源徹底重轉」條目。**這批改動還在工作目錄未 commit，待負責人抽查確認後才提交。**
 - 2026-08-04　**M5-S2「App 端會考/學測來源切換」已實作待驗收**：首頁新增「會考」／「學測」來源切換，`AppContext` 依來源載入 `vocab.cleaned.json` 或 `vocab.gsat.cleaned.json`；批次建立器、批次歷史、翻牌卡、練習測驗、成績歷史、單字統計都依目前來源運作。批次會記住建立來源，舊批次預設視為會考；考試成績新增 `source`，`wordStats` 文件 ID 改為 `{source}__{word}`，避免共同單字污染錯誤率。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（11 passed）通過。詳見 `REPORT_M5S2_App端來源切換.md`
 - 2026-08-03　**規劃層人工補齊學測資料剩餘 15 筆缺值/OCR 殘留**：直接讀取 `TopAcademy 學測高頻率單字表.pdf` 對應頁碼核對正確詞性與中文定義，修正 `0resource/topsat.md` 的 `attach`、`bullying`、`evaluate`、`impress`、`landmark`、`layer`、`splash`、`terrify`（缺詞性）、`fiber`、`glory`、`humidity`（缺中文定義），以及順帶發現、經負責人確認一併修正的 `bound`、`landscape`、`spin`、`spray`（OCR 殘留雜訊）共 15 筆；重跑 pipeline 後詞性/中文定義完整率皆達 100%、低信心 0。`python -m pytest tests/` 66 passed。已 commit 並 push 到 `origin main`。
 - 2026-08-03　**M5-S1b「學測資料 OCR 校正」已完成待抽查**：新增可重複執行腳本 `src/pdf_parser/tools/topsat_transcribe.py`，嘗試 PaddleOCR（安裝與模型下載成功，但 Windows CPU 推論固定失敗）後依 BRIEF 備援條件改用 Tesseract 300 DPI 裁切字義 cell；重新產出 `0resource/topsat.md`、`output/gsat/vocab.raw.json`、`vocab.cleaned.json`、`vocab.qa_report.json`，並覆蓋 `exam-vocab-batcher/public/data/vocab.gsat.cleaned.json`。QA 改善：詞性完整率 94.0%→99.5%（缺詞性 98→8）、中文定義完整率 98.7%→99.8%（缺定義 22→3）、低信心 1→0；`splendor`、`cruelly`、`refer`、`suffer`、`unique` 等抽樣錯誤已修正。`python -m pytest tests/` 66 passed。詳見 `REPORT_M5S1b_學測資料OCR校正.md`

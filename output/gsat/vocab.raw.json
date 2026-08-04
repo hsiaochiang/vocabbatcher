@@ -2,7 +2,7 @@
   {
     "word": "passage",
     "pos": "n.",
-    "zh_definition": "文章的一段;通道;(時間的) 流逝",
+    "zh_definition": "文章的一段;通道;(時間的)流逝",
     "frequency": 10,
     "level": "第三級",
     "source_page": 1,
@@ -32,7 +32,7 @@
   {
     "word": "accord",
     "pos": "v.",
-    "zh_definition": "符合;[n.] 協議 *考題多出現 according to(根據)",
+    "zh_definition": "符合;[n.] 協議 * 考題多出現 according to(根據)",
     "frequency": 10,
     "level": "第五級",
     "source_page": 1,
@@ -42,7 +42,7 @@
   {
     "word": "research",
     "pos": "n.",
-    "zh_definition": "研究;調查, 研究, 調查",
+    "zh_definition": "研究;調查;[v.] 研究;調查",
     "frequency": 9,
     "level": "第四級",
     "source_page": 1,
@@ -72,7 +72,7 @@
   {
     "word": "invent",
     "pos": "v.",
-    "zh_definition": "發明 5 捏造",
+    "zh_definition": "發明;捏造",
     "frequency": 7,
     "level": "第三級",
     "source_page": 1,
@@ -82,7 +82,7 @@
   {
     "word": "process",
     "pos": "n.",
-    "zh_definition": "過程;程序, 處理;加工",
+    "zh_definition": "過程;程序;[v.]處理;加工",
     "frequency": 7,
     "level": "第三級",
     "source_page": 1,
@@ -102,7 +102,7 @@
   {
     "word": "risk",
     "pos": "n.",
-    "zh_definition": "風險;危險;[v.] 擔...的風險",
+    "zh_definition": "風險;危險;[v.]擔...的風險",
     "frequency": 7,
     "level": "第三級",
     "source_page": 1,
@@ -132,7 +132,7 @@
   {
     "word": "various",
     "pos": "adj.",
-    "zh_definition": "各種的 > 不同的",
+    "zh_definition": "各種的;不同的",
     "frequency": 7,
     "level": "第三級",
     "source_page": 2,
@@ -152,7 +152,7 @@
   {
     "word": "issue",
     "pos": "n.",
-    "zh_definition": "問題;議題;發行",
+    "zh_definition": "問題;議題;[v.] 發行",
     "frequency": 7,
     "level": "第四級",
     "source_page": 2,
@@ -262,7 +262,7 @@
   {
     "word": "warn",
     "pos": "v.",
-    "zh_definition": "和警告,提醒",
+    "zh_definition": "警告;提醒",
     "frequency": 6,
     "level": "第三級",
     "source_page": 2,
@@ -271,8 +271,8 @@
   },
   {
     "word": "associate",
-    "pos": "n.",
-    "zh_definition": "關聯;聯繫;夥伴;同事",
+    "pos": "v.",
+    "zh_definition": "關聯;聯繫;[n.]夥伴;同事",
     "frequency": 6,
     "level": "第四級",
     "source_page": 2,
@@ -331,8 +331,8 @@
   },
   {
     "word": "appeal",
-    "pos": "v.",
-    "zh_definition": "叫.」吸引力;呼籲 吸引,;呼籲",
+    "pos": "n.",
+    "zh_definition": "吸引力;呼籲;[v.] 吸引;呼籲",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -352,7 +352,7 @@
   {
     "word": "attract",
     "pos": "v.",
-    "zh_definition": "吸引;引起",
+    "zh_definition": "吸引;引起 06.08 09",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -371,8 +371,8 @@
   },
   {
     "word": "information",
-    "pos": "n.",
-    "zh_definition": "資訊;消息",
+    "pos": "v.",
+    "zh_definition": "治癒;恢復 [n.]資訊;消息",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -421,8 +421,8 @@
   },
   {
     "word": "release",
-    "pos": "n.",
-    "zh_definition": "釋放;發放, 釋放;發行",
+    "pos": "v.",
+    "zh_definition": "釋放;發放;[n.]釋放;發行 08 09 10.",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -432,7 +432,7 @@
   {
     "word": "reserve",
     "pos": "v.",
-    "zh_definition": "預定;保留 拘謹;儲備物",
+    "zh_definition": "預定;保留;[n.]拘謹;儲備物",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -452,7 +452,7 @@
   {
     "word": "tend",
     "pos": "v.",
-    "zh_definition": "傾向 (+to);照顧",
+    "zh_definition": "傾向(+to);照顧",
     "frequency": 5,
     "level": "第三級",
     "source_page": 3,
@@ -482,10 +482,10 @@
   {
     "word": "adopt",
     "pos": "v.",
-    "zh_definition": "採用;接受",
+    "zh_definition": "採用;接受 06 08. 11",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -495,7 +495,7 @@
     "zh_definition": "行為;舉止",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -505,7 +505,7 @@
     "zh_definition": "競爭;比賽",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -515,7 +515,7 @@
     "zh_definition": "建設;建築",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -525,17 +525,17 @@
     "zh_definition": "建立;設立;創立",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "eventually",
     "pos": "adv.",
-    "zh_definition": "最後,最終",
+    "zh_definition": "最後;最終",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -545,37 +545,37 @@
     "zh_definition": "證據",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "facility",
     "pos": "n.",
-    "zh_definition": "巴.] 設施,設備;場所",
+    "zh_definition": "設施;設備;場所",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "impact",
     "pos": "n.",
-    "zh_definition": "影響;衝擊;影響,衝擊",
+    "zh_definition": "影響;衝擊;[v.] 影響;衝擊",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "including",
     "pos": "prep.",
-    "zh_definition": "包括;包合",
+    "zh_definition": "包括;包含",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -585,7 +585,7 @@
     "zh_definition": "傷害;損害",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -595,17 +595,17 @@
     "zh_definition": "啟發;靈感",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "inspire",
     "pos": "v.",
-    "zh_definition": "激勵,啟發,豉舞",
+    "zh_definition": "激勵;啟發;鼓舞",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -615,7 +615,7 @@
     "zh_definition": "安裝;設置",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -625,7 +625,7 @@
     "zh_definition": "發明;創造",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -635,17 +635,17 @@
     "zh_definition": "涉及;牽涉",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "measure",
-    "pos": "n.",
-    "zh_definition": "Bee 5 評估;方法;措施",
+    "pos": "v.",
+    "zh_definition": "測量;評估;[n.]方法;措施",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -655,7 +655,7 @@
     "zh_definition": "此外;而且",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -665,7 +665,7 @@
     "zh_definition": "物理的;身體的",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -675,14 +675,14 @@
     "zh_definition": "受歡迎;人氣",
     "frequency": 5,
     "level": "第四級",
-    "source_page": 4,
+    "source_page": 3,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "potential",
     "pos": "adj.",
-    "zh_definition": "潛在的;可能的;潛力",
+    "zh_definition": "潛在的;可能的;[n.]潛力",
     "frequency": 5,
     "level": "第四級",
     "source_page": 5,
@@ -701,8 +701,8 @@
   },
   {
     "word": "highlight",
-    "pos": "n.",
-    "zh_definition": "強調;突顯;最精彩的部分",
+    "pos": "v.",
+    "zh_definition": "強調;突顯;[n.]最精彩的部分",
     "frequency": 5,
     "level": "第五級",
     "source_page": 5,
@@ -732,7 +732,7 @@
   {
     "word": "advise",
     "pos": "v.",
-    "zh_definition": "建議;勸告",
+    "zh_definition": "建議;勸告 06.08",
     "frequency": 4,
     "level": "第三級",
     "source_page": 5,
@@ -782,7 +782,7 @@
   {
     "word": "constant",
     "pos": "adj.",
-    "zh_definition": "不變的;持續的 常數;不變的事物",
+    "zh_definition": "不變的;持續的;[n.]常數;不變的事物",
     "frequency": 4,
     "level": "第三級",
     "source_page": 5,
@@ -802,7 +802,7 @@
   {
     "word": "credit",
     "pos": "n.",
-    "zh_definition": "信用;功勞 相信",
+    "zh_definition": "信用;功勞;[v.]相信",
     "frequency": 4,
     "level": "第三級",
     "source_page": 5,
@@ -822,7 +822,7 @@
   {
     "word": "global",
     "pos": "adj.",
-    "zh_definition": "全球的;世界的",
+    "zh_definition": "全球的;世界的 05.09",
     "frequency": 4,
     "level": "第三級",
     "source_page": 5,
@@ -851,8 +851,8 @@
   },
   {
     "word": "leather",
-    "pos": "adj.",
-    "zh_definition": "皮革;皮革的",
+    "pos": "n.",
+    "zh_definition": "皮革;[adj.]皮革的",
     "frequency": 4,
     "level": "第三級",
     "source_page": 5,
@@ -862,7 +862,7 @@
   {
     "word": "location",
     "pos": "n.",
-    "zh_definition": "位置;場所",
+    "zh_definition": "位置;場所 07.08",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -892,7 +892,7 @@
   {
     "word": "observe",
     "pos": "v.",
-    "zh_definition": "觀察;觀察到",
+    "zh_definition": "觀察;觀察到 ;最初的;[n.]原創",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -902,7 +902,7 @@
   {
     "word": "original",
     "pos": "adj.",
-    "zh_definition": "原創的;最初的;原創",
+    "zh_definition": "原創的",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -911,8 +911,8 @@
   },
   {
     "word": "plastic",
-    "pos": "adj.",
-    "zh_definition": "塑膠;塑膠的",
+    "pos": "n.",
+    "zh_definition": "塑膠;[adj.]塑膠的",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -952,7 +952,7 @@
   {
     "word": "security",
     "pos": "n.",
-    "zh_definition": "安全;保障",
+    "zh_definition": "安全;保障 ○○○",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -962,7 +962,7 @@
   {
     "word": "signal",
     "pos": "n.",
-    "zh_definition": "信號;Beat;發出信號",
+    "zh_definition": "信號;標誌;[v.]發出信號",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -972,7 +972,7 @@
   {
     "word": "theory",
     "pos": "n.",
-    "zh_definition": "理論,原理",
+    "zh_definition": "理論;原理",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -982,7 +982,7 @@
   {
     "word": "trace",
     "pos": "n.",
-    "zh_definition": "蹤跡;足跡;跟蹤",
+    "zh_definition": "蹤跡;足跡;[v.]跟蹤",
     "frequency": 4,
     "level": "第三級",
     "source_page": 6,
@@ -1022,7 +1022,7 @@
   {
     "word": "acquire",
     "pos": "v.",
-    "zh_definition": "獲得 5 取得",
+    "zh_definition": "獲得;取得",
     "frequency": 4,
     "level": "第四級",
     "source_page": 6,
@@ -1042,7 +1042,7 @@
   {
     "word": "alert",
     "pos": "adj.",
-    "zh_definition": "警覺的;警惕的;警報",
+    "zh_definition": "警覺的;警惕的;[n.]警報",
     "frequency": 4,
     "level": "第四級",
     "source_page": 6,
@@ -1081,8 +1081,8 @@
   },
   {
     "word": "characteristic",
-    "pos": "adj.",
-    "zh_definition": "RCS FRE;典型的;特有的",
+    "pos": "n.",
+    "zh_definition": "特徵;特色;[adj.]典型的;特有的",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1101,8 +1101,8 @@
   },
   {
     "word": "crack",
-    "pos": "v.",
-    "zh_definition": "[n ] 裂縫;裂開;打破",
+    "pos": "n.",
+    "zh_definition": "裂縫; [v.]裂開;打破",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1121,8 +1121,8 @@
   },
   {
     "word": "demand",
-    "pos": "v.",
-    "zh_definition": "堅決請",
+    "pos": "n.",
+    "zh_definition": "需求;要求; [v.]堅決請求;需要",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1132,7 +1132,7 @@
   {
     "word": "disguise",
     "pos": "n.",
-    "zh_definition": "巴.] 備裝;掩飾;[攻] 偽裝;掩飾",
+    "zh_definition": "偽裝;掩飾; [v.]偽裝;掩飾",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1142,7 +1142,7 @@
   {
     "word": "disturb",
     "pos": "v.",
-    "zh_definition": "以]擾亂;打擾;干擾",
+    "zh_definition": "擾亂;打擾;干擾 07.08",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1161,8 +1161,8 @@
   },
   {
     "word": "encounter",
-    "pos": "n.",
-    "zh_definition": "遇到;碰到;遇見",
+    "pos": "v.",
+    "zh_definition": "遇到;碰到;[n.]遇見",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1222,7 +1222,7 @@
   {
     "word": "identify",
     "pos": "v.",
-    "zh_definition": "辦認;識別",
+    "zh_definition": "辨認;識別",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1232,7 +1232,7 @@
   {
     "word": "initial",
     "pos": "adj.",
-    "zh_definition": "最初的;初步的 開頭;初始",
+    "zh_definition": "最初的;初步的;[n.]開頭;初始 06.08",
     "frequency": 4,
     "level": "第四級",
     "source_page": 7,
@@ -1272,7 +1272,7 @@
   {
     "word": "option",
     "pos": "n.",
-    "zh_definition": "巴.] 選擇;選項",
+    "zh_definition": "選擇;選項",
     "frequency": 4,
     "level": "第四級",
     "source_page": 8,
@@ -1322,7 +1322,7 @@
   {
     "word": "professional",
     "pos": "adj.",
-    "zh_definition": "專業的;職業的;專家",
+    "zh_definition": "專業的;職業的;[n.]專家",
     "frequency": 4,
     "level": "第四級",
     "source_page": 8,
@@ -1342,7 +1342,7 @@
   {
     "word": "site",
     "pos": "n.",
-    "zh_definition": "地點;網站;設置",
+    "zh_definition": "地點;網站;[v.]設置",
     "frequency": 4,
     "level": "第四級",
     "source_page": 8,
@@ -1352,7 +1352,7 @@
   {
     "word": "slight",
     "pos": "adj.",
-    "zh_definition": "輕微的;微小的;輕視,冷落",
+    "zh_definition": "輕微的;微小的;[v.]輕視;冷落 08.09",
     "frequency": 4,
     "level": "第四級",
     "source_page": 8,
@@ -1362,7 +1362,7 @@
   {
     "word": "transform",
     "pos": "v.",
-    "zh_definition": "已]轉變;改變",
+    "zh_definition": "轉變;改變",
     "frequency": 4,
     "level": "第四級",
     "source_page": 8,
@@ -1411,8 +1411,8 @@
   },
   {
     "word": "trigger",
-    "pos": "n.",
-    "zh_definition": "觸發;引起, 觸發器,板機",
+    "pos": "v.",
+    "zh_definition": "觸發;引起;[n.]觸發器;板機",
     "frequency": 4,
     "level": "第五級",
     "source_page": 8,
@@ -1452,7 +1452,7 @@
   {
     "word": "achievement",
     "pos": "n.",
-    "zh_definition": "成就,業貫",
+    "zh_definition": "成就;業績",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1462,7 +1462,7 @@
   {
     "word": "additionally",
     "pos": "adv.",
-    "zh_definition": "此外,;而且",
+    "zh_definition": "此外;而且",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1491,8 +1491,8 @@
   },
   {
     "word": "awake",
-    "pos": "adj.",
-    "zh_definition": "醒來;醒著的",
+    "pos": "v.",
+    "zh_definition": "醒來; [adj.]醒著的",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1502,7 +1502,7 @@
   {
     "word": "award",
     "pos": "n.",
-    "zh_definition": "獎項;aN? 頒獎",
+    "zh_definition": "獎項; [v.]頒獎",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1512,7 +1512,7 @@
   {
     "word": "bare",
     "pos": "adj.",
-    "zh_definition": "赤裸的;空的;使赤裸",
+    "zh_definition": "赤裸的;空的;[v.]使赤裸",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1521,8 +1521,8 @@
   },
   {
     "word": "benefit",
-    "pos": "v.",
-    "zh_definition": "牟.] 好處;利益;[其] 受益",
+    "pos": "n.",
+    "zh_definition": "好處;利益;[v.]受益",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1532,7 +1532,7 @@
   {
     "word": "bury",
     "pos": "v.",
-    "zh_definition": "埋葬;埋茂",
+    "zh_definition": "埋葬;埋藏",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1541,8 +1541,8 @@
   },
   {
     "word": "capture",
-    "pos": "n.",
-    "zh_definition": "捕捉;俘獲;捕捉",
+    "pos": "v.",
+    "zh_definition": "捕捉;俘獲;[n.] 捕捉",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1561,8 +1561,8 @@
   },
   {
     "word": "charm",
-    "pos": "n.",
-    "zh_definition": "魅力,吸引力;ete",
+    "pos": "v.",
+    "zh_definition": "魅力;吸引力;迷住",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1582,7 +1582,7 @@
   {
     "word": "comfort",
     "pos": "n.",
-    "zh_definition": "舒適;安點;安慰",
+    "zh_definition": "舒適;安慰;[v.]安慰",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1602,7 +1602,7 @@
   {
     "word": "complain",
     "pos": "v.",
-    "zh_definition": "其]抱怨;訴苦",
+    "zh_definition": "抱怨;訴苦",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1621,8 +1621,8 @@
   },
   {
     "word": "crash",
-    "pos": "n.",
-    "zh_definition": "撞擊;當機 碰撞;失事",
+    "pos": "v.",
+    "zh_definition": "撞擊;當機;[n.]碰撞;失事;當機",
     "frequency": 3,
     "level": "第三級",
     "source_page": 9,
@@ -1652,7 +1652,7 @@
   {
     "word": "desire",
     "pos": "n.",
-    "zh_definition": "軸.] 渴詢;願餓;[也] 渴整",
+    "zh_definition": "渴望;願望;[v.]渴望",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1672,7 +1672,7 @@
   {
     "word": "detect",
     "pos": "v.",
-    "zh_definition": "價測;發現",
+    "zh_definition": "偵測;發現",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1682,7 +1682,7 @@
   {
     "word": "dock",
     "pos": "n.",
-    "zh_definition": "TIE, 碼頭, 停靠",
+    "zh_definition": "停靠;碼頭; [v.]停靠",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1702,7 +1702,7 @@
   {
     "word": "drunk",
     "pos": "adj.",
-    "zh_definition": "喝醉的;陶醉的",
+    "zh_definition": "喝醉的;陶醉的 06.09",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1762,7 +1762,7 @@
   {
     "word": "flash",
     "pos": "n.",
-    "zh_definition": "閃光;閃現;閃爍",
+    "zh_definition": "閃光;閃現 ; [v.]閃爍",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1772,7 +1772,7 @@
   {
     "word": "flavor",
     "pos": "n.",
-    "zh_definition": "味道;調味",
+    "zh_definition": "味道;[v.] 調味",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1781,8 +1781,8 @@
   },
   {
     "word": "float",
-    "pos": "n.",
-    "zh_definition": "漂浮;浮動;漂流物",
+    "pos": "v.",
+    "zh_definition": "漂浮;浮動;[n.]漂流物",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1791,8 +1791,8 @@
   },
   {
     "word": "flock",
-    "pos": "n.",
-    "zh_definition": "聚集;成群 群體",
+    "pos": "v.",
+    "zh_definition": "聚集;成群;[n.]群體",
     "frequency": 3,
     "level": "第三級",
     "source_page": 10,
@@ -1842,7 +1842,7 @@
   {
     "word": "lover",
     "pos": "n.",
-    "zh_definition": "牟.] 戀人;愛人",
+    "zh_definition": "戀人;愛人",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -1912,7 +1912,7 @@
   {
     "word": "perform",
     "pos": "v.",
-    "zh_definition": "表現;執行",
+    "zh_definition": "表現;執行 06.08",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -1922,7 +1922,7 @@
   {
     "word": "pollution",
     "pos": "n.",
-    "zh_definition": "污染;污染物",
+    "zh_definition": "污染;污染物 05.09",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -1942,7 +1942,7 @@
   {
     "word": "proof",
     "pos": "n.",
-    "zh_definition": "牟.] 證據;證明",
+    "zh_definition": "證據;證明",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -1972,7 +1972,7 @@
   {
     "word": "rank",
     "pos": "n.",
-    "zh_definition": "等級;名次;排名",
+    "zh_definition": "等級;名次;[v.]排名",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -2011,8 +2011,8 @@
   },
   {
     "word": "request",
-    "pos": "v.",
-    "zh_definition": "過.] 請求;要求;請求;要求",
+    "pos": "n.",
+    "zh_definition": "請求;要求;[v.]請求;要求 05.08",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -2022,7 +2022,7 @@
   {
     "word": "response",
     "pos": "n.",
-    "zh_definition": "回應答覆",
+    "zh_definition": "回應;答覆",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -2031,8 +2031,8 @@
   },
   {
     "word": "reveal",
-    "pos": "n.",
-    "zh_definition": "揭示;BER;揭示",
+    "pos": "v.",
+    "zh_definition": "揭示;顯示;[n.]揭示",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -2042,7 +2042,7 @@
   {
     "word": "rid",
     "pos": "v.",
-    "zh_definition": "蔬] 擺脫;清除 (getrid 0f)",
+    "zh_definition": "擺脫;清除(get rid of)",
     "frequency": 3,
     "level": "第三級",
     "source_page": 11,
@@ -2072,7 +2072,7 @@
   {
     "word": "solid",
     "pos": "adj.",
-    "zh_definition": "固巔的;實體的",
+    "zh_definition": "固體的;實體的",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2092,7 +2092,7 @@
   {
     "word": "steam",
     "pos": "n.",
-    "zh_definition": "AA;AAS wz",
+    "zh_definition": "蒸汽;蒸氣;[v.]蒸",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2121,8 +2121,8 @@
   },
   {
     "word": "strip",
-    "pos": "v.",
-    "zh_definition": "巴.] 剝去;條紋;剝去",
+    "pos": "n.",
+    "zh_definition": "剝去;條紋; [v.]剝去",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2131,8 +2131,8 @@
   },
   {
     "word": "structure",
-    "pos": "v.",
-    "zh_definition": "結構;構造;組成;建設",
+    "pos": "n.",
+    "zh_definition": "結構;構造;[v.] 組成;建設",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2141,8 +2141,8 @@
   },
   {
     "word": "surround",
-    "pos": "v.",
-    "zh_definition": "圍繞;包圍",
+    "pos": "n.",
+    "zh_definition": "結構;構造; [v.]組成;建設 [v.]圍繞;包圍;[n.]圍繞物",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2152,7 +2152,7 @@
   {
     "word": "survey",
     "pos": "n.",
-    "zh_definition": "調查;》 給查;調查",
+    "zh_definition": "調查;檢查;[v.]調查",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2162,7 +2162,7 @@
   {
     "word": "talent",
     "pos": "n.",
-    "zh_definition": "才能,天賦",
+    "zh_definition": "才能;天賦",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2192,7 +2192,7 @@
   {
     "word": "threat",
     "pos": "n.",
-    "zh_definition": "台.] 威謂",
+    "zh_definition": "威脅",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2202,7 +2202,7 @@
   {
     "word": "ton",
     "pos": "n.",
-    "zh_definition": "[馬.] 噸;大量",
+    "zh_definition": "噸;大量",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2212,7 +2212,7 @@
   {
     "word": "transport",
     "pos": "n.",
-    "zh_definition": "運輸, 運送",
+    "zh_definition": "運輸;[v.]運送",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2222,7 +2222,7 @@
   {
     "word": "trend",
     "pos": "n.",
-    "zh_definition": "趨勢,時尚",
+    "zh_definition": "趨勢;時尚",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2242,7 +2242,7 @@
   {
     "word": "vision",
     "pos": "n.",
-    "zh_definition": "視力 視察;預見",
+    "zh_definition": "視力;遠見;願景;[v.]視察;預見",
     "frequency": 3,
     "level": "第三級",
     "source_page": 12,
@@ -2262,7 +2262,7 @@
   {
     "word": "wheat",
     "pos": "n.",
-    "zh_definition": "[.] 小麥",
+    "zh_definition": "小麥",
     "frequency": 3,
     "level": "第三級",
     "source_page": 13,
@@ -2272,7 +2272,7 @@
   {
     "word": "access",
     "pos": "n.",
-    "zh_definition": "途徑;通道;使用;接近",
+    "zh_definition": "途徑;通道;[v.]使用;接近 06.07",
     "frequency": 3,
     "level": "第四級",
     "source_page": 13,
@@ -2361,8 +2361,8 @@
   },
   {
     "word": "breed",
-    "pos": "n.",
-    "zh_definition": "繁殖;飼養;品種",
+    "pos": "v.",
+    "zh_definition": "繁殖;飼養;[n.]品種",
     "frequency": 3,
     "level": "第四級",
     "source_page": 13,
@@ -2401,8 +2401,8 @@
   },
   {
     "word": "content",
-    "pos": "adj.",
-    "zh_definition": "WE;AA;滿意的;使滿足",
+    "pos": "n.",
+    "zh_definition": "滿足;內容;[adj.]滿意的;[v.]使滿足",
     "frequency": 3,
     "level": "第四級",
     "source_page": 13,
@@ -2441,8 +2441,8 @@
   },
   {
     "word": "counter",
-    "pos": "adv.",
-    "zh_definition": "全 FRET > 反擊;反對, 相反地",
+    "pos": "n.",
+    "zh_definition": "櫃台;[v.]反擊;反對; [adv.]相反地",
     "frequency": 3,
     "level": "第四級",
     "source_page": 13,
@@ -2462,10 +2462,10 @@
   {
     "word": "differ",
     "pos": "v.",
-    "zh_definition": "不同,區別",
+    "zh_definition": "不同;區別",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2475,7 +2475,7 @@
     "zh_definition": "分發;分配",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2485,7 +2485,7 @@
     "zh_definition": "耐用的;持久的",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2495,27 +2495,27 @@
     "zh_definition": "經濟的",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "efficiency",
     "pos": "n.",
-    "zh_definition": "效能 效率",
+    "zh_definition": "效率;效能",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "enclose",
     "pos": "v.",
-    "zh_definition": "[] 附上, 附加",
+    "zh_definition": "附上; 附加",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2525,17 +2525,17 @@
     "zh_definition": "危害;使陷於險境",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "equip",
     "pos": "v.",
-    "zh_definition": "裝備,配備",
+    "zh_definition": "裝備;配備",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2545,7 +2545,7 @@
     "zh_definition": "評估;估算",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2555,17 +2555,17 @@
     "zh_definition": "解釋;說明",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "expose",
     "pos": "v.",
-    "zh_definition": "暴露,揭露",
+    "zh_definition": "暴露;揭露",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2575,7 +2575,7 @@
     "zh_definition": "財務的;金融的",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2585,7 +2585,7 @@
     "zh_definition": "形態;結構",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2595,7 +2595,7 @@
     "zh_definition": "易碎的;脆弱的",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2605,17 +2605,17 @@
     "zh_definition": "實現;履行",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "furthermore",
     "pos": "adv.",
-    "zh_definition": "此外,;而且",
+    "zh_definition": "此外;而且",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2625,17 +2625,17 @@
     "zh_definition": "基因",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "generation",
     "pos": "n.",
-    "zh_definition": "牟.] 世代;產生",
+    "zh_definition": "世代;產生 05.08",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -2652,27 +2652,27 @@
   {
     "word": "investigation",
     "pos": "n.",
-    "zh_definition": "調查,研究",
+    "zh_definition": "互動;相互影響 [n.]調查;研究",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "labor",
-    "pos": "v.",
-    "zh_definition": "勞動;勞力;勞動;努力",
+    "pos": "n.",
+    "zh_definition": "勞動;勞力;[v.]勞動;努力",
     "frequency": 3,
     "level": "第四級",
-    "source_page": 14,
+    "source_page": 13,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "laboratory",
     "pos": "n.",
-    "zh_definition": "實驗室 5 研究室",
+    "zh_definition": "實驗室;研究室",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2712,7 +2712,7 @@
   {
     "word": "multiple",
     "pos": "adj.",
-    "zh_definition": "多樣的;多重的;倍數",
+    "zh_definition": "多樣的;多重的;[n.]倍數",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2731,8 +2731,8 @@
   },
   {
     "word": "objective",
-    "pos": "adj.",
-    "zh_definition": "目標;對象;客觀的;具體的",
+    "pos": "n.",
+    "zh_definition": "目標;對象;[adj.]客觀的;具體的",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2751,8 +2751,8 @@
   },
   {
     "word": "occasional",
-    "pos": "adj.",
-    "zh_definition": "偶爾的;不定期的",
+    "pos": "n.",
+    "zh_definition": "觀察 [adj.]偶爾的;不定期的 05.08",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2801,8 +2801,8 @@
   },
   {
     "word": "recall",
-    "pos": "n.",
-    "zh_definition": "回想;[AIS;記憶力,收回",
+    "pos": "v.",
+    "zh_definition": "回想;回憶;[n.]記憶力;收回",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2821,8 +2821,8 @@
   },
   {
     "word": "resolve",
-    "pos": "n.",
-    "zh_definition": "解決, 決心;解決;決心",
+    "pos": "v.",
+    "zh_definition": "解決;決心;[n.]解決;決心",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2832,7 +2832,7 @@
   {
     "word": "revolution",
     "pos": "n.",
-    "zh_definition": "嘲命;重大變革",
+    "zh_definition": "革命;重大變革",
     "frequency": 3,
     "level": "第四級",
     "source_page": 15,
@@ -2892,7 +2892,7 @@
   {
     "word": "cognitive",
     "pos": "adj.",
-    "zh_definition": "知的 5 認識的",
+    "zh_definition": "認知的;認識的 06.08",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -2912,7 +2912,7 @@
   {
     "word": "derive",
     "pos": "v.",
-    "zh_definition": "取得;簿生",
+    "zh_definition": "取得;衍生",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -2921,8 +2921,8 @@
   },
   {
     "word": "document",
-    "pos": "n.",
-    "zh_definition": "文件;文檔;記錄",
+    "pos": "v.",
+    "zh_definition": "取得;衍生 [n.]文件;文檔;[v.]記錄",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -2952,7 +2952,7 @@
   {
     "word": "infect",
     "pos": "v.",
-    "zh_definition": "蕊] 傳染;感染",
+    "zh_definition": "傳染;感染",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -2961,8 +2961,8 @@
   },
   {
     "word": "initiate",
-    "pos": "n.",
-    "zh_definition": "開始;啟動;新加入者",
+    "pos": "v.",
+    "zh_definition": "開始;啟動;[n.] 新加入者",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -3012,7 +3012,7 @@
   {
     "word": "massive",
     "pos": "adj.",
-    "zh_definition": "巨大的;大規橫的",
+    "zh_definition": "巨大的;大規模的",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -3032,7 +3032,7 @@
   {
     "word": "scent",
     "pos": "n.",
-    "zh_definition": "氣味;香味;Wel",
+    "zh_definition": "氣味;香味;[v.]嗅到",
     "frequency": 3,
     "level": "第五級",
     "source_page": 16,
@@ -3082,7 +3082,7 @@
   {
     "word": "substitute",
     "pos": "n.",
-    "zh_definition": "代替品;替代",
+    "zh_definition": "代替品;[v.]替代",
     "frequency": 3,
     "level": "第五級",
     "source_page": 17,
@@ -3102,7 +3102,7 @@
   {
     "word": "ultimate",
     "pos": "adj.",
-    "zh_definition": "最終的;終極目標",
+    "zh_definition": "最終的;[n.]終極目標",
     "frequency": 3,
     "level": "第五級",
     "source_page": 17,
@@ -3112,7 +3112,7 @@
   {
     "word": "venture",
     "pos": "n.",
-    "zh_definition": "冒險;企業;冒險",
+    "zh_definition": "冒險;企業; [v.]冒險",
     "frequency": 3,
     "level": "第五級",
     "source_page": 17,
@@ -3152,7 +3152,7 @@
   {
     "word": "navigate",
     "pos": "v.",
-    "zh_definition": "[基M] 導航;駕駛",
+    "zh_definition": "導航;駕駛",
     "frequency": 3,
     "level": "第六級",
     "source_page": 17,
@@ -3172,7 +3172,7 @@
   {
     "word": "ache",
     "pos": "v.",
-    "zh_definition": "攻] 疼痛;巴.] 痛苦",
+    "zh_definition": "疼痛;[n.]痛苦",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3182,7 +3182,7 @@
   {
     "word": "ad",
     "pos": "n.",
-    "zh_definition": "巴.] 廣告",
+    "zh_definition": "廣告",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3192,7 +3192,7 @@
   {
     "word": "advanced",
     "pos": "adj.",
-    "zh_definition": "先進的;高級的",
+    "zh_definition": "先進的;高級 的",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3201,8 +3201,8 @@
   },
   {
     "word": "adventure",
-    "pos": "v.",
-    "zh_definition": "n.] 冒險;探險;冒險去做",
+    "pos": "n.",
+    "zh_definition": "冒險;探險; [v.]冒險去做",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3222,7 +3222,7 @@
   {
     "word": "amaze",
     "pos": "v.",
-    "zh_definition": "以] 使驚奇;使驚艷",
+    "zh_definition": "使驚奇;使驚豔",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3232,7 +3232,7 @@
   {
     "word": "announce",
     "pos": "v.",
-    "zh_definition": "宣布;發表",
+    "zh_definition": "使驚奇;使驚艷 [v.]宣布;發表",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3242,7 +3242,7 @@
   {
     "word": "announcement",
     "pos": "n.",
-    "zh_definition": "[馬.] 公告;通知",
+    "zh_definition": "公告;通知",
     "frequency": 2,
     "level": "第三級",
     "source_page": 17,
@@ -3262,7 +3262,7 @@
   {
     "word": "assume",
     "pos": "v.",
-    "zh_definition": "以] 假設;認為",
+    "zh_definition": "假設;認為",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3272,10 +3272,10 @@
   {
     "word": "athlete",
     "pos": "n.",
-    "zh_definition": ". 運動 Fax) =\\",
+    "zh_definition": "運動員;選手",
     "frequency": 2,
-    "level": "選手",
-    "source_page": 0,
+    "level": "第三級",
+    "source_page": 18,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -3292,7 +3292,7 @@
   {
     "word": "automatically",
     "pos": "adv.",
-    "zh_definition": "自動地,無意識地",
+    "zh_definition": "自動地;無意識地",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3312,7 +3312,7 @@
   {
     "word": "awful",
     "pos": "adj.",
-    "zh_definition": "糟糕的;可怕的",
+    "zh_definition": "意識到的 的 [adj.]糟糕的;可怕",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3332,7 +3332,7 @@
   {
     "word": "beam",
     "pos": "n.",
-    "zh_definition": "光束;照射",
+    "zh_definition": "光束;[v.]照射",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3361,8 +3361,8 @@
   },
   {
     "word": "budget",
-    "pos": "adj.",
-    "zh_definition": "預算, 廉價的;編列預算",
+    "pos": "n.",
+    "zh_definition": "預算; [adj.]廉價的;[v.]編列預算",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3372,7 +3372,7 @@
   {
     "word": "citizen",
     "pos": "n.",
-    "zh_definition": "公民,;市民",
+    "zh_definition": "公民;市民",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3382,7 +3382,7 @@
   {
     "word": "command",
     "pos": "v.",
-    "zh_definition": "命令,指揮;巴.] 指揮",
+    "zh_definition": "命令;指揮;[n.]指揮",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3392,7 +3392,7 @@
   {
     "word": "commercial",
     "pos": "adj.",
-    "zh_definition": "商業的;商業廣告",
+    "zh_definition": "商業的;[n.]商業廣告",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3442,7 +3442,7 @@
   {
     "word": "cotton",
     "pos": "n.",
-    "zh_definition": "巴.] 棉花,棉製品",
+    "zh_definition": "棉花;棉製品",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3452,7 +3452,7 @@
   {
     "word": "crop",
     "pos": "n.",
-    "zh_definition": "作物;農作物 5 收割",
+    "zh_definition": "作物;農作物;[v.]收割",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3462,7 +3462,7 @@
   {
     "word": "crown",
     "pos": "n.",
-    "zh_definition": "馬.] 皇冠;冠狀物;[基] 加點",
+    "zh_definition": "皇冠;冠狀物;[v.]加冕",
     "frequency": 2,
     "level": "第三級",
     "source_page": 18,
@@ -3482,7 +3482,7 @@
   {
     "word": "decorate",
     "pos": "v.",
-    "zh_definition": "裝飾 ime",
+    "zh_definition": "裝飾;點綴",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3492,7 +3492,7 @@
   {
     "word": "decrease",
     "pos": "v.",
-    "zh_definition": "減少;降低;fn.) 減少",
+    "zh_definition": "減少;降低;[n.]減少",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3532,7 +3532,7 @@
   {
     "word": "drain",
     "pos": "v.",
-    "zh_definition": "排水,耗盡",
+    "zh_definition": "排水;耗盡",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3542,7 +3542,7 @@
   {
     "word": "eager",
     "pos": "adj.",
-    "zh_definition": "渴問的;熱切的",
+    "zh_definition": "渴望的;熱切的",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3592,7 +3592,7 @@
   {
     "word": "experiment",
     "pos": "n.",
-    "zh_definition": "實驗;測試;實驗;測試",
+    "zh_definition": "實驗;測試;[v.]實驗;測試",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3602,7 +3602,7 @@
   {
     "word": "export",
     "pos": "n.",
-    "zh_definition": "出口 出口貨物",
+    "zh_definition": "出口;[v.] 出口貨物",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3612,7 +3612,7 @@
   {
     "word": "fade",
     "pos": "v.",
-    "zh_definition": "rs > 褪色;消退",
+    "zh_definition": "褪色;消退",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3632,7 +3632,7 @@
   {
     "word": "fold",
     "pos": "v.",
-    "zh_definition": "基] 折疊;[巴.] 摺痕",
+    "zh_definition": "折疊;[n.]摺痕",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3671,8 +3671,8 @@
   },
   {
     "word": "gesture",
-    "pos": "v.",
-    "zh_definition": "巴.] 手勢;效勢;做手勢",
+    "pos": "n.",
+    "zh_definition": "手勢;姿勢;[v.]做手勢",
     "frequency": 2,
     "level": "第三級",
     "source_page": 19,
@@ -3692,7 +3692,7 @@
   {
     "word": "hire",
     "pos": "v.",
-    "zh_definition": "以] 選用;聘請",
+    "zh_definition": "雇用;聘請",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3702,7 +3702,7 @@
   {
     "word": "hollow",
     "pos": "adj.",
-    "zh_definition": "空心的;n.] 洞",
+    "zh_definition": "空心的; [n.]洞",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3712,7 +3712,7 @@
   {
     "word": "honor",
     "pos": "n.",
-    "zh_definition": "榮譽;苯破;HERS",
+    "zh_definition": "榮譽;尊敬;[v.]使榮譽",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3741,8 +3741,8 @@
   },
   {
     "word": "import",
-    "pos": "n.",
-    "zh_definition": "進口;輸入;進口商品",
+    "pos": "v.",
+    "zh_definition": "進口;輸入;[n.]進口商品",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3772,7 +3772,7 @@
   {
     "word": "leak",
     "pos": "v.",
-    "zh_definition": "攻] 洩漏;滲漏, [巴.] 漏洞",
+    "zh_definition": "洩漏;滲漏;[n.] 漏洞",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3781,8 +3781,8 @@
   },
   {
     "word": "magical",
-    "pos": "adj.",
-    "zh_definition": "神奇的;迷人的",
+    "pos": "v.",
+    "zh_definition": "洩漏;滲漏;[n.]漏洞 [adj.]神奇的;迷人的",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3802,7 +3802,7 @@
   {
     "word": "melt",
     "pos": "v.",
-    "zh_definition": "世] 融化;巴.] 熔化物",
+    "zh_definition": "融化;[n.]熔化物",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3822,7 +3822,7 @@
   {
     "word": "mystery",
     "pos": "n.",
-    "zh_definition": "Ln.] 神秘;謎團",
+    "zh_definition": "神秘;謎團",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3832,7 +3832,7 @@
   {
     "word": "native",
     "pos": "adj.",
-    "zh_definition": "本地的;土生的;本地人",
+    "zh_definition": "本地的;土生的;[n.]本地人",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3842,7 +3842,7 @@
   {
     "word": "necessity",
     "pos": "n.",
-    "zh_definition": "必需品,必要性",
+    "zh_definition": "必需品;必要性",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3851,8 +3851,8 @@
   },
   {
     "word": "nest",
-    "pos": "v.",
-    "zh_definition": "巢;巢穴;築巢",
+    "pos": "n.",
+    "zh_definition": "巢;巢穴;[v.]築巢",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3872,7 +3872,7 @@
   {
     "word": "oral",
     "pos": "adj.",
-    "zh_definition": "口述的;口頭的;口試",
+    "zh_definition": "口述的;口頭的;[n.]口試",
     "frequency": 2,
     "level": "第三級",
     "source_page": 20,
@@ -3912,7 +3912,7 @@
   {
     "word": "panic",
     "pos": "n.",
-    "zh_definition": "[馬.] 恕慌;驚慌;也] 恐憶",
+    "zh_definition": "恐慌;驚慌; [v.]恐慌",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -3932,7 +3932,7 @@
   {
     "word": "performance",
     "pos": "n.",
-    "zh_definition": "表現,貫效",
+    "zh_definition": "表現;績效",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -3951,8 +3951,8 @@
   },
   {
     "word": "permit",
-    "pos": "n.",
-    "zh_definition": "lv. ] 許可;允許;許可證",
+    "pos": "v.",
+    "zh_definition": "許可;允許;[n.]許可證",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -3972,7 +3972,7 @@
   {
     "word": "pilot",
     "pos": "n.",
-    "zh_definition": "飛行員, 飛行",
+    "zh_definition": "飛行員;[v.]飛行",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -3982,7 +3982,7 @@
   {
     "word": "plenty",
     "pos": "n.",
-    "zh_definition": "大量, 充裕",
+    "zh_definition": "大量;充裕",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4002,7 +4002,7 @@
   {
     "word": "pollute",
     "pos": "v.",
-    "zh_definition": "汙染;弄髓",
+    "zh_definition": "汙染;弄髒",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4021,8 +4021,8 @@
   },
   {
     "word": "producer",
-    "pos": "in.",
-    "zh_definition": "巴.] 製作人,;製乒人",
+    "pos": "n.",
+    "zh_definition": "製作人;製片人",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4042,7 +4042,7 @@
   {
     "word": "profit",
     "pos": "n.",
-    "zh_definition": "利潤;獲利",
+    "zh_definition": "利潤; [v.]獲利",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4081,8 +4081,8 @@
   },
   {
     "word": "representative",
-    "pos": "adj.",
-    "zh_definition": "代表;代理人;代表的",
+    "pos": "n.",
+    "zh_definition": "代表;代理人;[adj.]代表的",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4092,7 +4092,7 @@
   {
     "word": "resist",
     "pos": "v.",
-    "zh_definition": "抵抗,抗拒",
+    "zh_definition": "抵抗;抗拒",
     "frequency": 2,
     "level": "第三級",
     "source_page": 21,
@@ -4102,7 +4102,7 @@
   {
     "word": "restrict",
     "pos": "v.",
-    "zh_definition": "限製;約束",
+    "zh_definition": "限制;約束",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4111,8 +4111,8 @@
   },
   {
     "word": "rush",
-    "pos": "n.",
-    "zh_definition": "衝 匆忙",
+    "pos": "v.",
+    "zh_definition": "衝;趕緊;[n.]匆忙",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4122,7 +4122,7 @@
   {
     "word": "salary",
     "pos": "n.",
-    "zh_definition": "巴.] 薪水;工資",
+    "zh_definition": "薪水;工資",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4142,7 +4142,7 @@
   {
     "word": "scatter",
     "pos": "v.",
-    "zh_definition": "蕊] 散佈;使分散",
+    "zh_definition": "散佈;使分散",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4172,7 +4172,7 @@
   {
     "word": "shampoo",
     "pos": "n.",
-    "zh_definition": "洗髮精;洗頭髮",
+    "zh_definition": "洗髮精; [v.] 洗頭髮",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4181,8 +4181,8 @@
   },
   {
     "word": "sink",
-    "pos": "n.",
-    "zh_definition": "下沉;水槽",
+    "pos": "v.",
+    "zh_definition": "下沉;[n.] 水槽",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4201,8 +4201,8 @@
   },
   {
     "word": "snap",
-    "pos": "n.",
-    "zh_definition": "猛咬;突然折斷;快照",
+    "pos": "adj.",
+    "zh_definition": "纖細的;苗條的 [v.]猛咬;突然折斷;[n.]快照",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4212,7 +4212,7 @@
   {
     "word": "spin",
     "pos": "v.",
-    "zh_definition": "旋轉;紡織;[n.] 旋轉",
+    "zh_definition": "旋轉;紡織;[n.]旋轉",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4222,7 +4222,7 @@
   {
     "word": "splash",
     "pos": "v.",
-    "zh_definition": "濺;潑;[n.] 濺水聲",
+    "zh_definition": "濺;潑;[n.]濺水聲",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4232,7 +4232,7 @@
   {
     "word": "spray",
     "pos": "v.",
-    "zh_definition": "噴灑;[n.] 噴霧",
+    "zh_definition": "噴灑; [n.] 噴霧",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4241,8 +4241,8 @@
   },
   {
     "word": "squeeze",
-    "pos": "n.",
-    "zh_definition": "擠壓;壓榨",
+    "pos": "v.",
+    "zh_definition": "擠壓;[n.] 壓榨",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4262,7 +4262,7 @@
   {
     "word": "stubborn",
     "pos": "adj.",
-    "zh_definition": "固執的;個強的",
+    "zh_definition": "固執的;倔強的",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4271,8 +4271,8 @@
   },
   {
     "word": "substance",
-    "pos": "n.",
-    "zh_definition": "巴.] 物質 》 一二 ) 實質",
+    "pos": "adj.",
+    "zh_definition": "固執的;倔強的 [n.]物質;實質",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4292,7 +4292,7 @@
   {
     "word": "swear",
     "pos": "v.",
-    "zh_definition": "蕊] 發著",
+    "zh_definition": "發誓",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4301,8 +4301,8 @@
   },
   {
     "word": "sweat",
-    "pos": "n.",
-    "zh_definition": "出汗;汗水",
+    "pos": "v.",
+    "zh_definition": "出汗;[n.]汗水",
     "frequency": 2,
     "level": "第三級",
     "source_page": 22,
@@ -4322,7 +4322,7 @@
   {
     "word": "tag",
     "pos": "n.",
-    "zh_definition": "標籤, 貼標籤",
+    "zh_definition": "標籤;[v.]貼標籤",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4332,7 +4332,7 @@
   {
     "word": "threaten",
     "pos": "v.",
-    "zh_definition": "[] 威脅;恐嚇",
+    "zh_definition": "威脅;恐嚇",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4342,7 +4342,7 @@
   {
     "word": "tide",
     "pos": "n.",
-    "zh_definition": "潮汐;湖流",
+    "zh_definition": "潮汐;潮流",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4361,8 +4361,8 @@
   },
   {
     "word": "twist",
-    "pos": "n.",
-    "zh_definition": "扭轉使變形;扭曲;轉折",
+    "pos": "v.",
+    "zh_definition": "扭轉;使變形;[n.]扭曲;轉折",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4412,7 +4412,7 @@
   {
     "word": "wander",
     "pos": "v.",
-    "zh_definition": "漫遊;徘徊;漫遊",
+    "zh_definition": "漫遊;徘徊;[n.]漫遊",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4422,7 +4422,7 @@
   {
     "word": "weave",
     "pos": "v.",
-    "zh_definition": "編織;牟.] 織物",
+    "zh_definition": "編織;[n.] 織物",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4432,7 +4432,7 @@
   {
     "word": "zone",
     "pos": "n.",
-    "zh_definition": "區域;地帶",
+    "zh_definition": "區域;地帶; [v.]劃出...為區",
     "frequency": 2,
     "level": "第三級",
     "source_page": 23,
@@ -4442,7 +4442,7 @@
   {
     "word": "abandon",
     "pos": "v.",
-    "zh_definition": "蕊] 放棄;遺棄",
+    "zh_definition": "放棄;遺棄",
     "frequency": 2,
     "level": "第四級",
     "source_page": 23,
@@ -4512,7 +4512,7 @@
   {
     "word": "alternative",
     "pos": "adj.",
-    "zh_definition": "替代的 選擇, 替代品",
+    "zh_definition": "替代的;[n.]選擇;替代品",
     "frequency": 2,
     "level": "第四級",
     "source_page": 24,
@@ -4582,7 +4582,7 @@
   {
     "word": "bloom",
     "pos": "v.",
-    "zh_definition": "[基] 開花;繁盛;巴.] 花朵",
+    "zh_definition": "開花;繁盛; [n.]花朵",
     "frequency": 2,
     "level": "第四級",
     "source_page": 24,
@@ -4591,8 +4591,8 @@
   },
   {
     "word": "blossom",
-    "pos": "n.",
-    "zh_definition": "二十 開花;發展;TEAR",
+    "pos": "v.",
+    "zh_definition": "開花;發展; [n.]花朵",
     "frequency": 2,
     "level": "第四級",
     "source_page": 24,
@@ -4602,7 +4602,7 @@
   {
     "word": "bond",
     "pos": "n.",
-    "zh_definition": "聯繫;關係;建立聯繫",
+    "zh_definition": "聯繫;關係; [v.]建立聯繫",
     "frequency": 2,
     "level": "第四級",
     "source_page": 24,
@@ -4662,7 +4662,7 @@
   {
     "word": "comment",
     "pos": "n.",
-    "zh_definition": "評論;意見;評論",
+    "zh_definition": "評論;意見;[v.]評論",
     "frequency": 2,
     "level": "第四級",
     "source_page": 24,
@@ -4732,7 +4732,7 @@
   {
     "word": "consult",
     "pos": "v.",
-    "zh_definition": "諮詢, 商議",
+    "zh_definition": "諮詢;商議",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4771,8 +4771,8 @@
   },
   {
     "word": "contrary",
-    "pos": "adj.",
-    "zh_definition": "相反;對立面;相反的",
+    "pos": "n.",
+    "zh_definition": "相反;對立面;[adj.]相反的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4782,7 +4782,7 @@
   {
     "word": "contrast",
     "pos": "n.",
-    "zh_definition": "對比;差異;對比,對照",
+    "zh_definition": "對比;差異;[v.]對比;對照",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4792,7 +4792,7 @@
   {
     "word": "contribution",
     "pos": "n.",
-    "zh_definition": "真獻",
+    "zh_definition": "貢獻",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4812,7 +4812,7 @@
   {
     "word": "convention",
     "pos": "n.",
-    "zh_definition": "巴.] 會議;傳統",
+    "zh_definition": "會議;傳統",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4852,7 +4852,7 @@
   {
     "word": "critic",
     "pos": "n.",
-    "zh_definition": "批評家, 評論家",
+    "zh_definition": "批評家;評論家",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4872,7 +4872,7 @@
   {
     "word": "declare",
     "pos": "v.",
-    "zh_definition": "宣告,宣布",
+    "zh_definition": "宣告;宣布",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4912,7 +4912,7 @@
   {
     "word": "depart",
     "pos": "v.",
-    "zh_definition": "以] 離開;啟程",
+    "zh_definition": "離開;啟程",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4922,7 +4922,7 @@
   {
     "word": "dependent",
     "pos": "adj.",
-    "zh_definition": "依賴的;取決於...的",
+    "zh_definition": "依賴的;取決於....的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 25,
@@ -4932,7 +4932,17 @@
   {
     "word": "depression",
     "pos": "n.",
-    "zh_definition": "巴.] 憂鬱;閻條",
+    "zh_definition": "憂鬱;蕭條",
+    "frequency": 2,
+    "level": "第四級",
+    "source_page": 26,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "distribution",
+    "pos": "adj.",
+    "zh_definition": "可分配的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -4942,7 +4952,7 @@
   {
     "word": "desperate",
     "pos": "adj.",
-    "zh_definition": "絕記的;極度渴誤的",
+    "zh_definition": "絕望的;極度渴望的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -4952,7 +4962,7 @@
   {
     "word": "devote",
     "pos": "v.",
-    "zh_definition": "[] 奉獻;致力",
+    "zh_definition": "奉獻;致力",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -4972,7 +4982,7 @@
   {
     "word": "discipline",
     "pos": "n.",
-    "zh_definition": "紀律;訓練;訓練;懲罰",
+    "zh_definition": "紀律;訓練;[v.] 訓練;懲罰",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -4981,18 +4991,8 @@
   },
   {
     "word": "dismiss",
-    "pos": "v.",
-    "zh_definition": "蕊] 解雇;解散",
-    "frequency": 2,
-    "level": "第四級",
-    "source_page": 26,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
-    "word": "distribution",
-    "pos": "adj.",
-    "zh_definition": "可分配的",
+    "pos": "n.",
+    "zh_definition": "憂鬱;蕭條 [adj.]絕望的;極度渴望的 [v.]奉獻;致力 [adj.]數位的;數字的 [n.]紀律;訓練;[v.]訓練;懲罰 [v.]解雇;解散 [adj.]可分配的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5011,18 +5011,18 @@
   },
   {
     "word": "draft",
-    "pos": "v.",
-    "zh_definition": "[In \\",
+    "pos": "n.",
+    "zh_definition": "草稿;徵兵;[v.]起草",
     "frequency": 2,
-    "level": "草稿;徵兵;起草",
-    "source_page": 0,
+    "level": "第四級",
+    "source_page": 26,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "dye",
-    "pos": "n.",
-    "zh_definition": "染色, 染料",
+    "pos": "v.",
+    "zh_definition": "染色;[n.] 染料",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5031,8 +5031,8 @@
   },
   {
     "word": "earnest",
-    "pos": "adj.",
-    "zh_definition": "認真的,誠和懇的",
+    "pos": "v.",
+    "zh_definition": "染色;[n.]染料 [adj.]認真的;誠懇的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5052,7 +5052,7 @@
   {
     "word": "elegant",
     "pos": "adj.",
-    "zh_definition": "優雅的 5 高尚的",
+    "zh_definition": "優雅的;高尚的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5062,7 +5062,7 @@
   {
     "word": "embarrass",
     "pos": "v.",
-    "zh_definition": "使尷和表",
+    "zh_definition": "使尷尬",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5072,7 +5072,7 @@
   {
     "word": "endure",
     "pos": "v.",
-    "zh_definition": "SS 3 FEE",
+    "zh_definition": "忍受;持續",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5102,7 +5102,7 @@
   {
     "word": "essential",
     "pos": "adj.",
-    "zh_definition": "必要的;實質的;Pia > BAR",
+    "zh_definition": "必要的;實質的;[n.]必需品;要素",
     "frequency": 2,
     "level": "第四級",
     "source_page": 26,
@@ -5191,8 +5191,8 @@
   },
   {
     "word": "finance",
-    "pos": "v.",
-    "zh_definition": "n.] 財務,;金融;提供資金",
+    "pos": "n.",
+    "zh_definition": "財務;金融; [v.]提供資金",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5211,8 +5211,8 @@
   },
   {
     "word": "fossil",
-    "pos": "adj.",
-    "zh_definition": "化石;化石的",
+    "pos": "n.",
+    "zh_definition": "化石;[adj.]化石的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5262,7 +5262,7 @@
   {
     "word": "genius",
     "pos": "n.",
-    "zh_definition": "天才",
+    "zh_definition": "慷慨;大方 [n.] 天才",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5282,7 +5282,7 @@
   {
     "word": "graduation",
     "pos": "n.",
-    "zh_definition": "畢業 5 畢業典禮",
+    "zh_definition": "畢業;畢業典禮",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5292,7 +5292,7 @@
   {
     "word": "greasy",
     "pos": "adj.",
-    "zh_definition": "油膩的;漲溜的",
+    "zh_definition": "油膩的;滑溜的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5302,7 +5302,7 @@
   {
     "word": "grind",
     "pos": "v.",
-    "zh_definition": "磨;磨碎;[.] 匣差事",
+    "zh_definition": "磨;磨碎;[n.]苦差事",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5322,7 +5322,7 @@
   {
     "word": "harsh",
     "pos": "adj.",
-    "zh_definition": "嚴厲的;凍刻的",
+    "zh_definition": "嚴厲的;苛刻的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5332,7 +5332,7 @@
   {
     "word": "herd",
     "pos": "n.",
-    "zh_definition": "Bat;人群;放牧",
+    "zh_definition": "畜群;人群;[v.]放牧",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5342,7 +5342,7 @@
   {
     "word": "hook",
     "pos": "n.",
-    "zh_definition": "鉤子;勾住;吸引",
+    "zh_definition": "鉤子;[v.]勾住;吸引",
     "frequency": 2,
     "level": "第四級",
     "source_page": 27,
@@ -5362,7 +5362,7 @@
   {
     "word": "illustration",
     "pos": "n.",
-    "zh_definition": "巴.] 插圖;例證",
+    "zh_definition": "插圖;例證",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5392,7 +5392,7 @@
   {
     "word": "ingredient",
     "pos": "n.",
-    "zh_definition": "成分,材料",
+    "zh_definition": "成分;材料",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5442,7 +5442,7 @@
   {
     "word": "intimate",
     "pos": "adj.",
-    "zh_definition": "親密的;密友;暗示",
+    "zh_definition": "親密的;[n.]密友;[v.]暗示",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5452,7 +5452,7 @@
   {
     "word": "invasion",
     "pos": "n.",
-    "zh_definition": "侵略;人侵",
+    "zh_definition": "侵略;入侵",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5472,7 +5472,7 @@
   {
     "word": "landscape",
     "pos": "n.",
-    "zh_definition": "風景;[v.] 美化景觀",
+    "zh_definition": "風景;[v.]美化景觀",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5492,7 +5492,7 @@
   {
     "word": "limitation",
     "pos": "n.",
-    "zh_definition": "限製,局限",
+    "zh_definition": "限制;局限",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5512,7 +5512,7 @@
   {
     "word": "namely",
     "pos": "adv.",
-    "zh_definition": "即,換句話說",
+    "zh_definition": "即;換句話說",
     "frequency": 2,
     "level": "第四級",
     "source_page": 28,
@@ -5571,8 +5571,8 @@
   },
   {
     "word": "otherwise",
-    "pos": "adj.",
-    "zh_definition": "否則;BAA;相反的",
+    "pos": "adv.",
+    "zh_definition": "否則;不然;[adj.]相反的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5592,7 +5592,7 @@
   {
     "word": "portray",
     "pos": "v.",
-    "zh_definition": "描 Hie 會;描述",
+    "zh_definition": "描繪;描述",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5602,7 +5602,7 @@
   {
     "word": "possess",
     "pos": "v.",
-    "zh_definition": "擁有,;持有",
+    "zh_definition": "擁有;持有",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5612,7 +5612,7 @@
   {
     "word": "prime",
     "pos": "adj.",
-    "zh_definition": "主要的;首要的;初期",
+    "zh_definition": "主要的;首要的;[n.]初期",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5652,7 +5652,7 @@
   {
     "word": "productive",
     "pos": "adj.",
-    "zh_definition": "ZEN;富有成效的",
+    "zh_definition": "多產的;富有成效的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5672,7 +5672,7 @@
   {
     "word": "promising",
     "pos": "adj.",
-    "zh_definition": "有前途的;KAY",
+    "zh_definition": "有前途的;大有希望的",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5682,7 +5682,7 @@
   {
     "word": "promotion",
     "pos": "n.",
-    "zh_definition": "巴.] 促銷;曾升",
+    "zh_definition": "促銷;晉升",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5692,7 +5692,7 @@
   {
     "word": "prompt",
     "pos": "adj.",
-    "zh_definition": "#4 速的;即時的;提示",
+    "zh_definition": "迅速的;即時的;[v.]提示",
     "frequency": 2,
     "level": "第四級",
     "source_page": 29,
@@ -5792,7 +5792,7 @@
   {
     "word": "remark",
     "pos": "n.",
-    "zh_definition": "ii 評論;說明",
+    "zh_definition": "評論;備註;[v.]評論;說明",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5811,8 +5811,8 @@
   },
   {
     "word": "remedy",
-    "pos": "n.",
-    "zh_definition": "補救;治療;補救",
+    "pos": "adj.",
+    "zh_definition": "非凡的;卓越的 [n.]補救;治療;[v.]補救",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5862,7 +5862,7 @@
   {
     "word": "reward",
     "pos": "n.",
-    "zh_definition": "報酬;獎勳;報酬",
+    "zh_definition": "報酬;獎勳; [v.]報酬",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5872,7 +5872,7 @@
   {
     "word": "ruin",
     "pos": "n.",
-    "zh_definition": "毀壞;廢墟;毀壞",
+    "zh_definition": "毀壞;廢墟; [v.]毀壞",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5882,7 +5882,7 @@
   {
     "word": "sacrifice",
     "pos": "n.",
-    "zh_definition": "犧牲;犧牲",
+    "zh_definition": "犧牲; [v.]犧牲",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5891,8 +5891,8 @@
   },
   {
     "word": "scoop",
-    "pos": "in.",
-    "zh_definition": "[馬.] 勺子;攻] 習取",
+    "pos": "n.",
+    "zh_definition": "勺子; [v.]舀取",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5902,7 +5902,7 @@
   {
     "word": "secure",
     "pos": "adj.",
-    "zh_definition": "安全的;可靠的;確保",
+    "zh_definition": "安全的;可靠的;[v.]確保",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5912,7 +5912,7 @@
   {
     "word": "shelter",
     "pos": "n.",
-    "zh_definition": "庇護所;避難 5 庇護",
+    "zh_definition": "庇護所;避難;[v.]庇護",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5932,7 +5932,7 @@
   {
     "word": "spark",
     "pos": "v.",
-    "zh_definition": "基] 引發;點燃;巴.] 火花",
+    "zh_definition": "引發;點燃;[n.]火花",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5942,7 +5942,7 @@
   {
     "word": "species",
     "pos": "n.",
-    "zh_definition": "物種,種類",
+    "zh_definition": "物種;種類",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5972,7 +5972,7 @@
   {
     "word": "strengthen",
     "pos": "v.",
-    "zh_definition": "基] 加強;轉固",
+    "zh_definition": "加強;鞏固",
     "frequency": 2,
     "level": "第四級",
     "source_page": 30,
@@ -5992,7 +5992,7 @@
   {
     "word": "summarize",
     "pos": "v.",
-    "zh_definition": "’ 總結 概述",
+    "zh_definition": "概述;總結",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6002,7 +6002,7 @@
   {
     "word": "tolerate",
     "pos": "v.",
-    "zh_definition": "蔬] 容忍;有忍受",
+    "zh_definition": "容忍;忍受",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6012,7 +6012,7 @@
   {
     "word": "universal",
     "pos": "adj.",
-    "zh_definition": "普過的;全球的;巴.] 普通性",
+    "zh_definition": "普遍的;全球的;[n.]普通性",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6022,7 +6022,7 @@
   {
     "word": "urge",
     "pos": "v.",
-    "zh_definition": "世.] 催促;推動;鈣.] 強烈的慾癌",
+    "zh_definition": "催促;推動;[n.]強烈的慾望",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6042,7 +6042,7 @@
   {
     "word": "visual",
     "pos": "adj.",
-    "zh_definition": "視覺的 視覺資料",
+    "zh_definition": "視覺的;[n.]視覺資料",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6052,7 +6052,7 @@
   {
     "word": "witness",
     "pos": "n.",
-    "zh_definition": "證人;目擊者;見證",
+    "zh_definition": "證人;目擊者;[v.]見證",
     "frequency": 2,
     "level": "第四級",
     "source_page": 31,
@@ -6070,19 +6070,9 @@
     "ipa_uk": null
   },
   {
-    "word": "accommodate",
-    "pos": "v.",
-    "zh_definition": "容納",
-    "frequency": 2,
-    "level": "第五級",
-    "source_page": 31,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
     "word": "alcoholic",
     "pos": "adj.",
-    "zh_definition": "酒精的;含酒精的;酒鬼",
+    "zh_definition": "酒精的;含酒精的;[n.]酒鬼",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -6101,8 +6091,8 @@
   },
   {
     "word": "ban",
-    "pos": "n.",
-    "zh_definition": "禁止;取締;禁令",
+    "pos": "v.",
+    "zh_definition": "禁止;取締;[n.]禁令",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -6121,8 +6111,8 @@
   },
   {
     "word": "boost",
-    "pos": "n.",
-    "zh_definition": "提升;促進;增強 5 推動",
+    "pos": "v.",
+    "zh_definition": "提升;促進;[n.]增強;推動",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -6150,16 +6140,6 @@
     "ipa_uk": null
   },
   {
-    "word": "breakthrough",
-    "pos": "n.",
-    "zh_definition": "突破;重大進展",
-    "frequency": 2,
-    "level": "第五級",
-    "source_page": 31,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
     "word": "bullying",
     "pos": "n.",
     "zh_definition": "欺凌;霸凌",
@@ -6172,7 +6152,7 @@
   {
     "word": "caution",
     "pos": "n.",
-    "zh_definition": "小心;謹慎;提醒注意",
+    "zh_definition": "小心;謹慎; [v.]提醒注意",
     "frequency": 2,
     "level": "第五級",
     "source_page": 31,
@@ -6192,7 +6172,7 @@
   {
     "word": "collective",
     "pos": "adj.",
-    "zh_definition": "集體的;共同的;集體",
+    "zh_definition": "集體的;共同的;[n.]集體",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6202,7 +6182,7 @@
   {
     "word": "colonial",
     "pos": "adj.",
-    "zh_definition": "JHECAY;殖民地的;殖民地居民",
+    "zh_definition": "殖民的;殖民地的;[n.]殖民地居民",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6211,8 +6191,8 @@
   },
   {
     "word": "conduct",
-    "pos": "n.",
-    "zh_definition": "指導;實施, 行為",
+    "pos": "v.",
+    "zh_definition": "指導;實施; [n.]行為",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6221,8 +6201,8 @@
   },
   {
     "word": "confine",
-    "pos": "n.",
-    "zh_definition": "已] 限制;焚閉, 邊界",
+    "pos": "v.",
+    "zh_definition": "限制;禁閉; [n.]邊界",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6232,7 +6212,7 @@
   {
     "word": "conform",
     "pos": "v.",
-    "zh_definition": "符合,導從",
+    "zh_definition": "符合;遵從",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6252,7 +6232,7 @@
   {
     "word": "contemporary",
     "pos": "adj.",
-    "zh_definition": "當代的;現代的;同時代的人",
+    "zh_definition": "當代的;現代的;[n.]同時代的人",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6261,8 +6241,8 @@
   },
   {
     "word": "decline",
-    "pos": "n.",
-    "zh_definition": "下降;婉拒;下降",
+    "pos": "v.",
+    "zh_definition": "下降;婉拒;[n.]下降",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6282,7 +6262,7 @@
   {
     "word": "depict",
     "pos": "v.",
-    "zh_definition": "描述;指繪",
+    "zh_definition": "描述;描繪",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6312,7 +6292,7 @@
   {
     "word": "elaborate",
     "pos": "adj.",
-    "zh_definition": "精心製作的;詳細閱述",
+    "zh_definition": "精心製作的;[v.]詳細闡述",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6351,8 +6331,8 @@
   },
   {
     "word": "executive",
-    "pos": "adj.",
-    "zh_definition": "行政人員;執行者;行政的",
+    "pos": "n.",
+    "zh_definition": "行政人員;執行者;[adj.]行政的",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6372,7 +6352,7 @@
   {
     "word": "fatigue",
     "pos": "n.",
-    "zh_definition": "疲勞;疲倦;tee",
+    "zh_definition": "疲勞;疲倦;[v.]使疲勞",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6382,7 +6362,7 @@
   {
     "word": "flip",
     "pos": "v.",
-    "zh_definition": "翻轉;巴.] 翻動",
+    "zh_definition": "翻轉;[n.] 翻動",
     "frequency": 2,
     "level": "第五級",
     "source_page": 32,
@@ -6402,7 +6382,7 @@
   {
     "word": "glare",
     "pos": "n.",
-    "zh_definition": "閃耀;怒視;閃光;怒目而視",
+    "zh_definition": "閃耀;怒視; [v.]閃光;怒目而視",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6422,7 +6402,7 @@
   {
     "word": "hazard",
     "pos": "n.",
-    "zh_definition": "危險;冒險;使遭受危險",
+    "zh_definition": "危險;冒險;[v.] 使遭受危險",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6431,8 +6411,8 @@
   },
   {
     "word": "hence",
-    "pos": "adv.",
-    "zh_definition": "因此;所以",
+    "pos": "n.",
+    "zh_definition": "危險;冒險; [v.]使遭受危險 [adv.]因此;所以",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6452,7 +6432,7 @@
   {
     "word": "inherit",
     "pos": "v.",
-    "zh_definition": "繼承;和遺傳",
+    "zh_definition": "繼承;遺傳",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6461,8 +6441,8 @@
   },
   {
     "word": "initiative",
-    "pos": "adj.",
-    "zh_definition": "主動;倡議;初步的",
+    "pos": "n.",
+    "zh_definition": "主動;倡議;[adj.]初步的",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6492,7 +6472,7 @@
   {
     "word": "integrity",
     "pos": "n.",
-    "zh_definition": "誠信;正直",
+    "zh_definition": "機構;制度;學院 [n.]誠信;正直",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6522,7 +6502,7 @@
   {
     "word": "likelihood",
     "pos": "n.",
-    "zh_definition": "然率 可能性,或 TOWN",
+    "zh_definition": "可能性;或然率",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6532,7 +6512,7 @@
   {
     "word": "loop",
     "pos": "n.",
-    "zh_definition": "循環;圈;繞圈",
+    "zh_definition": "循環;圈;[v.]繞圈",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6542,7 +6522,7 @@
   {
     "word": "mattress",
     "pos": "n.",
-    "zh_definition": "巴.] 床墊",
+    "zh_definition": "床墊",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6561,8 +6541,8 @@
   },
   {
     "word": "patent",
-    "pos": "adj.",
-    "zh_definition": "專利;專利的;取得專利",
+    "pos": "n.",
+    "zh_definition": "專利;[adj.]專利的;[v.]取得專利",
     "frequency": 2,
     "level": "第五級",
     "source_page": 33,
@@ -6602,7 +6582,7 @@
   {
     "word": "profile",
     "pos": "n.",
-    "zh_definition": "簡介 5 輪廓",
+    "zh_definition": "簡介;輪廓",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6612,7 +6592,7 @@
   {
     "word": "provoke",
     "pos": "v.",
-    "zh_definition": "選] 激怒;挑覺",
+    "zh_definition": "激怒;挑釁",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6621,8 +6601,8 @@
   },
   {
     "word": "purchase",
-    "pos": "n.",
-    "zh_definition": "購買;購買物 5 採買",
+    "pos": "v.",
+    "zh_definition": "購買;[n.] 購買物;採買",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6662,7 +6642,7 @@
   {
     "word": "resort",
     "pos": "n.",
-    "zh_definition": "度假勝地;手段;訴諸於,求助於",
+    "zh_definition": "度假勝地;手段;[v.] 訴諸於;求助於",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6692,7 +6672,7 @@
   {
     "word": "sandal",
     "pos": "n.",
-    "zh_definition": "牟.] 涼鞋",
+    "zh_definition": "涼鞋",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6702,7 +6682,7 @@
   {
     "word": "scan",
     "pos": "v.",
-    "zh_definition": "掃描 > 細看;掃描",
+    "zh_definition": "掃描;細看;[n.]掃描",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6751,8 +6731,8 @@
   },
   {
     "word": "strap",
-    "pos": "v.",
-    "zh_definition": "巴.] 帶子;用帶子繫住",
+    "pos": "n.",
+    "zh_definition": "帶子;[v.]用帶子繫住",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6802,7 +6782,7 @@
   {
     "word": "thrill",
     "pos": "n.",
-    "zh_definition": "See > a;使興奮;使激動",
+    "zh_definition": "興奮;激動;[v.]使興奮;使激動",
     "frequency": 2,
     "level": "第五級",
     "source_page": 34,
@@ -6812,10 +6792,10 @@
   {
     "word": "transmission",
     "pos": "n.",
-    "zh_definition": "傳送,傳輸",
+    "zh_definition": "傳送;傳輸",
     "frequency": 2,
     "level": "第五級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6825,7 +6805,7 @@
     "zh_definition": "輪椅",
     "frequency": 2,
     "level": "第五級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6835,7 +6815,7 @@
     "zh_definition": "然而;儘管;但是",
     "frequency": 2,
     "level": "第五級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6845,7 +6825,7 @@
     "zh_definition": "廣泛的;普遍的",
     "frequency": 2,
     "level": "第五級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6855,7 +6835,7 @@
     "zh_definition": "因此;於是",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6865,27 +6845,27 @@
     "zh_definition": "太空人",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "capsule",
-    "pos": "adj.",
-    "zh_definition": "膠囊;太空艙;概要的",
+    "pos": "n.",
+    "zh_definition": "膠囊;太空艙;[adj.]概要的",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "captive",
-    "pos": "adj.",
-    "zh_definition": "俘虜;被捕者;被俘的;受控制的",
+    "pos": "n.",
+    "zh_definition": "俘虜;被捕者;[adj.]被俘的;受控制的",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6895,37 +6875,37 @@
     "zh_definition": "囚禁;被俘;束縛",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "caretaker",
     "pos": "n.",
-    "zh_definition": "巴.] 管理員;照顧者",
+    "zh_definition": "管理員;照顧者",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "deem",
     "pos": "v.",
-    "zh_definition": "lv. ]",
+    "zh_definition": "認為;視為",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "discard",
     "pos": "v.",
-    "zh_definition": "吃] 丟棄;拋棄",
+    "zh_definition": "丟棄;拋棄",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6935,7 +6915,7 @@
     "zh_definition": "不適;不安;不舒服",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6945,7 +6925,7 @@
     "zh_definition": "使豐富;充實;提升",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6955,7 +6935,7 @@
     "zh_definition": "喚起;引起;勾起",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6965,7 +6945,7 @@
     "zh_definition": "肥料",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6975,7 +6955,7 @@
     "zh_definition": "衛生;清潔",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6985,7 +6965,7 @@
     "zh_definition": "十字路口;交叉點;相交",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -6995,7 +6975,7 @@
     "zh_definition": "照字面地;簡直",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -7005,14 +6985,14 @@
     "zh_definition": "中世紀的;中古的",
     "frequency": 2,
     "level": "第六級",
-    "source_page": 35,
+    "source_page": 34,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "mourn",
     "pos": "v.",
-    "zh_definition": "哀悍;人悼念;悲傷",
+    "zh_definition": "哀悼;悼念;悲傷",
     "frequency": 2,
     "level": "第六級",
     "source_page": 36,
@@ -7032,7 +7012,7 @@
   {
     "word": "serial",
     "pos": "adj.",
-    "zh_definition": "連續的;一系列的;序列 5 HAT",
+    "zh_definition": "連續的;一系列的;[n.] 序列;期刊",
     "frequency": 2,
     "level": "第六級",
     "source_page": 36,
@@ -7052,7 +7032,7 @@
   {
     "word": "span",
     "pos": "n.",
-    "zh_definition": "跨度;範圍;跨越",
+    "zh_definition": "跨度;範圍;[v.] 跨越",
     "frequency": 2,
     "level": "第六級",
     "source_page": 36,
@@ -7082,7 +7062,7 @@
   {
     "word": "vigorous",
     "pos": "adj.",
-    "zh_definition": "精力旺盛的強健的",
+    "zh_definition": "精力旺盛的;強健的",
     "frequency": 2,
     "level": "第六級",
     "source_page": 36,
@@ -7122,7 +7102,7 @@
   {
     "word": "accurate",
     "pos": "adj.",
-    "zh_definition": "準確的精確的",
+    "zh_definition": "準確的;精確的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7141,8 +7121,8 @@
   },
   {
     "word": "admire",
-    "pos": "v.",
-    "zh_definition": "欽佩;讚美",
+    "pos": "adj.",
+    "zh_definition": "額外的;附加的 [v.]欽佩;讚美",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7152,7 +7132,7 @@
   {
     "word": "advertise",
     "pos": "v.",
-    "zh_definition": "[] 廣告;宣傳",
+    "zh_definition": "廣告;宣傳",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7161,8 +7141,8 @@
   },
   {
     "word": "agriculture",
-    "pos": "n.",
-    "zh_definition": "農業;農學",
+    "pos": "v.",
+    "zh_definition": "廣告;宣傳 [n.]農業;農學",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7182,7 +7162,7 @@
   {
     "word": "anxiously",
     "pos": "adv.",
-    "zh_definition": "焦急地 5 不安地",
+    "zh_definition": "焦急地;不安地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7192,7 +7172,7 @@
   {
     "word": "approve",
     "pos": "v.",
-    "zh_definition": "批淮;認可",
+    "zh_definition": "批准;認可",
     "frequency": 1,
     "level": "第三級",
     "source_page": 36,
@@ -7241,8 +7221,8 @@
   },
   {
     "word": "bind",
-    "pos": "v.",
-    "zh_definition": "綁;約束",
+    "pos": "prep.",
+    "zh_definition": "除此之外;而且 [v.]綁;約束",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7262,7 +7242,7 @@
   {
     "word": "bloody",
     "pos": "adj.",
-    "zh_definition": "血腥的;殘忍的",
+    "zh_definition": "苦的;痛苦的 [adj.]血腥的;殘忍的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7272,7 +7252,7 @@
   {
     "word": "bomb",
     "pos": "n.",
-    "zh_definition": "炸彈;耳炸",
+    "zh_definition": "炸彈;[v.]轟炸",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7292,7 +7272,7 @@
   {
     "word": "bullet",
     "pos": "n.",
-    "zh_definition": "子彈",
+    "zh_definition": "子彈 ○○○",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7322,7 +7302,7 @@
   {
     "word": "capable",
     "pos": "adj.",
-    "zh_definition": "有能力的,能幹的",
+    "zh_definition": "有能力的;能幹的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7342,7 +7322,7 @@
   {
     "word": "carpet",
     "pos": "n.",
-    "zh_definition": "地先",
+    "zh_definition": "地毯",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7352,7 +7332,7 @@
   {
     "word": "casual",
     "pos": "adj.",
-    "zh_definition": "非正式的;偶然的;便裝;臨時工",
+    "zh_definition": "非正式的;偶然的;[n.]便裝;臨時工",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7402,7 +7382,7 @@
   {
     "word": "chest",
     "pos": "n.",
-    "zh_definition": "巴.] 胸膛;箱子",
+    "zh_definition": "胸膛;箱子",
     "frequency": 1,
     "level": "第三級",
     "source_page": 37,
@@ -7412,7 +7392,7 @@
   {
     "word": "chilly",
     "pos": "adj.",
-    "zh_definition": "寒冷的;冷廳廳的",
+    "zh_definition": "寒冷的;冷颼颼的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7451,8 +7431,8 @@
   },
   {
     "word": "coach",
-    "pos": "v.",
-    "zh_definition": "巴.] 教練;訓練",
+    "pos": "n.",
+    "zh_definition": "教練;[v.]訓練",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7491,8 +7471,8 @@
   },
   {
     "word": "colorful",
-    "pos": "adj.",
-    "zh_definition": "色彩繽紛的",
+    "pos": "n.",
+    "zh_definition": "殖民地;群體 [adj.]色彩繽紛的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7512,7 +7492,7 @@
   {
     "word": "conclusion",
     "pos": "n.",
-    "zh_definition": "4 結論;結尾",
+    "zh_definition": "結論;結尾",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7521,8 +7501,8 @@
   },
   {
     "word": "confused",
-    "pos": "adj.",
-    "zh_definition": "困惑的;混亂的",
+    "pos": "n.",
+    "zh_definition": "結論;結尾 [adj.]困惑的;混亂的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7572,7 +7552,7 @@
   {
     "word": "cradle",
     "pos": "n.",
-    "zh_definition": "搖籃,發源地",
+    "zh_definition": "搖籃;發源地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7581,8 +7561,8 @@
   },
   {
     "word": "crawl",
-    "pos": "n.",
-    "zh_definition": "爬行;甸甸前進;緩慢行進;爬行動作",
+    "pos": "v.",
+    "zh_definition": "爬行;匍匐前進;[n.] 緩慢行進;爬行動作",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7591,18 +7571,18 @@
   },
   {
     "word": "crew",
-    "pos": "n.",
-    "zh_definition": "JL 品 . 全體外 NC Fax) =\\",
+    "pos": "v.",
+    "zh_definition": "爬行;匍匐前進;[n.]緩慢行進;爬行動作 [n.]全體船員;工作人員 ○○○",
     "frequency": 1,
-    "level": "工作人員",
-    "source_page": 0,
+    "level": "第三級",
+    "source_page": 38,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "criminal",
-    "pos": "adj.",
-    "zh_definition": "罪犯;犯罪的",
+    "pos": "n.",
+    "zh_definition": "罪犯; [adj.]犯罪的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 38,
@@ -7642,7 +7622,7 @@
   {
     "word": "dam",
     "pos": "n.",
-    "zh_definition": "水坊;壩堤",
+    "zh_definition": "水壩;壩堤",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7682,7 +7662,7 @@
   {
     "word": "deposit",
     "pos": "n.",
-    "zh_definition": "存款;押金;存放",
+    "zh_definition": "存款;押金;[v.]存放",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7692,7 +7672,7 @@
   {
     "word": "dinosaur",
     "pos": "n.",
-    "zh_definition": "妨龍",
+    "zh_definition": "恐龍",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7702,7 +7682,7 @@
   {
     "word": "dip",
     "pos": "v.",
-    "zh_definition": "蕊] 浸;燕",
+    "zh_definition": "浸;蘸",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7721,8 +7701,8 @@
   },
   {
     "word": "dive",
-    "pos": "n.",
-    "zh_definition": "潛水;潛水",
+    "pos": "v.",
+    "zh_definition": "潛水;[n.] 潛水",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7742,7 +7722,7 @@
   {
     "word": "dust",
     "pos": "n.",
-    "zh_definition": "灰塵;粉塵;拂去灰塵",
+    "zh_definition": "灰塵;粉塵;[v.]拂去灰塵",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7752,7 +7732,7 @@
   {
     "word": "edit",
     "pos": "v.",
-    "zh_definition": "編輯;修訂;叫.] 編輯",
+    "zh_definition": "編輯;修訂;[n.]編輯",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7781,8 +7761,8 @@
   },
   {
     "word": "elevator",
-    "pos": "n.",
-    "zh_definition": "電梯;升降機",
+    "pos": "adj.",
+    "zh_definition": "電子的;電子裝置的 [n.]電梯;升降機",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7802,7 +7782,7 @@
   {
     "word": "erase",
     "pos": "v.",
-    "zh_definition": "擦除, 刪除",
+    "zh_definition": "擦除;刪除",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7811,8 +7791,8 @@
   },
   {
     "word": "exchange",
-    "pos": "n.",
-    "zh_definition": "交換;交換物",
+    "pos": "v.",
+    "zh_definition": "交換;[n.]交換物",
     "frequency": 1,
     "level": "第三級",
     "source_page": 39,
@@ -7832,7 +7812,7 @@
   {
     "word": "expectation",
     "pos": "n.",
-    "zh_definition": "巴.] 期問;期待",
+    "zh_definition": "期望;期待",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7841,8 +7821,8 @@
   },
   {
     "word": "expressive",
-    "pos": "adj.",
-    "zh_definition": "表達的;富於表現力的",
+    "pos": "n.",
+    "zh_definition": "期望;期待 [adj.]表達的;富於表現力的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7852,7 +7832,7 @@
   {
     "word": "fairly",
     "pos": "adv.",
-    "zh_definition": "相當 > 公平地",
+    "zh_definition": "相當;公平地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7862,7 +7842,7 @@
   {
     "word": "fare",
     "pos": "n.",
-    "zh_definition": "車費;黑價",
+    "zh_definition": "車費;票價",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7891,8 +7871,8 @@
   },
   {
     "word": "firework",
-    "pos": "n.",
-    "zh_definition": "Ln.] 煙火;煙花",
+    "pos": "adj.",
+    "zh_definition": "恐懼的;害怕的 [n.]煙火;煙花",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7912,7 +7892,7 @@
   {
     "word": "flood",
     "pos": "n.",
-    "zh_definition": "洪水;水災, 淹沒",
+    "zh_definition": "洪水;水災;[v.]淹沒",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7942,7 +7922,7 @@
   {
     "word": "fountain",
     "pos": "n.",
-    "zh_definition": "噴景;水源",
+    "zh_definition": "噴泉;水源",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -7972,7 +7952,7 @@
   {
     "word": "fuel",
     "pos": "n.",
-    "zh_definition": "燃料;加燃料",
+    "zh_definition": "燃料; [v.]加燃料",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -8022,7 +8002,7 @@
   {
     "word": "guidance",
     "pos": "n.",
-    "zh_definition": "指導 5 引導",
+    "zh_definition": "指導;引導",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -8032,7 +8012,7 @@
   {
     "word": "gum",
     "pos": "n.",
-    "zh_definition": "[.] 口香糖;樹膠",
+    "zh_definition": "口香糖;樹膠",
     "frequency": 1,
     "level": "第三級",
     "source_page": 40,
@@ -8051,8 +8031,8 @@
   },
   {
     "word": "harm",
-    "pos": "n.",
-    "zh_definition": "已] 傷害;危害, 傷害",
+    "pos": "v.",
+    "zh_definition": "傷害;危害;[n.]傷害",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8071,8 +8051,8 @@
   },
   {
     "word": "harvest",
-    "pos": "v.",
-    "zh_definition": "收穫;收成;收割",
+    "pos": "n.",
+    "zh_definition": "收穫;收成; [v.]收割 ○○○",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8081,8 +8061,8 @@
   },
   {
     "word": "hatch",
-    "pos": "n.",
-    "zh_definition": "孵化過程;船 (hese",
+    "pos": "v.",
+    "zh_definition": "孵化;密謀;[n.]孵化過程;船艙蓋",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8112,7 +8092,7 @@
   {
     "word": "hellish",
     "pos": "adj.",
-    "zh_definition": "地獄般的 5 極糟糕的",
+    "zh_definition": "地獄般的;極糟糕的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8142,7 +8122,7 @@
   {
     "word": "hopeful",
     "pos": "adj.",
-    "zh_definition": "抱有希這的;充滿希記的",
+    "zh_definition": "抱有希望的;充滿希望的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8151,8 +8131,8 @@
   },
   {
     "word": "horror",
-    "pos": "n.",
-    "zh_definition": "怒怖;驚恐",
+    "pos": "adj.",
+    "zh_definition": "抱有希望的;充滿希望的 [n.]恐怖;驚恐",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8212,7 +8192,7 @@
   {
     "word": "inner",
     "pos": "adj.",
-    "zh_definition": "內部的 > 內心的",
+    "zh_definition": "內部的;內心的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8221,8 +8201,8 @@
   },
   {
     "word": "innocently",
-    "pos": "adv.",
-    "zh_definition": "天真無邪地",
+    "pos": "adj.",
+    "zh_definition": "內部的;內心的 [adv.]天真無邪地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8241,8 +8221,8 @@
   },
   {
     "word": "inspector",
-    "pos": "in.",
-    "zh_definition": "檢查員;和督察",
+    "pos": "n.",
+    "zh_definition": "檢查員;督察",
     "frequency": 1,
     "level": "第三級",
     "source_page": 41,
@@ -8251,7 +8231,7 @@
   },
   {
     "word": "ivory",
-    "pos": "in.",
+    "pos": "n.",
     "zh_definition": "象牙;象牙色",
     "frequency": 1,
     "level": "第三級",
@@ -8291,8 +8271,8 @@
   },
   {
     "word": "jungle",
-    "pos": "n.",
-    "zh_definition": "叢林;熱帶雨林",
+    "pos": "adj.",
+    "zh_definition": "快樂的;高興的 [n.]叢林;熱帶雨林",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8332,7 +8312,7 @@
   {
     "word": "knight",
     "pos": "n.",
-    "zh_definition": "騎士;武士;蕊] 授以樓位",
+    "zh_definition": "騎士;武士;[v.]授以爵位",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8342,7 +8322,7 @@
   {
     "word": "ladder",
     "pos": "n.",
-    "zh_definition": "梯子,階段",
+    "zh_definition": "梯子;階段",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8352,7 +8332,7 @@
   {
     "word": "lick",
     "pos": "v.",
-    "zh_definition": "以] 矯;輕拍",
+    "zh_definition": "舔;輕拍",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8382,7 +8362,7 @@
   {
     "word": "lock",
     "pos": "n.",
-    "zh_definition": "鎖;鎖上",
+    "zh_definition": "鎖;[v.]鎖上",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8392,7 +8372,7 @@
   {
     "word": "luggage",
     "pos": "n.",
-    "zh_definition": "過.] 行李;皮箱",
+    "zh_definition": "行李;皮箱",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8402,7 +8382,7 @@
   {
     "word": "magnet",
     "pos": "n.",
-    "zh_definition": "磁鐵;磁性物質",
+    "zh_definition": "行李;皮箱 [n.]磁鐵;磁性物質",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8412,7 +8392,7 @@
   {
     "word": "majority",
     "pos": "n.",
-    "zh_definition": "多數,大部分",
+    "zh_definition": "多數;大部分",
     "frequency": 1,
     "level": "第三級",
     "source_page": 42,
@@ -8422,10 +8402,10 @@
   {
     "word": "march",
     "pos": "v.",
-    "zh_definition": "[] 行進;[巴,\\",
+    "zh_definition": "行進;[n.]行軍;三月",
     "frequency": 1,
-    "level": "行軍,;三月",
-    "source_page": 0,
+    "level": "第三級",
+    "source_page": 42,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -8512,7 +8492,7 @@
   {
     "word": "mobile",
     "pos": "adj.",
-    "zh_definition": "可移動的;活動的;In] 手機",
+    "zh_definition": "可移動的;活動的;[n.] 手機",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8542,7 +8522,7 @@
   {
     "word": "moral",
     "pos": "adj.",
-    "zh_definition": "道德的;合乎道德的;道德",
+    "zh_definition": "道德的;合乎道德的;[n.] 道德",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8561,8 +8541,8 @@
   },
   {
     "word": "naked",
-    "pos": "adj.",
-    "zh_definition": "赤裸的;裸露的",
+    "pos": "n.",
+    "zh_definition": "蚊子 [adj.]赤裸的;裸露的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8572,7 +8552,7 @@
   {
     "word": "nap",
     "pos": "n.",
-    "zh_definition": "小睡;已] 打眩",
+    "zh_definition": "小睡;[v.]打盹",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8582,7 +8562,7 @@
   {
     "word": "odd",
     "pos": "adj.",
-    "zh_definition": "古怪的;奇特的",
+    "zh_definition": "古怪的;奇特的 ○○○",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8592,7 +8572,7 @@
   {
     "word": "ongoing",
     "pos": "adj.",
-    "zh_definition": "持續進行中的,未完成的",
+    "zh_definition": "持續進行中的;未完成的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8602,7 +8582,7 @@
   {
     "word": "onion",
     "pos": "n.",
-    "zh_definition": "匝.] 洋工",
+    "zh_definition": "洋蔥",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8612,7 +8592,7 @@
   {
     "word": "opposite",
     "pos": "adj.",
-    "zh_definition": "相反的;對立的;相反",
+    "zh_definition": "相反的;對立的;[n.]相反",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8622,7 +8602,7 @@
   {
     "word": "outline",
     "pos": "n.",
-    "zh_definition": "大綱;概述;概述",
+    "zh_definition": "大綱;概述;[v.]概述",
     "frequency": 1,
     "level": "第三級",
     "source_page": 43,
@@ -8672,7 +8652,7 @@
   {
     "word": "palm",
     "pos": "n.",
-    "zh_definition": "巴.] 榨櫚樹;手掌",
+    "zh_definition": "棕櫚樹;手掌",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8732,7 +8712,7 @@
   {
     "word": "pill",
     "pos": "n.",
-    "zh_definition": "匝.] 藥丸",
+    "zh_definition": "藥丸",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8742,7 +8722,7 @@
   {
     "word": "pineapple",
     "pos": "n.",
-    "zh_definition": "馬.] 鳳梨",
+    "zh_definition": "鳳梨",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8752,7 +8732,7 @@
   {
     "word": "pitch",
     "pos": "n.",
-    "zh_definition": "球場;音調;投擲",
+    "zh_definition": "球場;音調;[v.]投擲",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8762,7 +8742,7 @@
   {
     "word": "pole",
     "pos": "n.",
-    "zh_definition": "桿,柱",
+    "zh_definition": "桿;柱",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8792,7 +8772,7 @@
   {
     "word": "poverty",
     "pos": "n.",
-    "zh_definition": "貸寢;貸困",
+    "zh_definition": "貧窮;貧困 ○○○",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8812,7 +8792,7 @@
   {
     "word": "precious",
     "pos": "adj.",
-    "zh_definition": "珍貴的;實貴的",
+    "zh_definition": "珍貴的;寶貴的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8832,7 +8812,7 @@
   {
     "word": "pretend",
     "pos": "v.",
-    "zh_definition": "假裝;伴裝",
+    "zh_definition": "假裝;佯裝",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8852,7 +8832,7 @@
   {
     "word": "pump",
     "pos": "v.",
-    "zh_definition": "抽水;巴.] 幫浦;打氣筒",
+    "zh_definition": "抽水;[n.]幫浦;打氣筒",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8862,7 +8842,7 @@
   {
     "word": "punch",
     "pos": "v.",
-    "zh_definition": "拳打;巴.] 拳頭",
+    "zh_definition": "拳打;[n.]拳頭",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8872,7 +8852,7 @@
   {
     "word": "puppet",
     "pos": "n.",
-    "zh_definition": "台.] 木偶;化介",
+    "zh_definition": "木偶;傀儡",
     "frequency": 1,
     "level": "第三級",
     "source_page": 44,
@@ -8911,8 +8891,8 @@
   },
   {
     "word": "rate",
-    "pos": "n.",
-    "zh_definition": "比率;速度;評估",
+    "pos": "adj.",
+    "zh_definition": "種族的;人種的 [n.]比率;速度;[v.]評估",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -8962,7 +8942,7 @@
   {
     "word": "regret",
     "pos": "v.",
-    "zh_definition": "基] 後悔;恤悔;巴.] 遺性",
+    "zh_definition": "後悔;懊悔;[n.]遺憾",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9022,7 +9002,7 @@
   {
     "word": "roast",
     "pos": "adj.",
-    "zh_definition": "烤;吐槽, 烤過的,;6A 5",
+    "zh_definition": "烤;吐槽;烤過的;[n.]烤肉;吐槽",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9032,7 +9012,7 @@
   {
     "word": "rocket",
     "pos": "n.",
-    "zh_definition": "Kai;急速上升",
+    "zh_definition": "火箭;[v.]急速上升",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9041,8 +9021,8 @@
   },
   {
     "word": "rot",
-    "pos": "n.",
-    "zh_definition": "腐爛;HE 5 腐爛物",
+    "pos": "v.",
+    "zh_definition": "腐爛;枯萎;[n.]腐爛物",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9052,7 +9032,7 @@
   {
     "word": "rough",
     "pos": "adj.",
-    "zh_definition": "粗糙的;粗略的;大致地",
+    "zh_definition": "粗糙的;粗略的;[adv.]大致地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9061,8 +9041,8 @@
   },
   {
     "word": "routine",
-    "pos": "adj.",
-    "zh_definition": "日常事務;慣例;日常的",
+    "pos": "n.",
+    "zh_definition": "日常事務;慣例;[adj.] 日常的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9071,8 +9051,8 @@
   },
   {
     "word": "rust",
-    "pos": "v.",
-    "zh_definition": "巴.] 鏽;生鏽",
+    "pos": "n.",
+    "zh_definition": "鏽;[v.]生鏽",
     "frequency": 1,
     "level": "第三級",
     "source_page": 45,
@@ -9092,7 +9072,7 @@
   {
     "word": "scale",
     "pos": "n.",
-    "zh_definition": "刻度;規模;鱗片;測量",
+    "zh_definition": "刻度;規模;鱗片; [v.]測量",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9122,7 +9102,7 @@
   {
     "word": "shallow",
     "pos": "adj.",
-    "zh_definition": "淺的;膚淺的",
+    "zh_definition": "淺的;膚淺的 ○○○",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9142,7 +9122,7 @@
   {
     "word": "shorten",
     "pos": "v.",
-    "zh_definition": "已] 縮短;使變短",
+    "zh_definition": "縮短;使變短",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9152,7 +9132,7 @@
   {
     "word": "shortly",
     "pos": "adv.",
-    "zh_definition": "不久,很快地",
+    "zh_definition": "不久;很快地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9162,7 +9142,7 @@
   {
     "word": "shrink",
     "pos": "v.",
-    "zh_definition": "收縮,縮小",
+    "zh_definition": "收縮;縮小",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9182,7 +9162,7 @@
   {
     "word": "slave",
     "pos": "n.",
-    "zh_definition": "巴.] 奴隸",
+    "zh_definition": "奴隸",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9192,7 +9172,7 @@
   {
     "word": "slice",
     "pos": "n.",
-    "zh_definition": "[馬.] 薄情;切片;蕊] 切片",
+    "zh_definition": "薄片;切片;[v.]切片",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9202,7 +9182,7 @@
   {
     "word": "slippery",
     "pos": "adj.",
-    "zh_definition": "沿的;易漲的",
+    "zh_definition": "滑的;易滑的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9212,7 +9192,7 @@
   {
     "word": "somehow",
     "pos": "adv.",
-    "zh_definition": "不知怎麼地, 莫名其妙地",
+    "zh_definition": "不知怎麼地;莫名其妙地",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9252,7 +9232,7 @@
   {
     "word": "spill",
     "pos": "v.",
-    "zh_definition": "基] 濃出;滬出,;[.] 溢出物",
+    "zh_definition": "濺出;灑出;[n.]溢出物",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9261,8 +9241,8 @@
   },
   {
     "word": "spite",
-    "pos": "prep.",
-    "zh_definition": "怨恨;不滿;儘管 (in spite of)",
+    "pos": "n.",
+    "zh_definition": "怨恨;不滿; [prep.] 儘管(in spite of)",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9271,8 +9251,8 @@
   },
   {
     "word": "spoil",
-    "pos": "n.",
-    "zh_definition": "損壞;破壞;溺愛",
+    "pos": "v.",
+    "zh_definition": "損壞;破壞;[n.] 溺愛",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9281,8 +9261,8 @@
   },
   {
     "word": "stadium",
-    "pos": "n.",
-    "zh_definition": "體育場;運動場",
+    "pos": "v.",
+    "zh_definition": "損壞;破壞;[n.]溺愛 [n.]體育場;運動場",
     "frequency": 1,
     "level": "第三級",
     "source_page": 46,
@@ -9302,7 +9282,7 @@
   {
     "word": "steady",
     "pos": "adj.",
-    "zh_definition": "穩定的;持續的;穩固",
+    "zh_definition": "穩定的;持續的;[v.]穩固",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9321,8 +9301,8 @@
   },
   {
     "word": "stomach",
-    "pos": "n.",
-    "zh_definition": "胃;腹部;忍受",
+    "pos": "v.",
+    "zh_definition": "]胃;腹部;忍受",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9332,7 +9312,7 @@
   {
     "word": "stool",
     "pos": "n.",
-    "zh_definition": "人鞍子;大便",
+    "zh_definition": "凳子;大便",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9352,7 +9332,7 @@
   {
     "word": "straw",
     "pos": "n.",
-    "zh_definition": "過.] 稻草;吸管",
+    "zh_definition": "稻草;吸管",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9362,7 +9342,7 @@
   {
     "word": "stuff",
     "pos": "n.",
-    "zh_definition": "東西;物品;塞滿",
+    "zh_definition": "東西;物品;[v.]塞滿",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9382,7 +9362,7 @@
   {
     "word": "superior",
     "pos": "adj.",
-    "zh_definition": "優越的;較好的;上級;高手",
+    "zh_definition": "優越的;較好的;[n.]上級;高手",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9402,7 +9382,7 @@
   {
     "word": "tablet",
     "pos": "n.",
-    "zh_definition": "巴.] 藥片;平板電腦",
+    "zh_definition": "藥片;平板電腦",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9411,8 +9391,8 @@
   },
   {
     "word": "tap",
-    "pos": "n.",
-    "zh_definition": "輕拍;Ke KEY 5 水龍頭;輕拍",
+    "pos": "v.",
+    "zh_definition": "輕拍 輕拍;輕敲;[n.]水龍頭",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9432,7 +9412,7 @@
   {
     "word": "tease",
     "pos": "v.",
-    "zh_definition": "攻] 戲弄;釦弄;巴.] 戲弄",
+    "zh_definition": "戲弄;逗弄;[n.]戲弄",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9452,7 +9432,7 @@
   {
     "word": "tender",
     "pos": "adj.",
-    "zh_definition": "溫柔的;嫩的;投標",
+    "zh_definition": "溫柔的;嫩的;[v.]投標",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9482,7 +9462,7 @@
   {
     "word": "toss",
     "pos": "v.",
-    "zh_definition": "扔;擲;巴.] 拋擲",
+    "zh_definition": "扔;擲;[n.] 拋擲",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9492,7 +9472,7 @@
   {
     "word": "tough",
     "pos": "adj.",
-    "zh_definition": "困難的;堅熙的;強硬的",
+    "zh_definition": "困難的;堅韌的;強硬的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 47,
@@ -9512,7 +9492,7 @@
   {
     "word": "tourist",
     "pos": "n.",
-    "zh_definition": "觀光客,旅遊者",
+    "zh_definition": "觀光客;旅遊者",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9522,7 +9502,7 @@
   {
     "word": "tower",
     "pos": "n.",
-    "zh_definition": "塔;高樓;[若] 高從",
+    "zh_definition": "塔;高樓;[v.]高聳",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9532,7 +9512,7 @@
   {
     "word": "trader",
     "pos": "n.",
-    "zh_definition": "商人,;貿易商",
+    "zh_definition": "商人;貿易商",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9542,7 +9522,7 @@
   {
     "word": "trail",
     "pos": "n.",
-    "zh_definition": "小徑;RBS 跟蹤;拖拉",
+    "zh_definition": "小徑;痕跡;[v.]跟蹤;拖拉",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9572,7 +9552,7 @@
   {
     "word": "tricky",
     "pos": "adj.",
-    "zh_definition": "棘手的;狡獨的",
+    "zh_definition": "棘手的;狡猾的",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9602,7 +9582,7 @@
   {
     "word": "tune",
     "pos": "n.",
-    "zh_definition": "曲調;調子;調整",
+    "zh_definition": "曲調;調子;[v.]調整",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9612,7 +9592,7 @@
   {
     "word": "union",
     "pos": "n.",
-    "zh_definition": "HA 給公 工會;聯盟",
+    "zh_definition": "工會;聯盟;結合",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9622,7 +9602,7 @@
   {
     "word": "unity",
     "pos": "n.",
-    "zh_definition": "團結一致",
+    "zh_definition": "團結;一致",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9662,7 +9642,7 @@
   {
     "word": "weekly",
     "pos": "adj.",
-    "zh_definition": "每週的;每週地;周刊",
+    "zh_definition": "每週的;[adv.]每週地;[n.]周刊",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9671,8 +9651,8 @@
   },
   {
     "word": "wrap",
-    "pos": "n.",
-    "zh_definition": "包裹;包裝材料",
+    "pos": "v.",
+    "zh_definition": "包裹;[n.]包裝材料",
     "frequency": 1,
     "level": "第三級",
     "source_page": 48,
@@ -9702,7 +9682,7 @@
   {
     "word": "absorb",
     "pos": "v.",
-    "zh_definition": "吸收,使全神貫注",
+    "zh_definition": "吸收;使全神貫注",
     "frequency": 1,
     "level": "第四級",
     "source_page": 48,
@@ -9712,7 +9692,7 @@
   {
     "word": "academic",
     "pos": "adj.",
-    "zh_definition": "學術的;學院的;fn] 學者",
+    "zh_definition": "學術的;學院的;[n.]學者",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9722,7 +9702,7 @@
   {
     "word": "accuse",
     "pos": "v.",
-    "zh_definition": "[] 指控,控告",
+    "zh_definition": "指控;控告",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9731,8 +9711,8 @@
   },
   {
     "word": "acid",
-    "pos": "adj.",
-    "zh_definition": "酸;酸性物質 酸的;尖酸的",
+    "pos": "n.",
+    "zh_definition": "酸;酸性物質;[adj.]酸的;尖酸的 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9752,7 +9732,7 @@
   {
     "word": "adjustment",
     "pos": "n.",
-    "zh_definition": "調 》;調節;適應",
+    "zh_definition": "調整;調節;適應",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9762,17 +9742,17 @@
   {
     "word": "admission",
     "pos": "n.",
-    "zh_definition": "In \\",
+    "zh_definition": "承認;進入許可;入場券",
     "frequency": 1,
-    "level": "承認;進入許可;人場券",
-    "source_page": 0,
+    "level": "第四級",
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "agent",
     "pos": "n.",
-    "zh_definition": "代理人,;經紀人",
+    "zh_definition": "代理人;經紀人",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9802,7 +9782,7 @@
   {
     "word": "ambiguously",
     "pos": "adv.",
-    "zh_definition": "含糊不清地",
+    "zh_definition": "含糊不清地 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9852,7 +9832,7 @@
   {
     "word": "annoy",
     "pos": "v.",
-    "zh_definition": "已] 惹惱;使不快",
+    "zh_definition": "惹惱;使不快",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9872,7 +9852,7 @@
   {
     "word": "application",
     "pos": "n.",
-    "zh_definition": "應用;申請,塗抹",
+    "zh_definition": "應用;申請;塗抹",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9882,17 +9862,17 @@
   {
     "word": "appointment",
     "pos": "n.",
-    "zh_definition": "約會;約定;任命 N.\\",
+    "zh_definition": "約會;約定;任命",
     "frequency": 1,
-    "level": "八",
-    "source_page": 0,
+    "level": "第四級",
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "appropriateness",
     "pos": "n.",
-    "zh_definition": "適當性 5 恰當",
+    "zh_definition": "適當性;恰當",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9912,7 +9892,7 @@
   {
     "word": "ashamed",
     "pos": "adj.",
-    "zh_definition": "差愧的",
+    "zh_definition": "羞愧的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 49,
@@ -9925,17 +9905,17 @@
     "zh_definition": "阿司匹林",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "association",
     "pos": "n.",
-    "zh_definition": "x 想 協會;社團;邊 HIN",
+    "zh_definition": "協會;社團;聯想",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -9945,7 +9925,7 @@
     "zh_definition": "保證;確信",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -9955,7 +9935,7 @@
     "zh_definition": "運動的;體育的",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -9965,27 +9945,27 @@
     "zh_definition": "氣氛;大氣層",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "attachment",
     "pos": "n.",
-    "zh_definition": "附件, 依戀",
+    "zh_definition": "附件;依戀",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "attraction",
     "pos": "n.",
-    "zh_definition": "巴.] 吸引, 吸引上力",
+    "zh_definition": "吸引;吸引力",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -9995,77 +9975,77 @@
     "zh_definition": "簽名;親筆簽名",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "bargain",
     "pos": "n.",
-    "zh_definition": "協議;廉價交易;討價還價",
+    "zh_definition": "協議;廉價交易; [v.]討價還價",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "bin",
     "pos": "n.",
-    "zh_definition": "垃圾桶,箱子",
+    "zh_definition": "垃圾桶;箱子",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "blade",
     "pos": "n.",
-    "zh_definition": "牟.] 刀片;葉片",
+    "zh_definition": "刀片;葉片",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "blend",
     "pos": "v.",
-    "zh_definition": "混合;[ \\",
+    "zh_definition": "混合;[n.]混合物",
     "frequency": 1,
-    "level": "祝",
-    "source_page": 0,
+    "level": "第四級",
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "blink",
     "pos": "v.",
-    "zh_definition": "蕊] 貶眼;閃鄰",
+    "zh_definition": "眨眼;閃爍",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "bounce",
-    "pos": "n.",
-    "zh_definition": "彈跳;反彈;彈性",
+    "pos": "v.",
+    "zh_definition": "彈跳;反彈;[n.]彈性",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "broom",
     "pos": "n.",
-    "zh_definition": "巴.] 掃帝",
+    "zh_definition": "掃帚",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -10075,64 +10055,64 @@
     "zh_definition": "櫃子;內閣",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "calculate",
     "pos": "v.",
-    "zh_definition": "基] 計算;估計",
+    "zh_definition": "計算;估計",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "calorie",
     "pos": "n.",
-    "zh_definition": "卡路里,熱量",
+    "zh_definition": "卡路里;熱量",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "campaign",
     "pos": "n.",
-    "zh_definition": "8) 5 活動;發起活動",
+    "zh_definition": "運動;活動;[v.]發起活動",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "canoe",
     "pos": "n.",
-    "zh_definition": "獨木髓,小艇",
+    "zh_definition": "獨木舟;小艇",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "cargo",
-    "pos": "in.",
-    "zh_definition": "巴.] 貨物",
+    "pos": "n.",
+    "zh_definition": "貨物",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 50,
+    "source_page": 49,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "cease",
-    "pos": "n.",
-    "zh_definition": "停止;終止;停止",
+    "pos": "v.",
+    "zh_definition": "停止;終止;[n.]停止",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10152,7 +10132,7 @@
   {
     "word": "championship",
     "pos": "n.",
-    "zh_definition": "冠軍賽;SHERZE;冠軍地位",
+    "zh_definition": "冠軍賽;錦標賽;冠軍地位 11 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10172,7 +10152,7 @@
   {
     "word": "chew",
     "pos": "v.",
-    "zh_definition": "咀嚼;深思;外.] 咀嚼",
+    "zh_definition": "咀嚼;深思;[n.]咀嚼",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10192,7 +10172,7 @@
   {
     "word": "circulation",
     "pos": "n.",
-    "zh_definition": "循環;銷路,流通量",
+    "zh_definition": "循環;銷路;流通量",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10212,7 +10192,7 @@
   {
     "word": "classification",
     "pos": "n.",
-    "zh_definition": "Ln.] 分類;類別",
+    "zh_definition": "分類;類別",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10222,7 +10202,7 @@
   {
     "word": "colleague",
     "pos": "n.",
-    "zh_definition": "同事;合夥人;TRIBE",
+    "zh_definition": "分類;類別 [n.]同事;合夥人;同僚",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10251,8 +10231,8 @@
   },
   {
     "word": "concentration",
-    "pos": "n.",
-    "zh_definition": "專心;集中;濃度",
+    "pos": "adj.",
+    "zh_definition": "有競爭力的 [n.]專心;集中;濃度",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10272,7 +10252,7 @@
   {
     "word": "congress",
     "pos": "n.",
-    "zh_definition": "議會 ne a 國會",
+    "zh_definition": "國會;議會",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10292,7 +10272,7 @@
   {
     "word": "consequent",
     "pos": "adj.",
-    "zh_definition": "作為結果的 5 隨之發生的",
+    "zh_definition": "作為結果的;隨之發生的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10302,7 +10282,7 @@
   {
     "word": "conservative",
     "pos": "adj.",
-    "zh_definition": "保守的;傳統的;保守派",
+    "zh_definition": "保守的;傳統的;[n.]保守派",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10332,7 +10312,7 @@
   {
     "word": "contest",
     "pos": "n.",
-    "zh_definition": "比賽;競爭;爭奪",
+    "zh_definition": "比賽;競爭;[v.]爭奪",
     "frequency": 1,
     "level": "第四級",
     "source_page": 51,
@@ -10352,7 +10332,7 @@
   {
     "word": "contribute",
     "pos": "v.",
-    "zh_definition": "世] 貢獻;損獻",
+    "zh_definition": "貢獻;捐獻",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10362,7 +10342,7 @@
   {
     "word": "cooperation",
     "pos": "n.",
-    "zh_definition": "合作;協作",
+    "zh_definition": "合作;協作 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10402,7 +10382,7 @@
   {
     "word": "cruelty",
     "pos": "n.",
-    "zh_definition": "殘忍,殘暴行為",
+    "zh_definition": "殘忍;殘暴行為",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10412,7 +10392,7 @@
   {
     "word": "crush",
     "pos": "v.",
-    "zh_definition": "基] 壓碎;粉碎, [.] 迷戀",
+    "zh_definition": "壓碎;粉碎;[n.] 迷戀",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10422,7 +10402,7 @@
   {
     "word": "cue",
     "pos": "n.",
-    "zh_definition": "提示;暗示;lv.) 給提示;暗示",
+    "zh_definition": "提示;暗示; [v.]給提示;暗示",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10432,7 +10412,7 @@
   {
     "word": "curve",
     "pos": "n.",
-    "zh_definition": "曲線;彎曲;彎曲",
+    "zh_definition": "曲線;彎曲; [v.]彎曲",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10442,7 +10422,7 @@
   {
     "word": "cushion",
     "pos": "n.",
-    "zh_definition": "墊子;靠墊",
+    "zh_definition": "墊子;靠墊 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10462,7 +10442,7 @@
   {
     "word": "defense",
     "pos": "n.",
-    "zh_definition": "防禦;保衛;防守",
+    "zh_definition": "防禦;保衛; [v.]防守",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10482,7 +10462,7 @@
   {
     "word": "definitely",
     "pos": "adv.",
-    "zh_definition": "明確地, 肯定地",
+    "zh_definition": "明確地;肯定地",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10512,7 +10492,7 @@
   {
     "word": "deserve",
     "pos": "v.",
-    "zh_definition": "值得,應得",
+    "zh_definition": "值得;應得",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10521,8 +10501,8 @@
   },
   {
     "word": "detective",
-    "pos": "adj.",
-    "zh_definition": "偵探;偵探的",
+    "pos": "n.",
+    "zh_definition": "偵探; [adj.]偵探的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10542,7 +10522,7 @@
   {
     "word": "disadvantage",
     "pos": "n.",
-    "zh_definition": "崗.] 人劣勢;不利條件;損失",
+    "zh_definition": "劣勢;不利條件;損失",
     "frequency": 1,
     "level": "第四級",
     "source_page": 52,
@@ -10552,7 +10532,7 @@
   {
     "word": "disappoint",
     "pos": "v.",
-    "zh_definition": "已] 使失幕;使破滅",
+    "zh_definition": "使失望;使破滅",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10562,7 +10542,7 @@
   {
     "word": "disaster",
     "pos": "n.",
-    "zh_definition": "災難;不六",
+    "zh_definition": "災難;不幸",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10602,7 +10582,7 @@
   {
     "word": "diversity",
     "pos": "n.",
-    "zh_definition": "多樣性,差異",
+    "zh_definition": "多樣性;差異",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10612,7 +10592,7 @@
   {
     "word": "dominant",
     "pos": "adj.",
-    "zh_definition": "文配的;占優勢的",
+    "zh_definition": "支配的;占優勢的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10621,8 +10601,8 @@
   },
   {
     "word": "drill",
-    "pos": "v.",
-    "zh_definition": "鑽;操練;鑽孔",
+    "pos": "adj.",
+    "zh_definition": "支配的;占優勢的 [n.]鑽;操練; [v.]鑽孔",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10632,7 +10612,7 @@
   {
     "word": "drowsy",
     "pos": "adj.",
-    "zh_definition": "昏紅欲睡的;困倦的",
+    "zh_definition": "昏昏欲睡的;困倦的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10712,7 +10692,7 @@
   {
     "word": "estimate",
     "pos": "v.",
-    "zh_definition": "估計;評估, 巴.] 估計值",
+    "zh_definition": "估計;評估;[n.]估計值",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10732,7 +10712,7 @@
   {
     "word": "eventual",
     "pos": "adj.",
-    "zh_definition": "最終的;最後的",
+    "zh_definition": "最終的;最後的 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 53,
@@ -10772,7 +10752,7 @@
   {
     "word": "exhaust",
     "pos": "v.",
-    "zh_definition": "使筋疲力盡,用完",
+    "zh_definition": "使筋疲力盡;用完 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10781,8 +10761,8 @@
   },
   {
     "word": "exhibit",
-    "pos": "n.",
-    "zh_definition": "展示;BRON;展覽品",
+    "pos": "v.",
+    "zh_definition": "展示;陳列;[n.]展覽品",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10832,7 +10812,7 @@
   {
     "word": "faithful",
     "pos": "adj.",
-    "zh_definition": "忠誠的;忠實支持者",
+    "zh_definition": "忠誠的;[n.]忠實支持者",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10842,7 +10822,7 @@
   {
     "word": "fantastic",
     "pos": "adj.",
-    "zh_definition": "極好的;奇妙的",
+    "zh_definition": "極好的;奇妙 的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10862,7 +10842,7 @@
   {
     "word": "fiction",
     "pos": "n.",
-    "zh_definition": "小說, 虛構作品",
+    "zh_definition": "小說;虛構作品",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10881,8 +10861,8 @@
   },
   {
     "word": "flush",
-    "pos": "n.",
-    "zh_definition": "沖洗;臉紅;沖水 5 ALE",
+    "pos": "v.",
+    "zh_definition": "沖洗;臉紅;[n.]沖水;紅暈",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10892,7 +10872,7 @@
   {
     "word": "forbid",
     "pos": "v.",
-    "zh_definition": "禁止;不淮",
+    "zh_definition": "禁止;不准",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10912,7 +10892,7 @@
   {
     "word": "fundamental",
     "pos": "adj.",
-    "zh_definition": "基本的;根本的;基礎",
+    "zh_definition": "基本的;根本的;[n.]基礎",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10942,7 +10922,7 @@
   {
     "word": "gear",
     "pos": "n.",
-    "zh_definition": "齒輪;裝備;使適應",
+    "zh_definition": "齒輪;裝備;[v.]使適應",
     "frequency": 1,
     "level": "第四級",
     "source_page": 54,
@@ -10971,8 +10951,8 @@
   },
   {
     "word": "glimpse",
-    "pos": "n.",
-    "zh_definition": "瞥見;一幣",
+    "pos": "v.",
+    "zh_definition": "瞥見;[n.] 一瞥",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -10982,7 +10962,7 @@
   {
     "word": "gown",
     "pos": "n.",
-    "zh_definition": "禮服;長袍",
+    "zh_definition": "禮服;長袍 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -10992,7 +10972,7 @@
   {
     "word": "grace",
     "pos": "n.",
-    "zh_definition": "優雅;GR 裝飾;使增光",
+    "zh_definition": "優雅;恩典;[v.]裝飾;使增光",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11022,7 +11002,7 @@
   {
     "word": "greeting",
     "pos": "n.",
-    "zh_definition": "問候, 問候語",
+    "zh_definition": "問候;問候語",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11031,8 +11011,8 @@
   },
   {
     "word": "guarantee",
-    "pos": "v.",
-    "zh_definition": "擔保 > 保證",
+    "pos": "n.",
+    "zh_definition": "保證; [v.]擔保;保證",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11052,7 +11032,7 @@
   {
     "word": "gulf",
     "pos": "n.",
-    "zh_definition": "海灣;潛道",
+    "zh_definition": "海灣;漕道",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11061,8 +11041,8 @@
   },
   {
     "word": "halt",
-    "pos": "n.",
-    "zh_definition": "停止;終止;停止;暫停",
+    "pos": "v.",
+    "zh_definition": "停止;終止;[n.]停止;暫停",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11122,7 +11102,7 @@
   {
     "word": "imitate",
     "pos": "v.",
-    "zh_definition": "橫仿;仿效",
+    "zh_definition": "模仿;仿效",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11132,7 +11112,7 @@
   {
     "word": "immigrant",
     "pos": "n.",
-    "zh_definition": "移民 5 外來者",
+    "zh_definition": "移民;外來者",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11152,7 +11132,7 @@
   {
     "word": "incident",
     "pos": "n.",
-    "zh_definition": "事件,插曲",
+    "zh_definition": "事件;插曲",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11162,7 +11142,7 @@
   {
     "word": "incredible",
     "pos": "adj.",
-    "zh_definition": "FH 23¢ 難以置信的;不可 JEN FER 的",
+    "zh_definition": "難以置信的;不可思議的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 55,
@@ -11185,47 +11165,47 @@
     "zh_definition": "資訊豐富的;提供資料的",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "innocence",
     "pos": "n.",
-    "zh_definition": "馬.] 無辜;天真",
+    "zh_definition": "無辜;天真",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "input",
     "pos": "n.",
-    "zh_definition": "馬.] 輸入;投信;[了蔬] 輸入",
+    "zh_definition": "輸入;投入;[v.]輸入",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "insert",
     "pos": "v.",
-    "zh_definition": "蕊] 插人;違和人",
+    "zh_definition": "插入;嵌入",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "instructor",
     "pos": "n.",
-    "zh_definition": "指導導員;教練",
+    "zh_definition": "指導員;教練",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11235,7 +11215,7 @@
     "zh_definition": "保險",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11245,27 +11225,27 @@
     "zh_definition": "隔離;孤立",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "isolation",
     "pos": "n.",
-    "zh_definition": "隔離;和孤立",
+    "zh_definition": "隔離;孤立",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "keen",
     "pos": "adj.",
-    "zh_definition": "熱心的;渴劑的",
+    "zh_definition": "熱心的;渴望的",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11275,47 +11255,47 @@
     "zh_definition": "圓形的門把;旋鈕",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "lab",
     "pos": "n.",
-    "zh_definition": "實驗室 5 研究室",
+    "zh_definition": "實驗室;研究室",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "lecturer",
     "pos": "n.",
-    "zh_definition": "講師 5 講座",
+    "zh_definition": "講師;講座",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "license",
     "pos": "n.",
-    "zh_definition": "許可證;BUR 許可",
+    "zh_definition": "許可證;執照;[v.]許可",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "loan",
     "pos": "n.",
-    "zh_definition": "》 一二貸 hr A 額 貸款",
+    "zh_definition": "貸款;貸款額",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11325,7 +11305,7 @@
     "zh_definition": "邏輯上;合理地",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11335,17 +11315,17 @@
     "zh_definition": "糟糕的;極差的",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "machinery",
     "pos": "n.",
-    "zh_definition": "馬.] 機械;機器",
+    "zh_definition": "機械;機器",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11355,37 +11335,37 @@
     "zh_definition": "壯麗的;宏偉的",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "makeup",
     "pos": "n.",
-    "zh_definition": "化妝品;構成,組成",
+    "zh_definition": "化妝品;構成;組成",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "manual",
     "pos": "adj.",
-    "zh_definition": "手工的;體力的;手冊",
+    "zh_definition": "手工的;體力的;[n.]手冊",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "manufacture",
-    "pos": "n.",
-    "zh_definition": "製造;加工;生產;製造業",
+    "pos": "v.",
+    "zh_definition": "製造;加工;[n.]生產;製造業",
     "frequency": 1,
     "level": "第四級",
-    "source_page": 56,
+    "source_page": 55,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -11421,8 +11401,8 @@
   },
   {
     "word": "memorial",
-    "pos": "adj.",
-    "zh_definition": "紀念物;紀念的",
+    "pos": "n.",
+    "zh_definition": "紀念物;[adj.] 紀念的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11431,8 +11411,8 @@
   },
   {
     "word": "memorize",
-    "pos": "v.",
-    "zh_definition": "記住;背熟",
+    "pos": "n.",
+    "zh_definition": "紀念物;[adj.]紀念的 [v.]記住;背熟",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11442,7 +11422,7 @@
   {
     "word": "merchant",
     "pos": "n.",
-    "zh_definition": "商人,;貿易商",
+    "zh_definition": "商人;貿易商",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11461,8 +11441,8 @@
   },
   {
     "word": "merit",
-    "pos": "n.",
-    "zh_definition": "優點, 長處",
+    "pos": "adj.",
+    "zh_definition": "僅僅的;單純的 [n.]優點;長處",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11491,8 +11471,8 @@
   },
   {
     "word": "mill",
-    "pos": "n.",
-    "zh_definition": "磨坊;工廠;磨粉機, 研磨",
+    "pos": "adj.",
+    "zh_definition": "溫和的;輕微的 [n.]磨坊;工廠;磨粉機;[v.]研磨 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11511,8 +11491,8 @@
   },
   {
     "word": "minimum",
-    "pos": "adj.",
-    "zh_definition": "最低限度;最小值;最低的",
+    "pos": "n.",
+    "zh_definition": "最低限度;最小值;[adj.]最低的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11522,7 +11502,7 @@
   {
     "word": "minister",
     "pos": "n.",
-    "zh_definition": "部長;大蕊",
+    "zh_definition": "部長;大臣",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11532,7 +11512,7 @@
   {
     "word": "ministry",
     "pos": "n.",
-    "zh_definition": "[.] 部門;省",
+    "zh_definition": "部門;省",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11561,8 +11541,8 @@
   },
   {
     "word": "monitor",
-    "pos": "n.",
-    "zh_definition": "監控;BESTS 顯示器",
+    "pos": "v.",
+    "zh_definition": "監控;監視;[n.]顯示器",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11582,7 +11562,7 @@
   {
     "word": "needy",
     "pos": "adj.",
-    "zh_definition": "貸困的;貸窮的",
+    "zh_definition": "貧困的;貧窮的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11592,7 +11572,7 @@
   {
     "word": "neglect",
     "pos": "v.",
-    "zh_definition": "忽視;疏忽;巴.] 疏忽",
+    "zh_definition": "忽視;疏忽;[n.]疏忽",
     "frequency": 1,
     "level": "第四級",
     "source_page": 57,
@@ -11632,7 +11612,7 @@
   {
     "word": "offense",
     "pos": "n.",
-    "zh_definition": "犯罪;罪和行;冒犯",
+    "zh_definition": "犯罪;罪行;冒犯",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11642,7 +11622,7 @@
   {
     "word": "opera",
     "pos": "n.",
-    "zh_definition": "巴.] 歌劇",
+    "zh_definition": "歌劇",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11672,7 +11652,7 @@
   {
     "word": "overnight",
     "pos": "adj.",
-    "zh_definition": "整夜的突然的;一夜之間;突然",
+    "zh_definition": "整夜的;突然的;[adv.]一夜之間;突然",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11702,7 +11682,7 @@
   {
     "word": "pace",
     "pos": "n.",
-    "zh_definition": "步調;速度;調整步伐;踐步",
+    "zh_definition": "步調;速度;[v.]調整步伐;踱步",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11742,7 +11722,7 @@
   {
     "word": "penalty",
     "pos": "n.",
-    "zh_definition": "處有前, 懲前",
+    "zh_definition": "處罰;懲罰",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11762,7 +11742,7 @@
   {
     "word": "pest",
     "pos": "n.",
-    "zh_definition": "巴.] 害蠱",
+    "zh_definition": "害蟲",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11792,7 +11772,7 @@
   {
     "word": "pioneer",
     "pos": "n.",
-    "zh_definition": "先驅;開拓者",
+    "zh_definition": "先驅;開拓者 13 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11802,7 +11782,7 @@
   {
     "word": "plot",
     "pos": "n.",
-    "zh_definition": "情節;陰謀;計畫;密謀",
+    "zh_definition": "情節;陰謀;[v.]計畫;密謀",
     "frequency": 1,
     "level": "第四級",
     "source_page": 58,
@@ -11822,7 +11802,7 @@
   {
     "word": "prediction",
     "pos": "n.",
-    "zh_definition": "預測;預言",
+    "zh_definition": "預測;預言 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11852,7 +11832,7 @@
   {
     "word": "proceed",
     "pos": "v.",
-    "zh_definition": "繼續進行,開始",
+    "zh_definition": "繼續進行;開始",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11901,7 +11881,7 @@
   },
   {
     "word": "protein",
-    "pos": "in.",
+    "pos": "n.",
     "zh_definition": "蛋白質",
     "frequency": 1,
     "level": "第四級",
@@ -11911,8 +11891,8 @@
   },
   {
     "word": "protest",
-    "pos": "n.",
-    "zh_definition": "抗議;抗議活動",
+    "pos": "v.",
+    "zh_definition": "抗議;[n.] 抗議活動",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11921,8 +11901,8 @@
   },
   {
     "word": "psychologist",
-    "pos": "n.",
-    "zh_definition": "心理學家",
+    "pos": "v.",
+    "zh_definition": "抗議;[n.] 抗議活動 [n.]心理學家",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11933,16 +11913,6 @@
     "word": "psychology",
     "pos": "n.",
     "zh_definition": "心理學",
-    "frequency": 1,
-    "level": "第四級",
-    "source_page": 59,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
-    "word": "publisher",
-    "pos": "n.",
-    "zh_definition": "出版商;出版商",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11962,7 +11932,7 @@
   {
     "word": "rage",
     "pos": "n.",
-    "zh_definition": "牟.] 憤怒;狂怒",
+    "zh_definition": "憤怒;狂怒",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11982,7 +11952,7 @@
   {
     "word": "reception",
     "pos": "n.",
-    "zh_definition": "接待,接竺處",
+    "zh_definition": "接待;接待處",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -11992,7 +11962,17 @@
   {
     "word": "recognition",
     "pos": "n.",
-    "zh_definition": "[馬.] 認可;認知",
+    "zh_definition": "心理學",
+    "frequency": 1,
+    "level": "第四級",
+    "source_page": 59,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "publisher",
+    "pos": "n.",
+    "zh_definition": "出版商;出版商 [n.]引用;引文 [n.]憤怒;狂怒 [n.]降雨量;降水量 [n.]接待;接待處 [n.]認可;認知",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -12012,7 +11992,7 @@
   {
     "word": "reduction",
     "pos": "n.",
-    "zh_definition": "減少;導減",
+    "zh_definition": "減少;削減",
     "frequency": 1,
     "level": "第四級",
     "source_page": 59,
@@ -12031,8 +12011,8 @@
   },
   {
     "word": "reform",
-    "pos": "n.",
-    "zh_definition": "改革;改進;改革",
+    "pos": "v.",
+    "zh_definition": "改革;改進;[n.]改革",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12042,7 +12022,7 @@
   {
     "word": "register",
     "pos": "v.",
-    "zh_definition": "註冊,登記",
+    "zh_definition": "註冊;登記",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12062,7 +12042,7 @@
   {
     "word": "renew",
     "pos": "v.",
-    "zh_definition": "Stal > 重新開始",
+    "zh_definition": "續訂;重新開始",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12072,7 +12052,7 @@
   {
     "word": "reputation",
     "pos": "n.",
-    "zh_definition": "名譽;聲劑",
+    "zh_definition": "名譽;聲望",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12092,7 +12072,7 @@
   {
     "word": "reservation",
     "pos": "n.",
-    "zh_definition": "預訂 > 保留意見",
+    "zh_definition": "預訂;保留意見",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12132,7 +12112,7 @@
   {
     "word": "restriction",
     "pos": "n.",
-    "zh_definition": "限製;約束",
+    "zh_definition": "限制;約束",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12152,7 +12132,7 @@
   {
     "word": "retreat",
     "pos": "v.",
-    "zh_definition": "退卻,攏退;牟.] $B",
+    "zh_definition": "退卻;撤退;[n.]撤退",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12182,7 +12162,7 @@
   {
     "word": "revolutionary",
     "pos": "adj.",
-    "zh_definition": "單命性的;顛覆性的",
+    "zh_definition": "革命性的;顛覆性的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 60,
@@ -12232,7 +12212,7 @@
   {
     "word": "shift",
     "pos": "n.",
-    "zh_definition": "變動,轉變",
+    "zh_definition": "變動;轉變",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12262,7 +12242,7 @@
   {
     "word": "spare",
     "pos": "adj.",
-    "zh_definition": "預備的;SRRAY;使避免,騰出, 備用品",
+    "zh_definition": "預備的;多餘的;[n.]使避免;騰出;[n.]備用品",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12271,8 +12251,8 @@
   },
   {
     "word": "spear",
-    "pos": "in.",
-    "zh_definition": "矛;) 蕊] 用矛刺;猛擊",
+    "pos": "n.",
+    "zh_definition": "矛;[v.]用矛刺;猛擊",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12282,7 +12262,7 @@
   {
     "word": "stab",
     "pos": "v.",
-    "zh_definition": "蕊] 刺;截;巴.] 刺傷",
+    "zh_definition": "刺;戳;[n.]刺傷",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12291,8 +12271,8 @@
   },
   {
     "word": "stem",
-    "pos": "v.",
-    "zh_definition": "馬.] 莖;已] 起源於",
+    "pos": "n.",
+    "zh_definition": "莖;[v.]起源於",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12302,7 +12282,7 @@
   {
     "word": "strive",
     "pos": "v.",
-    "zh_definition": "[] 奮鬥;努力",
+    "zh_definition": "奮鬥;努力",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12312,7 +12292,7 @@
   {
     "word": "sue",
     "pos": "v.",
-    "zh_definition": "3;提起訴訟",
+    "zh_definition": "控告;提起訴訟",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12322,7 +12302,7 @@
   {
     "word": "surgeon",
     "pos": "n.",
-    "zh_definition": "外科醫生",
+    "zh_definition": "外科醫生 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12352,7 +12332,7 @@
   {
     "word": "sway",
     "pos": "v.",
-    "zh_definition": "世] 搖動;哲動",
+    "zh_definition": "搖動;擺動",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12362,7 +12342,7 @@
   {
     "word": "technological",
     "pos": "adj.",
-    "zh_definition": "技術的;技術上的",
+    "zh_definition": "的 技術的;技術上",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12412,7 +12392,7 @@
   {
     "word": "tolerable",
     "pos": "adj.",
-    "zh_definition": "可容忍的;’ 能忍受的",
+    "zh_definition": "思慮周到的;考慮周全的 [adj.]可容忍的;能忍受的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12422,7 +12402,7 @@
   {
     "word": "tomb",
     "pos": "n.",
-    "zh_definition": "墳墓;墓地二",
+    "zh_definition": "墳墓;墓地",
     "frequency": 1,
     "level": "第四級",
     "source_page": 61,
@@ -12462,7 +12442,7 @@
   {
     "word": "triumph",
     "pos": "n.",
-    "zh_definition": "勝利;成功;戰勝",
+    "zh_definition": "勝利;成功;[v.]戰勝 13 ○○○",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12482,7 +12462,7 @@
   {
     "word": "twig",
     "pos": "n.",
-    "zh_definition": "小樹校;嫩校",
+    "zh_definition": "小樹枝;嫩枝",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12492,7 +12472,7 @@
   {
     "word": "urgent",
     "pos": "adj.",
-    "zh_definition": "緊急的;人迫切的",
+    "zh_definition": "緊急的;迫切的",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12502,7 +12482,7 @@
   {
     "word": "vegetarian",
     "pos": "adj.",
-    "zh_definition": "素食的;素食者",
+    "zh_definition": "素食的;[n.]素食者",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12521,8 +12501,8 @@
   },
   {
     "word": "volunteer",
-    "pos": "v.",
-    "zh_definition": "巴.] 志願者;自願參加",
+    "pos": "n.",
+    "zh_definition": "志願者;[v.]自願參加",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12532,7 +12512,7 @@
   {
     "word": "voyage",
     "pos": "n.",
-    "zh_definition": "航行;航程;航行",
+    "zh_definition": "航行;航程;[v.]航行",
     "frequency": 1,
     "level": "第四級",
     "source_page": 62,
@@ -12562,7 +12542,7 @@
   {
     "word": "absurd",
     "pos": "adj.",
-    "zh_definition": "章雇的;可笑的",
+    "zh_definition": "荒謬的;可笑的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 62,
@@ -12572,7 +12552,7 @@
   {
     "word": "abundant",
     "pos": "adj.",
-    "zh_definition": "豐富的;充中的",
+    "zh_definition": "豐富的;充足的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 62,
@@ -12600,16 +12580,6 @@
     "ipa_uk": null
   },
   {
-    "word": "accommodation",
-    "pos": "n.",
-    "zh_definition": "住宿;住處",
-    "frequency": 1,
-    "level": "第五級",
-    "source_page": 62,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
     "word": "acknowledge",
     "pos": "v.",
     "zh_definition": "承認;認可",
@@ -12630,16 +12600,6 @@
     "ipa_uk": null
   },
   {
-    "word": "administration",
-    "pos": "n.",
-    "zh_definition": "管理;行政",
-    "frequency": 1,
-    "level": "第五級",
-    "source_page": 62,
-    "ipa_us": null,
-    "ipa_uk": null
-  },
-  {
     "word": "agenda",
     "pos": "n.",
     "zh_definition": "議程;日程",
@@ -12652,7 +12612,7 @@
   {
     "word": "aggression",
     "pos": "n.",
-    "zh_definition": "侵略, 攻擊性 5 BR",
+    "zh_definition": "侵略;攻擊性;挑釁",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12672,7 +12632,7 @@
   {
     "word": "alter",
     "pos": "v.",
-    "zh_definition": "變更 改變",
+    "zh_definition": "改變;變更",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12712,7 +12672,7 @@
   {
     "word": "architecture",
     "pos": "n.",
-    "zh_definition": "巴.] 建築學;建築物",
+    "zh_definition": "建築學;建築物",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12722,7 +12682,7 @@
   {
     "word": "array",
     "pos": "n.",
-    "zh_definition": "陣列;排列;排列;配置",
+    "zh_definition": "陣列;排列;[v.]排列;配置",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12732,7 +12692,7 @@
   {
     "word": "assumption",
     "pos": "n.",
-    "zh_definition": "[.] 假設;設想;擔任",
+    "zh_definition": "假設;設想;擔任",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12742,7 +12702,7 @@
   {
     "word": "banner",
     "pos": "n.",
-    "zh_definition": "巴.] 旗幟;橫幅廣告",
+    "zh_definition": "旗幟;橫幅廣告",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12762,7 +12722,7 @@
   {
     "word": "bias",
     "pos": "n.",
-    "zh_definition": "偏見;成見;使有偏見",
+    "zh_definition": "偏見;成見;[v.]使有偏見 13 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12772,7 +12732,7 @@
   {
     "word": "blast",
     "pos": "n.",
-    "zh_definition": "爆炸;一陣,;爆破",
+    "zh_definition": "爆炸;一陣; [v.]爆破",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12781,8 +12741,8 @@
   },
   {
     "word": "blur",
-    "pos": "n.",
-    "zh_definition": "模糊;弄混;橫糊不清;勝朧",
+    "pos": "v.",
+    "zh_definition": "模糊;弄混;[n.]模糊不清;朦朧",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12792,7 +12752,7 @@
   {
     "word": "blush",
     "pos": "v.",
-    "zh_definition": "基] 臉紅;巴.] 羞愧;紅暈",
+    "zh_definition": "臉紅;[n.]羞愧;紅暈",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12812,7 +12772,7 @@
   {
     "word": "bolt",
     "pos": "n.",
-    "zh_definition": "螺栓;閃電;門上,;用螺栓固定",
+    "zh_definition": "螺栓;閃電;[v.]門上;用螺栓固定",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12822,7 +12782,7 @@
   {
     "word": "boom",
     "pos": "n.",
-    "zh_definition": "繁榮;繁榮;迅速發展",
+    "zh_definition": "繁榮;[v.]繁榮;迅速發展",
     "frequency": 1,
     "level": "第五級",
     "source_page": 63,
@@ -12852,30 +12812,30 @@
   {
     "word": "burial",
     "pos": "n.",
-    "zh_definition": "廿.] 埋葬;其禮",
+    "zh_definition": "埋葬;葬禮",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "calcium",
     "pos": "n.",
-    "zh_definition": "鈣",
+    "zh_definition": "鈣 ○○○",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "canvas",
     "pos": "n.",
-    "zh_definition": "帆布;畫布",
+    "zh_definition": "帆布;畫布 ○○○",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12885,17 +12845,17 @@
     "zh_definition": "能力;才能",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "carbon",
     "pos": "n.",
-    "zh_definition": "還,\\",
+    "zh_definition": "碳",
     "frequency": 1,
-    "level": "碳",
-    "source_page": 0,
+    "level": "第五級",
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12905,7 +12865,7 @@
     "zh_definition": "大教堂;主教座堂",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12915,7 +12875,7 @@
     "zh_definition": "謹慎的;小心的",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12925,17 +12885,17 @@
     "zh_definition": "墓地;公墓",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "chubby",
     "pos": "adj.",
-    "zh_definition": "圓胖的;豐滿的",
+    "zh_definition": "圓胖的;丰滿的",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12945,7 +12905,7 @@
     "zh_definition": "依附;抓緊;執著於",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12955,17 +12915,17 @@
     "zh_definition": "合作;協作",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "combat",
     "pos": "n.",
-    "zh_definition": "戰鬥 與...戰鬥",
+    "zh_definition": "戰鬥; [v.] 與...戰鬥",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12975,7 +12935,7 @@
     "zh_definition": "承諾;投入;義務",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12985,7 +12945,7 @@
     "zh_definition": "商品;日用品",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -12995,7 +12955,7 @@
     "zh_definition": "通勤",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13005,7 +12965,7 @@
     "zh_definition": "通勤者",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13015,17 +12975,17 @@
     "zh_definition": "富有同情心的;慈悲的",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "compel",
     "pos": "v.",
-    "zh_definition": "強迫,人迫使",
+    "zh_definition": "強迫;迫使",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13035,7 +12995,7 @@
     "zh_definition": "補償;賠償",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13045,7 +13005,7 @@
     "zh_definition": "複雜性;難題",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13055,7 +13015,7 @@
     "zh_definition": "包含;由...組成",
     "frequency": 1,
     "level": "第五級",
-    "source_page": 64,
+    "source_page": 63,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13072,7 +13032,7 @@
   {
     "word": "confront",
     "pos": "v.",
-    "zh_definition": "面對;和遭遇",
+    "zh_definition": "面對;遭遇",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13091,8 +13051,8 @@
   },
   {
     "word": "considerate",
-    "pos": "adj.",
-    "zh_definition": "體貼的;考慮周到的",
+    "pos": "n.",
+    "zh_definition": "保存;保護 [adj.]體貼的;考慮周到的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13122,7 +13082,7 @@
   {
     "word": "convert",
     "pos": "n.",
-    "zh_definition": "轉換;改變, 轉換器",
+    "zh_definition": "承包商;承包人 [v.]轉換;改變;[n.]轉換器",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13132,7 +13092,7 @@
   {
     "word": "corrupt",
     "pos": "adj.",
-    "zh_definition": "貪污的;腐敗的;賄賂;腐化",
+    "zh_definition": "貪污的;腐敗的;[v.]賄賂;腐化",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13141,8 +13101,8 @@
   },
   {
     "word": "cripple",
-    "pos": "n.",
-    "zh_definition": "蕊] 使婚廢;前弱;跋者",
+    "pos": "v.",
+    "zh_definition": "使殘廢;削弱;[n.]跛者",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13162,7 +13122,7 @@
   {
     "word": "debut",
     "pos": "n.",
-    "zh_definition": "首次亮相;初次登台 首次亮相",
+    "zh_definition": "首次亮相;初次登台;[v.]首次亮相",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13181,8 +13141,8 @@
   },
   {
     "word": "descriptive",
-    "pos": "adj.",
-    "zh_definition": "描述的;禾述的",
+    "pos": "n.",
+    "zh_definition": "密度;濃度 [adj.]描述的;敘述的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13192,7 +13152,7 @@
   {
     "word": "destination",
     "pos": "n.",
-    "zh_definition": "目的地, 終點",
+    "zh_definition": "目的地;終點",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13202,7 +13162,7 @@
   {
     "word": "diagnosis",
     "pos": "n.",
-    "zh_definition": "巴.] 診斷, 診斷結果",
+    "zh_definition": "診斷;診斷結果",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13212,7 +13172,7 @@
   {
     "word": "disclose",
     "pos": "v.",
-    "zh_definition": "揭露;公開;透圳",
+    "zh_definition": "揭露;公開;透露",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13222,7 +13182,7 @@
   {
     "word": "discriminate",
     "pos": "v.",
-    "zh_definition": "Bet > 區別對待",
+    "zh_definition": "歧視;區別對待",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13232,7 +13192,7 @@
   {
     "word": "discrimination",
     "pos": "n.",
-    "zh_definition": "正視;區別",
+    "zh_definition": "歧視;區別",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13242,7 +13202,7 @@
   {
     "word": "disrupt",
     "pos": "v.",
-    "zh_definition": "蔬] 破壞;中斷;擾亂",
+    "zh_definition": "破壞;中斷;擾亂",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13262,7 +13222,7 @@
   {
     "word": "distinction",
     "pos": "n.",
-    "zh_definition": "區別,特性",
+    "zh_definition": "區別;特性",
     "frequency": 1,
     "level": "第五級",
     "source_page": 65,
@@ -13292,7 +13252,7 @@
   {
     "word": "donate",
     "pos": "v.",
-    "zh_definition": "蕊] 摔贈;損獻",
+    "zh_definition": "捐贈;捐獻 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13302,7 +13262,7 @@
   {
     "word": "donation",
     "pos": "n.",
-    "zh_definition": "過.] 摔款;捐贈物",
+    "zh_definition": "捐款;捐贈物",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13331,8 +13291,8 @@
   },
   {
     "word": "embrace",
-    "pos": "n.",
-    "zh_definition": "擁抱;包括;接受;擁抱;包容",
+    "pos": "v.",
+    "zh_definition": "擁抱;包括;接受;[n.]擁抱;包容",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13422,7 +13382,7 @@
   {
     "word": "ethical",
     "pos": "adj.",
-    "zh_definition": "倫理的;道道德的",
+    "zh_definition": "倫理的;道德的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13442,7 +13402,7 @@
   {
     "word": "exceptional",
     "pos": "adj.",
-    "zh_definition": "早越的;例外的",
+    "zh_definition": "卓越的;例外的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13462,7 +13422,7 @@
   {
     "word": "exclusive",
     "pos": "adj.",
-    "zh_definition": "獨有的;排外的;獨家新聞;專有權",
+    "zh_definition": "獨有的;排外的;[n.]獨家新聞;專有權",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13472,7 +13432,7 @@
   {
     "word": "expedition",
     "pos": "n.",
-    "zh_definition": "遠征探險;考察",
+    "zh_definition": "遠征;探險;考察",
     "frequency": 1,
     "level": "第五級",
     "source_page": 66,
@@ -13502,7 +13462,7 @@
   {
     "word": "extensive",
     "pos": "adj.",
-    "zh_definition": "廣泛的;大量的",
+    "zh_definition": "廣泛的;大量的 13 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13541,8 +13501,8 @@
   },
   {
     "word": "fluid",
-    "pos": "adj.",
-    "zh_definition": "流體;流動的,液體的",
+    "pos": "n.",
+    "zh_definition": "流體;[adj.]流動的;液體的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13552,7 +13512,7 @@
   {
     "word": "forum",
     "pos": "n.",
-    "zh_definition": "討論會 論壇",
+    "zh_definition": "論壇;討論會",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13561,8 +13521,8 @@
   },
   {
     "word": "foster",
-    "pos": "adj.",
-    "zh_definition": "培育;促進;撫養;寄養的",
+    "pos": "v.",
+    "zh_definition": "培育;促進;撫養;[adj.]寄養的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13582,7 +13542,7 @@
   {
     "word": "fragment",
     "pos": "n.",
-    "zh_definition": "碎片,片段;使破碎",
+    "zh_definition": "碎片;片段;[v.]使破碎",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13601,8 +13561,8 @@
   },
   {
     "word": "grant",
-    "pos": "n.",
-    "zh_definition": "補助金",
+    "pos": "v.",
+    "zh_definition": "授予;承認;[n.]補助金",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13632,7 +13592,7 @@
   {
     "word": "grieve",
     "pos": "v.",
-    "zh_definition": "悲傷;哀蛋",
+    "zh_definition": "悲傷;哀悼",
     "frequency": 1,
     "level": "第五級",
     "source_page": 67,
@@ -13662,10 +13622,10 @@
   {
     "word": "ideology",
     "pos": "n.",
-    "zh_definition": "意識形 \\",
+    "zh_definition": "意識形態;思想體系",
     "frequency": 1,
-    "level": "] 意識形態;思想體系",
-    "source_page": 0,
+    "level": "第五級",
+    "source_page": 67,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -13691,8 +13651,8 @@
   },
   {
     "word": "implement",
-    "pos": "n.",
-    "zh_definition": "實施,執行;TA: 手段",
+    "pos": "v.",
+    "zh_definition": "實施;執行;[n.]工具;手段",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13712,7 +13672,7 @@
   {
     "word": "indulge",
     "pos": "v.",
-    "zh_definition": "沈迷;放縱;滿足",
+    "zh_definition": "沉迷;放縱;滿足",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13741,8 +13701,8 @@
   },
   {
     "word": "inject",
-    "pos": "v.",
-    "zh_definition": "必] 注射;引人",
+    "pos": "adj.",
+    "zh_definition": "與生俱來的;固有的;內在的 [v.]注射;引入",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13751,8 +13711,8 @@
   },
   {
     "word": "institute",
-    "pos": "v.",
-    "zh_definition": "巴.] Abe > 機構;創立",
+    "pos": "n.",
+    "zh_definition": "學院;機構;[v.]創立",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13762,7 +13722,7 @@
   {
     "word": "interference",
     "pos": "n.",
-    "zh_definition": "Te 5 和干預;妨礙",
+    "zh_definition": "干涉;干預;妨礙",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13771,8 +13731,8 @@
   },
   {
     "word": "interior",
-    "pos": "adj.",
-    "zh_definition": "內部的;內心的;內部;內心",
+    "pos": "n.",
+    "zh_definition": "干涉;干預;妨礙 [adj.]內部的;內心的;[n.]內部;內心",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13802,7 +13762,7 @@
   {
     "word": "legitimate",
     "pos": "adj.",
-    "zh_definition": "合法的;正當的;使合法化",
+    "zh_definition": "合法的;正當的;[v.]使合法化 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13812,7 +13772,7 @@
   {
     "word": "liability",
     "pos": "n.",
-    "zh_definition": "責任;價務",
+    "zh_definition": "責任;債務",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13821,8 +13781,8 @@
   },
   {
     "word": "likewise",
-    "pos": "adv.",
-    "zh_definition": "同樣地,類似地",
+    "pos": "n.",
+    "zh_definition": "責任;債務 [adv.]同樣地;類似地",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13831,8 +13791,8 @@
   },
   {
     "word": "manifest",
-    "pos": "adj.",
-    "zh_definition": "顯示;表明;顯然的",
+    "pos": "v.",
+    "zh_definition": "顯示;表明;[adj.]顯然的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13852,7 +13812,7 @@
   {
     "word": "mansion",
     "pos": "n.",
-    "zh_definition": "n.] 豪宅;宅了鐘",
+    "zh_definition": "豪宅;宅邸",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13872,7 +13832,7 @@
   {
     "word": "migration",
     "pos": "n.",
-    "zh_definition": "遷徙 > FEES;移動",
+    "zh_definition": "遷徙;移民;移動",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13882,7 +13842,7 @@
   {
     "word": "milestone",
     "pos": "n.",
-    "zh_definition": "里程碑, 劃時代事件",
+    "zh_definition": "里程碑;劃時代事件",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13891,8 +13851,8 @@
   },
   {
     "word": "mock",
-    "pos": "adj.",
-    "zh_definition": "嘲弄, 橫擬考;橫擬的",
+    "pos": "v.",
+    "zh_definition": "嘲弄;[n.]模擬考; [adj.]模擬的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 68,
@@ -13902,7 +13862,7 @@
   {
     "word": "mode",
     "pos": "n.",
-    "zh_definition": "橫式;方式",
+    "zh_definition": "模式;方式",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -13921,8 +13881,8 @@
   },
   {
     "word": "mount",
-    "pos": "n.",
-    "zh_definition": "SE 5 增長;騎上;底座;文架",
+    "pos": "v.",
+    "zh_definition": "登上;增長;騎上; [n.]底座;支架",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -13932,7 +13892,7 @@
   {
     "word": "neutral",
     "pos": "adj.",
-    "zh_definition": "中立的;中性的;中立者",
+    "zh_definition": "中立的;中性的; [n.]中立者",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -14002,7 +13962,7 @@
   {
     "word": "olive",
     "pos": "n.",
-    "zh_definition": "橄欖,橄欖樹",
+    "zh_definition": "橄欖;橄欖樹",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -14042,7 +14002,7 @@
   {
     "word": "outfit",
     "pos": "n.",
-    "zh_definition": "服裝;裝束;裝備",
+    "zh_definition": "服裝;裝束;[v.]裝備",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -14052,7 +14012,7 @@
   {
     "word": "oversee",
     "pos": "v.",
-    "zh_definition": "管理 監督",
+    "zh_definition": "監督;管理",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -14072,7 +14032,7 @@
   {
     "word": "patrol",
     "pos": "n.",
-    "zh_definition": "巡邏;[也] 巡邏;巡視",
+    "zh_definition": "巡邏; [v.]巡邏;巡視",
     "frequency": 1,
     "level": "第五級",
     "source_page": 69,
@@ -14132,7 +14092,7 @@
   {
     "word": "predator",
     "pos": "n.",
-    "zh_definition": "掠食者;捕食者",
+    "zh_definition": "掠食者;捕食者 13 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14142,7 +14102,7 @@
   {
     "word": "prejudice",
     "pos": "n.",
-    "zh_definition": "偏見;成見;使產生偏見",
+    "zh_definition": "偏見;成見;[v.]使產生偏見",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14172,7 +14132,7 @@
   {
     "word": "prey",
     "pos": "v.",
-    "zh_definition": "六2二巴.] 獵 > x 4;捕食",
+    "zh_definition": "獵物;受害者;捕食",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14202,7 +14162,7 @@
   {
     "word": "prospect",
     "pos": "n.",
-    "zh_definition": "[ ] 前景;展沈,可能性",
+    "zh_definition": "前景;展望;可能性",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14212,7 +14172,7 @@
   {
     "word": "province",
     "pos": "n.",
-    "zh_definition": "A;地方;領域",
+    "zh_definition": "省;地方;領域",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14222,17 +14182,17 @@
   {
     "word": "provision",
     "pos": "n.",
-    "zh_definition": "Ag hr 規定;\\",
+    "zh_definition": "規定;條款;供應",
     "frequency": 1,
-    "level": "7\\",
-    "source_page": 0,
+    "level": "第五級",
+    "source_page": 70,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "pulse",
-    "pos": "v.",
-    "zh_definition": "巴.] 脈搏;節奏;搏動;跳動",
+    "pos": "n.",
+    "zh_definition": "脈搏;節奏;[v.]搏動;跳動",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14242,7 +14202,7 @@
   {
     "word": "pyramid",
     "pos": "n.",
-    "zh_definition": "金字培, 三角錐",
+    "zh_definition": "金字塔;三角錐",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14262,7 +14222,7 @@
   {
     "word": "quest",
     "pos": "n.",
-    "zh_definition": "馬.] 追求;探索",
+    "zh_definition": "追求;探索",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14282,7 +14242,7 @@
   {
     "word": "rail",
     "pos": "n.",
-    "zh_definition": "Se no 鐵路 5 欄杆 抱怨;A",
+    "zh_definition": "鐵路;欄杆; [v.]抱怨;責罵",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14311,8 +14271,8 @@
   },
   {
     "word": "rear",
-    "pos": "adj.",
-    "zh_definition": "後部, 後方的;養育;培養",
+    "pos": "n.",
+    "zh_definition": "後部;[adj.]後方的;[v.]養育;培養",
     "frequency": 1,
     "level": "第五級",
     "source_page": 70,
@@ -14322,7 +14282,7 @@
   {
     "word": "recite",
     "pos": "v.",
-    "zh_definition": "背誦,朗誦",
+    "zh_definition": "背誦;朗誦",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14342,7 +14302,7 @@
   {
     "word": "regardless",
     "pos": "adv.",
-    "zh_definition": "無論如何;不管怎樣",
+    "zh_definition": "無論如何 ;不管怎樣",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14352,7 +14312,7 @@
   {
     "word": "reinforce",
     "pos": "v.",
-    "zh_definition": "加強 5 強化",
+    "zh_definition": "加強;強化",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14371,8 +14331,8 @@
   },
   {
     "word": "resume",
-    "pos": "n.",
-    "zh_definition": "繼續;重新開始;履歷表",
+    "pos": "v.",
+    "zh_definition": "繼續;重新開始;[n.]履歷表",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14382,7 +14342,7 @@
   {
     "word": "revenue",
     "pos": "n.",
-    "zh_definition": "收信;稅收;收益",
+    "zh_definition": "收入;稅收;收益",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14402,7 +14362,7 @@
   {
     "word": "rim",
     "pos": "n.",
-    "zh_definition": "邊緣;裝邊於",
+    "zh_definition": "邊緣;[v.]裝邊於",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14412,7 +14372,7 @@
   {
     "word": "rip",
     "pos": "v.",
-    "zh_definition": "撕裂;撕破 [In ] 裂縫",
+    "zh_definition": "撕裂;撕破;[n.]裂縫",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14421,8 +14381,8 @@
   },
   {
     "word": "rival",
-    "pos": "adj.",
-    "zh_definition": "競爭者;BES 比得上;競爭的",
+    "pos": "n.",
+    "zh_definition": "競爭者;對手;[v.]比得上;[adj.]競爭的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14442,7 +14402,7 @@
   {
     "word": "salon",
     "pos": "n.",
-    "zh_definition": "巴.] 沙龍;美容院",
+    "zh_definition": "沙龍;美容院",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14472,7 +14432,7 @@
   {
     "word": "segment",
     "pos": "n.",
-    "zh_definition": "Ln.] 部分,;段落;片段",
+    "zh_definition": "部分;段落;片段",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14482,7 +14442,7 @@
   {
     "word": "sensitivity",
     "pos": "n.",
-    "zh_definition": "敏感性, 感受力",
+    "zh_definition": "敏感性;感受力",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14492,7 +14452,7 @@
   {
     "word": "sequence",
     "pos": "n.",
-    "zh_definition": "Ln.] 順序;連續;[若] 按順序排列",
+    "zh_definition": "順序;連續; [v.]按順序排列",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14511,8 +14471,8 @@
   },
   {
     "word": "shed",
-    "pos": "n.",
-    "zh_definition": "流出;攤脫;小屋",
+    "pos": "v.",
+    "zh_definition": "流出;擺脫;[n.]小屋",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14522,7 +14482,7 @@
   {
     "word": "shield",
     "pos": "n.",
-    "zh_definition": "盾牌;防護物;保護;掩護",
+    "zh_definition": "盾牌;防護物;[v.]保護;掩護 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 71,
@@ -14542,7 +14502,7 @@
   {
     "word": "slap",
     "pos": "v.",
-    "zh_definition": "找;掌擊;拍擊聲",
+    "zh_definition": "摑;掌擊;[n.]拍擊聲",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14552,7 +14512,7 @@
   {
     "word": "sneak",
     "pos": "v.",
-    "zh_definition": "基] 偷偷地走;告密;馬.] 偷偷摸摸的人",
+    "zh_definition": "偷偷地走;告密;[n.]偷偷摸摸的人",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14561,8 +14521,8 @@
   },
   {
     "word": "soak",
-    "pos": "n.",
-    "zh_definition": "浸泡;濕透;浸泡",
+    "pos": "v.",
+    "zh_definition": "浸泡;濕透;[n.]浸泡",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14572,7 +14532,7 @@
   {
     "word": "sober",
     "pos": "adj.",
-    "zh_definition": "清醒的;冷靜的;使清醒;使冷靜",
+    "zh_definition": "清醒的;冷靜的; [v.]使清醒;使冷靜",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14582,7 +14542,7 @@
   {
     "word": "sole",
     "pos": "adj.",
-    "zh_definition": "唯一的;獨有的 鞋底, 腳底",
+    "zh_definition": "唯一的;獨有的; [n.]鞋底;腳底",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14612,7 +14572,7 @@
   {
     "word": "sponge",
     "pos": "n.",
-    "zh_definition": "牟.] 海綿;[也] 吸取;擦拭",
+    "zh_definition": "海綿;[v.] 吸取;擦拭",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14622,7 +14582,7 @@
   {
     "word": "stack",
     "pos": "n.",
-    "zh_definition": "m.] 堆;軟;大量;[了v] 堆放;堆大",
+    "zh_definition": "海綿;[v.]吸取;擦拭 [n.]堆;疊;大量;[v.]堆放;堆疊",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14632,7 +14592,7 @@
   {
     "word": "stain",
     "pos": "n.",
-    "zh_definition": "污漬;瑕疵;[] 下汙",
+    "zh_definition": "污漬;瑕疵;[v.]玷汙 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14641,8 +14601,8 @@
   },
   {
     "word": "steer",
-    "pos": "n.",
-    "zh_definition": "駕駛;引導;船舵;方向郁",
+    "pos": "v.",
+    "zh_definition": "駕駛;引導;[n.] 船舵;方向盤",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14651,8 +14611,8 @@
   },
   {
     "word": "storage",
-    "pos": "n.",
-    "zh_definition": "儲存,保管",
+    "pos": "v.",
+    "zh_definition": "駕駛;引導;[n.]船舵;方向盤 [n.]儲存;保管 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14662,7 +14622,7 @@
   {
     "word": "strain",
     "pos": "n.",
-    "zh_definition": "拉緊;緊張;使緊張;使過勞",
+    "zh_definition": "拉緊;緊張;[v.]使緊張;使過勞",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14671,8 +14631,8 @@
   },
   {
     "word": "stumble",
-    "pos": "n.",
-    "zh_definition": "必] 絆倒;跌倒;失誤,;絆倒,;失誤",
+    "pos": "v.",
+    "zh_definition": "絆倒;跌倒;失誤;[n.]絆倒;失誤",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14712,7 +14672,7 @@
   {
     "word": "supervisor",
     "pos": "n.",
-    "zh_definition": "監督者;管理人",
+    "zh_definition": "監督者;管理人 11 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 72,
@@ -14742,7 +14702,7 @@
   {
     "word": "sustain",
     "pos": "v.",
-    "zh_definition": "維持;文持",
+    "zh_definition": "維持;支持",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14791,8 +14751,8 @@
   },
   {
     "word": "thereby",
-    "pos": "adv.",
-    "zh_definition": "從而;因此",
+    "pos": "n.",
+    "zh_definition": "治療;療法 [adv.]從而;因此",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14822,7 +14782,7 @@
   {
     "word": "toxic",
     "pos": "adj.",
-    "zh_definition": "有壽的;有害的",
+    "zh_definition": "有毒的;有害的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14831,8 +14791,8 @@
   },
   {
     "word": "transaction",
-    "pos": "n.",
-    "zh_definition": "交易,業務,;處理",
+    "pos": "adj.",
+    "zh_definition": "有毒的;有害的 [n.]交易;業務;處理",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14842,7 +14802,7 @@
   {
     "word": "transparent",
     "pos": "adj.",
-    "zh_definition": "透明的;清激的",
+    "zh_definition": "透明的;清澈的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14852,7 +14812,7 @@
   {
     "word": "trauma",
     "pos": "n.",
-    "zh_definition": "n.] 創傷;外傷;痛苦經歷",
+    "zh_definition": "創傷;外傷;痛苦經歷",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14862,7 +14822,7 @@
   {
     "word": "trim",
     "pos": "v.",
-    "zh_definition": "修剪;削減;巴.] 修剪",
+    "zh_definition": "修剪;削減;[n.]修剪",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14872,7 +14832,7 @@
   {
     "word": "trivial",
     "pos": "adj.",
-    "zh_definition": "微不足道的, 瑣碎的",
+    "zh_definition": "微不足道的;瑣碎的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14892,7 +14852,7 @@
   {
     "word": "undergo",
     "pos": "v.",
-    "zh_definition": "經歷, 接受;忍受",
+    "zh_definition": "經歷;接受;忍受",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14902,10 +14862,10 @@
   {
     "word": "undoubtedly",
     "pos": "adv.",
-    "zh_definition": "[advy.\\",
+    "zh_definition": "無疑地;毫無疑問地",
     "frequency": 1,
-    "level": "無疑地;毫無疑問地",
-    "source_page": 0,
+    "level": "第五級",
+    "source_page": 73,
     "ipa_us": null,
     "ipa_uk": null
   },
@@ -14921,8 +14881,8 @@
   },
   {
     "word": "vacuum",
-    "pos": "n.",
-    "zh_definition": "真空;吸塵器;用吸塵器清掃",
+    "pos": "v.",
+    "zh_definition": "利用;使用;發揮 [n.]真空;吸塵器;[v.]用吸塵器清掃",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14932,7 +14892,7 @@
   {
     "word": "vague",
     "pos": "adj.",
-    "zh_definition": "橫糊的;不明確的",
+    "zh_definition": "模糊的;不明確的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14942,7 +14902,7 @@
   {
     "word": "variation",
     "pos": "n.",
-    "zh_definition": "變化,差異;變奏",
+    "zh_definition": "變化;差異;變奏",
     "frequency": 1,
     "level": "第五級",
     "source_page": 73,
@@ -14962,7 +14922,7 @@
   {
     "word": "verbal",
     "pos": "adj.",
-    "zh_definition": "口頭的;言語的",
+    "zh_definition": "口頭的;言語的 14 ○○○",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -14971,8 +14931,8 @@
   },
   {
     "word": "via",
-    "pos": "adv.",
-    "zh_definition": "通過;經由;經由;憑藉",
+    "pos": "prep.",
+    "zh_definition": "通過;經由;[adv.]經由;憑藉",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -14992,7 +14952,7 @@
   {
     "word": "vocal",
     "pos": "adj.",
-    "zh_definition": "音的;有聲的;聲樂作品",
+    "zh_definition": "聲音的;有聲的;[n.]聲樂作品",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -15002,7 +14962,7 @@
   {
     "word": "vomit",
     "pos": "v.",
-    "zh_definition": "嘔吐;吐出;嘔吐物",
+    "zh_definition": "嘔吐;吐出;[n.]嘔吐物",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -15012,7 +14972,7 @@
   {
     "word": "vulnerable",
     "pos": "adj.",
-    "zh_definition": "易受傷的,脆弱的",
+    "zh_definition": "易受傷的;脆弱的",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -15022,7 +14982,7 @@
   {
     "word": "warrior",
     "pos": "n.",
-    "zh_definition": "武士;戰士;勇士",
+    "zh_definition": "武士;戰士;勇士 [n.] 假髮",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -15052,7 +15012,7 @@
   {
     "word": "wither",
     "pos": "v.",
-    "zh_definition": "HE > E55 5 WB",
+    "zh_definition": "枯萎;衰弱;減退",
     "frequency": 1,
     "level": "第五級",
     "source_page": 74,
@@ -15062,7 +15022,7 @@
   {
     "word": "abide",
     "pos": "v.",
-    "zh_definition": "和遵守;忍受",
+    "zh_definition": "遵守;忍受",
     "frequency": 1,
     "level": "第六級",
     "source_page": 74,
@@ -15072,7 +15032,7 @@
   {
     "word": "aboriginal",
     "pos": "adj.",
-    "zh_definition": "原住民的;原住民",
+    "zh_definition": "原住民的;[n.]原住民",
     "frequency": 1,
     "level": "第六級",
     "source_page": 74,
@@ -15101,8 +15061,8 @@
   },
   {
     "word": "acre",
-    "pos": "n.",
-    "zh_definition": "英畝",
+    "pos": "v.",
+    "zh_definition": "累積;積聚 [n.]英畝",
     "frequency": 1,
     "level": "第六級",
     "source_page": 74,
@@ -15112,7 +15072,7 @@
   {
     "word": "airtight",
     "pos": "adj.",
-    "zh_definition": ": 二的;不透氣的",
+    "zh_definition": "密封的;不透氣的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 74,
@@ -15122,7 +15082,7 @@
   {
     "word": "airway",
     "pos": "n.",
-    "zh_definition": "航這,氣管;航空公司",
+    "zh_definition": "航道;氣管;航空公司",
     "frequency": 1,
     "level": "第六級",
     "source_page": 74,
@@ -15151,8 +15111,8 @@
   },
   {
     "word": "anchor",
-    "pos": "n.",
-    "zh_definition": "錨;精神文柱, Bi;固定",
+    "pos": "v.",
+    "zh_definition": "錨;精神支柱;下錨;固定",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15162,7 +15122,7 @@
   {
     "word": "applaud",
     "pos": "v.",
-    "zh_definition": "鼓掌;喝有打;讚許",
+    "zh_definition": "鼓掌;喝采;讚許",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15172,7 +15132,7 @@
   {
     "word": "apprentice",
     "pos": "n.",
-    "zh_definition": "學徒;見習生;[攻] 當學徒",
+    "zh_definition": "學徒;見習生;[v.]當學徒",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15182,7 +15142,7 @@
   {
     "word": "approximately",
     "pos": "adv.",
-    "zh_definition": "大約,接近;差不多",
+    "zh_definition": "大約;接近;差不多",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15201,8 +15161,8 @@
   },
   {
     "word": "beep",
-    "pos": "v.",
-    "zh_definition": "巴.] 嗶嗶聲;發出嗶嗶聲",
+    "pos": "n.",
+    "zh_definition": "嗶嗶聲;[v.]發出嗶嗶聲",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15232,7 +15192,7 @@
   {
     "word": "breadth",
     "pos": "n.",
-    "zh_definition": "寬度,廣度;範圍",
+    "zh_definition": "寬度;廣度;範圍",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15252,7 +15212,7 @@
   {
     "word": "certify",
     "pos": "v.",
-    "zh_definition": "證明, 保證",
+    "zh_definition": "證明;保證",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15261,8 +15221,8 @@
   },
   {
     "word": "chirp",
-    "pos": "n.",
-    "zh_definition": "吱嘲作響;鳥叫聲",
+    "pos": "v.",
+    "zh_definition": "吱喳作響;[n.]鳥叫聲",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15272,7 +15232,7 @@
   {
     "word": "closure",
     "pos": "n.",
-    "zh_definition": "關閉,封鎖",
+    "zh_definition": "關閉;封鎖",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15302,7 +15262,7 @@
   {
     "word": "complement",
     "pos": "n.",
-    "zh_definition": "補充物;補足物;補充;使完善",
+    "zh_definition": "補充物;補足物;[v.] 補充;使完善",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15321,8 +15281,8 @@
   },
   {
     "word": "coral",
-    "pos": "adj.",
-    "zh_definition": "珊瑚;珊瑚色的",
+    "pos": "n.",
+    "zh_definition": "珊瑚; [adj.]珊瑚色的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15332,7 +15292,7 @@
   {
     "word": "counterpart",
     "pos": "n.",
-    "zh_definition": "對應的人或物 5 相應物",
+    "zh_definition": "對應的人或物;相應物",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15352,7 +15312,7 @@
   {
     "word": "cucumber",
     "pos": "n.",
-    "zh_definition": "黃瓜",
+    "zh_definition": "黃瓜 ○○○",
     "frequency": 1,
     "level": "第六級",
     "source_page": 75,
@@ -15362,7 +15322,7 @@
   {
     "word": "defect",
     "pos": "n.",
-    "zh_definition": "缺點;瑕疵;缺陷;叛逃",
+    "zh_definition": "缺點;瑕疵;[v.]缺陷;叛逃",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15372,7 +15332,7 @@
   {
     "word": "disable",
     "pos": "v.",
-    "zh_definition": "使婚疾;使無通力",
+    "zh_definition": "使殘疾;使無能力",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15382,7 +15342,7 @@
   {
     "word": "disturbance",
     "pos": "n.",
-    "zh_definition": "Ln.] 干擾;擾亂;混亂",
+    "zh_definition": "干擾;擾亂;混亂 ○○○",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15392,7 +15352,7 @@
   {
     "word": "drastic",
     "pos": "adj.",
-    "zh_definition": "激烈的;猛烈的;微底的",
+    "zh_definition": "激烈的;猛烈的;徹底的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15401,8 +15361,8 @@
   },
   {
     "word": "dwell",
-    "pos": "v.",
-    "zh_definition": "居住;存在於,細想",
+    "pos": "adj.",
+    "zh_definition": "激烈的;猛烈的;徹底的 [v.]居住;存在於;細想",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15412,7 +15372,7 @@
   {
     "word": "eccentric",
     "pos": "adj.",
-    "zh_definition": "古怪的;反常的;古怪的人",
+    "zh_definition": "古怪的;反常的;[n.]古怪的人",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15432,7 +15392,7 @@
   {
     "word": "encyclopedia",
     "pos": "n.",
-    "zh_definition": "白科全書;AAR",
+    "zh_definition": "百科全書;大百科",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15442,7 +15402,7 @@
   {
     "word": "endeavor",
     "pos": "n.",
-    "zh_definition": "努力;盡力;努力;試圖",
+    "zh_definition": "努力;盡力;[v.]努力;試圖",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15462,7 +15422,7 @@
   {
     "word": "eternity",
     "pos": "n.",
-    "zh_definition": "永恆;永生;不行",
+    "zh_definition": "永恆;永生;不朽",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15482,7 +15442,7 @@
   {
     "word": "excel",
     "pos": "v.",
-    "zh_definition": "蕊] 勝過;超越;擅長",
+    "zh_definition": "勝過;超越;擅長",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15491,8 +15451,8 @@
   },
   {
     "word": "excess",
-    "pos": "adj.",
-    "zh_definition": "過多;過量;過量的",
+    "pos": "n.",
+    "zh_definition": "過多;過量;[adj.]過量的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15521,8 +15481,8 @@
   },
   {
     "word": "flake",
-    "pos": "n.",
-    "zh_definition": "小薄片;碎片;lv] 剝落;脫落",
+    "pos": "v.",
+    "zh_definition": "小薄片;碎片;剝落;脫落",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15532,7 +15492,7 @@
   {
     "word": "flaw",
     "pos": "n.",
-    "zh_definition": "缺陷,瑕疵;使有缺陷",
+    "zh_definition": "缺陷;瑕疵;[v.] 使有缺陷",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15542,7 +15502,7 @@
   {
     "word": "flourish",
     "pos": "n.",
-    "zh_definition": "成盛;繁榮;華麗 > WORK",
+    "zh_definition": "缺陷;瑕疵;[v.]使有缺陷 [v.]茂盛;繁榮;[n.]華麗;茂盛",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15561,8 +15521,8 @@
   },
   {
     "word": "graze",
-    "pos": "n.",
-    "zh_definition": "放牧,控傷;輕探;放牧;擦傷",
+    "pos": "v.",
+    "zh_definition": "放牧;擦傷;輕擦;[n.]放牧;擦傷",
     "frequency": 1,
     "level": "第六級",
     "source_page": 76,
@@ -15572,7 +15532,7 @@
   {
     "word": "groan",
     "pos": "v.",
-    "zh_definition": "呻吟;抱怨, 呻吟聲;牢騷",
+    "zh_definition": "呻吟;抱怨;[n.]呻吟聲;牢騷",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15591,8 +15551,8 @@
   },
   {
     "word": "haunt",
-    "pos": "n.",
-    "zh_definition": "鬼魂常出沒於, 經常困擾;常去的地方",
+    "pos": "v.",
+    "zh_definition": "鬼魂常出沒於;經常困擾;[n.]常去的地方 ○○○",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15611,8 +15571,8 @@
   },
   {
     "word": "hospitable",
-    "pos": "adj.",
-    "zh_definition": "好客的;股勤的;適宜居住的",
+    "pos": "n.",
+    "zh_definition": "半球;地球的半球 [adj.]好客的;殷勤的;適宜居住的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15622,7 +15582,7 @@
   {
     "word": "hurdle",
     "pos": "n.",
-    "zh_definition": "障礙;欄架;克服困難",
+    "zh_definition": "障礙;欄架; [v.]克服困難",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15642,7 +15602,7 @@
   {
     "word": "inland",
     "pos": "adj.",
-    "zh_definition": "內陸的;向內地;內陸",
+    "zh_definition": "內陸的;[adv.] 向內地;[n.]內陸",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15662,7 +15622,7 @@
   {
     "word": "intrude",
     "pos": "v.",
-    "zh_definition": "吃] 閣人;侵人;和干涉",
+    "zh_definition": "闖入;侵入;干涉",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15672,7 +15632,7 @@
   {
     "word": "itch",
     "pos": "v.",
-    "zh_definition": "攻] 發癢;渴站, 四.] 癢;渴癌",
+    "zh_definition": "發癢;渴望; [n.]癢;渴望",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15681,8 +15641,8 @@
   },
   {
     "word": "jingle",
-    "pos": "n.",
-    "zh_definition": "發出叮嚐聲;叮噹聲;廣告短歌",
+    "pos": "v.",
+    "zh_definition": "發出叮噹聲;[n.] 叮噹聲;廣告短歌",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15691,8 +15651,8 @@
   },
   {
     "word": "lash",
-    "pos": "n.",
-    "zh_definition": "HEFT;猛擊;鞭子,眾打",
+    "pos": "v.",
+    "zh_definition": "鞭打;猛擊;[n.] 鞭子;鞭打",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15712,7 +15672,7 @@
   {
     "word": "linger",
     "pos": "v.",
-    "zh_definition": "避留;徘徊;持續",
+    "zh_definition": "逗留;徘徊;持續",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15722,7 +15682,7 @@
   {
     "word": "livestock",
     "pos": "n.",
-    "zh_definition": "馬.] 家謾;牲冀",
+    "zh_definition": "家畜;牲畜",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15732,7 +15692,7 @@
   {
     "word": "lodge",
     "pos": "n.",
-    "zh_definition": "小屋;旅館;存放;租住;卡住",
+    "zh_definition": "小屋;旅館;[v.]存放;租住;卡住",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15762,7 +15722,7 @@
   {
     "word": "magnify",
     "pos": "v.",
-    "zh_definition": "其]放大;誇張;擴大",
+    "zh_definition": "放大;誇張;擴大",
     "frequency": 1,
     "level": "第六級",
     "source_page": 77,
@@ -15792,7 +15752,7 @@
   {
     "word": "martial",
     "pos": "adj.",
-    "zh_definition": "武術的;和軍事的",
+    "zh_definition": "武術的;軍事的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15812,7 +15772,7 @@
   {
     "word": "mischievous",
     "pos": "adj.",
-    "zh_definition": "惡作劇的;調反的",
+    "zh_definition": "奇蹟般的;不可思議的 [adj.]惡作劇的;調皮的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15831,8 +15791,8 @@
   },
   {
     "word": "nurture",
-    "pos": "n.",
-    "zh_definition": "lv.) 培育;養育;養育",
+    "pos": "v.",
+    "zh_definition": "培育;養育;[n.]養育;培育",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15842,7 +15802,7 @@
   {
     "word": "obstinate",
     "pos": "adj.",
-    "zh_definition": "頑固的;固執的;Te SRAY",
+    "zh_definition": "頑固的;固執的;倔強的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15871,8 +15831,8 @@
   },
   {
     "word": "outgoing",
-    "pos": "adj.",
-    "zh_definition": "外向的;即將離職的;友好的",
+    "pos": "n.",
+    "zh_definition": "爆發;暴動;突然增加 [adj.]外向的;即將離職的;友好的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15892,7 +15852,7 @@
   {
     "word": "perch",
     "pos": "v.",
-    "zh_definition": "蕊] 棲息;停留)位於;巴.] 棲木;高位",
+    "zh_definition": "棲息;停留;位于;[n.]棲木;高位",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15962,7 +15922,7 @@
   {
     "word": "preventive",
     "pos": "adj.",
-    "zh_definition": "預防的;防止的;預防措施",
+    "zh_definition": "預防的;防止的;[n.]預防措施",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15972,7 +15932,7 @@
   {
     "word": "proficiency",
     "pos": "n.",
-    "zh_definition": "叫.] 熟練;精通;能力",
+    "zh_definition": "熟練;精通;能力",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -15981,8 +15941,8 @@
   },
   {
     "word": "rash",
-    "pos": "adj.",
-    "zh_definition": "BOB;魯莽的;輕率的",
+    "pos": "n.",
+    "zh_definition": "皮疹;[adj.]魯莽的;輕率的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 78,
@@ -16022,7 +15982,7 @@
   {
     "word": "reign",
     "pos": "n.",
-    "zh_definition": "Sta 5 統治期間;統治",
+    "zh_definition": "統治;統治期間; [v.]統治",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16042,7 +16002,7 @@
   {
     "word": "renowned",
     "pos": "adj.",
-    "zh_definition": "著名的;有名單的",
+    "zh_definition": "著名的;有名望的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16112,7 +16072,7 @@
   {
     "word": "sharpen",
     "pos": "v.",
-    "zh_definition": "前尖;磨快;增強",
+    "zh_definition": "削尖;磨快;增強",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16122,7 +16082,7 @@
   {
     "word": "shrub",
     "pos": "n.",
-    "zh_definition": "灌木;灌木業",
+    "zh_definition": "灌木;灌木叢",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16132,7 +16092,7 @@
   {
     "word": "sneeze",
     "pos": "v.",
-    "zh_definition": "打噴嚏 噴嚏聲",
+    "zh_definition": "聲 打噴嚏;[n.] 噴嚏",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16142,7 +16102,7 @@
   {
     "word": "snore",
     "pos": "v.",
-    "zh_definition": "打呼;牟.] 鼾聲",
+    "zh_definition": "打呼;[n.] 鼾聲",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16152,7 +16112,7 @@
   {
     "word": "sociable",
     "pos": "adj.",
-    "zh_definition": "好交際的 5 社交的,友善的",
+    "zh_definition": "好交際的;社交的;友善的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16162,7 +16122,7 @@
   {
     "word": "soothe",
     "pos": "v.",
-    "zh_definition": "2 安慰;減輕;緩和",
+    "zh_definition": "安慰;減輕;緩和",
     "frequency": 1,
     "level": "第六級",
     "source_page": 79,
@@ -16212,7 +16172,7 @@
   {
     "word": "subjective",
     "pos": "adj.",
-    "zh_definition": "主觀的;個人的;主觀性",
+    "zh_definition": "主觀的;個人的;[n.]主觀性",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16221,8 +16181,8 @@
   },
   {
     "word": "supplement",
-    "pos": "n.",
-    "zh_definition": "補充;增補;補充;補足",
+    "pos": "v.",
+    "zh_definition": "補充;增補;補充;補足 ○○○",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16252,7 +16212,7 @@
   {
     "word": "textile",
     "pos": "n.",
-    "zh_definition": "紡織品, 織物",
+    "zh_definition": "紡織品;織物",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16271,8 +16231,8 @@
   },
   {
     "word": "transplant",
-    "pos": "n.",
-    "zh_definition": "移植;移植;移栽",
+    "pos": "v.",
+    "zh_definition": "移植;[n.]移植;移栽",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16292,7 +16252,7 @@
   {
     "word": "tuck",
     "pos": "v.",
-    "zh_definition": "基] 塞人;收攏;巴.] 摺疊;卷起",
+    "zh_definition": "塞入;收攏;[n.]摺疊;卷起",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16301,8 +16261,8 @@
   },
   {
     "word": "utter",
-    "pos": "adj.",
-    "zh_definition": "mii;HAS 完全的;微底的",
+    "pos": "v.",
+    "zh_definition": "說出;發出;[adj.]完全的;徹底的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16321,8 +16281,8 @@
   },
   {
     "word": "vanilla",
-    "pos": "adj.",
-    "zh_definition": "香草;香草味;香草味的;普通的",
+    "pos": "n.",
+    "zh_definition": "香草;香草味;[adj.]香草味的;普通的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16331,8 +16291,8 @@
   },
   {
     "word": "velvet",
-    "pos": "adj.",
-    "zh_definition": "n.] 天薦絨;天若絨的,柔軟光滑的",
+    "pos": "n.",
+    "zh_definition": "天鵝絨;[adj.]天鵝絨的;柔軟光滑的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16342,7 +16302,7 @@
   {
     "word": "vine",
     "pos": "n.",
-    "zh_definition": "葡萄藤;有冬蔓;攀爬植物",
+    "zh_definition": "葡萄藤;藤蔓;攀爬植物",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16352,17 +16312,17 @@
   {
     "word": "vineyard",
     "pos": "n.",
-    "zh_definition": "[n.\\",
+    "zh_definition": "葡萄園",
     "frequency": 1,
-    "level": "葡萄園",
-    "source_page": 0,
+    "level": "第六級",
+    "source_page": 80,
     "ipa_us": null,
     "ipa_uk": null
   },
   {
     "word": "virgin",
-    "pos": "adj.",
-    "zh_definition": "處女;新手;純潔的;未開發的",
+    "pos": "n.",
+    "zh_definition": "處女;新手;[adj.]純潔的;未開發的",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16372,7 +16332,7 @@
   {
     "word": "wag",
     "pos": "v.",
-    "zh_definition": "蕊] 搖擺;押動;巴.] 搖擺;擺動",
+    "zh_definition": "搖擺;擺動;[n.]搖擺;擺動",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16382,7 +16342,7 @@
   {
     "word": "waterproof",
     "pos": "adj.",
-    "zh_definition": "防水的;耐水的;防水材料;使防水",
+    "zh_definition": "防水的;耐水的;[n.]防水材料; [v.]使防水",
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
@@ -16396,6 +16356,46 @@
     "frequency": 1,
     "level": "第六級",
     "source_page": 80,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "accommodate",
+    "pos": "v.",
+    "zh_definition": "容納",
+    "frequency": 8,
+    "level": "第五級",
+    "source_page": 31,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "breakthrough",
+    "pos": "n.",
+    "zh_definition": "突破;重大進展",
+    "frequency": 7,
+    "level": "第五級",
+    "source_page": 31,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "accommodation",
+    "pos": "n.",
+    "zh_definition": "住宿;住處",
+    "frequency": 1,
+    "level": "第五級",
+    "source_page": 62,
+    "ipa_us": null,
+    "ipa_uk": null
+  },
+  {
+    "word": "administration",
+    "pos": "n.",
+    "zh_definition": "管理;行政",
+    "frequency": 1,
+    "level": "第五級",
+    "source_page": 62,
     "ipa_us": null,
     "ipa_uk": null
   }
