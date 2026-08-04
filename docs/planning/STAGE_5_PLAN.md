@@ -21,8 +21,10 @@
 | 切片 | 名稱 | 內容（對應驗收標準） | 相依 | 狀態 |
 |---|---|---|---|---|
 | M5-S1 | 學測資料管線 | `TopAcademy 學測高頻率單字表.pdf` → 人工/半自動轉出 `0resource/topsat.md`（比照 `top2025.md` 格式，另加 `level` 欄位）→ 新解析規則 `src/pdf_parser/rules/topsat_md.py` → `output/gsat/vocab.cleaned.json` → 複製到 `exam-vocab-batcher/public/data/vocab.gsat.cleaned.json`。**只做資料，不動 App 前端邏輯**，讓負責人先肉眼核對資料正確性（單字、詞性、中文定義、Level、出現次數）。 | 無 | ✅ 已完成（2026-08-03，`REPORT_M5S1_學測資料管線.md`） |
-| M5-S1b | 學測資料 OCR 辨識率校正 | 負責人抽查發現中文定義有 OCR 誤判（例如 `splendor`→「RE 5」、`cruelly`→「殘酪地」）。本片建立可重複執行的 `topsat_transcribe.py`，嘗試 PaddleOCR 但因本機 Windows CPU 推論錯誤改採 Tesseract 300 DPI 裁切字義 cell 備援，重新產出 `topsat.md` 與 `output/gsat/*.json`；QA 缺詞性 98→8、缺中文定義 22→3、低信心 1→0。 | M5-S1 | ✅ 已完成（2026-08-03，`REPORT_M5S1b_學測資料OCR校正.md`；待負責人抽查） |
-| M5-S2 | App 端會考/學測來源切換 | App 新增單字庫來源選擇（首頁「會考」／「學測」切換），`AppContext` 依所選來源載入對應 `vocab.*.cleaned.json`；批次建立器、翻牌卡、考試出題、頁碼範圍、批次歷史，全部依目前所選來源運作，互不混用；批次記住建立時的來源；**額外發現並要求處理的風險：`wordStats`/`examResults` 目前用單字字串當 Firestore 文件 ID，沒有來源區分，兩份單字庫的共同字會互相污染錯誤率統計，需改成依來源隔離**。 | M5-S1b（已完成，資料 100% 完整率） | ✅ 已完成（2026-08-04，`REPORT_M5S2_App端來源切換.md`；待負責人驗收） |
+| M5-S1b | 學測資料 OCR 辨識率校正 | 負責人抽查發現中文定義有 OCR 誤判（例如 `splendor`→「RE 5」、`cruelly`→「殘酪地」）。本片建立可重複執行的 `topsat_transcribe.py`，嘗試 PaddleOCR 但因本機 Windows CPU 推論錯誤改採 Tesseract 300 DPI 裁切字義 cell 備援，重新產出 `topsat.md` 與 `output/gsat/*.json`；QA 缺詞性 98→8、缺中文定義 22→3、低信心 1→0。負責人再次抽查仍發現語意錯誤（如 `achievement`→「業貫」），改用負責人提供的新來源整份重轉，規劃層逐筆讀 PDF 核對修正約 100 筆（含相鄰列吞併殘留），最終詞性/定義完整率 100%。 | M5-S1 | ✅ 已完成（2026-08-04，驗收通過，commit `d0cbac1`） |
+| M5-S2 | App 端會考/學測來源切換 | App 新增單字庫來源選擇（首頁「會考」／「學測」切換），`AppContext` 依所選來源載入對應 `vocab.*.cleaned.json`；批次建立器、翻牌卡、考試出題、頁碼範圍、批次歷史，全部依目前所選來源運作，互不混用；批次記住建立時的來源；**額外發現並要求處理的風險：`wordStats`/`examResults` 目前用單字字串當 Firestore 文件 ID，沒有來源區分，兩份單字庫的共同字會互相污染錯誤率統計，需改成依來源隔離**。 | M5-S1b（已完成，資料 100% 完整率） | ✅ 已完成（2026-08-04，驗收通過） |
+
+**M5 全部完成（2026-08-04）。**
 
 ## 跨切片一致性（執行層務必遵守）
 
