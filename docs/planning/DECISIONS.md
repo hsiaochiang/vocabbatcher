@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-04　修復 PWA 快取策略：部署後單字資料看不到更新
+
+- **狀態：** 已採納
+- **背景：** 負責人跑完 `.\deploy.ps1` 後，App 顯示的還是部署前的舊資料。查 `vite.config.ts` 發現單字資料 JSON 的 Workbox runtime caching 策略是 `CacheFirst`，且該規則只匹配 `vocab.cleaned.json`（會考），沒有涵蓋 `vocab.gsat.cleaned.json`（學測）；另外 `firebase.json` 沒有針對 `sw.js` 設定不快取的 header，Service Worker 本身的更新通知也可能被瀏覽器/CDN 延遲。
+- **改動：** `vite.config.ts` 的 runtimeCaching 規則改成同時匹配兩份單字資料檔，策略從 `CacheFirst` 改為 `StaleWhileRevalidate`（先用舊快取顯示、背景抓新的，下次開啟就是最新版，不影響離線可用）；`firebase.json` 新增 `/sw.js`、`/registerSW.js`、`/manifest.webmanifest` 的 `Cache-Control: no-cache` header，確保瀏覽器每次都會檢查 Service Worker 是否有新版本。
+- **影響的原始需求：** 不影響任何 `REQUIREMENTS.md` 條目的功能行為，純粹修正「部署後使用者看不到新資料」的維運問題；R4「斷網可用」不受影響（仍是 precache + runtime cache，只是策略換成背景更新）。
+- **負責人是否同意：** 是（負責人直接要求修正）。
+
 ## 2026-08-04　學測資料改用新來源徹底重轉，取代 Tesseract 版 topsat.md
 
 - **狀態：** 已採納
