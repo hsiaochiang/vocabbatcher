@@ -13,7 +13,7 @@ import WordStatsPage from './pages/WordStatsPage';
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/builder" element={<BatchBuilderPage />} />
