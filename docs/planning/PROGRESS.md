@@ -7,17 +7,22 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過**。M4「品質收斂」與 M5「學測單字庫」（資料管線＋App 端會考/學測來源切換）皆於 2026-08-04 完成負責人最終驗收
-- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過）
-- **最後更新：** 2026-08-04 by 規劃層
+- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**。成果文件交付閘已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md` 涵蓋至 M5）；2026-08-13 修復三個部署/前端 bug（詳見下方），Firebase Hosting 與 GitHub Pages 備援兩邊皆已重新部署驗證正常
+- **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過，目前為穩定維運狀態）
+- **最後更新：** 2026-08-13 by 規劃層
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**M1~M5 全部完成，目前沒有進行中的切片。** 下次回來若要開新工作，先跟負責人確認範圍（新里程碑、bug 修復、或既有功能微調），再走 `open-brief` 流程開新的 `STAGE_N_PLAN.md`／`BRIEF`。
+**目前沒有進行中的切片，兩個正式站都已驗證正常運作。** 下次回來若要開新工作，先跟負責人確認範圍（新里程碑、bug 修復、或既有功能微調），再走 `open-brief` 流程開新的 `STAGE_N_PLAN.md`／`BRIEF`。
 
-**收尾前建議做一次成果文件交付閘檢查**（`AGENTS.md`「★ 成果文件交付閘」）：`USER_MANUAL.md`、`DEVELOPER_LOG.md` 已存在但內容截至 M2，尚未涵蓋 M3~M5（登入、考試、學測單字庫、來源切換）的功能與操作說明，若要正式對外宣告「交付」，建議先補這兩份文件的內容，或跟負責人確認可以先略過並記一筆 `DECISIONS.md`。
+**2026-08-13 這輪 bug 修復的背景**（新 session 開工前建議先掃過 `DECISIONS.md` 2026-08-13 的三筆條目）：負責人回報 Firebase 正式站點「會考/學測」按鈕會卡在載入中，排查過程中一併發現並修好了三個各自獨立的問題：
+1. GitHub Pages 備援管道其實從未自動部署過（`workflow_dispatch` 手動觸發，文件寫的「push 自動部署」從未生效）。
+2. `BrowserRouter` 缺少 `basename`，導致部署到 GitHub Pages 子路徑時整頁空白。
+3. **真正的原始問題**：`AppContext.tsx` 的 `setSource()` 在使用者重複點選「目前已經選取」的來源分頁時，會讓 `isLoading` 卡在 `true` 永遠出不來（React 對相同值 state 更新的 bail out 行為 + 資料載入邏輯依賴 `[source]` 的 `useEffect` 不會重新觸發）。
+
+三個都已修復、測試、部署到 Firebase Hosting 與 GitHub Pages，負責人已確認「這部分沒問題了」。
 
 <details>
 <summary>舊版下一步紀錄（已由上方取代，保留備查）</summary>
@@ -42,6 +47,10 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-13　**修復「重複點選同一來源」導致 App 永久卡在載入中（commit `0079a73`）**：負責人回報 Firebase 正式站點會考/學測按鈕卡住，規劃層多輪排查（清快取、無痕視窗、多瀏覽器、多裝置、VPN）皆無法重現；負責人提供精確重現步驟（點選「目前已選取」的來源分頁）後，規劃層在 `AppContext.tsx` 的 `setSource()` 找到根因：`nextSource === source` 時 React state 更新 bail out，資料載入 `useEffect` 不會重新觸發，`isLoading` 永遠卡 `true`。修法：`setSource()` 開頭檢查相同來源直接 `return`。已本機驗證、部署到 Firebase Hosting 與 GitHub Pages，負責人確認修復。詳見 `DECISIONS.md` 2026-08-13「真正根因」條目。
+- 2026-08-13　**修復 GitHub Pages 備援管道從未自動部署 + `BrowserRouter` 缺少 `basename`（commit `e650002`、`7ca73b9`）**：排查上述問題過程中發現 GitHub Pages 備援網址停留在 M3-S2 版本超過一週——`deploy.yml` 只有手動觸發，文件寫的「push 自動部署」從未生效；補上 `on: push` 後，又發現部署後整頁空白，追查是 `BrowserRouter` 沒設定 `basename`，在 GitHub Pages 子路徑 `/vocabbatcher/` 下所有路由對不上。兩個都已修復並重新部署驗證正常。詳見 `DECISIONS.md` 2026-08-13 條目。
+- 2026-08-04　**修復 PWA 快取策略導致部署後單字資料看不到更新（commit `3b19866`）**：單字資料 JSON 的 Workbox 快取策略從 `CacheFirst` 改為 `StaleWhileRevalidate`，並涵蓋會考/學測兩份資料檔（原本規則只匹配會考）；`firebase.json` 新增 `sw.js`/`registerSW.js`/`manifest.webmanifest` 的 `no-cache` header。詳見 `DECISIONS.md` 2026-08-04 條目。
+- 2026-08-04　**補齊 `USER_MANUAL.md`、`DEVELOPER_LOG.md` 至 M5（commit `a44dad4`）**：兩份成果文件原本內容停留在 M2，新增涵蓋會考/學測來源切換、Google 登入、四題型練習測驗、成績歷史、單字統計、錯題複習等章節（USER_MANUAL）與 Firebase Auth/Firestore 架構、來源隔離設計、學測資料管線、已知坑整理（DEVELOPER_LOG）。`AGENTS.md`「成果文件交付閘」補齊至 M5。
 - 2026-08-04　**M4「品質收斂」與 M5「學測單字庫」全部驗收通過**：負責人依合併驗收清單完整操作過一輪——首頁會考/學測切換、學測批次建立/翻牌/拼字題只出學測字、切換來源後批次歷史不互相混淆、重複批次提示、搜尋空狀態、0 字批次阻擋、1231 字清單捲動、成績歷史與單字統計依來源分開顯示且互不污染、全站頁面巡查無白屏、README 可讀、手機測試皆通過。**M1~M5 全部里程碑正式完成。**
 - 2026-08-04　**學測資料改用新來源整份重轉，品質達 100% 完整率，已 commit**（commit `d0cbac1`、`dcc2060`）：改用負責人提供的 `0resource/學測高頻率單字表_含頁碼.md`（外部工具產出，經核對品質優於 Tesseract 版）取代 M5-S1b 產物；`topsat.md` 改成六欄明確格式，`topsat_md.py` 同步改寫不再依賴章節標題狀態。規劃層直接讀 PDF 逐筆核對：補回 4 筆表格誤併的字、補齊 75 筆源頭空白、寫結構/內容雙層異常掃描腳本抓出並修正多組「相鄰列吞併」殘留（共約 100 筆修正）。全程未使用自動 OCR。修正後：詞性/中文定義完整率 100%、低信心 0、`pytest` 63 passed。詳見 `DECISIONS.md` 2026-08-04「學測資料改用新來源徹底重轉」條目。**這批改動還在工作目錄未 commit，待負責人抽查確認後才提交。**
 - 2026-08-04　**M5-S2「App 端會考/學測來源切換」已實作待驗收**：首頁新增「會考」／「學測」來源切換，`AppContext` 依來源載入 `vocab.cleaned.json` 或 `vocab.gsat.cleaned.json`；批次建立器、批次歷史、翻牌卡、練習測驗、成績歷史、單字統計都依目前來源運作。批次會記住建立來源，舊批次預設視為會考；考試成績新增 `source`，`wordStats` 文件 ID 改為 `{source}__{word}`，避免共同單字污染錯誤率。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（11 passed）通過。詳見 `REPORT_M5S2_App端來源切換.md`
