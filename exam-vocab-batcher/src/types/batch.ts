@@ -9,4 +9,5 @@ export interface Batch {
   lastAccessedAt: string;
   words: VocabEntry[];
   flashcardIndex: number;
+  sourcePage?: number;
 }

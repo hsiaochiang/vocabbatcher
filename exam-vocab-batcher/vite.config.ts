@@ -33,7 +33,7 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/__\/auth\//, /^\/__\/firebase\//],
         runtimeCaching: [
           {
-            urlPattern: /\/data\/vocab(\.gsat)?\.cleaned\.json$/,
+            urlPattern: /\/data\/(vocab(\.gsat)?\.cleaned|stories\.gsat)\.json$/,
             handler: 'StaleWhileRevalidate',
             options: { cacheName: 'vocab-data' },
           },

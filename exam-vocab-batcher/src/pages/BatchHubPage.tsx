@@ -4,6 +4,7 @@ import { useApp } from '../store/AppContext';
 import Header from '../components/Header';
 import UserBadge from '../components/UserBadge';
 import { getPageRange } from '../services/exam';
+import { findMinecraftStory, loadGsatStories } from '../services/stories';
 import { VOCAB_SOURCE_LABEL } from '../types/vocab';
 
 export default function BatchHubPage() {
@@ -11,8 +12,14 @@ export default function BatchHubPage() {
   const navigate = useNavigate();
   const { source, setSource, batches, updateBatch, deleteBatch } = useApp();
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [availableStoryKey, setAvailableStoryKey] = useState<string | null>(null);
 
   const batch = batches.find((b) => b.id === id);
+  const storyKey =
+    batch?.source === 'gsat' && batch.sourcePage != null
+      ? `${batch.id}:${batch.sourcePage}`
+      : null;
+  const hasStory = storyKey != null && availableStoryKey === storyKey;
 
   // Update lastAccessedAt on mount
   useEffect(() => {
@@ -26,6 +33,31 @@ export default function BatchHubPage() {
       setSource(batch.source);
     }
   }, [batch, setSource, source]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    if (!batch || storyKey == null) {
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    loadGsatStories()
+      .then((storiesData) => {
+        if (cancelled) return;
+        const story = findMinecraftStory(storiesData, batch.source, batch.sourcePage);
+        setAvailableStoryKey(story ? storyKey : null);
+      })
+      .catch((err) => {
+        console.error('Failed to check story availability:', err);
+        if (!cancelled) setAvailableStoryKey(null);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [batch, storyKey]);
 
   if (!batch) {
     return (
@@ -103,6 +135,19 @@ export default function BatchHubPage() {
       onClick: () => navigate('/stats'),
     },
   ];
+
+  if (hasStory) {
+    features.push({
+      icon: 'auto_stories',
+      label: '故事模式',
+      subtitle: `第 ${batch.sourcePage} 頁故事`,
+      color: 'text-amber-600',
+      bgColor: 'bg-amber-50',
+      borderColor: 'border-amber-200',
+      available: true,
+      onClick: () => navigate(`/batch/${id}/story`),
+    });
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">

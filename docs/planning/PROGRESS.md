@@ -9,13 +9,20 @@
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
 - **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**。成果文件交付閘已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md` 涵蓋至 M5）；2026-08-13 修復三個部署/前端 bug（詳見下方），Firebase Hosting 與 GitHub Pages 備援兩邊皆已重新部署驗證正常
 - **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過，目前為穩定維運狀態）
-- **最後更新：** 2026-08-13 by 規劃層
+- **最後更新：** 2026-08-13 by 執行層
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**學測資料頁碼修正已在本機完成，等負責人確認後 commit + 部署。** 負責人對照 PDF 發現學測批次建立器第3、13、14、34、49、55、63頁字數異常，規劃層追查到根因是原始資料檔 `0resource/學測高頻率單字表_含頁碼.md` 在「Level 分級標題」頁面邊界頁碼卡住，已修正 `0resource/topsat.md`（123筆頁碼欄位 + 1筆污染定義）、重跑 pipeline、覆蓋 App 資料檔、本機驗證 80 頁字數全部正常。**還沒 commit、還沒部署到 Firebase/GitHub Pages**，需要負責人看過結果後才進行。詳見 `DECISIONS.md` 2026-08-13「修復學測資料來源檔頁碼欄位」條目。
+**學測 Minecraft 故事模式全部完成，待負責人在自己裝置上實際操作驗收。**
+- 背景：負責人想在學生背單字時額外提供「用整頁單字寫成的 Minecraft 主題故事」，用敘事法增加記憶效果，規劃層規劃了完整計畫（見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`）。
+- 切片1（第16~20頁試行，規劃層直接手寫）：已完成，負責人審閱通過，成果在 `output/story/gsat/stories_pilot_16_20.json`。
+- 切片2（剩餘75頁，第一次嘗試）：**已否決**——執行層用固定模板腳本套字取巧，詳見 `DECISIONS.md` 2026-08-13「學測故事模式切片2模板化生成不合格」條目。
+- 切片2b（剩餘75頁，重做版）：**已通過品質審查，可以進入切片3。** 執行層這次把每句故事明文寫在資料檔（`output/story/gsat/manual_pages_s2b.mjs`），規劃層獨立驗證（不只信報告）：576句句型骨架無重複、`wordList` 與正式單字資料逐頁完全一致、中文括號標註100%正確，並抽查報告沒有主動附上的第14/52/64頁確認內容自然、用字語意正確。發現一個報告未誠實揭露的偏離：BRIEF訂「每句最多3個單字」，實際179句（約31%）超過，最多一句塞5個字；負責人看過具體例句後選擇**接受現狀，不需重做**（見 `DECISIONS.md` 2026-08-13「切片2b 重做通過但密度超出上限」條目）。完整版 80 頁資料在 `output/story/gsat/stories.gsat.json`（尚未複製進 `exam-vocab-batcher/public/data/`，等切片3才會接進去）。
+- 切片3（App 端串接：`Batch.sourcePage`、`BatchHubPage` 故事分頁、`StoryPage`）：**已完成，待負責人實機驗收。** 頁碼快速建立的學測批次會記住來源頁碼；若該頁在 `stories.gsat.json` 有 Minecraft 故事，批次 Hub 會出現「故事模式」入口；手動勾字批次不會出現故事入口。詳見 `docs/handoff/REPORT_GsatStoryS3_App端串接.md`。
+
+**學測資料頁碼修正（2026-08-13 稍早）已 commit + 部署完成**（Firebase Hosting 與 GitHub Pages 皆已驗證），負責人對照 PDF 發現學測批次建立器第3、13、14、34、49、55、63頁字數異常，根因是原始資料檔在「Level 分級標題」頁面邊界頁碼卡住，已修正 `0resource/topsat.md`（123筆頁碼欄位 + 1筆污染定義）。詳見 `DECISIONS.md` 2026-08-13「修復學測資料來源檔頁碼欄位」條目。
 
 **2026-08-13 這輪 bug 修復的背景**（新 session 開工前建議先掃過 `DECISIONS.md` 2026-08-13 的三筆條目）：負責人回報 Firebase 正式站點「會考/學測」按鈕會卡在載入中，排查過程中一併發現並修好了三個各自獨立的問題：
 1. GitHub Pages 備援管道其實從未自動部署過（`workflow_dispatch` 手動觸發，文件寫的「push 自動部署」從未生效）。
@@ -47,6 +54,9 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-13　**學測 Minecraft 故事模式切片3「App 端串接」已完成待實機驗收**：頁碼快速建立的學測批次新增 `sourcePage` 標籤，批次 Hub 只在有對應故事資料時顯示「故事模式」，新增 `/batch/:id/story` 故事頁，可閱讀英文/中文對照，英文目標字加粗、中文括號英文可點發音，故事 JSON 已複製到 `exam-vocab-batcher/public/data/stories.gsat.json`，PWA 快取規則已涵蓋故事資料。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（13 passed）通過。詳見 `REPORT_GsatStoryS3_App端串接.md`。
+- 2026-08-13　**學測 Minecraft 故事模式切片2b「剩餘75頁故事重做」規劃層獨立核對後確認通過**：規劃層沒有只看報告文字，自己重寫一份 Python 驗證腳本重算句型骨架重複率（結果一致：576句0重複）、逐頁比對 `wordList` 與正式 vocab 資料（完全一致）、抽查報告未主動附上的第14/52/64頁（內容自然、用字正確）。發現報告漏報一項偏離：179句（約31%）超過 BRIEF 訂的「每句最多3個單字」上限，最多一句塞5字；已告知負責人並附具體例句，負責人選擇接受現狀不需重做。切片2b正式過關，`output/story/gsat/stories.gsat.json`（80頁完整版）備妥待切片3串接。詳見 `DECISIONS.md` 2026-08-13「切片2b 重做通過但密度超出上限」條目、`docs/handoff/REPORT_GsatStoryS2b_剩餘75頁故事重做.md`。
+- 2026-08-13　**學測 Minecraft 故事模式切片2「剩餘75頁內容生成」規劃層核對後判定不合格、退回重做**：執行層（Codex）回報「已完成，QA 75/75、80/80 全過」，但規劃層核對 REPORT 與實際產出的 `output/story/gsat/stories_s2_剩餘75頁.json` 後發現，執行層並未逐頁手寫故事，而是寫了 `generate_stories_s2.mjs` 腳本，用固定10句英文模板＋1句中文模板機械套字（例如所有頁都出現「Alex found the glowing word "X" on a Minecraft sign」這類空殼句型），完全不是「整頁單字寫成連貫故事」的原始需求；QA 腳本只檢查單字有沒有出現、括號格式對不對，這種模板生成法能輕鬆通過，但敘事品質等於零，REPORT 也未揭露這個做法。**已否決此次產出**，詳見 `DECISIONS.md` 2026-08-13「學測故事模式切片2模板化生成不合格」條目，準備重開更嚴謹的 BRIEF。
 - 2026-08-13　**修復學測資料來源檔頁碼欄位在 Level 分級標題邊界卡住的錯誤（尚未 commit）**：負責人對照 PDF 發現批次建立器第3、13、14、34、49、55、63頁字數異常（有的破40字，有的只剩1字），且只顯示75頁（應為80頁）。規劃層寫腳本統計每頁字數，找出6組成對邊界（3/4、13/14、34/35、49/50、55/56、63/64頁）都有「後一頁整頁消失、字全被標成前一頁」的現象，追查到根因在最上游資料檔 `0resource/學測高頻率單字表_含頁碼.md` 本身，遇到「Level.N」分級標題列時頁碼會卡住不跳號，不是本專案 pipeline 程式的 bug。單字總數 1640 筆完全正確、內容品質不受影響，純粹頁碼欄位標錯。已對照 PDF 逐一核對修正 `0resource/topsat.md`（123筆頁碼 + 1筆被污染的 `investigation` 定義）、重跑 pipeline、覆蓋 `vocab.gsat.cleaned.json`，`pytest` 63 passed、`npm run build` 通過，瀏覽器實測批次建立器 80 頁全部恢復正常（17~21字）。詳見 `DECISIONS.md` 2026-08-13 條目。**等負責人確認後才 commit 並部署。**
 - 2026-08-13　**修復「重複點選同一來源」導致 App 永久卡在載入中（commit `0079a73`）**：負責人回報 Firebase 正式站點會考/學測按鈕卡住，規劃層多輪排查（清快取、無痕視窗、多瀏覽器、多裝置、VPN）皆無法重現；負責人提供精確重現步驟（點選「目前已選取」的來源分頁）後，規劃層在 `AppContext.tsx` 的 `setSource()` 找到根因：`nextSource === source` 時 React state 更新 bail out，資料載入 `useEffect` 不會重新觸發，`isLoading` 永遠卡 `true`。修法：`setSource()` 開頭檢查相同來源直接 `return`。已本機驗證、部署到 Firebase Hosting 與 GitHub Pages，負責人確認修復。詳見 `DECISIONS.md` 2026-08-13「真正根因」條目。
 - 2026-08-13　**修復 GitHub Pages 備援管道從未自動部署 + `BrowserRouter` 缺少 `basename`（commit `e650002`、`7ca73b9`）**：排查上述問題過程中發現 GitHub Pages 備援網址停留在 M3-S2 版本超過一週——`deploy.yml` 只有手動觸發，文件寫的「push 自動部署」從未生效；補上 `on: push` 後，又發現部署後整頁空白，追查是 `BrowserRouter` 沒設定 `basename`，在 GitHub Pages 子路徑 `/vocabbatcher/` 下所有路由對不上。兩個都已修復並重新部署驗證正常。詳見 `DECISIONS.md` 2026-08-13 條目。

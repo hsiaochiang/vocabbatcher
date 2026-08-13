@@ -40,7 +40,8 @@ function sameWordSet(a: VocabEntry[], b: VocabEntry[]) {
 }
 
 export default function BatchBuilderPage() {
-  const { source, allWords, batches, createBatch, setActiveBatch } = useApp();
+  const { source, allWords, batches, createBatch, updateBatch, setActiveBatch } =
+    useApp();
   const navigate = useNavigate();
 
   const [selected, setSelected] = useState<Set<string>>(new Set());
@@ -157,6 +158,7 @@ export default function BatchBuilderPage() {
       words,
       `批次 #${sourceBatches.length + 1}（${VOCAB_SOURCE_LABEL[source]}第 ${page} 頁）`,
     );
+    updateBatch(batch.id, { sourcePage: page });
     setActiveBatch(batch.id);
     navigate(`/batch/${batch.id}`);
   };
