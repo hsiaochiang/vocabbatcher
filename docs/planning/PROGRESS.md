@@ -15,7 +15,7 @@
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**目前沒有進行中的切片，兩個正式站都已驗證正常運作。** 下次回來若要開新工作，先跟負責人確認範圍（新里程碑、bug 修復、或既有功能微調），再走 `open-brief` 流程開新的 `STAGE_N_PLAN.md`／`BRIEF`。
+**學測資料頁碼修正已在本機完成，等負責人確認後 commit + 部署。** 負責人對照 PDF 發現學測批次建立器第3、13、14、34、49、55、63頁字數異常，規劃層追查到根因是原始資料檔 `0resource/學測高頻率單字表_含頁碼.md` 在「Level 分級標題」頁面邊界頁碼卡住，已修正 `0resource/topsat.md`（123筆頁碼欄位 + 1筆污染定義）、重跑 pipeline、覆蓋 App 資料檔、本機驗證 80 頁字數全部正常。**還沒 commit、還沒部署到 Firebase/GitHub Pages**，需要負責人看過結果後才進行。詳見 `DECISIONS.md` 2026-08-13「修復學測資料來源檔頁碼欄位」條目。
 
 **2026-08-13 這輪 bug 修復的背景**（新 session 開工前建議先掃過 `DECISIONS.md` 2026-08-13 的三筆條目）：負責人回報 Firebase 正式站點「會考/學測」按鈕會卡在載入中，排查過程中一併發現並修好了三個各自獨立的問題：
 1. GitHub Pages 備援管道其實從未自動部署過（`workflow_dispatch` 手動觸發，文件寫的「push 自動部署」從未生效）。
@@ -47,6 +47,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-13　**修復學測資料來源檔頁碼欄位在 Level 分級標題邊界卡住的錯誤（尚未 commit）**：負責人對照 PDF 發現批次建立器第3、13、14、34、49、55、63頁字數異常（有的破40字，有的只剩1字），且只顯示75頁（應為80頁）。規劃層寫腳本統計每頁字數，找出6組成對邊界（3/4、13/14、34/35、49/50、55/56、63/64頁）都有「後一頁整頁消失、字全被標成前一頁」的現象，追查到根因在最上游資料檔 `0resource/學測高頻率單字表_含頁碼.md` 本身，遇到「Level.N」分級標題列時頁碼會卡住不跳號，不是本專案 pipeline 程式的 bug。單字總數 1640 筆完全正確、內容品質不受影響，純粹頁碼欄位標錯。已對照 PDF 逐一核對修正 `0resource/topsat.md`（123筆頁碼 + 1筆被污染的 `investigation` 定義）、重跑 pipeline、覆蓋 `vocab.gsat.cleaned.json`，`pytest` 63 passed、`npm run build` 通過，瀏覽器實測批次建立器 80 頁全部恢復正常（17~21字）。詳見 `DECISIONS.md` 2026-08-13 條目。**等負責人確認後才 commit 並部署。**
 - 2026-08-13　**修復「重複點選同一來源」導致 App 永久卡在載入中（commit `0079a73`）**：負責人回報 Firebase 正式站點會考/學測按鈕卡住，規劃層多輪排查（清快取、無痕視窗、多瀏覽器、多裝置、VPN）皆無法重現；負責人提供精確重現步驟（點選「目前已選取」的來源分頁）後，規劃層在 `AppContext.tsx` 的 `setSource()` 找到根因：`nextSource === source` 時 React state 更新 bail out，資料載入 `useEffect` 不會重新觸發，`isLoading` 永遠卡 `true`。修法：`setSource()` 開頭檢查相同來源直接 `return`。已本機驗證、部署到 Firebase Hosting 與 GitHub Pages，負責人確認修復。詳見 `DECISIONS.md` 2026-08-13「真正根因」條目。
 - 2026-08-13　**修復 GitHub Pages 備援管道從未自動部署 + `BrowserRouter` 缺少 `basename`（commit `e650002`、`7ca73b9`）**：排查上述問題過程中發現 GitHub Pages 備援網址停留在 M3-S2 版本超過一週——`deploy.yml` 只有手動觸發，文件寫的「push 自動部署」從未生效；補上 `on: push` 後，又發現部署後整頁空白，追查是 `BrowserRouter` 沒設定 `basename`，在 GitHub Pages 子路徑 `/vocabbatcher/` 下所有路由對不上。兩個都已修復並重新部署驗證正常。詳見 `DECISIONS.md` 2026-08-13 條目。
 - 2026-08-04　**修復 PWA 快取策略導致部署後單字資料看不到更新（commit `3b19866`）**：單字資料 JSON 的 Workbox 快取策略從 `CacheFirst` 改為 `StaleWhileRevalidate`，並涵蓋會考/學測兩份資料檔（原本規則只匹配會考）；`firebase.json` 新增 `sw.js`/`registerSW.js`/`manifest.webmanifest` 的 `no-cache` header。詳見 `DECISIONS.md` 2026-08-04 條目。
