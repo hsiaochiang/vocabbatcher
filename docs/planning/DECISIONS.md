@@ -9,6 +9,18 @@
 
 ---
 
+## 2026-08-13　修復 GitHub Pages 備援管道從未自動部署 + BrowserRouter 缺少 basename
+
+- **狀態：** 已採納
+- **背景：** 負責人回報 Firebase 正式站「學測」「會考」按鈕點下去卡在載入中，多輪排查（清 Service Worker、無痕視窗、換瀏覽器、換裝置、換網路）都無法解決，且 Firebase 網址從多個裝置、多個網路環境一致性地失敗，而 GitHub Pages 備援網址卻能正常打開——但打開後發現內容停留在 M3-S2 版本（7/31），超過一週沒有更新。追查 `.github/workflows/deploy.yml` 發現觸發條件只有 `workflow_dispatch`（手動），文件裡寫的「push 自動部署」從未真正生效。修正觸發條件並手動跑一次部署後，規劃層直接用瀏覽器工具重現：清除 GitHub Pages 網域的 Service Worker 快取後，頁面完全空白、`<div id="root">` 沒有任何內容、console 沒有任何錯誤。追查發現 `App.tsx` 的 `BrowserRouter` 沒有設定 `basename`——GitHub Pages 把網站放在 `/vocabbatcher/` 子路徑，但 `BrowserRouter` 預設只認根路徑，導致所有路由對不上、React 完全無法渲染。這是 S3e 把路由從 `HashRouter` 改成 `BrowserRouter`（修 Firebase 登入問題）時遺留的副作用，因為 GitHub Pages 部署管道從一開始就沒有真的自動觸發過，這個 bug 存在了兩週多都沒被發現。
+- **改動：**
+  1. `.github/workflows/deploy.yml` 新增 `on: push: branches: [main]` 觸發條件。
+  2. `App.tsx` 的 `<BrowserRouter>` 加上 `basename={import.meta.env.BASE_URL}`，讓它在根路徑（Firebase Hosting，`BASE_URL='/'`）與子路徑（GitHub Pages，`BASE_URL='/vocabbatcher/'`）都能正確比對路由。
+  3. 兩處修復皆已重新部署驗證：GitHub Pages 現在能正常顯示最新版本（含會考/學測切換），Firebase Hosting 同步重新部署（`.\deploy.ps1`）確保兩邊版本一致。
+  4. Firebase 正式站「載入中卡住」的原始問題**仍未解出根因**——規劃層多次從不同分頁/清空快取重新測試 `.web.app`、`.firebaseapp.com` 皆正常，但負責人所有裝置、所有網路環境一致性地失敗，且 SSL 憑證、DNS 解析從規劃層這端查詢都正常，目前判斷不排除是負責人所在區域到 Google Cloud/Firebase 服務的連線問題（非本專案程式碼或設定可控制的範圍），已請負責人先改用修復後的 GitHub Pages 備援網址（`https://hsiaochiang.github.io/vocabbatcher/`）應急。
+- **影響的原始需求：** 不影響任何 `REQUIREMENTS.md` 功能條目；`docs/roadmap.md` 提到的「GitHub Pages 備援管道」現在才是名符其實的可用備援。
+- **負責人是否同意：** 是（負責人主動回報問題並確認 GitHub Pages 備援網址驗證有效）。
+
 ## 2026-08-04　修復 PWA 快取策略：部署後單字資料看不到更新
 
 - **狀態：** 已採納
