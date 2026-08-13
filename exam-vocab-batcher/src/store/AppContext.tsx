@@ -97,20 +97,29 @@ export function AppProvider({ children }: { children: ReactNode }) {
     };
   }, [source]);
 
-  const setSource = useCallback((nextSource: VocabSource) => {
-    setIsLoading(true);
-    setLoadError(false);
-    setAllWords([]);
-    setSourceState(nextSource);
-    localStorage.setItem('vocabSource', JSON.stringify(nextSource));
-    setActiveBatchIdState((currentId) => {
-      if (!currentId) return currentId;
-      const currentBatch = loadFromLS<Batch[]>('batches', [])
-        .map(normalizeBatch)
-        .find((batch) => batch.id === currentId);
-      return currentBatch && currentBatch.source === nextSource ? currentId : null;
-    });
-  }, []);
+  const setSource = useCallback(
+    (nextSource: VocabSource) => {
+      // 若目前已經是這個來源，不做任何事：source state 不變會讓下面依賴
+      // [source] 的 useEffect 不重新觸發（React 對相同值的 setState 直接
+      // bail out），但 isLoading/allWords 若在這裡被清空就永遠不會恢復，
+      // App 會卡在「載入中」動彈不得。
+      if (nextSource === source) return;
+
+      setIsLoading(true);
+      setLoadError(false);
+      setAllWords([]);
+      setSourceState(nextSource);
+      localStorage.setItem('vocabSource', JSON.stringify(nextSource));
+      setActiveBatchIdState((currentId) => {
+        if (!currentId) return currentId;
+        const currentBatch = loadFromLS<Batch[]>('batches', [])
+          .map(normalizeBatch)
+          .find((batch) => batch.id === currentId);
+        return currentBatch && currentBatch.source === nextSource ? currentId : null;
+      });
+    },
+    [source],
+  );
 
   // Persist batches
   useEffect(() => {
