@@ -9,13 +9,20 @@
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
 - **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式（M5 之後新增功能）已完成開發、部署上線、負責人正式站驗收通過。成果文件交付閘已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md` 涵蓋至 M5 + 故事模式）；2026-08-13 修復三個部署/前端 bug，Firebase Hosting 與 GitHub Pages 備援兩邊皆已重新部署驗證正常
 - **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過；學測故事模式為 M5 之後新增的功能，已上線並驗收，目前為穩定維運狀態）
-- **最後更新：** 2026-08-14 by 規劃層
+- **最後更新：** 2026-08-14 by 執行層
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**學測 Minecraft 故事模式全部完成：本機驗證、部署上線、正式站確認、成果文件都已補齊。目前沒有進行中的工作。**
+**發音模式選擇待負責人實機驗收（尤其 iPad 上的使用者點擊觸發限制與高品質語音開關效果）。**
+- 背景：有使用者回報「App 的發音沒有 Google 準」，也提到其他網站可以選美式/英式發音。規劃層追查發現根因是 `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑語音——這通常才是「發音不準」的真正原因。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`（已覆蓋前一份學測故事模式的舊計畫內容）。
+- 已完成 `docs/handoff/BRIEF_TTSAccentSettings_發音模式選擇.md`：新增首頁右上角「發音設定」入口、`/settings` 設定頁（美式/英式二選一 + 測試發音 + 「優先高品質語音（需網路，預設關閉）」開關）、獨立 `ttsPreferences.ts` localStorage 偏好、`tts.ts` 內部依偏好選擇 `SpeechSynthesisVoice`。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（15 passed）通過。詳見 `docs/handoff/REPORT_TTSAccentSettings_發音模式選擇.md`。
+- 注意：Playwright 只能驗證設定持久化與按鈕不報錯，無法驗證真實語音品質；iPad/iPhone Safari 的「使用者點擊觸發」限制與高品質語音開關效果仍需負責人用實機確認。
+
+---
+
+**學測 Minecraft 故事模式（前一輪工作，已全部完成）：本機驗證、部署上線、正式站確認、成果文件都已補齊。**
 - 背景：負責人想在學生背單字時額外提供「用整頁單字寫成的 Minecraft 主題故事」，用敘事法增加記憶效果，規劃層規劃了完整計畫（見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`）。
 - 切片1（第16~20頁試行，規劃層直接手寫）：已完成，負責人審閱通過。
 - 切片2（剩餘75頁，第一次嘗試）：**已否決**——執行層用固定模板腳本套字取巧，詳見 `DECISIONS.md` 2026-08-13「學測故事模式切片2模板化生成不合格」條目。
@@ -60,6 +67,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-14　**發音模式選擇（美式/英式 + 高品質語音選項）已完成待實機驗收**：新增 `ttsPreferences.ts` 儲存美式/英式與高品質語音偏好（預設美式、預設不開高品質），`tts.ts` 依設定挑選符合語言的 `SpeechSynthesisVoice`，找不到指定口音時退回任何英文語音、再不行就只設 `lang` 照常播放；新增 `/settings` 發音設定頁與首頁右上角設定入口，設定頁可測試發音、偵測裝置是否有 `en-GB` 語音、持久化設定。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（15 passed）通過。詳見 `REPORT_TTSAccentSettings_發音模式選擇.md`。
 - 2026-08-14　**學測 Minecraft 故事模式正式驗收完成 + 成果文件補齊**：負責人在正式站（Firebase Hosting）實際操作確認沒問題。規劃層同步補上 `USER_MANUAL.md`「七、如何使用故事模式（學測限定）」章節（含使用時機、操作步驟、為什麼用故事法背單字）與 `DEVELOPER_LOG.md`「1-5 學測 Minecraft 故事模式資料」小節（資料流、schema、型別/服務/頁面對照表更新、PWA 快取規則說明，並記錄模板化生成被抓包退回重做的完整教訓供未來參考），依 `AGENTS.md`「★ 成果文件交付閘」規則，這個功能現在算完整交付。
 - 2026-08-13　**學測 Minecraft 故事模式切片3「App 端串接」已完成待實機驗收**：頁碼快速建立的學測批次新增 `sourcePage` 標籤，批次 Hub 只在有對應故事資料時顯示「故事模式」，新增 `/batch/:id/story` 故事頁，可閱讀英文/中文對照，英文目標字加粗、中文括號英文可點發音，故事 JSON 已複製到 `exam-vocab-batcher/public/data/stories.gsat.json`，PWA 快取規則已涵蓋故事資料。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（13 passed）通過。詳見 `REPORT_GsatStoryS3_App端串接.md`。
 - 2026-08-13　**學測 Minecraft 故事模式切片2b「剩餘75頁故事重做」規劃層獨立核對後確認通過**：規劃層沒有只看報告文字，自己重寫一份 Python 驗證腳本重算句型骨架重複率（結果一致：576句0重複）、逐頁比對 `wordList` 與正式 vocab 資料（完全一致）、抽查報告未主動附上的第14/52/64頁（內容自然、用字正確）。發現報告漏報一項偏離：179句（約31%）超過 BRIEF 訂的「每句最多3個單字」上限，最多一句塞5字；已告知負責人並附具體例句，負責人選擇接受現狀不需重做。切片2b正式過關，`output/story/gsat/stories.gsat.json`（80頁完整版）備妥待切片3串接。詳見 `DECISIONS.md` 2026-08-13「切片2b 重做通過但密度超出上限」條目、`docs/handoff/REPORT_GsatStoryS2b_剩餘75頁故事重做.md`。

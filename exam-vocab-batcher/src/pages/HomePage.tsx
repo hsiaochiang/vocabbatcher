@@ -15,6 +15,19 @@ export default function HomePage() {
     setActiveBatch,
   } = useApp();
   const navigate = useNavigate();
+  const headerActions = (
+    <div className="flex items-center gap-2">
+      <button
+        type="button"
+        onClick={() => navigate('/settings')}
+        className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-gray-500 hover:bg-primary/10 hover:text-primary"
+        aria-label="發音設定"
+      >
+        <span className="material-symbols-outlined">settings</span>
+      </button>
+      <UserBadge />
+    </div>
+  );
 
   if (isLoading) {
     return (
@@ -27,7 +40,7 @@ export default function HomePage() {
   if (loadError) {
     return (
       <div className="flex min-h-screen flex-col bg-bg-light">
-        <Header title="英文單字準備" rightSlot={<UserBadge />} />
+        <Header title="英文單字準備" rightSlot={headerActions} />
         <main className="flex flex-1 items-center justify-center px-6 text-center">
           <div className="max-w-sm">
             <span className="material-symbols-outlined mb-4 text-5xl text-red-400">
@@ -62,7 +75,7 @@ export default function HomePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-light">
-      <Header title="英文單字準備" rightSlot={<UserBadge />} />
+      <Header title="英文單字準備" rightSlot={headerActions} />
 
       <main className="flex-1 px-4 pb-24 pt-4">
         <section className="mb-4 rounded-xl border border-gray-200 bg-white p-2 shadow-sm">

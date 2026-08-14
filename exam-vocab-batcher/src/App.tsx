@@ -5,6 +5,7 @@ import BatchBuilderPage from './pages/BatchBuilderPage';
 import BatchHubPage from './pages/BatchHubPage';
 import FlashCardPage from './pages/FlashCardPage';
 import StoryPage from './pages/StoryPage';
+import SettingsPage from './pages/SettingsPage';
 import ExamSetupPage from './pages/ExamSetupPage';
 import ExamRunPage from './pages/ExamRunPage';
 import ExamResultPage from './pages/ExamResultPage';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/batch/:id" element={<BatchHubPage />} />
           <Route path="/batch/:id/flashcard" element={<FlashCardPage />} />
           <Route path="/batch/:id/story" element={<StoryPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="/exam" element={<ExamSetupPage />} />
           <Route path="/exam/run" element={<ExamRunPage />} />
           <Route path="/exam/result" element={<ExamResultPage />} />
