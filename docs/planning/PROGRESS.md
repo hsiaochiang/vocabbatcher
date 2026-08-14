@@ -7,7 +7,7 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式與發音模式選擇（美式/英式 + 高品質語音）兩個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過。成果文件交付閘：故事模式已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md`），發音模式選擇尚未補文件。
+- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式與發音模式選擇（美式/英式 + 高品質語音）兩個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過，成果文件交付閘皆已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）。
 - **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過；故事模式、發音模式選擇為 M5 之後新增的功能，皆已上線並驗收，目前為穩定維運狀態）
 - **最後更新：** 2026-08-14 by 規劃層
 
@@ -19,6 +19,7 @@
 - 背景：有使用者回報「App 的發音沒有 Google 準」，也提到其他網站可以選美式/英式發音。規劃層追查發現根因是 `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑語音——這通常才是「發音不準」的真正原因。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`。
 - 已完成 `docs/handoff/BRIEF_TTSAccentSettings_發音模式選擇.md`：新增首頁右上角「發音設定」入口、`/settings` 設定頁（美式/英式二選一 + 測試發音 + 「優先高品質語音（需網路，預設關閉）」開關）、獨立 `ttsPreferences.ts` localStorage 偏好、`tts.ts` 內部依偏好選擇 `SpeechSynthesisVoice`。規劃層核對程式碼 diff 與截圖確認實作正確（容錯 fallback 鏈完整、never-silent-fail）。詳見 `docs/handoff/REPORT_TTSAccentSettings_發音模式選擇.md`；「高品質語音預設關閉」的取捨記在 `DECISIONS.md` 2026-08-14 條目。
 - **2026-08-14：iPhone 實機測試通過**（先部署到 Firebase Hosting 預覽頻道讓負責人測試，確認 iOS Safari 的使用者點擊觸發限制沒有造成問題），規劃層已 `git push` 並跑 `.\deploy.ps1` 部署到正式站（`https://gen-lang-client-0930375434.web.app`），GitHub Pages 備援管道也因 push 自動觸發部署。
+- **2026-08-14：成果文件交付閘補齊**——`USER_MANUAL.md` 第八節「如何聽單字發音」新增「發音設定：選美式或英式、要不要用高品質語音」小節與兩則常見問題（Q4 補充離線時高品質語音的行為、新增 Q8）；`DEVELOPER_LOG.md` 新增「發音服務與偏好設定」小節（含語音選擇 fallback 鏈設計、為什麼偏好設定不放 `AppContext`、iOS 風險備註），並更新頁面對照表、`SpeakButton` 說明、已知問題、已解決的坑、E2E 測試表與決策時間軸。依「成果文件交付閘」規則，這個功能現在算完整交付。
 
 ---
 
@@ -34,7 +35,6 @@
 ## ⏳ 等你決定
 
 - 學測故事模式目前只做學測（GSAT），會考（CAP）要不要比照做一份？如果要，範圍與流程可以沿用這次的三切片模式（試行→全量生成→App串接）。
-- 發音模式選擇的成果文件（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）還沒補上，依「成果文件交付閘」規則建議近期補齊（比照故事模式那次的做法）。
 
 **學測資料頁碼修正（2026-08-13 稍早）已 commit + 部署完成**（Firebase Hosting 與 GitHub Pages 皆已驗證），負責人對照 PDF 發現學測批次建立器第3、13、14、34、49、55、63頁字數異常，根因是原始資料檔在「Level 分級標題」頁面邊界頁碼卡住，已修正 `0resource/topsat.md`（123筆頁碼欄位 + 1筆污染定義）。詳見 `DECISIONS.md` 2026-08-13「修復學測資料來源檔頁碼欄位」條目。
 
@@ -67,6 +67,8 @@
 ---
 
 ## ✅ 已完成（最近在前，依 git log 回填）
+
+- 2026-08-14　**發音模式選擇成果文件補齊**：`USER_MANUAL.md` 新增發音設定操作說明與常見問題；`DEVELOPER_LOG.md` 新增「發音服務與偏好設定」小節，記錄語音選擇 fallback 鏈、`ttsPreferences.ts` 不放 `AppContext` 的原因、「高品質語音預設關閉」的取捨提醒。依「成果文件交付閘」規則，發音模式選擇現在算完整交付。
 
 - 2026-08-14　**發音模式選擇（美式/英式 + 高品質語音）驗收通過並部署上線**：規劃層核對程式碼 diff 與 UI 截圖確認實作正確後，先部署到 Firebase Hosting 預覽頻道（`hosting:channel:deploy`，7天後自動過期）讓負責人用 iPhone 實機測試，確認 iOS Safari 的使用者點擊觸發限制沒有造成發不出聲音的問題。測試通過後 `git push` + `.\deploy.ps1` 部署到正式站，GitHub Pages 備援同步更新。「高品質語音預設關閉」的取捨記在 `DECISIONS.md` 2026-08-14 條目。**成果文件（USER_MANUAL/DEVELOPER_LOG）尚未補齊，留在「⏳ 等你決定」。**
 

@@ -2,7 +2,7 @@
 
 > 對象：離開這個專案兩個月後回來的自己。
 > 目標：5 分鐘跑起來，10 分鐘看懂架構。
-> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計），另加 M5 之後新增的**學測 Minecraft 故事模式**。
+> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計），另加 M5 之後新增的**學測 Minecraft 故事模式**與**發音模式選擇（美式/英式 + 高品質語音）**。
 
 ---
 
@@ -195,6 +195,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 | `ExamResultPage` | `/exam/result` | 得分 + 逐題對錯 + 寫入 Firestore（`examResults`／`wordStats`，皆含 `source`） | 未登入不寫入，畫面提示「訪客模式」 |
 | `ExamHistoryPage` | `/history` | 成績歷史列表，依 `source` 過濾並標示來源標籤 | |
 | `WordStatsPage` | `/stats` | 單字錯誤率統計（依 `source` 過濾）+ 錯題複習入口 | `generateReviewExam()` 見 `services/exam.ts` |
+| `SettingsPage` | `/settings` | 發音模式選擇（美式/英式 + 高品質語音開關）| 入口在 `HomePage` 的 `Header` `rightSlot`（齒輪圖示，跟 `UserBadge` 並排）；設定即時寫入 `ttsPreferences.ts`，沒有「儲存」按鈕 |
 
 **共用元件（`components/`）**
 
@@ -204,7 +205,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 | `UserBadge` | 顯示登入狀態/頭像，點擊登入/登出 | 各主要頁面右上角統一使用 |
 | `WordCard` | 單字列 | `React.memo` 避免重渲染 |
 | `SelectionCounter` | N/25 計數器 | 選滿時變色 |
-| `SpeakButton` | 可重用發音按鈕 | 單字列表、翻牌卡、考試結果頁皆用同一個元件 |
+| `SpeakButton` | 可重用發音按鈕，內部呼叫 `services/tts.ts` 的 `speakEn` | 單字列表、翻牌卡、考試結果頁等大多數地方用這個元件；但 `FlashCardPage`／`ExamRunPage`／`StoryPage` 有幾處是直接呼叫 `speakEn`/`speakZh`，沒有經過這個元件（見下方「發音服務」說明） |
 | `Toast` | 臨時提示 | 2 秒自動消失 |
 
 **出題引擎（`services/exam.ts`）**
@@ -216,6 +217,17 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 - `buildQuestion(word, type, pool)` — 內部共用，四種題型（`zh_to_en`/`en_to_zh`/`listening`/`spelling`）都經過這裡；`spelling` 題型不挑干擾選項，回傳 `correctAnswer` 而非 `options`。
 - `isSpellingCorrect(input, answer)` — 拼字判分（大小寫不敏感、去頭尾空白），**唯一的判分邏輯出處**，其他地方不得重複實作。
 - `getPageRange(allWords)` — 動態算目前所選單字庫的全書頁碼範圍。
+
+**發音服務與偏好設定（`services/tts.ts`、`services/ttsPreferences.ts`，2026-08-14 新增）**
+
+`speakEn(word)`／`speakZh(text)` 是全站**唯一**的發音出口（`AGENTS.md` 明文規定），所有需要發音的地方都要經過這裡，不可以在頁面元件裡直接呼叫 `window.speechSynthesis`。
+
+- **偏好設定存在獨立模組 `ttsPreferences.ts`，不放進 `AppContext`**：`getAccent()`/`setAccent()`（`'en-US' | 'en-GB'`，localStorage key `ttsAccent`，預設 `'en-US'`）、`getPreferHighQuality()`/`setPreferHighQuality()`（boolean，key `ttsPreferHighQuality`，預設 `false`）。原因：`tts.ts` 是純函式模組沒有 React context 可用，而且 `FlashCardPage.tsx`（自動播放中文、手動播放中文按鈕）、`ExamRunPage.tsx`（聽力題重播）、`StoryPage.tsx`（逐句播放）都是**直接呼叫** `speakEn`/`speakZh`，完全跳過 `SpeakButton` 元件，如果偏好設定放在 `AppContext` 或用 props 往下傳，這些呼叫點會讀不到設定。改成 `tts.ts` 內部自己讀 `localStorage`，才能讓所有呼叫點自動套用最新設定。
+- **語音選擇邏輯**（修正「發音不準」根因）：舊版 `speakEn` 只設定 `utterance.lang = 'en-US'`，從來沒指定 `utterance.voice`，瀏覽器會隨便挑一個符合語言的預設語音，品質很不穩定。新版流程：`getVoicesAsync()` 處理 `speechSynthesis.getVoices()` 可能回傳空陣列的問題（等 `voiceschanged` 事件或 300ms 逾時保底）→ 依目前 accent 找符合 `lang` 的語音（`preferHighQuality` 開啟時優先選 `localService === false` 的網路語音）→ 找不到符合口音的語音就退而求其次找任何 `en-*` 語音 → 再找不到就維持原本行為（只設 `lang` 不指定 `voice`）。**這條 fallback 鏈是刻意設計成絕不靜默失敗**，任何情況都要有聲音播出來。
+- `speakEn` 對外簽名沒變（`speakEn(word: string): void`），內部雖然變成非同步（`getVoicesAsync().then(...)`），呼叫端完全不用改成 `await`。
+- **iOS Safari 風險（尚未實機驗證這個細節，但整體功能已通過負責人 iPhone 實測）**：Safari 對「語音播放必須由使用者點擊直接觸發」的限制較嚴格，理論上非同步等待語音清單載入可能讓 `.speak()` 呼叫脫離原本的使用者手勢範圍。負責人已經在 iPhone 上實測過整體功能（設定頁測試發音、翻牌卡/故事模式發音按鈕）確認沒有問題，但如果之後遇到「iPhone 上某些情境點了發音按鈕沒反應」的回報，這是第一個要排查的地方。
+- **「優先使用高品質語音」預設關閉**：這是刻意的決定，開啟後會傾向使用網路語音（`localService === false`），跟專案「斷網可考」的精神有點違背（雖然這條規則原本只明文涵蓋考試引擎，沒有明文涵蓋發音功能）。**不要把這個預設值改成開啟**，除非重新評估過離線體驗的影響，見 `DECISIONS.md` 2026-08-14「發音模式選擇：優先高品質語音預設關閉」條目。
+- `localService === false` 只是「這個語音音質比較好」的經驗法則，不是保證——不是所有本機語音都差、不是所有網路語音都好，這只是一個合理的啟發式判斷。
 
 **學測故事模式資料層（`services/stories.ts`）**
 
@@ -269,7 +281,7 @@ python -m pytest tests/test_topsat_md.py -v   # 只跑學測 MD parser 測試
 
 ### React App
 
-自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 13 個測試）：
+自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 15 個測試）：
 
 ```bash
 cd exam-vocab-batcher
@@ -282,6 +294,7 @@ npm run test:e2e
 | `m4s2-s4.spec.ts` | 批次 Hub 三入口、重複批次提示、空搜尋/0 字保護、1231 筆清單捲動、全站 smoke test |
 | `m5s2-source-switch.spec.ts` | 切到學測後批次/翻牌/考試只用學測單字庫 |
 | `gsat-story.spec.ts` | 學測頁碼批次顯示故事模式並可發音；手動勾字批次不顯示故事模式 |
+| `tts-accent-settings.spec.ts` | 發音設定頁切換美式/英式與高品質語音開關不報錯、重新整理後設定持久化、套用設定後既有發音按鈕仍可用 |
 
 型別檢查與建置：`npm run build`（含 `tsc -b`）；`npm run lint` 過 ESLint。無單元測試框架（React 元件邏輯簡單，靠 E2E + 手動驗收覆蓋）。
 
@@ -300,6 +313,8 @@ npm run test:e2e
 | React App 無單元測試 | 邏輯正確性靠 E2E + 手動驗收 | 可視需要補 Vitest |
 | 會考（CAP）沒有故事模式 | 會考學生用不到這個新功能 | 目前只做學測，未來若要做會考版，可沿用同一套 schema/流程另開一輪切片 |
 | 故事模式沒有「整段自動連續播放」 | 只能一句一句手動點發音 | 規劃時列為加分項，這輪沒做，不影響核心功能 |
+| 「優先使用高品質語音」的 iOS Safari 效果未經深入驗證 | 負責人已用 iPhone 實測整體功能沒問題，但沒有特別驗證這個開關在 iOS 上有沒有實際效果 | 預期本來就可能沒效果（iOS Safari 通常沒有網路語音可選），非阻塞性問題 |
+| 英式語音在部分裝置（尤其 Android）覆蓋率未知 | 沒有語音包的裝置英式選項會自動停用 | 已有偵測+停用機制，但無法窮舉所有裝置型號驗證 |
 
 ### 已解決但值得記住的坑（避免重蹈覆轍）
 
@@ -311,6 +326,7 @@ npm run test:e2e
 | 學測資料 OCR 品質不佳（含語意錯誤但結構正常，規則抓不到） | 自動 OCR（Tesseract／PaddleOCR）辨識準確率不夠，尤其小字表格 | 改用人工／視覺直接讀取 PDF 核對整份資料，不依賴自動 OCR | `DECISIONS.md` 2026-08-04 |
 | 學測第3/13/34/49/55/63頁字數異常、只顯示75頁應為80頁 | 上游資料檔在「Level.N」分級標題列邊界頁碼卡住不跳號 | 對照 PDF 逐一核對修正 `topsat.md` 頁碼欄位 | `DECISIONS.md` 2026-08-13 |
 | 執行層生成的故事內容用固定模板套字矇混過自動 QA | QA 只檢查「單字有沒有出現」，抓不到內容是不是機械套模板 | 規劃層人工核對實際輸出內容才發現，退回重做；重做版加「句型骨架重複度檢查」當第二道防線 | `DECISIONS.md` 2026-08-13「模板化生成不合格」 |
+| 使用者反映發音「沒有 Google 準」 | `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑預設語音 | 新增語音選擇邏輯明確挑語音，並讓使用者可選美式/英式、可選是否優先網路語音 | `DECISIONS.md` 2026-08-14 |
 
 ---
 
@@ -337,3 +353,4 @@ npm run test:e2e
 - 2026-08-13　修復三個部署/前端 bug：GitHub Pages 從未自動部署、`BrowserRouter` 缺 `basename`、重複點選同一來源導致永久卡在載入中
 - 2026-08-13　修復學測資料來源檔頁碼欄位在 Level 分級標題邊界卡住的錯誤（6組邊界共123筆頁碼修正）
 - 2026-08-13～14　新增學測 Minecraft 故事模式（M5 之後的新功能）：`Batch.sourcePage`、`StoryPage`、`services/stories.ts`；資料生成過程中一輪執行層產出被規劃層抓到模板化取巧、退回重做，過程與教訓見上方「已解決但值得記住的坑」
+- 2026-08-14　新增發音模式選擇（M5 之後的新功能）：`SettingsPage`、`services/ttsPreferences.ts`，修正 `tts.ts` 從未指定 `SpeechSynthesisVoice` 的根因問題；「優先使用高品質語音」預設關閉的離線精神取捨；負責人先在 Firebase Hosting 預覽頻道用 iPhone 實測通過才正式部署
