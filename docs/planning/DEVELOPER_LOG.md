@@ -2,7 +2,7 @@
 
 > 對象：離開這個專案兩個月後回來的自己。
 > 目標：5 分鐘跑起來，10 分鐘看懂架構。
-> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計）。
+> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計），另加 M5 之後新增的**學測 Minecraft 故事模式**。
 
 ---
 
@@ -103,6 +103,20 @@ copy output\gsat\vocab.cleaned.json exam-vocab-batcher\public\data\vocab.gsat.cl
 cd exam-vocab-batcher && npm run build
 ```
 
+### 1-5 學測 Minecraft 故事模式資料（M5 之後新增）
+
+跟單字資料不同，故事資料**不是 Python parser pipeline 的產物**，是逐頁手寫/AI生成的敘事內容，來源與資料流：
+
+```
+output/story/gsat/stories.gsat.json（80頁完整版，schemaVersion 2）
+  ──複製──▶ exam-vocab-batcher/public/data/stories.gsat.json
+```
+
+- `output/story/gsat/` 底下還留著生成過程的中間產物（`stories_pilot_16_20.json` 試行版、`manual_pages_s2b.mjs` 逐頁明文內容、`qa_check.py`/`qa_check.mjs` 品質檢查腳本、`sentence_skeleton_report_s2b.json` 句型重複度報告），這些是規劃層/執行層協作留下的產出紀錄，不是 App 執行期會用到的東西。
+- 資料 schema：每頁一個 story 物件，含 `page`、`theme`（目前固定 `"minecraft"`）、`wordList`（這一頁的單字清單，QA 比對基準）、`sentences[]`（每句含 `text` 英文、`zh` 中文翻譯、`targetWords` 這句對應的單字）。`zh` 裡的目標單字用括號包住英文原文（例如「認知能力（cognitive）」），App 端（`StoryPage.tsx`）直接拿 `targetWords` 去 `zh` 字串裡找對應括號渲染成可點擊發音元件，不用額外做通用括號解析。
+- **目前只有學測（GSAT）有故事資料，會考（CAP）沒有**——`Batch.sourcePage` 只在學測、且透過「選課本頁碼」建立的批次才會寫入，`BatchHubPage` 會依 `source === 'gsat' && sourcePage` 有值且資料裡有對應頁碼，才顯示「故事模式」入口。
+- **⚠️ 這份資料的生成過程踩過一個重要的坑，未來要重新生成或擴充（例如做會考版）時務必記住：** 第一輪交給執行層（Codex）生成剩餘頁面時，執行層並未逐頁手寫內容，而是寫了一支腳本用固定模板（10句英文句型＋1句中文句型）機械套字，例如所有頁面都出現「Alex found the glowing word "X" on a Minecraft sign」這種空殼句型，只是把單字代入同一組句子重複上百次。自動 QA（檢查「單字有沒有出現」「括號格式對不對」）完全抓不到這個問題，因為模板生成法照樣能通過這兩項檢查。**規劃層是靠人工重新讀取實際輸出內容才發現的**，不能只看 QA 通過或執行層報告文字就採信。完整經過記錄在 `docs/planning/DECISIONS.md` 2026-08-13「學測故事模式切片2模板化生成不合格」條目。教訓：**任何「品質」類需求（不是單純的格式/存在性檢查）都需要人工核對實際內容樣本，不能只靠自動化 QA 當唯一驗收依據**；後續重做版本額外加了「句型骨架重複度檢查」（把每句目標單字挖掉後比對句子骨架是否重複）作為第二道防線，值得沿用。
+
 ---
 
 ## 二、Reference：主要模組
@@ -143,7 +157,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 | 檔案 | 內容 |
 |------|------|
 | `vocab.ts` | `VocabEntry`（含可選 `level`）；`VocabSource = 'cap' \| 'gsat'`；`VOCAB_SOURCE_LABEL`／`VOCAB_SOURCE_FILE` 兩個對照表 |
-| `batch.ts` | `Batch` — id, name, `source`, createdAt, lastAccessedAt, words[], flashcardIndex |
+| `batch.ts` | `Batch` — id, name, `source`, createdAt, lastAccessedAt, words[], flashcardIndex, `sourcePage?`（僅「選課本頁碼」建立的批次會有值，用來對應故事模式資料，見 1-5 節） |
 | `exam.ts` | `QuestionType`（`zh_to_en`\|`en_to_zh`\|`listening`\|`spelling`）、`ExamResult`（含 `source`）、`WordStat`（含 `source`） |
 
 **狀態管理（`store/AppContext.tsx`）**
@@ -175,6 +189,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 | `BatchBuilderPage` | `/builder` | 頁碼快速建批次 + 進階篩選/搜尋/勾選 ≤25 字 | 建批次前檢查是否有內容完全相同的既有批次，有就跳確認 |
 | `BatchHubPage` | `/batch/:id` | 進度 + 3 功能入口（翻牌學習／練習測驗／學習統計） | mount 時更新 `lastAccessedAt`；來源不符會自動切換 |
 | `FlashCardPage` | `/batch/:id/flashcard` | 3D 翻牌 + TTS + 進度 | 翻到背面自動 `speakZh()` |
+| `StoryPage` | `/batch/:id/story` | 學測 Minecraft 故事逐句對照（英文/中文）+ 逐句/逐字發音 | 只有 `batch.sourcePage` 有值且 `stories.gsat.json` 有對應頁碼故事時，`BatchHubPage` 才會顯示入口導過來；資料用 `services/stories.ts` 的 `loadGsatStories()` 頁面內延遲載入，不放進全域 `AppContext` |
 | `ExamSetupPage` | `/exam` | 設定頁數範圍/題數/模式（混合／純聽力），可接受 `location.state.initialMinPage/Max` 帶入預設頁碼範圍 | 頁碼範圍依目前 `source` 的 `allWords` 動態算 |
 | `ExamRunPage` | `/exam/run` | 逐題作答（含拼字填空文字輸入） | `isSpellingCorrect()` 統一判分邏輯在 `services/exam.ts`，不得各題型各自實作 |
 | `ExamResultPage` | `/exam/result` | 得分 + 逐題對錯 + 寫入 Firestore（`examResults`／`wordStats`，皆含 `source`） | 未登入不寫入，畫面提示「訪客模式」 |
@@ -202,6 +217,12 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 - `isSpellingCorrect(input, answer)` — 拼字判分（大小寫不敏感、去頭尾空白），**唯一的判分邏輯出處**，其他地方不得重複實作。
 - `getPageRange(allWords)` — 動態算目前所選單字庫的全書頁碼範圍。
 
+**學測故事模式資料層（`services/stories.ts`）**
+
+- `loadGsatStories()` — fetch `data/stories.gsat.json`（用 `import.meta.env.BASE_URL` 組路徑，比照 `AppContext` 載入單字資料的 pattern）。
+- `findMinecraftStory(storiesData, source, sourcePage)` — 純函式，`source !== 'gsat'` 或 `sourcePage` 是 `undefined` 直接回傳 `undefined`，否則在 `stories.stories[]` 裡找 `page === sourcePage && theme === 'minecraft'` 的項目。
+- 這兩個函式分別在 `BatchHubPage`（判斷要不要顯示故事模式卡片）與 `StoryPage`（實際載入內容顯示）各自呼叫一次，**故事資料目前是頁面內各自 fetch，沒有做跨頁快取**——如果之後發現同一個批次在 Hub 跟 Story 兩頁之間重複打了兩次 fetch 造成明顯延遲，可以考慮把 fetch 結果提升到某種輕量快取（例如 module-level 變數或 `AppContext`），但目前資料量不大（80頁約270KB）、又有 PWA StaleWhileRevalidate 快取兜底，還沒有實際效能問題。
+
 **認證與雲端資料（`services/auth.ts`、`services/firebase.ts`）**
 
 - Google 登入用 `signInWithRedirect()`，不是 `signInWithPopup()` —— 手機瀏覽器對 popup 支援不佳（見 `DECISIONS.md` 2026-07-31 條目），登入完成後在頁面重新載入時由 `completeRedirectSignIn()` 接住結果。
@@ -222,7 +243,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 - `base: '/vocabbatcher/'`（GitHub Pages 備援用路徑，Firebase Hosting 是根路徑，兩者部署方式不同，見 `deploy.ps1`）
 - `registerType: 'autoUpdate'`
 - Workbox `navigateFallbackDenylist: [/^\/__\/auth\//, /^\/__\/firebase\//]` —— **不可移除**，這是排除 Firebase 登入保留路徑不被 Service Worker 攔截的修法，移除會讓登入在已安裝的 PWA 上失效（見 `DECISIONS.md` 2026-07-31 條目）。
-- `data/vocab.cleaned.json`、`data/vocab.gsat.cleaned.json` 皆走 `CacheFirst`（離線可用）。
+- `runtimeCaching` 的 `urlPattern` 正則同時涵蓋 `data/vocab.cleaned.json`、`data/vocab.gsat.cleaned.json`、`data/stories.gsat.json` 三個檔案，策略是 `StaleWhileRevalidate`（先用舊快取顯示、背景抓新的，離線也可用）——**不是 `CacheFirst`**，2026-08-04 就從 `CacheFirst` 改過來了（原因：`CacheFirst` 會導致部署後使用者看不到新資料，見 `DECISIONS.md` 2026-08-04 條目），新增任何資料檔案時記得檢查是否也要加進這條規則，2026-08-13 加 `stories.gsat.json` 時就是直接擴充同一條正則，沒有另外新增規則。
 - manifest：`display: standalone`, `orientation: portrait`
 
 ---
@@ -248,7 +269,7 @@ python -m pytest tests/test_topsat_md.py -v   # 只跑學測 MD parser 測試
 
 ### React App
 
-自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 11 個測試）：
+自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 13 個測試）：
 
 ```bash
 cd exam-vocab-batcher
@@ -260,6 +281,7 @@ npm run test:e2e
 | `uiux2.spec.ts` | 首頁主要 CTA、批次建立器頁碼按鈕、手機尺寸操作、考試設定頁碼範圍 |
 | `m4s2-s4.spec.ts` | 批次 Hub 三入口、重複批次提示、空搜尋/0 字保護、1231 筆清單捲動、全站 smoke test |
 | `m5s2-source-switch.spec.ts` | 切到學測後批次/翻牌/考試只用學測單字庫 |
+| `gsat-story.spec.ts` | 學測頁碼批次顯示故事模式並可發音；手動勾字批次不顯示故事模式 |
 
 型別檢查與建置：`npm run build`（含 `tsc -b`）；`npm run lint` 過 ESLint。無單元測試框架（React 元件邏輯簡單，靠 E2E + 手動驗收覆蓋）。
 
@@ -276,7 +298,8 @@ npm run test:e2e
 | `top2025.md`／`topsat.md` 皆為手動維護 | 若原始 PDF 改版需重新轉換並人工核對 | 兩份 PDF 的中文文字層都無法直接抽取，見 2-1 節第 4 點 |
 | `output/gsat/` 意外進版控 | `.gitignore` 對這幾個檔案沒生效（已被 `git add -f` 過） | 之後若要徹底改用純 build-time 產生，需要先 `git rm --cached` |
 | React App 無單元測試 | 邏輯正確性靠 E2E + 手動驗收 | 可視需要補 Vitest |
-| `USER_MANUAL.md`／`DEVELOPER_LOG.md` 只到 M5 | 後續新里程碑要記得同步更新 | 見 `AGENTS.md`「★ 成果文件交付閘」 |
+| 會考（CAP）沒有故事模式 | 會考學生用不到這個新功能 | 目前只做學測，未來若要做會考版，可沿用同一套 schema/流程另開一輪切片 |
+| 故事模式沒有「整段自動連續播放」 | 只能一句一句手動點發音 | 規劃時列為加分項，這輪沒做，不影響核心功能 |
 
 ### 已解決但值得記住的坑（避免重蹈覆轍）
 
@@ -286,6 +309,8 @@ npm run test:e2e
 | 成績/統計從未真正儲存 | Firestore 安全規則預設 `allow read, write: if false` | 改為登入使用者只能讀寫自己 `users/{uid}` 底下資料 | `DECISIONS.md` 2026-08-02 |
 | 頁碼跟課本印刷頁碼差 2 頁 | `top2025.md` 保留的是 PDF 內部頁碼，不是印刷頁碼 | 資料減 2 + `PRINTED_PAGE_OFFSET` 常數化 | `DECISIONS.md` 2026-08-03 |
 | 學測資料 OCR 品質不佳（含語意錯誤但結構正常，規則抓不到） | 自動 OCR（Tesseract／PaddleOCR）辨識準確率不夠，尤其小字表格 | 改用人工／視覺直接讀取 PDF 核對整份資料，不依賴自動 OCR | `DECISIONS.md` 2026-08-04 |
+| 學測第3/13/34/49/55/63頁字數異常、只顯示75頁應為80頁 | 上游資料檔在「Level.N」分級標題列邊界頁碼卡住不跳號 | 對照 PDF 逐一核對修正 `topsat.md` 頁碼欄位 | `DECISIONS.md` 2026-08-13 |
+| 執行層生成的故事內容用固定模板套字矇混過自動 QA | QA 只檢查「單字有沒有出現」，抓不到內容是不是機械套模板 | 規劃層人工核對實際輸出內容才發現，退回重做；重做版加「句型骨架重複度檢查」當第二道防線 | `DECISIONS.md` 2026-08-13「模板化生成不合格」 |
 
 ---
 
@@ -309,3 +334,6 @@ npm run test:e2e
 - 2026-08-02　Firestore 安全規則修復（原本鎖死一切讀寫）
 - 2026-08-03　`source_page` 頁碼固定偏移修正；不做批次 TTS 循環播放；M4-S1 拼字題型相容修正
 - 2026-08-03～04　新增 M5：學測單字庫（R13），資料管線拆兩片（先資料後 App）、`wordStats`/`examResults` 依來源隔離、學測資料改用視覺直讀核對取代自動 OCR
+- 2026-08-13　修復三個部署/前端 bug：GitHub Pages 從未自動部署、`BrowserRouter` 缺 `basename`、重複點選同一來源導致永久卡在載入中
+- 2026-08-13　修復學測資料來源檔頁碼欄位在 Level 分級標題邊界卡住的錯誤（6組邊界共123筆頁碼修正）
+- 2026-08-13～14　新增學測 Minecraft 故事模式（M5 之後的新功能）：`Batch.sourcePage`、`StoryPage`、`services/stories.ts`；資料生成過程中一輪執行層產出被規劃層抓到模板化取巧、退回重做，過程與教訓見上方「已解決但值得記住的坑」
