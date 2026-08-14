@@ -6,10 +6,14 @@ import { getVoicesAsync, speakEn } from '../services/tts';
 import {
   getAccent,
   getPreferHighQuality,
+  getUseCloudTts,
   setAccent,
   setPreferHighQuality,
+  setUseCloudTts,
   type Accent,
 } from '../services/ttsPreferences';
+
+type VoiceMode = 'device' | 'quality' | 'cloud';
 
 const ACCENT_OPTIONS: { value: Accent; label: string; description: string }[] = [
   {
@@ -24,16 +28,47 @@ const ACCENT_OPTIONS: { value: Accent; label: string; description: string }[] = 
   },
 ];
 
+const VOICE_MODE_OPTIONS: {
+  value: VoiceMode;
+  label: string;
+  description: string;
+}[] = [
+  {
+    value: 'device',
+    label: '裝置預設語音',
+    description: '離線可用，使用目前瀏覽器或裝置提供的英文發音。',
+  },
+  {
+    value: 'quality',
+    label: '優先高品質裝置語音',
+    description:
+      '使用瀏覽器/裝置內建的網路語音（如果有），iPad/iPhone 可能沒有效果。',
+  },
+  {
+    value: 'cloud',
+    label: 'Google 雲端語音（最準，需要網路）',
+    description:
+      '每次播放都需要連網，音質最接近 Google Translate；網路不通時會自動改用裝置預設發音。',
+  },
+];
+
+function getInitialVoiceMode(): VoiceMode {
+  if (getUseCloudTts()) return 'cloud';
+  if (getPreferHighQuality()) return 'quality';
+  return 'device';
+}
+
 export default function SettingsPage() {
   const navigate = useNavigate();
   const [accent, setAccentState] = useState<Accent>(() => getAccent());
-  const [preferQuality, setPreferQualityState] = useState(() =>
-    getPreferHighQuality(),
+  const [voiceMode, setVoiceMode] = useState<VoiceMode>(() =>
+    getInitialVoiceMode(),
   );
   const [checkingVoices, setCheckingVoices] = useState(true);
   const [hasBritishVoice, setHasBritishVoice] = useState(false);
   const canSpeak =
-    typeof window !== 'undefined' && Boolean(window.speechSynthesis);
+    typeof window !== 'undefined' &&
+    (Boolean(window.speechSynthesis) || voiceMode === 'cloud');
 
   useEffect(() => {
     let cancelled = false;
@@ -62,9 +97,10 @@ export default function SettingsPage() {
     setAccentState(nextAccent);
   };
 
-  const handlePreferQualityChange = (nextValue: boolean) => {
-    setPreferHighQuality(nextValue);
-    setPreferQualityState(nextValue);
+  const handleVoiceModeChange = (nextMode: VoiceMode) => {
+    setVoiceMode(nextMode);
+    setUseCloudTts(nextMode === 'cloud');
+    setPreferHighQuality(nextMode === 'quality');
   };
 
   return (
@@ -138,31 +174,39 @@ export default function SettingsPage() {
         </section>
 
         <section className="mt-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h2 className="text-base font-bold text-gray-900">
-                優先使用高品質語音
-              </h2>
-              <p className="mt-1 text-sm leading-6 text-gray-600">
-                需要網路。部分裝置（例如 iPad）可能沒有更高品質的語音可選，這個設定在這些裝置上可能沒有效果。
-              </p>
-            </div>
-            <button
-              type="button"
-              role="switch"
-              aria-label="優先使用高品質語音"
-              aria-checked={preferQuality}
-              onClick={() => handlePreferQualityChange(!preferQuality)}
-              className={`relative mt-1 h-8 w-14 shrink-0 rounded-full transition-colors ${
-                preferQuality ? 'bg-primary' : 'bg-gray-300'
-              }`}
-            >
-              <span
-                className={`absolute top-1 h-6 w-6 rounded-full bg-white shadow transition-transform ${
-                  preferQuality ? 'translate-x-7' : 'translate-x-1'
+          <div>
+            <h2 className="text-base font-bold text-gray-900">發音引擎</h2>
+            <p className="mt-1 text-sm leading-6 text-gray-600">
+              口音維持上方選擇，這裡決定英文按鈕用哪一種聲音來源。
+            </p>
+          </div>
+
+          <div className="mt-4 grid gap-3">
+            {VOICE_MODE_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => handleVoiceModeChange(option.value)}
+                aria-pressed={voiceMode === option.value}
+                className={`min-h-[92px] rounded-xl border p-4 text-left transition-colors ${
+                  voiceMode === option.value
+                    ? 'border-primary bg-primary/5 text-primary'
+                    : 'border-gray-200 bg-white text-gray-700 hover:border-primary/40 hover:bg-primary/5'
                 }`}
-              />
-            </button>
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-semibold">{option.label}</span>
+                  <span className="material-symbols-outlined text-[22px]">
+                    {voiceMode === option.value
+                      ? 'radio_button_checked'
+                      : 'radio_button_unchecked'}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-5 text-gray-600">
+                  {option.description}
+                </p>
+              </button>
+            ))}
           </div>
         </section>
       </main>

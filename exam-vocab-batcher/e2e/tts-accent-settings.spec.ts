@@ -84,10 +84,17 @@ async function mockSpeechSynthesis(page: Page) {
   });
 }
 
-test('發音設定可切換、測試發音、開關高品質並重新整理持久化', async ({
+async function mockCloudTtsFailure(page: Page) {
+  await page.route('**/synthesizeSpeech**', async (route) => {
+    await route.abort();
+  });
+}
+
+test('發音設定可切換、測試發音、三種發音引擎並重新整理持久化', async ({
   page,
 }) => {
   await mockSpeechSynthesis(page);
+  await mockCloudTtsFailure(page);
   const pageErrors: string[] = [];
   page.on('pageerror', (err) => pageErrors.push(err.message));
 
@@ -116,8 +123,12 @@ test('發音設定可切換、測試發音、開關高品質並重新整理持�
       voice: 'Mock UK Local',
     });
 
-  await page.getByRole('switch', { name: /優先使用高品質語音/ }).click();
-  await expect(page.getByRole('switch')).toHaveAttribute('aria-checked', 'true');
+  await page
+    .getByRole('button', { name: /優先高品質裝置語音/ })
+    .click();
+  await expect(
+    page.getByRole('button', { name: /優先高品質裝置語音/ }),
+  ).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: /測試發音/ }).click();
   await expect
     .poll(() =>
@@ -129,24 +140,42 @@ test('發音設定可切換、測試發音、開關高品質並重新整理持�
       voice: 'Mock UK High Quality',
     });
 
+  await page.getByRole('button', { name: /Google 雲端語音/ }).click();
+  await expect(
+    page.getByRole('button', { name: /Google 雲端語音/ }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: /測試發音/ }).click();
+  await expect
+    .poll(() =>
+      page.evaluate(() => JSON.parse(localStorage.getItem('lastSpoken') ?? '{}')),
+    )
+    .toMatchObject({
+      text: 'hello',
+      lang: 'en-GB',
+      voice: 'Mock UK Local',
+    });
+
   await page.reload();
   await expect(page.getByRole('button', { name: /英式發音/ })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
-  await expect(page.getByRole('switch')).toHaveAttribute('aria-checked', 'true');
+  await expect(
+    page.getByRole('button', { name: /Google 雲端語音/ }),
+  ).toHaveAttribute('aria-pressed', 'true');
   expect(pageErrors).toEqual([]);
   await saveScreenshot(page, 'tts-settings-persisted');
 });
 
 test('套用設定後，故事模式既有發音按鈕仍可播放且不報錯', async ({ page }) => {
   await mockSpeechSynthesis(page);
+  await mockCloudTtsFailure(page);
   const pageErrors: string[] = [];
   page.on('pageerror', (err) => pageErrors.push(err.message));
 
   await page.goto('/settings');
   await page.getByRole('button', { name: /英式發音/ }).click();
-  await page.getByRole('switch', { name: /優先使用高品質語音/ }).click();
+  await page.getByRole('button', { name: /Google 雲端語音/ }).click();
 
   await page.goto('/');
   await page.getByRole('button', { name: '學測', exact: true }).click();
@@ -162,8 +191,38 @@ test('套用設定後，故事模式既有發音按鈕仍可播放且不報錯',
     )
     .toMatchObject({
       lang: 'en-GB',
-      voice: 'Mock UK High Quality',
+      voice: 'Mock UK Local',
     });
   expect(pageErrors).toEqual([]);
   await saveScreenshot(page, 'tts-story-button-after-settings');
+});
+
+test('套用設定後，翻牌卡既有發音按鈕仍可播放且不報錯', async ({ page }) => {
+  await mockSpeechSynthesis(page);
+  await mockCloudTtsFailure(page);
+  const pageErrors: string[] = [];
+  page.on('pageerror', (err) => pageErrors.push(err.message));
+
+  await page.goto('/settings');
+  await page.getByRole('button', { name: /英式發音/ }).click();
+  await page.getByRole('button', { name: /Google 雲端語音/ }).click();
+
+  await page.goto('/');
+  await page.getByRole('button', { name: '學測', exact: true }).click();
+  await page.goto('/builder');
+  await page.getByRole('button', { name: '建立第 16 頁批次' }).click();
+  await page.getByRole('button', { name: /翻牌學習/ }).click();
+  await expect(page.getByRole('heading', { name: '翻牌學習' })).toBeVisible();
+
+  await page.getByRole('button', { name: /播放 .* 的英文發音/ }).first().click();
+  await expect
+    .poll(() =>
+      page.evaluate(() => JSON.parse(localStorage.getItem('lastSpoken') ?? '{}')),
+    )
+    .toMatchObject({
+      lang: 'en-GB',
+      voice: 'Mock UK Local',
+    });
+  expect(pageErrors).toEqual([]);
+  await saveScreenshot(page, 'tts-flashcard-button-after-settings');
 });

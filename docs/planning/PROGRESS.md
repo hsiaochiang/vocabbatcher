@@ -7,19 +7,20 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式與發音模式選擇（美式/英式 + 高品質語音）兩個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過，成果文件交付閘皆已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）。
+- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式與發音模式選擇（美式/英式 + 高品質語音）兩個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過，成果文件交付閘皆已補齊（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）。Google Cloud TTS 切片2（前端串接）已完成，待負責人 iPhone 實機驗收。
 - **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過；故事模式、發音模式選擇為 M5 之後新增的功能，皆已上線並驗收，目前為穩定維運狀態）
-- **最後更新：** 2026-08-14 by 規劃層
+- **最後更新：** 2026-08-14 by 執行層 Codex
 
 ---
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**Google Cloud TTS 切片1（後端 Function）已完成待規劃層驗證，驗證通過後開切片2（前端串接，含 iPhone 實測）。**
-- 背景：負責人想要 App 發音真正達到 Google Translate 音質水準（尤其 iPhone，上一輪的「優先高品質語音」開關在 iOS Safari 沒效果）。查證後確認要走官方 Google Cloud Text-to-Speech API，負責人已接受需要開通 Blaze 方案（已綁卡完成）+ 啟用 Cloud Text-to-Speech API（已完成）+ 這是專案第一次引入後端（Cloud Function）。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`（已覆蓋前一份計畫內容）。
-- 已完成 `docs/handoff/BRIEF_CloudTtsS1_後端Function.md`：新增根目錄 `functions/` TypeScript Firebase Functions 專案與 `synthesizeSpeech` callable function（Gen 2 / Node 20 / us-central1），輸入 `{ text, lang }`，限制 `lang` 只能 `en-US` / `en-GB`、`text` 最多 200 字，呼叫 Google Cloud Text-to-Speech API 回傳 MP3 base64。已部署到 Firebase Functions，並用 `functions/test/manual-test.mjs` 實際呼叫已部署 function，正常情境產生 `functions/test-output/synthesizeSpeech-en-US.mp3`（7872 bytes，腳本確認非空且 MP3 header 合法），錯誤情境 `lang: en-AU` 正確回 `INVALID_ARGUMENT`。詳見 `docs/handoff/REPORT_CloudTtsS1_後端Function.md`。
-- 部署補充：首次 Functions 部署啟用了 Gen 2 Functions 需要的 Google Cloud API，並設定 Artifact Registry cleanup policy（1 天刪除舊映像）避免映像累積費用；詳見 `DECISIONS.md` 2026-08-14 條目。
-- 後續還有切片2（前端串接 `tts.ts`/`SettingsPage.tsx`，需 iPhone 實測）、切片3（Firestore 快取層），都還沒開 BRIEF。
+**Google Cloud TTS 切片2（前端串接）已完成待負責人 iPhone 實機驗收，通過後開切片3（Firestore 快取層）。**
+- 背景：負責人想要 App 發音真正達到 Google Translate 音質水準（尤其 iPhone，上一輪的「優先高品質語音」開關在 iOS Safari 沒效果）。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`。
+- 切片1（後端 Cloud Function）：**已完成並經規劃層獨立驗證通過**——規劃層自己重跑了一次 `functions/test/manual-test.mjs`，結果跟報告一致（正常情境產出合法 MP3、錯誤情境正確擋下），程式碼也核對過品質扎實。詳見 `docs/handoff/REPORT_CloudTtsS1_後端Function.md`；部署過程啟用必要 API 與 Artifact Registry cleanup policy 記在 `DECISIONS.md` 2026-08-14 條目。
+- 切片2（前端串接）：**已完成**——`tts.ts` 新增 Google 雲端語音分支（呼叫已部署的 `synthesizeSpeech`，7 秒逾時，成功音檔寫入瀏覽器 localStorage 快取；失敗、逾時或 Firebase Functions 不可用時自動退回裝置 Web Speech），`SettingsPage.tsx` 把「裝置預設語音 / 優先高品質裝置語音 / Google 雲端語音」整理成互斥三選一。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（16 passed）通過。詳見 `docs/handoff/REPORT_CloudTtsS2_前端串接.md`。
+- **下一個人工驗收重點：** 這片一定要在真實 iPhone 上測（風險：網路等待後才播放，可能超出 iOS Safari 使用者點擊觸發的容許範圍）。建議先部署 Firebase Hosting preview channel，負責人測「設定頁測試發音」、「翻牌卡發音」、「故事模式發音」、「斷網自動退回裝置發音」、「重新整理後設定保留」。
+- 後續還有切片3（Firestore 快取層），還沒開 BRIEF。
 
 ---
 
@@ -76,6 +77,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-14　**Google Cloud TTS 切片2「前端串接」已完成待 iPhone 實機驗收**：App 發音設定新增互斥三選一（裝置預設語音／優先高品質裝置語音／Google 雲端語音），`speakEn()` 在 Google 雲端語音模式會呼叫 `synthesizeSpeech` Cloud Function，成功播放 MP3 base64，失敗或逾時自動退回裝置 Web Speech；瀏覽器端 `localStorage` 快取同一個字與口音的音檔。未修改 `functions/`、`BrowserRouter`/`basename`、`AppContext.setSource()`、`speakZh()`。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（16 passed）通過。詳見 `docs/handoff/REPORT_CloudTtsS2_前端串接.md`。最大風險仍是 iPhone Safari 對「點擊後等待網路回應再播放」的限制，需負責人用真機驗收。
 - 2026-08-14　**Google Cloud TTS 切片1「後端 Cloud Function」已完成待規劃層驗證**：新增根目錄 `functions/` TypeScript Firebase Functions 專案，實作 `synthesizeSpeech` callable function（`en-US` / `en-GB`、text <= 200、MP3 base64），部署到 `gen-lang-client-0930375434` 的 `us-central1`。手動驗證腳本 `functions/test/manual-test.mjs` 已實際打已部署 function：正常情境產出 `functions/test-output/synthesizeSpeech-en-US.mp3`（7872 bytes，非空且 MP3 header 合法），錯誤情境 `lang: en-AU` 正確回 `INVALID_ARGUMENT`。首次部署同步啟用 Functions 必要 API 並設定 Artifact Registry 1 天 cleanup policy，詳見 `DECISIONS.md` 2026-08-14 條目與 `REPORT_CloudTtsS1_後端Function.md`。
 - 2026-08-14　**發音模式選擇成果文件補齊**：`USER_MANUAL.md` 新增發音設定操作說明與常見問題；`DEVELOPER_LOG.md` 新增「發音服務與偏好設定」小節，記錄語音選擇 fallback 鏈、`ttsPreferences.ts` 不放 `AppContext` 的原因、「高品質語音預設關閉」的取捨提醒。依「成果文件交付閘」規則，發音模式選擇現在算完整交付。
 

@@ -2,6 +2,7 @@ export type Accent = 'en-US' | 'en-GB';
 
 const ACCENT_KEY = 'ttsAccent';
 const PREFER_HIGH_QUALITY_KEY = 'ttsPreferHighQuality';
+const USE_CLOUD_TTS_KEY = 'ttsUseCloudTts';
 const DEFAULT_ACCENT: Accent = 'en-US';
 
 function canUseStorage() {
@@ -48,6 +49,26 @@ export function setPreferHighQuality(value: boolean): void {
 
   try {
     window.localStorage.setItem(PREFER_HIGH_QUALITY_KEY, value ? 'true' : 'false');
+  } catch {
+    // localStorage can be unavailable in private browsing or restricted contexts.
+  }
+}
+
+export function getUseCloudTts(): boolean {
+  if (!canUseStorage()) return false;
+
+  try {
+    return window.localStorage.getItem(USE_CLOUD_TTS_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+export function setUseCloudTts(value: boolean): void {
+  if (!canUseStorage()) return;
+
+  try {
+    window.localStorage.setItem(USE_CLOUD_TTS_KEY, value ? 'true' : 'false');
   } catch {
     // localStorage can be unavailable in private browsing or restricted contexts.
   }
