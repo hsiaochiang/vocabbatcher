@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-14　Google Cloud TTS 切片1首次部署啟用 Functions 必要 API 與 Artifact cleanup policy
+
+- **狀態：** 已採納
+- **背景：** Google Cloud TTS 切片1是本專案第一次新增 Cloud Functions 後端。依 BRIEF 部署 `synthesizeSpeech` Gen 2 callable function 時，Firebase CLI 偵測到 Cloud Functions / Cloud Build / Artifact Registry / Firebase Extensions / Cloud Run / Eventarc 等首次部署 Gen 2 Functions 需要的 API 尚未全部啟用，並自動啟用。第一次部署成功建立 function 後，CLI 又因 Artifact Registry 尚未設定 cleanup policy 回傳非 0，提醒若不設定可能因 container image 累積產生小額費用。
+- **改動：** 接受 Firebase CLI 在部署流程中啟用上述必要 API；並執行 `firebase functions:artifacts:setpolicy --location us-central1 --days 1 --force`，將 `projects/gen-lang-client-0930375434/locations/us-central1/repositories/gcf-artifacts` 設為自動刪除 1 天前的 Cloud Run Functions container images。沒有調整 IAM 角色，也沒有新增手動 API key。
+- **影響的原始需求：** 不影響 `REQUIREMENTS.md` 既有前端功能條目；這是新增後端能力的雲端部署設定。提醒未來如果 Functions 部署量增加或需要保留較久歷史映像，再重新評估 cleanup policy 天數。
+- **負責人是否同意：** 是（BRIEF 明確要求部署 Cloud Function；cleanup policy 是 Firebase CLI 為避免 Artifact Registry 映像累積費用要求處理的部署配套）。
+
 ## 2026-08-14　發音模式選擇：「優先高品質語音」預設關閉
 
 - **狀態：** 已採納

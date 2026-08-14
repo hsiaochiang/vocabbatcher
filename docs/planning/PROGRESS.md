@@ -15,7 +15,15 @@
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**發音模式選擇已上線，全部完成。**
+**Google Cloud TTS 切片1（後端 Function）已完成待規劃層驗證，驗證通過後開切片2（前端串接，含 iPhone 實測）。**
+- 背景：負責人想要 App 發音真正達到 Google Translate 音質水準（尤其 iPhone，上一輪的「優先高品質語音」開關在 iOS Safari 沒效果）。查證後確認要走官方 Google Cloud Text-to-Speech API，負責人已接受需要開通 Blaze 方案（已綁卡完成）+ 啟用 Cloud Text-to-Speech API（已完成）+ 這是專案第一次引入後端（Cloud Function）。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`（已覆蓋前一份計畫內容）。
+- 已完成 `docs/handoff/BRIEF_CloudTtsS1_後端Function.md`：新增根目錄 `functions/` TypeScript Firebase Functions 專案與 `synthesizeSpeech` callable function（Gen 2 / Node 20 / us-central1），輸入 `{ text, lang }`，限制 `lang` 只能 `en-US` / `en-GB`、`text` 最多 200 字，呼叫 Google Cloud Text-to-Speech API 回傳 MP3 base64。已部署到 Firebase Functions，並用 `functions/test/manual-test.mjs` 實際呼叫已部署 function，正常情境產生 `functions/test-output/synthesizeSpeech-en-US.mp3`（7872 bytes，腳本確認非空且 MP3 header 合法），錯誤情境 `lang: en-AU` 正確回 `INVALID_ARGUMENT`。詳見 `docs/handoff/REPORT_CloudTtsS1_後端Function.md`。
+- 部署補充：首次 Functions 部署啟用了 Gen 2 Functions 需要的 Google Cloud API，並設定 Artifact Registry cleanup policy（1 天刪除舊映像）避免映像累積費用；詳見 `DECISIONS.md` 2026-08-14 條目。
+- 後續還有切片2（前端串接 `tts.ts`/`SettingsPage.tsx`，需 iPhone 實測）、切片3（Firestore 快取層），都還沒開 BRIEF。
+
+---
+
+**發音模式選擇（美式/英式 + 高品質語音，前一輪工作）已上線，全部完成。**
 - 背景：有使用者回報「App 的發音沒有 Google 準」，也提到其他網站可以選美式/英式發音。規劃層追查發現根因是 `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑語音——這通常才是「發音不準」的真正原因。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`。
 - 已完成 `docs/handoff/BRIEF_TTSAccentSettings_發音模式選擇.md`：新增首頁右上角「發音設定」入口、`/settings` 設定頁（美式/英式二選一 + 測試發音 + 「優先高品質語音（需網路，預設關閉）」開關）、獨立 `ttsPreferences.ts` localStorage 偏好、`tts.ts` 內部依偏好選擇 `SpeechSynthesisVoice`。規劃層核對程式碼 diff 與截圖確認實作正確（容錯 fallback 鏈完整、never-silent-fail）。詳見 `docs/handoff/REPORT_TTSAccentSettings_發音模式選擇.md`；「高品質語音預設關閉」的取捨記在 `DECISIONS.md` 2026-08-14 條目。
 - **2026-08-14：iPhone 實機測試通過**（先部署到 Firebase Hosting 預覽頻道讓負責人測試，確認 iOS Safari 的使用者點擊觸發限制沒有造成問題），規劃層已 `git push` 並跑 `.\deploy.ps1` 部署到正式站（`https://gen-lang-client-0930375434.web.app`），GitHub Pages 備援管道也因 push 自動觸發部署。
@@ -68,6 +76,7 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
+- 2026-08-14　**Google Cloud TTS 切片1「後端 Cloud Function」已完成待規劃層驗證**：新增根目錄 `functions/` TypeScript Firebase Functions 專案，實作 `synthesizeSpeech` callable function（`en-US` / `en-GB`、text <= 200、MP3 base64），部署到 `gen-lang-client-0930375434` 的 `us-central1`。手動驗證腳本 `functions/test/manual-test.mjs` 已實際打已部署 function：正常情境產出 `functions/test-output/synthesizeSpeech-en-US.mp3`（7872 bytes，非空且 MP3 header 合法），錯誤情境 `lang: en-AU` 正確回 `INVALID_ARGUMENT`。首次部署同步啟用 Functions 必要 API 並設定 Artifact Registry 1 天 cleanup policy，詳見 `DECISIONS.md` 2026-08-14 條目與 `REPORT_CloudTtsS1_後端Function.md`。
 - 2026-08-14　**發音模式選擇成果文件補齊**：`USER_MANUAL.md` 新增發音設定操作說明與常見問題；`DEVELOPER_LOG.md` 新增「發音服務與偏好設定」小節，記錄語音選擇 fallback 鏈、`ttsPreferences.ts` 不放 `AppContext` 的原因、「高品質語音預設關閉」的取捨提醒。依「成果文件交付閘」規則，發音模式選擇現在算完整交付。
 
 - 2026-08-14　**發音模式選擇（美式/英式 + 高品質語音）驗收通過並部署上線**：規劃層核對程式碼 diff 與 UI 截圖確認實作正確後，先部署到 Firebase Hosting 預覽頻道（`hosting:channel:deploy`，7天後自動過期）讓負責人用 iPhone 實機測試，確認 iOS Safari 的使用者點擊觸發限制沒有造成發不出聲音的問題。測試通過後 `git push` + `.\deploy.ps1` 部署到正式站，GitHub Pages 備援同步更新。「高品質語音預設關閉」的取捨記在 `DECISIONS.md` 2026-08-14 條目。**成果文件（USER_MANUAL/DEVELOPER_LOG）尚未補齊，留在「⏳ 等你決定」。**
