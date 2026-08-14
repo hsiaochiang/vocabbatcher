@@ -7,7 +7,7 @@
 
 ## 專案：VocabBatcher
 - **一句話目標：** 國中會考英文單字練習 App，讓學生勾選最多 25 個單字，批次聽錄音、翻牌學習、四題型練習。
-- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式、發音模式選擇（美式/英式 + 高品質語音）、Google Cloud TTS 雲端發音三個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過。故事模式、發音模式選擇的成果文件交付閘已補齊；**Google Cloud TTS 的成果文件尚未補**。
+- **目前階段：** 🎉 **M1~M5 全部里程碑驗收通過並穩定上線**，另加學測 Minecraft 故事模式、發音模式選擇（美式/英式 + 高品質語音）、Google Cloud TTS 雲端發音三個 M5 之後新增功能，皆已完成開發、部署上線、負責人實機驗收通過，**成果文件交付閘三個功能全數補齊**。
 - **整體進度：** ▓▓▓▓▓▓▓▓▓▓ 100%（M1~M5 全部完成並驗收通過；故事模式、發音模式選擇、Google Cloud TTS 皆為 M5 之後新增的功能，已上線並驗收，目前為穩定維運狀態）
 - **最後更新：** 2026-08-14 by 規劃層
 
@@ -15,13 +15,13 @@
 
 ## ▶ 下一步就做這個（回來先看這裡）
 
-**Google Cloud TTS（美式/英式 + 高品質裝置語音 + Google 雲端語音三選一）已上線，切片1、2全部完成並通過 iPhone 實機驗收。**
+**Google Cloud TTS（美式/英式 + 高品質裝置語音 + Google 雲端語音三選一）全部完成，含成果文件。**
 - 背景：負責人想要 App 發音真正達到 Google Translate 音質水準（尤其 iPhone，上一輪的「優先高品質語音」開關在 iOS Safari 沒效果）。完整計畫見 `C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`。
 - 切片1（後端 Cloud Function）：已完成並經規劃層獨立驗證通過（重跑 `functions/test/manual-test.mjs` 結果一致）。詳見 `docs/handoff/REPORT_CloudTtsS1_後端Function.md`；部署過程啟用必要 API 與 Artifact Registry cleanup policy 記在 `DECISIONS.md` 2026-08-14 條目。
 - 切片2（前端串接）：已完成，規劃層核對程式碼 diff 確認 fallback 鏈正確（雲端呼叫任何失敗都會自動退回裝置語音，絕不會沒聲音）、`SettingsPage.tsx` 三選一互斥邏輯正確。**2026-08-14：負責人 iPhone 實機測試通過**（先部署 Firebase Hosting 預覽頻道測試，確認「點擊後等網路回應才播放」在 iOS Safari 上沒有問題）。詳見 `docs/handoff/REPORT_CloudTtsS2_前端串接.md`。
 - **2026-08-14：規劃層已 `git push` 並跑 `.\deploy.ps1` 部署到正式站**（`https://gen-lang-client-0930375434.web.app`），GitHub Pages 備援管道也因 push 自動觸發部署。
-- **切片3（Firestore 伺服器端快取層）決定暫緩不做**——負責人選擇先上線用標準 opt-in 使用（預設關閉，使用者要自己去設定頁開啟），目前用量極少、大概率不會真的被收費，快取層留到之後真的有需要（例如用量明顯上升）再做，不是這輪的優先事項。
-- 待辦：Google Cloud TTS 的成果文件（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）還沒補，見下方「⏳ 等你決定」。
+- **切片3（Firestore 伺服器端快取層）決定暫緩不做**——負責人選擇先上線用標準 opt-in 使用（預設關閉，使用者要自己去設定頁開啟），目前用量極少、大概率不會真的被收費，快取層留到之後真的有需要（例如用量明顯上升）再做，不是這輪的優先事項；設計已寫在計畫文件跟 `DEVELOPER_LOG.md` 裡，之後要做可以直接照做。
+- **2026-08-14：成果文件交付閘補齊**——`USER_MANUAL.md` 第八節「發音設定」小節改寫成「口音 + 發音引擎三選一」的說明，新增 Q9（雲端語音要等待是正常現象）；`DEVELOPER_LOG.md` 新增「1-6 Cloud Functions／Google Cloud TTS」小節（本機開發、手動驗證、部署流程、Blaze 前置需求）與「Google Cloud TTS 分支」小節（fallback 鏈設計、瀏覽器端快取跟伺服器端快取的差異、三選一 UI 為什麼底層互斥），並更新頁面對照表、已知問題、決策時間軸。依「成果文件交付閘」規則，這個功能現在算完整交付。
 
 ---
 
@@ -45,7 +45,6 @@
 ## ⏳ 等你決定
 
 - 學測故事模式目前只做學測（GSAT），會考（CAP）要不要比照做一份？如果要，範圍與流程可以沿用這次的三切片模式（試行→全量生成→App串接）。
-- Google Cloud TTS 的成果文件（`USER_MANUAL.md`／`DEVELOPER_LOG.md`）還沒補，要現在補嗎？（比照前兩次的做法）
 - Google Cloud TTS 切片3（Firestore 快取層）目前選擇暫緩不做，之後用量真的變多、想控制成本時再說。
 
 **學測資料頁碼修正（2026-08-13 稍早）已 commit + 部署完成**（Firebase Hosting 與 GitHub Pages 皆已驗證），負責人對照 PDF 發現學測批次建立器第3、13、14、34、49、55、63頁字數異常，根因是原始資料檔在「Level 分級標題」頁面邊界頁碼卡住，已修正 `0resource/topsat.md`（123筆頁碼欄位 + 1筆污染定義）。詳見 `DECISIONS.md` 2026-08-13「修復學測資料來源檔頁碼欄位」條目。
@@ -80,7 +79,8 @@
 
 ## ✅ 已完成（最近在前，依 git log 回填）
 
-- 2026-08-14　**Google Cloud TTS 驗收通過並部署上線**：規劃層核對切片2程式碼 diff（`tts.ts` fallback 鏈、`SettingsPage.tsx` 三選一互斥邏輯）確認實作正確後，部署 Firebase Hosting 預覽頻道讓負責人 iPhone 實測「點擊→等網路回應→播放」全部項目（測試發音、翻牌卡、故事模式、斷網退回裝置語音、設定持久化）皆通過。負責人選擇切片3（Firestore 快取層）暫緩不做，先以標準 opt-in（預設關閉）上線。`git push` + `.\deploy.ps1` 部署到正式站，GitHub Pages 備援同步更新。**成果文件（USER_MANUAL/DEVELOPER_LOG）尚未補齊。**
+- 2026-08-14　**Google Cloud TTS 成果文件補齊**：`USER_MANUAL.md` 第八節改寫「發音設定」小節為口音＋三選一發音引擎的完整說明，新增 Q9（雲端語音需等待網路回應是正常現象）；`DEVELOPER_LOG.md` 新增「1-6 Cloud Functions／Google Cloud TTS」（本機開發/驗證/部署流程、Blaze 前置需求、`TextToSpeechClient` 延遲初始化的坑）與「Google Cloud TTS 分支」（雙層 fallback 鏈設計、瀏覽器端快取 vs 伺服器端快取的差異、三選一 UI 底層互斥設計），並更新頁面對照表、已知問題（含冷啟動延遲、缺快取層）、決策時間軸、E2E 測試數（16個）。依「成果文件交付閘」規則，Google Cloud TTS 現在算完整交付。
+- 2026-08-14　**Google Cloud TTS 驗收通過並部署上線**：規劃層核對切片2程式碼 diff（`tts.ts` fallback 鏈、`SettingsPage.tsx` 三選一互斥邏輯）確認實作正確後，部署 Firebase Hosting 預覽頻道讓負責人 iPhone 實測「點擊→等網路回應→播放」全部項目（測試發音、翻牌卡、故事模式、斷網退回裝置語音、設定持久化）皆通過。負責人選擇切片3（Firestore 快取層）暫緩不做，先以標準 opt-in（預設關閉）上線。`git push` + `.\deploy.ps1` 部署到正式站，GitHub Pages 備援同步更新。
 - 2026-08-14　**Google Cloud TTS 切片2「前端串接」已完成待 iPhone 實機驗收**：App 發音設定新增互斥三選一（裝置預設語音／優先高品質裝置語音／Google 雲端語音），`speakEn()` 在 Google 雲端語音模式會呼叫 `synthesizeSpeech` Cloud Function，成功播放 MP3 base64，失敗或逾時自動退回裝置 Web Speech；瀏覽器端 `localStorage` 快取同一個字與口音的音檔。未修改 `functions/`、`BrowserRouter`/`basename`、`AppContext.setSource()`、`speakZh()`。`npm.cmd run lint`、`npm.cmd run build`、`npm.cmd run test:e2e`（16 passed）通過。詳見 `docs/handoff/REPORT_CloudTtsS2_前端串接.md`。最大風險仍是 iPhone Safari 對「點擊後等待網路回應再播放」的限制，需負責人用真機驗收。
 - 2026-08-14　**Google Cloud TTS 切片1「後端 Cloud Function」已完成待規劃層驗證**：新增根目錄 `functions/` TypeScript Firebase Functions 專案，實作 `synthesizeSpeech` callable function（`en-US` / `en-GB`、text <= 200、MP3 base64），部署到 `gen-lang-client-0930375434` 的 `us-central1`。手動驗證腳本 `functions/test/manual-test.mjs` 已實際打已部署 function：正常情境產出 `functions/test-output/synthesizeSpeech-en-US.mp3`（7872 bytes，非空且 MP3 header 合法），錯誤情境 `lang: en-AU` 正確回 `INVALID_ARGUMENT`。首次部署同步啟用 Functions 必要 API 並設定 Artifact Registry 1 天 cleanup policy，詳見 `DECISIONS.md` 2026-08-14 條目與 `REPORT_CloudTtsS1_後端Function.md`。
 - 2026-08-14　**發音模式選擇成果文件補齊**：`USER_MANUAL.md` 新增發音設定操作說明與常見問題；`DEVELOPER_LOG.md` 新增「發音服務與偏好設定」小節，記錄語音選擇 fallback 鏈、`ttsPreferences.ts` 不放 `AppContext` 的原因、「高品質語音預設關閉」的取捨提醒。依「成果文件交付閘」規則，發音模式選擇現在算完整交付。

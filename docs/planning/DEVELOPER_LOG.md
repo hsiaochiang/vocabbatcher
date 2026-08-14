@@ -2,7 +2,7 @@
 
 > 對象：離開這個專案兩個月後回來的自己。
 > 目標：5 分鐘跑起來，10 分鐘看懂架構。
-> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計），另加 M5 之後新增的**學測 Minecraft 故事模式**與**發音模式選擇（美式/英式 + 高品質語音）**。
+> 這份文件涵蓋到 M5（會考/學測雙單字庫、Google 登入、四題型練習、成績統計），另加 M5 之後新增的**學測 Minecraft 故事模式**、**發音模式選擇（美式/英式 + 高品質裝置語音）**與**Google Cloud TTS 雲端發音**。
 
 ---
 
@@ -80,13 +80,24 @@ VITE_FIREBASE_APP_ID=
 
 ### 1-3 部署
 
-一律用專案根目錄的 `deploy.ps1`（依序執行 `npm run build` + `firebase deploy --only hosting`），**不要手動分兩步驟打指令**：
+**前端**一律用專案根目錄的 `deploy.ps1`（依序執行 `npm run build` + `firebase deploy --only hosting`），**不要手動分兩步驟打指令**：
 
 ```powershell
 .\deploy.ps1
 ```
 
 正式站：Firebase Hosting（`https://<project-id>.web.app`）。GitHub Pages（`.github/workflows/deploy.yml`）保留作為手動觸發的備援管道，不會自動部署。
+
+**後端（Cloud Functions）部署是獨立的，`deploy.ps1` 不會動到它**（2026-08-14 起，見 1-6 節）：
+
+```powershell
+cd functions
+npm run build
+cd ..
+firebase deploy --only functions
+```
+
+這是刻意設計成獨立的：functions 部署比前端慢、改動頻率低（目前只有一個 `synthesizeSpeech` function，改動它的機會遠低於前端 UI 迭代），而且部署失敗的風險比前端 hosting 高（Firebase CLI 首次部署會需要啟用一連串 Google Cloud API，見 1-6 節）。**只有真的改到 `functions/` 底下的程式碼才需要跑這段**，平常的前端迭代跟這個完全無關。
 
 ### 1-4 重新生成資料後的手續
 
@@ -116,6 +127,39 @@ output/story/gsat/stories.gsat.json（80頁完整版，schemaVersion 2）
 - 資料 schema：每頁一個 story 物件，含 `page`、`theme`（目前固定 `"minecraft"`）、`wordList`（這一頁的單字清單，QA 比對基準）、`sentences[]`（每句含 `text` 英文、`zh` 中文翻譯、`targetWords` 這句對應的單字）。`zh` 裡的目標單字用括號包住英文原文（例如「認知能力（cognitive）」），App 端（`StoryPage.tsx`）直接拿 `targetWords` 去 `zh` 字串裡找對應括號渲染成可點擊發音元件，不用額外做通用括號解析。
 - **目前只有學測（GSAT）有故事資料，會考（CAP）沒有**——`Batch.sourcePage` 只在學測、且透過「選課本頁碼」建立的批次才會寫入，`BatchHubPage` 會依 `source === 'gsat' && sourcePage` 有值且資料裡有對應頁碼，才顯示「故事模式」入口。
 - **⚠️ 這份資料的生成過程踩過一個重要的坑，未來要重新生成或擴充（例如做會考版）時務必記住：** 第一輪交給執行層（Codex）生成剩餘頁面時，執行層並未逐頁手寫內容，而是寫了一支腳本用固定模板（10句英文句型＋1句中文句型）機械套字，例如所有頁面都出現「Alex found the glowing word "X" on a Minecraft sign」這種空殼句型，只是把單字代入同一組句子重複上百次。自動 QA（檢查「單字有沒有出現」「括號格式對不對」）完全抓不到這個問題，因為模板生成法照樣能通過這兩項檢查。**規劃層是靠人工重新讀取實際輸出內容才發現的**，不能只看 QA 通過或執行層報告文字就採信。完整經過記錄在 `docs/planning/DECISIONS.md` 2026-08-13「學測故事模式切片2模板化生成不合格」條目。教訓：**任何「品質」類需求（不是單純的格式/存在性檢查）都需要人工核對實際內容樣本，不能只靠自動化 QA 當唯一驗收依據**；後續重做版本額外加了「句型骨架重複度檢查」（把每句目標單字挖掉後比對句子骨架是否重複）作為第二道防線，值得沿用。
+
+### 1-6 Cloud Functions／Google Cloud TTS（2026-08-14 新增，本專案第一個後端）
+
+在此之前這個專案是純前端靜態網站（Firebase Hosting）+ Firestore + Auth，**沒有任何伺服器端程式碼**。2026-08-14 為了讓英文發音真正達到 Google 的音質水準（尤其 iPhone Safari 的 Web Speech API 只有蘋果自己的本機語音可選，音質有限），新增了第一個 Cloud Function。
+
+**本機開發：**
+```bash
+cd functions
+npm install
+npm run build   # tsc 編譯 TypeScript
+```
+
+**手動驗證（已部署的 function，不需要本機模擬器）：**
+```bash
+cd functions
+npm run test:manual
+```
+會實際打 `https://us-central1-gen-lang-client-0930375434.cloudfunctions.net/synthesizeSpeech`，測一個正常情境（產出 `functions/test-output/*.mp3` 並驗證 MP3 檔頭合法）跟一個錯誤情境（`lang` 傳不合法值，確認回 `INVALID_ARGUMENT`）。`functions/test-output/`、`functions/lib/`（編譯產物）都在 `.gitignore` 裡，不進版控。
+
+**`synthesizeSpeech` callable function**（`functions/src/index.ts`）：
+- Gen 2、Node 20、region `us-central1`。
+- 輸入 `{ text: string, lang: 'en-US' | 'en-GB' }`，`text` 上限200字元，`lang` 只接受這兩個值，違反直接丟 `HttpsError('invalid-argument', ...)`。
+- 呼叫 `@google-cloud/text-to-speech` 的 `TextToSpeechClient`，`audioEncoding: 'MP3'`，音色固定用 `ssmlGender: 'NEUTRAL'`（沒有指定具體 voice name，讓 Google 依語言自動挑一個穩定的預設中性語音）。
+- **`TextToSpeechClient` 要用延遲初始化**（`getTtsClient()` 內部才 `new`），不要在模組載入階段就建立實例——這是切片1實際踩過的坑：模組載入階段初始化會讓 Firebase CLI 部署時分析 user code timeout，部署直接失敗。
+- 不用手動管理 API 金鑰，Cloud Function 執行環境的預設服務帳號本身就有權限呼叫同專案已啟用的 Google Cloud API。
+
+**專案要先開通 Blaze 方案才能用**——這是負責人自己在 Google Cloud Console 完成的手動步驟（綁信用卡），規劃層/執行層都無法代為操作。首次部署 Gen 2 Cloud Function 時，Firebase CLI 會自動幫你啟用一連串必要的 Google Cloud API（`cloudfunctions.googleapis.com`、`cloudbuild.googleapis.com`、`artifactregistry.googleapis.com` 等），也會要求設定 Artifact Registry 的 cleanup policy（避免每次部署留下的 container image 累積造成小額費用）：
+```bash
+firebase functions:artifacts:setpolicy --location us-central1 --days 1 --force
+```
+這些一次性的雲端環境設定記錄在 `docs/planning/DECISIONS.md` 2026-08-14「Google Cloud TTS 切片1首次部署啟用 Functions 必要 API 與 Artifact cleanup policy」條目，之後如果要在別的 Firebase 專案重建這個功能，要重新走一次這個流程。
+
+**成本控制：** 這個 App 的用量遠低於 Google Cloud TTS 免費額度（標準語音每月400萬字元），加上「Google 雲端語音」在前端是**預設關閉**的 opt-in 選項，實際上大概率不會被收費。目前**沒有做伺服器端快取層**（原計畫的切片3，Firestore `ttsCache` collection，先查快取再呼叫 API）——這是刻意的決定，見 `DECISIONS.md` 2026-08-14「切片3暫緩不做」條目，設計已經寫在規劃層的 plan 文件裡，之後真的需要控制成本時可以直接照著做，不用重新設計。
 
 ---
 
@@ -195,7 +239,7 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 | `ExamResultPage` | `/exam/result` | 得分 + 逐題對錯 + 寫入 Firestore（`examResults`／`wordStats`，皆含 `source`） | 未登入不寫入，畫面提示「訪客模式」 |
 | `ExamHistoryPage` | `/history` | 成績歷史列表，依 `source` 過濾並標示來源標籤 | |
 | `WordStatsPage` | `/stats` | 單字錯誤率統計（依 `source` 過濾）+ 錯題複習入口 | `generateReviewExam()` 見 `services/exam.ts` |
-| `SettingsPage` | `/settings` | 發音模式選擇（美式/英式 + 高品質語音開關）| 入口在 `HomePage` 的 `Header` `rightSlot`（齒輪圖示，跟 `UserBadge` 並排）；設定即時寫入 `ttsPreferences.ts`，沒有「儲存」按鈕 |
+| `SettingsPage` | `/settings` | 發音模式選擇：美式/英式口音 + 發音引擎三選一（裝置預設／優先高品質裝置語音／Google雲端語音）| 入口在 `HomePage` 的 `Header` `rightSlot`（齒輪圖示，跟 `UserBadge` 並排）；設定即時寫入 `ttsPreferences.ts`，沒有「儲存」按鈕 |
 
 **共用元件（`components/`）**
 
@@ -228,6 +272,15 @@ topsat.md  ──parse_md_file()──▶ VocabEntry[]（1640 筆，含 level）
 - **iOS Safari 風險（尚未實機驗證這個細節，但整體功能已通過負責人 iPhone 實測）**：Safari 對「語音播放必須由使用者點擊直接觸發」的限制較嚴格，理論上非同步等待語音清單載入可能讓 `.speak()` 呼叫脫離原本的使用者手勢範圍。負責人已經在 iPhone 上實測過整體功能（設定頁測試發音、翻牌卡/故事模式發音按鈕）確認沒有問題，但如果之後遇到「iPhone 上某些情境點了發音按鈕沒反應」的回報，這是第一個要排查的地方。
 - **「優先使用高品質語音」預設關閉**：這是刻意的決定，開啟後會傾向使用網路語音（`localService === false`），跟專案「斷網可考」的精神有點違背（雖然這條規則原本只明文涵蓋考試引擎，沒有明文涵蓋發音功能）。**不要把這個預設值改成開啟**，除非重新評估過離線體驗的影響，見 `DECISIONS.md` 2026-08-14「發音模式選擇：優先高品質語音預設關閉」條目。
 - `localService === false` 只是「這個語音音質比較好」的經驗法則，不是保證——不是所有本機語音都差、不是所有網路語音都好，這只是一個合理的啟發式判斷。
+
+**Google Cloud TTS 分支（2026-08-14 新增，`tts.ts`／`ttsPreferences.ts`／`firebase.ts`）**
+
+- `ttsPreferences.ts` 再新增 `getUseCloudTts()`/`setUseCloudTts()`（key `ttsUseCloudTts`，預設 `false`）。`firebase.ts` 新增 `export const functions = app ? getFunctions(app, 'us-central1') : null;`，region 要跟 1-6 節部署的 Cloud Function 一致。
+- `speakEn` 開頭多一層判斷：`getUseCloudTts() && functions` 為真時，先呼叫 `speakEnWithCloudTts()`（`httpsCallable(functions, 'synthesizeSpeech')`，7秒逾時，回傳的 `audioBase64` 組成 `data:audio/mp3;base64,...` 用 `Audio` 物件播放），**用 `.catch()` 包住**，任何失敗（逾時、網路錯誤、雲端回傳格式異常）都會自動改叫 `speakEnWithDeviceVoice()`（也就是上面既有的 Web Speech API 邏輯）——**這條 fallback 鏈是這次最重要的設計要求，兩層防線疊起來才成立：本地端「一定要選到某個語音」的 fallback + 雲端失敗「一定要退回本地端」的 fallback，任何情況都不能讓使用者點了按鈕完全沒有聲音**。
+- 有做**瀏覽器端 `localStorage` 快取**（key 格式 `cloudTtsAudio:{accent}:{text}`），同一台裝置同一個字/口音第二次播放會先讀快取，不用重打 Cloud Function。**這不是伺服器端快取**，不同使用者/裝置之間不會共享，也不會減少 Cloud Function 實際被呼叫的總次數——如果之後真的要控制成本，要做的是 1-6 節提到、目前還沒做的 Firestore 伺服器端快取層。
+- `stopCurrentEnglishAudio()` 統一處理「開始講下一句之前，把上一句的聲音停掉」，同時涵蓋 `speechSynthesis.cancel()`（本地語音）跟正在播放的雲端 `HTMLAudioElement`，避免兩種來源的聲音互相疊在一起。
+- **發音設定頁的三個選項底層是兩個獨立布林值**（`preferHighQuality`、`useCloudTts`），UI 上刻意做成互斥的單選（`SettingsPage.tsx` 的 `handleVoiceModeChange` 一次把兩個值一起設定），避免「兩個都開，不知道哪個生效」的困惑狀態——如果之後要加第四種發音模式，記得延續這個「UI 互斥、底層各自獨立」的寫法，不要疊加更多可以同時開啟的開關。
+- **iOS Safari 風險已由負責人實機驗證通過**：這是比純 Web Speech API 版本更強的一次網路等待（真的連網打 Cloud Function，不只是等本地語音清單載入），理論上更可能撞到 Safari「必須緊接著使用者點擊」的限制，但負責人在真實 iPhone 上測過設定頁測試發音、翻牌卡、故事模式發音，飛航模式退回裝置語音，都正常。如果之後有人回報「iPhone 上開了 Google 雲端語音沒聲音」，這是第一個要重新排查的地方。
 
 **學測故事模式資料層（`services/stories.ts`）**
 
@@ -281,7 +334,7 @@ python -m pytest tests/test_topsat_md.py -v   # 只跑學測 MD parser 測試
 
 ### React App
 
-自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 15 個測試）：
+自動測試用 Playwright E2E（`exam-vocab-batcher/e2e/`，共 16 個測試）：
 
 ```bash
 cd exam-vocab-batcher
@@ -294,7 +347,7 @@ npm run test:e2e
 | `m4s2-s4.spec.ts` | 批次 Hub 三入口、重複批次提示、空搜尋/0 字保護、1231 筆清單捲動、全站 smoke test |
 | `m5s2-source-switch.spec.ts` | 切到學測後批次/翻牌/考試只用學測單字庫 |
 | `gsat-story.spec.ts` | 學測頁碼批次顯示故事模式並可發音；手動勾字批次不顯示故事模式 |
-| `tts-accent-settings.spec.ts` | 發音設定頁切換美式/英式與高品質語音開關不報錯、重新整理後設定持久化、套用設定後既有發音按鈕仍可用 |
+| `tts-accent-settings.spec.ts` | 發音設定頁切換美式/英式與三種發音引擎不報錯、Google 雲端語音呼叫失敗時確認自動退回裝置語音、重新整理後設定持久化、套用設定後翻牌卡/故事模式發音按鈕仍可用 |
 
 型別檢查與建置：`npm run build`（含 `tsc -b`）；`npm run lint` 過 ESLint。無單元測試框架（React 元件邏輯簡單，靠 E2E + 手動驗收覆蓋）。
 
@@ -315,6 +368,8 @@ npm run test:e2e
 | 故事模式沒有「整段自動連續播放」 | 只能一句一句手動點發音 | 規劃時列為加分項，這輪沒做，不影響核心功能 |
 | 「優先使用高品質語音」的 iOS Safari 效果未經深入驗證 | 負責人已用 iPhone 實測整體功能沒問題，但沒有特別驗證這個開關在 iOS 上有沒有實際效果 | 預期本來就可能沒效果（iOS Safari 通常沒有網路語音可選），非阻塞性問題 |
 | 英式語音在部分裝置（尤其 Android）覆蓋率未知 | 沒有語音包的裝置英式選項會自動停用 | 已有偵測+停用機制，但無法窮舉所有裝置型號驗證 |
+| 沒有 Firestore 伺服器端快取層（Google Cloud TTS） | 同一個字被不同使用者/裝置重複播放時，會重複呼叫付費 API（雖然目前用量遠低於免費額度） | 原計畫的切片3，刻意暫緩，見 `DECISIONS.md` 2026-08-14「切片3暫緩不做」條目；設計已寫好，之後要做直接照做 |
+| Cloud Function 冷啟動延遲未特別處理 | 這個 App 流量低，`synthesizeSpeech` 常態會是冷啟動，第一次呼叫可能明顯較慢 | 可用 `minInstances` 保持常駐解決，但那樣就不是「大概率零成本」了，目前選擇先不做 |
 
 ### 已解決但值得記住的坑（避免重蹈覆轍）
 
@@ -326,7 +381,7 @@ npm run test:e2e
 | 學測資料 OCR 品質不佳（含語意錯誤但結構正常，規則抓不到） | 自動 OCR（Tesseract／PaddleOCR）辨識準確率不夠，尤其小字表格 | 改用人工／視覺直接讀取 PDF 核對整份資料，不依賴自動 OCR | `DECISIONS.md` 2026-08-04 |
 | 學測第3/13/34/49/55/63頁字數異常、只顯示75頁應為80頁 | 上游資料檔在「Level.N」分級標題列邊界頁碼卡住不跳號 | 對照 PDF 逐一核對修正 `topsat.md` 頁碼欄位 | `DECISIONS.md` 2026-08-13 |
 | 執行層生成的故事內容用固定模板套字矇混過自動 QA | QA 只檢查「單字有沒有出現」，抓不到內容是不是機械套模板 | 規劃層人工核對實際輸出內容才發現，退回重做；重做版加「句型骨架重複度檢查」當第二道防線 | `DECISIONS.md` 2026-08-13「模板化生成不合格」 |
-| 使用者反映發音「沒有 Google 準」 | `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑預設語音 | 新增語音選擇邏輯明確挑語音，並讓使用者可選美式/英式、可選是否優先網路語音 | `DECISIONS.md` 2026-08-14 |
+| 使用者反映發音「沒有 Google 準」 | `tts.ts` 從未指定 `SpeechSynthesisVoice`，只設 `lang`，瀏覽器隨便挑預設語音 | 第一階段：新增語音選擇邏輯明確挑語音，讓使用者可選美式/英式、可選是否優先網路語音；第二階段：串接官方 Google Cloud TTS API（見 1-6 節），真正達到 Google 品質、全平台含 iPhone 皆適用 | `DECISIONS.md` 2026-08-14 |
 
 ---
 
@@ -354,3 +409,4 @@ npm run test:e2e
 - 2026-08-13　修復學測資料來源檔頁碼欄位在 Level 分級標題邊界卡住的錯誤（6組邊界共123筆頁碼修正）
 - 2026-08-13～14　新增學測 Minecraft 故事模式（M5 之後的新功能）：`Batch.sourcePage`、`StoryPage`、`services/stories.ts`；資料生成過程中一輪執行層產出被規劃層抓到模板化取巧、退回重做，過程與教訓見上方「已解決但值得記住的坑」
 - 2026-08-14　新增發音模式選擇（M5 之後的新功能）：`SettingsPage`、`services/ttsPreferences.ts`，修正 `tts.ts` 從未指定 `SpeechSynthesisVoice` 的根因問題；「優先使用高品質語音」預設關閉的離線精神取捨；負責人先在 Firebase Hosting 預覽頻道用 iPhone 實測通過才正式部署
+- 2026-08-14　新增 Google Cloud TTS 雲端發音（M5 之後的新功能，本專案第一個後端）：新增 `functions/`（`synthesizeSpeech` callable function）、`SettingsPage` 改成美式/英式 + 三選一發音引擎、`tts.ts` 加雲端語音分支（fallback 到裝置語音）；負責人需先在 Google Cloud Console 開通 Blaze 方案並綁卡才能使用；原計畫的 Firestore 快取層（切片3）暫緩不做，先以預設關閉的 opt-in 上線；負責人 iPhone 實機驗證「連網等待後才播放」沒有問題後才部署
