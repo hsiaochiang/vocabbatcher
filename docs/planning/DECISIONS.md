@@ -9,6 +9,14 @@
 
 ---
 
+## 2026-08-14　Google Cloud TTS 切片3（Firestore 快取層）暫緩不做，先以 opt-in 上線
+
+- **狀態：** 已採納
+- **背景：** 原計畫（`C:\Users\wilson_hsiao\.claude\plans\merry-enchanting-avalanche.md`）把 Google Cloud TTS 拆成三個切片：① 後端 Function、② 前端串接、③ Firestore 伺服器端快取（避免同一個字被多次重複呼叫付費 API）。切片1、2都已完成並經負責人 iPhone 實機驗收通過。切片3屬於成本優化，不影響功能正確性——「Google 雲端語音」預設關閉、使用者要自己去設定頁開啟才會用到，加上這個 App 的實際用量遠低於 Google Cloud TTS 免費額度，即使沒有快取層，短期內也大概率不會產生費用。
+- **改動：** 切片2驗收通過後，負責人選擇跳過切片3，直接部署上線；快取層留到之後用量真的明顯上升、有實際成本控制需求時再做，不是這輪的必要項目。
+- **影響的原始需求：** 不影響 `REQUIREMENTS.md` 既有條目。提醒：如果之後決定要做切片3，設計已經在原計畫文件裡寫好（`ttsCache/{hash}` collection、Function 先查快取再呼叫 API），不用重新設計，直接照原計畫執行即可。
+- **負責人是否同意：** 是（負責人明確選擇「先部署上線，切片3先留，依標準 opt-in就好」）。
+
 ## 2026-08-14　Google Cloud TTS 切片1首次部署啟用 Functions 必要 API 與 Artifact cleanup policy
 
 - **狀態：** 已採納
